@@ -1,0 +1,2 @@
+imagenes/* !text !filter !merge !diff
+videos/* !text !filter !merge !diff
