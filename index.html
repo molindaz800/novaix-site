@@ -49,62 +49,316 @@
 
     /* ===== Brandbar (cabecera superior) ===== */
     .brandbar {
-      position: sticky; top: 0; z-index: 40;
+      position: relative;   /* ya no sticky */
+      top: auto;
+      z-index: 40;
       background: transparent;
-      backdrop-filter: none;        /* sin blur */
-      border-bottom: none;          /* sin borde */
-      box-shadow: none;  
+      backdrop-filter: none;
+      border-bottom: none;
+      box-shadow: none;
     }
     .brandbar .wrap {
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: center; gap: 14px; padding: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 0;
     }
     .brand-left { display: flex; align-items: center; gap: 12px; text-align: left; }
-    /* Usa esta clase para tu logo optimizado */
-    .brand-logo img { width: 180px; height: auto; } 
+    .brand-logo img { width: 70px; height: auto; } 
     .brand-meta { display: flex; flex-direction: column; }
     .brand-name { font-weight: 900; letter-spacing: .2px; font-size: 1.05rem; margin: 0; }
     .brand-tag { color: var(--muted); font-size: .9rem; margin-top: -2px; }
     .brand-actions { display: flex; align-items: center; gap: 10px; }
     .btn-ghost { display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid var(--border); color:var(--text); font-weight:800; transition: background .2s, color .2s; }
     .btn-ghost:hover { background: rgba(0,195,255,.06); color: var(--accent); }
-    .btn-primary { display:inline-block; background: var(--accent); color:#061018; padding:10px 18px; border-radius:10px; font-weight:800; box-shadow:0 10px 24px rgba(0,195,255,.32); transition:transform .2s ease; }
-    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary { display:inline-block; background: var(--accent); color:#061018; padding:10px 18px; border-radius:10px; font-weight:800; box-shadow:0 10px 24px rgba(0,195,255,.32); transition:transform .2s ease, box-shadow .2s ease; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow:0 16px 32px rgba(0,195,255,.45); }
 
-    /* ===== Header / Hero principal (CORREGIDO) ===== */
-    header {
-      position: relative; padding: 620px 0; overflow: hidden;
-      margin-top: calc(-1 * var(--brandbar-h));        /* sube el header detrás de la barra */
-      padding-top: calc(340px + var(--brandbar-h));
-      background: var(--primary-bg); /* Fondo de fallback */
-      text-align: center;
-    }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; }
-    .hero-bg img {
-      width: 100%; height: 110%; object-fit: cover;
-      filter: brightness(0.45) saturate(1.2); /* Mismo filtro que #quienes */
-    }
-    header::after { /* Capa oscura (overlay) */
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.85) 100%);
-      z-index: 1; 
-    }
-    .hero-content { /* Contenedor de texto y botones */
-      position: relative; z-index: 1;
-      max-width: 1000px; margin: 0 auto;
-    }
-    /* Estilos del contenido del Hero */
-    .hero-title { font-size: clamp(1.8rem, 3.8vw, 3.2rem); line-height: 1.1; font-weight: 900; margin: 18px 0 10px; }
-    .tagline { font-size: clamp(1.05rem, 2.4vw, 1.35rem); color: var(--accent); font-weight: 700; margin: 0 0 28px; }
-    .btn-hero { position: relative; z-index: 2; display:inline-block; background: var(--accent); color:#081217; padding:14px 28px; border-radius:10px; font-weight:800; box-shadow:0 12px 30px rgba(0,195,255,.35); transition: transform .2s ease, box-shadow .2s ease; }
-    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(0,195,255,.55); }
-    .hero-meta { position: relative; z-index: 2; margin-top: 18px; color: var(--muted); font-size: .95rem; }
+/* ===== Header / Hero principal ===== */
+header {
+  position: relative;
+  margin-top: calc(-1 * var(--brandbar-h));
+  min-height: 100vh;
+  padding: 140px 0 80px;   /* antes tenías más padding abajo (120px o similar) */
+  overflow: hidden;
+  background: var(--primary-bg);
+  text-align: center;
+}
 
-    /* ===== Navbar (bajo brandbar) ===== */
-    nav { position: sticky; top: var(--brandbar-h); z-index: 20; backdrop-filter: saturate(120%) blur(8px); background: rgba(11,12,16,.7); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .nav-wrap { display: flex; gap: 18px; align-items: center; justify-content: center; padding: 10px 0; }
-    .nav-link { color: var(--muted); padding: 10px 12px; border-radius: 8px; font-weight: 700; transition: background .2s, color .2s; }
-    .nav-link:hover { color: var(--accent); background: rgba(0,195,255,.06); }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* rellena sin deformar */
+  object-position: center center;    /* centrado sobre el logo */
+  filter: brightness(0.55) saturate(1.1);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.88) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+    .hero-title {
+      font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+      line-height: 1.1;
+      font-weight: 900;
+      margin: 35px 0 15px;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.75);
+    }
+    .tagline {
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+      color: var(--accent);
+      font-weight: 700;
+      margin: 28px 0 25px;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.8);
+    }
+
+    .hero-subtagline {
+      font-size: 1rem;
+      color: var(--muted);
+      margin: 0 0 30px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.8);
+    }
+    .btn-hero {
+      position: relative;
+      z-index: 2;
+      display:inline-block;
+      margin-top: 8px;
+    }
+    .hero-meta {
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: .95rem;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+    }
+
+/* ===== Navbar (píldora flotante y sticky) ===== */
+nav {
+  position: sticky;
+  top: 0;                 /* se queda pegado arriba al hacer scroll */
+  z-index: 30;
+  background: transparent;
+  margin-top: -60px;      /* sube el nav para solaparlo con el final del hero */
+}
+
+/* Píldora centrada */
+.nav-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  padding: 10px 28px;
+
+  background: rgba(3, 10, 20, 0.96);
+  border-radius: 999px;
+  border: 2px solid rgba(0, 195, 255, 0.18);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+
+  margin-inline: auto;    /* centrado horizontal */
+}
+
+/* Enlaces del menú */
+.nav-link {
+  position: relative;
+  color: var(--muted);
+  padding: 6px 4px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: color .2s ease, background .2s ease;
+}
+
+/* Subrayado luminoso con el azul del logo */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: width .2s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+  background: rgba(0, 195, 255, 0.08);
+}
+
+.nav-link:hover::after {
+  width: 60%;
+}
+
+/* ===== NAV LATERAL IZQUIERDO (contratido por defecto) ===== */
+
+.side-nav {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 70;
+}
+
+/* Tarjeta cuadrada, solo botón visible al inicio */
+.side-nav-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  padding: 10px;
+  width: 52px;                 /* 🔹 contraído: solo botón */
+  overflow: hidden;
+
+  background: rgba(5, 10, 18, 0.98);
+  border-radius: 12px;         /* cuadrado suavizado */
+  border: 1px solid rgba(0, 195, 255, 0.25);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(14px);
+
+  transition:
+    width .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    transform .25s ease;
+}
+
+/* Estado ABIERTO (cuando tenga la clase .side-nav--open) */
+.side-nav.side-nav--open .side-nav-inner {
+  width: 210px;                /* 🔹 ancho con el menú desplegado */
+}
+
+/* Botón cuadrado */
+.side-nav-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;         /* cuadrado */
+  border: none;
+  background: var(--accent);
+  color: #02050a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(0, 195, 255, .6);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.side-nav-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 195, 255, .75);
+}
+
+/* Contenedor de enlaces (oculto por defecto) */
+.side-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 8px;
+  padding-left: 4px;
+
+  max-height: 0;               /* 🔹 colapsado */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    max-height .25s ease,
+    opacity .2s ease,
+    transform .2s ease;
+}
+
+/* Cuando el menú está abierto, mostramos los enlaces */
+.side-nav.side-nav--open .side-nav-links {
+  max-height: 400px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Estilo de enlaces */
+.side-nav-link {
+  position: relative;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 4px 10px 4px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .2s ease, background .2s ease, padding-left .2s ease;
+}
+
+.side-nav-link::before {
+  content: "•";
+  margin-right: 6px;
+  color: rgba(0, 195, 255, 0.7);
+}
+
+.side-nav-link:hover {
+  color: var(--accent);
+  background: rgba(0, 195, 255, 0.08);
+  padding-left: 10px;
+}
+
+.side-nav-link:hover::before {
+  color: var(--accent);
+}
+
+/* Responsive: abajo centrado en móviles */
+@media (max-width: 720px) {
+  .side-nav {
+    left: 50%;
+    top: auto;
+    bottom: 16px;
+    transform: translateX(-50%);
+  }
+
+  .side-nav-inner {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+  }
+
+  .side-nav.side-nav--open .side-nav-inner {
+    width: auto;
+  }
+
+  .side-nav-links {
+    flex-direction: row;
+    margin-top: 0;
+    padding-left: 8px;
+  }
+
+  .side-nav-link {
+    padding: 4px 10px;
+  }
+}
+
 
     /* ===== Secciones base ===== */
     section { padding: clamp(56px, 8vw, 96px) 0; margin: 34px 0; box-shadow: var(--shadow); }
@@ -112,16 +366,82 @@
     section:nth-of-type(even) { background: var(--primary-bg); }
     h2.section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--accent); text-transform: uppercase; margin: 0 0 10px; }
     p.section-lead { color: var(--muted); margin: 0 auto; max-width: 820px; font-size: 1.06rem; }
-    section[id] { scroll-margin-top: calc(var(--brandbar-h) + 70px); }
+    section[id] { scroll-margin-top: 80px; }
 
-    /* ===== Quiénes somos (hero con imagen) ===== */
-    .quienes-somos-enhanced { position: relative; color: var(--text); text-align: center; padding: 120px 20px; overflow: hidden; background: var(--primary-bg); }
-    .quienes-bg img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; z-index: 0; filter: brightness(0.45) saturate(1.2); }
-    .quienes-somos-enhanced::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.85) 100%); z-index: 1; }
-    .quienes-content { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
-    .quienes-content .section-title { color: var(--accent); font-size: clamp(2rem, 4vw, 2.8rem); text-transform: uppercase; margin-bottom: 20px; }
-    .vision-text { font-size: 1.15rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .quienes-content .btn-primary { font-size: 1rem; padding: 14px 36px; }
+  #quienes {
+  margin-top: 0;      /* por si tenías margen grande */
+  padding-top: 0;  /* pequeño colchón bajo el nav */
+}
+
+
+ /* ===== Quiénes somos (con nueva imagen) ===== */
+.quienes-somos-enhanced {
+  position: relative;
+  color: var(--text);
+  text-align: center;
+  min-height: 95vh;                 /* altura tipo hero */
+  padding: 100px 20px;
+  overflow: hidden;
+  background: var(--primary-bg);
+  display: flex;
+  align-items: center;              /* centra verticalmente el texto */
+}
+
+.quienes-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.quienes-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* rellena el área sin deformar */
+  object-position: center 40%;   /* centra al equipo */
+  filter: brightness(0.75) saturate(1.05);
+}
+
+.quienes-somos-enhanced::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.85) 100%);
+  z-index: 1;
+}
+
+.quienes-content {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.quienes-content .section-title {
+  color: var(--accent);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+section {
+  padding: clamp(56px, 8vw, 96px) 0;
+  margin: 0;              /* ← importante: sin huecos verticales extra */
+  box-shadow: var(--shadow);
+}
+
+#vision {
+  margin-top: -30px;          /* solapa ~30px con la sección anterior */
+  padding-top: 70px;          /* mantienes aire por encima del título */
+  background: var(--primary-bg);  /* mismo tono que el resto de la página */
+  box-shadow: none;           /* opcional: sin sombra de borde aquí */
+}
+.vision-text {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 36px;
+}
+
 
     /* ===== Visión (grid) ===== */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 34px; text-align: left; }
@@ -149,6 +469,31 @@
     .btn-cta { margin-top: auto; display: inline-block; width: 100%; background: var(--accent); color: #061018; text-decoration: none; padding: 12px 18px; border-radius: 10px; font-weight: 800; box-shadow: 0 10px 24px rgba(0,195,255,.32); transition: transform .2s ease; text-align: center; }
     .btn-cta:hover { transform: translateY(-2px); }
     .pricing-note { margin-top: 22px; color: var(--muted); font-size: .95rem; opacity: .9; }
+    /* Cuadro de aviso bajo los planes */
+.pricing-disclaimer {
+  margin-top: 26px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 77, 77, 0.65);  /* borde rojo suave */
+  background: rgba(255, 77, 77, 0.06);        /* fondo ligeramente rojizo */
+  max-width: 920px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.pricing-disclaimer .pricing-note {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.pricing-disclaimer .importante {
+  color: #ff4d4d;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 
     /* ===== FAQ ===== */
     .faq { max-width: 900px; margin: 26px auto 0; text-align: left; }
@@ -172,17 +517,124 @@
     .social a { font-size: 1.4rem; color: var(--muted); }
     .social a:hover { color: var(--accent); }
 
-    /* Responsive */
-    @media (max-width: 720px) {
-      :root { --brandbar-h: 60px; }
-      .brand-actions { gap: 8px; }
-      .vision-text { font-size: 1rem; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; animation: none !important; }
-      body { scroll-behavior: auto !important; }
-    }
+    /* ===== Responsive general ===== */
+@media (max-width: 720px) {
+  :root {
+    --brandbar-h: 60px;
+  }
+
+  .container {
+    width: 94%;
+  }
+
+  /* Brandbar arriba */
+  .brandbar .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .brand-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn-ghost,
+  .btn-primary {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Hero en móvil */
+  header {
+    padding: 110px 0 60px;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    padding-inline: 8px;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+    margin: 24px 0 12px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .hero-subtagline {
+    font-size: 0.95rem;
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+  }
+
+  /* Quiénes somos */
+  .quienes-somos-enhanced {
+    padding: 80px 16px;
+    min-height: auto;
+    align-items: flex-start;
+  }
+
+  .quienes-content {
+    text-align: left;
+  }
+
+  .vision-text {
+    font-size: 0.98rem;
+  }
+
+  /* Tarjetas de sectores */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Planes en una sola columna */
+  .plans {
+    grid-template-columns: 1fr;
+  }
+
+  .plan {
+    min-height: auto;
+  }
+
+  /* Formulario contacto */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  /* FAQ un poco más compacta */
+  .faq {
+    margin-top: 18px;
+  }
+
+  /* Footer texto un poco más pequeño */
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajustes extra para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-meta {
+    line-height: 1.4;
+  }
+}
+
   </style>
 
   <script type="application/ld+json">
@@ -202,10 +654,11 @@
     <div class="container wrap">
       <div class="brand-left">
         <a class="brand-logo" href="#" aria-label="Inicio NOVAIX">
+          <img src="./logo.png" alt="Logo NOVAIX">
         </a>
         <div class="brand-meta" aria-hidden="true">
-          <p class="brand-name">NOVAIX</p>
-          <span class="brand-tag">Asistentes Virtuales con IA</span>
+          <p class="brand-name">IA para atención y ventas</p>
+          <span class="brand-tag"></span>
         </div>
       </div>
       <div class="brand-actions">
@@ -218,130 +671,133 @@
   <header>
     <div class="hero-bg" aria-hidden="true">
       <picture>
-        <source srcset="./fondo.png" type="image/jpeg">
+        <source srcset="./fondo5.jpg" type="image/jpeg">
         <img src="https://images.unsplash.com/photo-1555949963-aa79d28c30c8?q=80&w=2000&auto=format&fit=crop" alt="Inteligencia Artificial y productividad" loading="eager" width="800" height="400">
       </picture>
     </div>
-<div class="container hero-content">
-  <h1 class="hero-title">
-    Tu negocio, siempre disponible.
-  </h1>
+    <div class="container hero-content">
+      <h1 class="hero-title">
+        Tu negocio, siempre disponible.
+      </h1>
 
-  <p class="tagline">
-    Asistentes virtuales que conectan con tus clientes, generan oportunidades y reducen costes.
-  </p>
+      <p class="tagline">
+        Asistentes virtuales que conectan con tus clientes, generan oportunidades y reducen costes.
+      </p>
 
-  <p class="hero-subtagline">
-    IA conversacional personalizada para tu sector, desde 99€/mes.
-  </p>
+      <p class="hero-subtagline">
+        IA conversacional personalizada para tu sector, desde 99€/mes.
+      </p>
 
- <!--a href="#contacto" class="btn-hero">
-    Solicita ya
-  </a-->
+      <a href="#contacto" class="btn-primary btn-hero">
+        Solicitar demo
+      </a>
 
-  <p class="hero-meta">
-    <i class="fa-solid fa-shield-halved"></i> Cumplimiento RGPD ·
-    <i class="fa-solid fa-bolt"></i> Integración en días ·
-    <i class="fa-solid fa-headset"></i> Soporte prioritario
-  </p>
-</div>
+      <p class="hero-meta">
+        <i class="fa-solid fa-shield-halved"></i> Cumplimiento RGPD ·
+        <i class="fa-solid fa-bolt"></i> Integración en días ·
+        <i class="fa-solid fa-headset"></i> Soporte prioritario
+      </p>
+    </div>
   </header>
 
-  <nav aria-label="Principal">
-    <div class="container nav-wrap">
-      <a class="nav-link" href="#quienes">Quiénes somos</a>
-      <a class="nav-link" href="#vision">Visión</a>
-      <a class="nav-link" href="#planes">Planes</a>
-      <a class="nav-link" href="#faq">FAQ</a>
-      <a class="nav-link" href="#contacto">Contacto</a>
+<!-- NAV LATERAL IZQUIERDO -->
+<nav class="side-nav" aria-label="Navegación principal">
+  <div class="side-nav-inner">
+    <button class="side-nav-toggle" type="button" aria-label="Abrir menú de navegación">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="side-nav-links">
+      <a class="side-nav-link" href="#quienes">Quiénes somos</a>
+      <a class="side-nav-link" href="#vision">Visión</a>
+      <a class="side-nav-link" href="#planes">Planes</a>
+      <a class="side-nav-link" href="#faq">FAQ</a>
+      <a class="side-nav-link" href="#contacto">Contacto</a>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <main id="main">
+    <!-- QUIENES SOMOS con NUEVA IMAGEN -->
     <section id="quienes" class="quienes-somos-enhanced">
-  <div class="quienes-bg" aria-hidden="true">
-    <picture>
-      <source
-        srcset="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=2000"
-        type="image/jpeg"
-      >
-      <img
-        src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=2000"
-        alt="Entorno tecnológico profesional con visualización de datos"
-        loading="lazy"
-        decoding="async"
-        width="2000"
-        height="900"
-      >
-    </picture>
-  </div>
+      <div class="quienes-bg" aria-hidden="true">
+        <picture>
+          <source srcset="./fondo_quienessomos.jpg" type="image/jpeg">
+          <img
+            src="./fondo_quienessomos.jpg"
+            alt="Equipo de trabajo colaborando"
+            loading="lazy"
+            decoding="async"
+            width="2000"
+            height="900"
+          >
+        </picture>
+      </div>
 
-  <div class="container quienes-content">
-    <h2 class="section-title">Quiénes somos</h2>
+      <div class="container quienes-content">
+        <h2 class="section-title">Quiénes somos</h2>
 
-    <div class="vision-text">
-      <p>
-        En <strong>NOVAIX</strong> somos una empresa tecnológica especializada en soluciones de Inteligencia Artificial
-        y automatización para negocios y profesionales que quieren dar un salto en su manera de trabajar.
-      </p>
+        <div class="vision-text">
+          <p>
+            En <strong>NOVAIX</strong> somos una empresa tecnológica especializada en <strong>soluciones de Inteligencia Artificial y automatización </strong> para negocios y profesionales
+            que quieren dar un salto real en su manera de trabajar.
+          </p>
 
-      <p>
-        Nacimos con la visión de hacer accesible la IA a cualquier empresa, sin importar su tamaño o sector,
-        transformando la automatización en una herramienta cercana, práctica y rentable que genere resultados
-        medibles en el día a día.
-      </p>
+          <p>
+            Nacimos con la visión de <strong> hacer accesible la IA a cualquier empresa </strong> , sin importar su tamaño o sector, transformando la automatización en una herramienta cercana, práctica y rentable,
+            con resultados medibles en el día a día.
+          </p>
 
-      <p>
-        Nuestro equipo combina experiencia en tecnología, diseño, estrategia empresarial y comunicación,
-        lo que nos permite ofrecer soluciones integrales que van más allá del simple desarrollo técnico.
-        Acompañamos a cada cliente desde la idea hasta la puesta en marcha, asegurando que cada proyecto
-        refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
-      </p>
+          <p>
+          <strong>Nuestro equipo combina experiencia en tecnología, diseño, estrategia empresarial y comunicación</strong>. Esto nos permite ofrecer soluciones integrales que van más allá del simple desarrollo técnico. Acompañamos a cada cliente desde la idea hasta la puesta en marcha,
+          asegurando que cada proyecto refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
+          </p>
 
-      <p>
-        En <strong>NOVAIX</strong> creemos en la innovación con propósito: una tecnología ética, útil
-        y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir
-        relaciones duraderas basadas en la confianza, la transparencia y la excelencia en cada servicio que ofrecemos.
-      </p>
-    </div>
-  </div>
-</section>
+          <p>
+            En <strong>NOVAIX</strong> creemos en la innovación con propósito: una tecnología ética, útil y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir relaciones duraderas basadas en la confianza,
+            la transparencia y la excelencia en cada servicio que ofrecemos.
+          </p>
 
+          <span style="color:#b0b0b0"><strong>Personas, tecnología y visión a largo plazo</strong>.</span>
+        </div>
+      </div>
+    </section>
 
     <section id="vision">
       <div class="container">
-        <h2 class="section-title">Nuestra visión para tu sector</h2>
-        <p class="section-lead">Asistentes diseñados para impactar en KPIs reales: tiempo ahorrado, FCR, conversión y satisfacción del cliente.</p>
+        <h2 class="section-title">Aplicaciones reales en negocios como el tuyo</h2>
+        <p class="section-lead">Convertimos llamadas perdidas en citas, mensajes en ventas y consultas en clientes satisfechos, adaptando el asistente a la forma de trabajar de tu negocio.</p>
         <div class="grid" role="list">
           <article class="card" role="listitem">
             <i class="fa-solid fa-notes-medical icon" aria-hidden="true"></i>
             <h3>Clínica / Médicos</h3>
-            <p><strong>Ahorra hasta 10 h/semana de gestión de citas</strong> y reduce el **ausentismo en un 20%** con recordatorios inteligentes. FAQ 24/7 y pre-registro automatizado.</p>
+            <p>Automatiza la gestión de citas y ahorra hasta 10 h a la semana. Reduce las ausencias con recordatorios automáticos y ofrece respuestas a dudas frecuentes 24/7, además de recoger los datos básicos del paciente antes de la visita</p>
           </article>
           <article class="card" role="listitem">
             <i class="fa-solid fa-gavel icon" aria-hidden="true"></i>
             <h3>Abogados / Jurídico</h3>
-            <p><strong>Pre-califica el 60% de tus leads</strong> en el primer contacto. Capta datos esenciales y filtra consultas para que tu equipo legal se centre solo en casos de alto valor.</p>
+            <p>El asistente recoge la información básica de cada consulta y descarta las que no encajan, de modo que tu equipo legal pueda centrarse en los casos con mayor potencial y no en llamadas repetitivas.</p>
           </article>
           <article class="card" role="listitem">
             <i class="fa-solid fa-scissors icon" aria-hidden="true"></i>
             <h3>Estética / Peluquería</h3>
-            <p>Aumenta la **disponibilidad de reserva un 35%** sin personal extra. Gestión automática de citas, precios y tratamientos 24/7.</p>
+            <p>El asistente permite que tus clientes reserven cita cuando les venga mejor, sin llamadas ni esperas. Gestiona automáticamente horarios, precios y tipos de tratamientos 24/7, aumentando tu agenda sin necesidad de más personal.</p>
           </article>
           <article class="card" role="listitem">
             <i class="fa-solid fa-utensils icon" aria-hidden="true"></i>
             <h3>Hostelería / Restaurantes</h3>
-            <p><strong>Incrementa la tasa de ocupación</strong> gestionando reservas y pedidos sencillos en tiempo real. Resuelve el 90% de dudas sobre menús, horarios y eventos.</p>
+            <p>El asistente gestiona reservas y pedidos sencillos en tiempo real, evitando llamadas perdidas y saturación en horas punta. Responde de forma automática a la mayoría de preguntas sobre menús, horarios y eventos, para que tu equipo pueda centrarse en el servicio.</p>
           </article>
           <article class="card" role="listitem">
             <i class="fa-solid fa-house icon" aria-hidden="true"></i>
             <h3>Inmobiliaria</h3>
-            <p><strong>Mejora la calidad del lead en un 40%</strong> calificando a los interesados y coordinando visitas automáticamente. Respuestas inmediatas sobre inmuebles y opciones de financiación.</p>
+            <p>El asistente habla con los interesados, recoge los datos clave y filtra contactos poco cualificados, coordinando visitas de forma automática. Responde al momento a preguntas sobre inmuebles, zona y opciones de financiación, para que tu equipo se centre en cerrar operaciones.</p>
           </article>
           <article class="card" role="listitem">
             <i class="fa-solid fa-cart-shopping icon" aria-hidden="true"></i>
             <h3>Comercio electrónico</h3>
-            <p><strong>Reduce el abandono de carrito un 15%</strong> con soporte 24/7. Resuelve automáticamente el 85% de consultas post-venta (envíos/devoluciones) y mejora el NPS.</p>
+            <p>El asistente acompaña al cliente durante la compra, resolviendo dudas en el momento y ayudando a que menos carritos se queden a medias. Después de la venta responde de forma automática a la mayoría de consultas sobre envíos, devoluciones y estado del pedido, mejorando la experiencia y fomentando que vuelvan a comprar.</p>
           </article>
         </div>
       </div>
@@ -356,12 +812,12 @@
             <h3>Plan Básico</h3>
             <span class="tier">Inicio Rápido / FAQ Automatizado</span>
             <div class="price"><small>Desde</small><strong>99€</strong><small>/mes</small></div>
-            <p class="desc">Automatiza FAQs y atención inicial. Ideal para validar el canal y liberar tiempo del equipo.</p>
+            <p class="desc">Ideal si quieres probar un asistente virtual en tu negocio, responder preguntas frecuentes y liberar a tu equipo de las consultas repetitivas.</p>
             <ul class="features">
               <li>Asistente 24/7 para atención inicial</li>
               <li>Base de conocimiento personalizada</li>
               <li>Hasta 500 interacciones/mes</li>
-              <li>Implementación en 24h</li>
+              <li>Implementación en 24h-72h</li>
               <li>Soporte por email</li>
             </ul>
             <a class="btn-cta" href="#contacto" data-plan="Básico">Empezar con Básico</a>
@@ -372,12 +828,12 @@
             <h3>Plan Profesional</h3>
             <span class="tier">Crecimiento / Integración Completa</span>
             <div class="price"><small>Desde</small><strong>199€</strong><small>/mes</small></div>
-            <p class="desc">Crecimiento con integraciones y analítica: convierte más y mide impacto en tiempo real.</p>
+            <p class="desc">Pensado para cuando el asistente ya forma parte del día a día y quieres conectarlo con tus herramientas, automatizar tareas internas y ver resultados claros en un panel de métricas.</p>
             <ul class="features">
               <li>Todo lo del Plan Básico</li>
-              <li>Integración con CRM</li>
-              <li>Automatizaciones de workflows</li>
-              <li>Panel y métricas</li>
+              <li>Conexión con tu CRM para registrar contactos y oportunidades</li>
+              <li>Automatización de tareas y flujos internos</li>
+              <li>Panel con métricas clave y evolución del asistente</li>
               <li>Soporte prioritario por chat</li>
               <li>Hasta 2.000 interacciones/mes</li>
             </ul>
@@ -388,20 +844,36 @@
             <h3>Plan Avanzado</h3>
             <span class="tier">Enterprise / Máximo rendimiento</span>
             <div class="price"><small>Desde</small><strong>299€</strong><small>/mes</small></div>
-            <p class="desc">Enterprise con IA orquestada, SLAs y mejora continua para maximizar ROI.</p>
+            <p class="desc">Dirigido a negocios con mucho volumen y necesidades más complejas. Trabajamos contigo de forma continuada para afinar el asistente, integrarlo a fondo con tus sistemas y garantizar un servicio estable y bien acompañado.</p>
             <ul class="features">
               <li>Todo lo del Plan Profesional</li>
-              <li>IA multiagente y orquestación</li>
-              <li>Optimización continua</li>
-              <li>Soporte 24/7 y gestor dedicado</li>
-              <li>Integraciones avanzadas (APIs)</li>
+              <li>Arquitectura de IA avanzada con varios asistentes trabajando coordinados</li>
+              <li>Revisión y mejora continua del asistente según resultados reales</li>
+              <li>Soporte 24/7 con un gestor de cuenta dedicado</li>
+              <li>Integraciones avanzadas mediante API con tus sistemas internos</li>
               <li>Interacciones ilimitadas</li>
-              <li>Entrenamiento personalizado</li>
+              <li>Sesiones de entrenamiento y ajuste del asistente junto a tu equipo</li>
             </ul>
             <a class="btn-cta" href="#contacto" data-plan="Avanzado">Empezar con Avanzado</a>
           </article>
         </div>
         <p class="pricing-note">Precios de partida. Pueden variar por volumen e integraciones. Solicita presupuesto.</p>
+        <p class="pricing-note">
+<div class="pricing-disclaimer">
+  <p class="pricing-note">
+    <strong class="importante">Importante</strong><br>
+    Los planes que ves arriba corresponden al <strong>mantenimiento mensual del asistente</strong>
+    (uso, soporte y mejora continua).
+  </p>
+  <p class="pricing-note">
+    El <strong>diseño y desarrollo inicial del asistente</strong> se presupuesta por separado,
+    tras una primera reunión en la que analizamos tu negocio, canales y procesos.
+  </p>
+  <p class="pricing-note">
+    En función de la complejidad del proyecto, definimos un presupuesto cerrado para la puesta en marcha
+    y, una vez aprobado, el asistente pasa a trabajar con la cuota mensual del plan que mejor encaje.
+  </p>
+</div>
       </div>
     </section>
 
@@ -411,78 +883,111 @@
         <div class="faq">
           <details>
             <summary>¿Cumplís con RGPD y alojamiento en la UE?</summary>
-            <p>Sí. Implementamos medidas técnicas y organizativas para RGPD. Podemos desplegar en infraestructura europea.</p>
+            <p>Sí. Trabajamos siguiendo el Reglamento General de Protección de Datos (RGPD) y podemos alojar el asistente en infraestructura dentro de la Unión Europea. Definimos contigo qué datos se recogen, para qué se usan y durante cuánto tiempo se guardan.</p>
           </details>
           <details>
             <summary>¿Cuánto tardáis en poner en marcha un asistente?</summary>
-            <p>El plan Básico se activa en 24-48h. Los planes con integraciones suelen requerir 5-10 días.</p>
+            <p>Depende del plan y de la complejidad del proyecto.En los casos sencillos (Plan Básico) solemos tener un asistente funcionando en 24–72 horas desde que tenemos la información necesaria.Cuando hay integraciones con CRM u otras herramientas, el plazo habitual está entre 5 y 10 días.</p>
           </details>
           <details>
             <summary>¿Se integra con WhatsApp, web y CRM?</summary>
-            <p>Sí. Disponemos de integraciones con canales de mensajería, widgets web y CRMs populares.</p>
+            <p>Sí. Podemos desplegar el asistente en tu web (widget de chat), en WhatsApp Business y en otros canales de mensajería.También podemos conectarlo con CRMs habituales para registrar contactos, oportunidades o citas. En la primera reunión revisamos qué herramientas usas ahora y te proponemos la mejor forma de integrarlo.</p>
           </details>
           <details>
-            <summary>¿Cómo medimos el ROI del asistente?</summary>
-            <p>Definimos KPIs (tiempo ahorrado, FCR, conversión, CSAT) y panel con comparativas pre/post. En Profesional y Avanzado hay objetivos y revisiones mensuales.</p>
+            <summary>¿Cómo sabemos si el asistente está funcionando bien?</summary>
+            <p>Antes de arrancar definimos contigo qué quieres conseguir: ahorrar tiempo, atender más consultas, generar más oportunidades, etc. Después medimos indicadores claros como: número de conversaciones atendidas, tiempo estimado ahorrado al equipo, oportunidades o citas generadas.
+            En los planes Profesional y Avanzado revisamos estos datos contigo de forma periódica y ajustamos el asistente según los resultados.</p>
           </details>
           <details>
             <summary>¿Qué canales soporta?</summary>
-            <p>Widget web, WhatsApp Business API, Instagram DM, Messenger, Telegram y email.</p>
+            <p>Podemos trabajar, entre otros, con: Widget web en tu página, WhatsApp Business API, Instagram DM, Facebook Messenger, Telegram, Email</p>
           </details>
           <details>
             <summary>¿Cómo entrenáis al asistente con mi contenido?</summary>
-            <p>Subimos documentación (PDF/URL), procesos y FAQs. Base de conocimiento versionada y QA antes de producción.</p>
+            <p>Partimos de tu propia información: web, documentos, PDFs, tarifas, procesos internos y preguntas frecuentes. Con todo ello creamos y estructuramos la base de conocimiento del asistente, la revisamos contigo y hacemos pruebas internas antes de pasarlo a producción.</p>
           </details>
           <details>
             <summary>¿Qué pasa si aumenta el volumen?</summary>
-            <p>Escalado por interacciones/canales. Ajuste de tarifa por uso real y capacidad sin interrupciones.</p>
+            <p>Si tu negocio crece o se añaden nuevos canales, el sistema puede escalar sin interrumpir el servicio. En caso de que el volumen de conversaciones suba de forma estable, revisamos contigo el plan contratado y te proponemos el ajuste de cuota más adecuado al uso real..</p>
           </details>
           <details>
-            <summary>¿Ofrecéis piloto o demo guiada?</summary>
-            <p>Sí, demo gratuita y piloto 7–14 días si encaja.</p>
+            <summary>¿La cuota mensual incluye el desarrollo inicial del asistente?</summary>
+            <p>No. Los planes que ves en la página corresponden al mantenimiento mensual del asistente: uso, soporte y mejora continua. El diseño y desarrollo inicial se presupuesta por separado, tras una primera reunión en la que analizamos tu caso, tus canales y los procesos que quieres automatizar.</p>
+          </details>
+          <details>
+          <summary>¿Qué necesito tener preparado antes de empezar?</summary>
+            <p>No hace falta tenerlo todo perfecto. Con que tengas claro: tu tipo de negocio, por dónde te contactan los clientes (teléfono, WhatsApp, web…), y qué tareas o preguntas te gustaría automatizar, es suficiente para una primera reunión. A partir de ahí te ayudamos a ordenar la información y definir el alcance del asistente.</p>
+          </details>
+          <details>
+          <summary>¿El asistente sustituye a mi equipo?</summary>
+            <p>No. El objetivo no es sustituir personas, sino liberarles de las tareas repetitivas: preguntas básicas, recordatorios, cambios de cita, recogida de datos, etc. Así tu equipo puede centrarse en las tareas de más valor: atender casos complejos, tomar decisiones y cuidar la relación con el cliente.</p>
+          </details>
+          <details>
+          <summary>¿Quién se encarga de mantener y mejorar el asistente?</summary>
+            <p>Nosotros. En los planes Profesional y Avanzado revisamos periódicamente cómo está funcionando el asistente, detectamos posibles mejoras y aplicamos ajustes: nuevas respuestas, cambios en flujos, incorporación de nuevos servicios, etc. Siempre puedes pedir cambios puntuales si actualizas tarifas, servicios o tu forma de trabajar.</p>
+          </details>
+          <details>
+          <summary>¿Qué pasa si después de probarlo veo que necesito cambios?</summary>
+            <p>Es normal ajustar cosas al principio. Tras la puesta en marcha hacemos una fase de seguimiento donde recogemos tu feedback y el de tu equipo. A partir de ahí refinamos mensajes, flujos y respuestas hasta que el asistente encaja con la forma de trabajar de tu negocio.</p>
           </details>
         </div>
       </div>
     </section>
 
     <section id="contacto">
-      <div class="container">
-        <h2 class="section-title">Contáctanos para una demo</h2>
-        <p class="section-lead">Cuéntanos tu caso y te proponemos el enfoque óptimo.</p>
-        <form id="contact-form" action="https://formspree.io/f/tu-endpoint" method="POST" novalidate>
-          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
-          <input type="hidden" name="ts" id="ts" value="">
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Nombre</label>
-              <input id="name" name="name" type="text" autocomplete="name" required aria-required="true" />
-              <div class="helper" id="nameHelp"></div>
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true" />
-              <div class="helper" id="emailHelp"></div>
-            </div>
-          </div>
-          <div class="field">
-            <label for="company">Empresa</label>
-            <input id="company" name="company" type="text" autocomplete="organization" />
-          </div>
-          <div class="field">
-            <label for="message">Cuéntanos tu problemática</label>
-            <textarea id="message" name="message" placeholder="Qué quieres automatizar, canales, herramientas actuales…"></textarea>
-          </div>
-          <input type="hidden" name="plan_interes" id="plan_interes" value="" />
-          <button class="btn-cta btn-submit" type="submit">Solicitar demo</button>
-          <p class="helper">Al enviar aceptas nuestra política de privacidad.</p>
-        </form>
+  <div class="container">
+    <h2 class="section-title">Agenda una demo personalizada</h2><br>
+    <p class="section-lead">
+      Cuéntanos qué tipo de negocio tienes y qué te gustaría automatizar,
+      y te responderemos con una propuesta clara y sin compromiso.
+    </p>
+
+    <form id="contact-form" action="https://formspree.io/f/tu-endpoint" method="POST" novalidate>
+      <!-- honeypot y ts se quedan igual -->
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" autocomplete="name" required aria-required="true" />
+          <div class="helper" id="nameHelp"></div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true" />
+          <div class="helper" id="emailHelp"></div>
+        </div>
       </div>
-    </section>
+
+      <div class="field">
+        <label for="phone">Teléfono (opcional)</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" />
+      </div>
+
+      <div class="field">
+        <label for="company">Empresa / negocio</label>
+        <input id="company" name="company" type="text" autocomplete="organization" />
+      </div>
+
+      <div class="field">
+        <label for="message">Cuéntanos qué necesitas</label>
+        <textarea id="message" name="message"
+          placeholder="Ej: clínica estética, muchas consultas por WhatsApp y web; quiero automatizar reservas y preguntas frecuentes."></textarea>
+      </div>
+
+      <input type="hidden" name="plan_interes" id="plan_interes" value="" />
+      <button class="btn-cta btn-submit" type="submit">Solicitar demo sin compromiso</button>
+      <p class="helper">
+        Al enviar aceptas nuestra política de privacidad. Nunca compartiremos tus datos con terceros.
+      </p>
+    </form>
+  </div>
+</section>
+
   </main>
 
   <footer>
     <div class="container">
-      <p>© <span id="y"></span> NOVAIX Assist. Todos los derechos reservados.</p>
+      <p>© <span id="y"></span> NOVAIX. Todos los derechos reservados.</p>
       <div class="social" aria-label="Redes sociales">
         <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
         <a href="#" aria-label="X/Twitter" rel="noopener"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
@@ -534,6 +1039,33 @@
         smoothNavigate(href);
       });
     });
+  // Toggle lateral nav con clic
+  const sideNav = document.querySelector('.side-nav');
+  const sideNavToggle = document.querySelector('.side-nav-toggle');
+
+  if (sideNav && sideNavToggle) {
+    // Abrir/cerrar al hacer clic en el botón
+    sideNavToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sideNav.classList.toggle('side-nav--open');
+    });
+
+    // Cerrar si haces clic fuera
+    document.addEventListener('click', (e) => {
+      if (!sideNav.contains(e.target)) {
+        sideNav.classList.remove('side-nav--open');
+      }
+    });
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        sideNav.classList.remove('side-nav--open');
+      }
+    });
+  }
+</script>
+
   </script>
 </body>
 </html>
