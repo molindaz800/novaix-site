@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOVAIX Assist · Asistentes Virtuales con IA Personalizada</title>
+  <meta name="description" content="Asistentes virtuales con IA para clínicas, abogados, estética, hostelería, inmobiliarias y e-commerce. Planes desde 50€/mes. Demo gratuita." />
+  <meta name="theme-color" content="#0b0c10" />
+
+  <link rel="canonical" href="https://www.tu-dominio.com/" />
+  <meta property="og:title" content="NOVAIX Assist · Asistentes Virtuales con IA" />
+  <meta property="og:description" content="Implementamos agentes virtuales con IA para tu negocio. Productividad, atención al cliente y automatización." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.tu-dominio.com/og-image.jpg" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* =============================
+       Sistema de diseño base
+       ============================= */
+    :root {
+      --primary-bg: #0b0c10;
+      --secondary-bg: #13161b;
+      --accent: #00c3ff;
+      --text: #f1f1f1;
+      --muted: #b0b0b0;
+      --border: rgba(0, 195, 255, 0.12);
+      --shadow: 0 6px 28px rgba(0,0,0,.35);
+      --brandbar-h: 72px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0; color: var(--text);
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(0,195,255,.08), transparent 60%), var(--primary-bg);
+      line-height: 1.6; scroll-behavior: smooth; text-align: center;
+    }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    /* ===== Brandbar (cabecera superior) ===== */
+    .brandbar {
+      position: sticky; top: 0; z-index: 40;
+      background: transparent;
+      backdrop-filter: none;        /* sin blur */
+      border-bottom: none;          /* sin borde */
+      box-shadow: none;  
+    }
+    .brandbar .wrap {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 14px; padding: 10px 0;
+    }
+    .brand-left { display: flex; align-items: center; gap: 12px; text-align: left; }
+    /* Usa esta clase para tu logo optimizado */
+    .brand-logo img { width: 180px; height: auto; } 
+    .brand-meta { display: flex; flex-direction: column; }
+    .brand-name { font-weight: 900; letter-spacing: .2px; font-size: 1.05rem; margin: 0; }
+    .brand-tag { color: var(--muted); font-size: .9rem; margin-top: -2px; }
+    .brand-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-ghost { display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid var(--border); color:var(--text); font-weight:800; transition: background .2s, color .2s; }
+    .btn-ghost:hover { background: rgba(0,195,255,.06); color: var(--accent); }
+    .btn-primary { display:inline-block; background: var(--accent); color:#061018; padding:10px 18px; border-radius:10px; font-weight:800; box-shadow:0 10px 24px rgba(0,195,255,.32); transition:transform .2s ease; }
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    /* ===== Header / Hero principal (CORREGIDO) ===== */
+    header {
+      position: relative; padding: 620px 0; overflow: hidden;
+      margin-top: calc(-1 * var(--brandbar-h));        /* sube el header detrás de la barra */
+      padding-top: calc(340px + var(--brandbar-h));
+      background: var(--primary-bg); /* Fondo de fallback */
+      text-align: center;
+    }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img {
+      width: 100%; height: 110%; object-fit: cover;
+      filter: brightness(0.45) saturate(1.2); /* Mismo filtro que #quienes */
+    }
+    header::after { /* Capa oscura (overlay) */
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.85) 100%);
+      z-index: 1; 
+    }
+    .hero-content { /* Contenedor de texto y botones */
+      position: relative; z-index: 1;
+      max-width: 1000px; margin: 0 auto;
+    }
+    /* Estilos del contenido del Hero */
+    .hero-title { font-size: clamp(1.8rem, 3.8vw, 3.2rem); line-height: 1.1; font-weight: 900; margin: 18px 0 10px; }
+    .tagline { font-size: clamp(1.05rem, 2.4vw, 1.35rem); color: var(--accent); font-weight: 700; margin: 0 0 28px; }
+    .btn-hero { position: relative; z-index: 2; display:inline-block; background: var(--accent); color:#081217; padding:14px 28px; border-radius:10px; font-weight:800; box-shadow:0 12px 30px rgba(0,195,255,.35); transition: transform .2s ease, box-shadow .2s ease; }
+    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(0,195,255,.55); }
+    .hero-meta { position: relative; z-index: 2; margin-top: 18px; color: var(--muted); font-size: .95rem; }
+
+    /* ===== Navbar (bajo brandbar) ===== */
+    nav { position: sticky; top: var(--brandbar-h); z-index: 20; backdrop-filter: saturate(120%) blur(8px); background: rgba(11,12,16,.7); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .nav-wrap { display: flex; gap: 18px; align-items: center; justify-content: center; padding: 10px 0; }
+    .nav-link { color: var(--muted); padding: 10px 12px; border-radius: 8px; font-weight: 700; transition: background .2s, color .2s; }
+    .nav-link:hover { color: var(--accent); background: rgba(0,195,255,.06); }
+
+    /* ===== Secciones base ===== */
+    section { padding: clamp(56px, 8vw, 96px) 0; margin: 34px 0; box-shadow: var(--shadow); }
+    section:nth-of-type(odd) { background: var(--secondary-bg); }
+    section:nth-of-type(even) { background: var(--primary-bg); }
+    h2.section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--accent); text-transform: uppercase; margin: 0 0 10px; }
+    p.section-lead { color: var(--muted); margin: 0 auto; max-width: 820px; font-size: 1.06rem; }
+    section[id] { scroll-margin-top: calc(var(--brandbar-h) + 70px); }
+
+    /* ===== Quiénes somos (hero con imagen) ===== */
+    .quienes-somos-enhanced { position: relative; color: var(--text); text-align: center; padding: 120px 20px; overflow: hidden; background: var(--primary-bg); }
+    .quienes-bg img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; z-index: 0; filter: brightness(0.45) saturate(1.2); }
+    .quienes-somos-enhanced::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.85) 100%); z-index: 1; }
+    .quienes-content { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
+    .quienes-content .section-title { color: var(--accent); font-size: clamp(2rem, 4vw, 2.8rem); text-transform: uppercase; margin-bottom: 20px; }
+    .vision-text { font-size: 1.15rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
+    .quienes-content .btn-primary { font-size: 1rem; padding: 14px 36px; }
+
+    /* ===== Visión (grid) ===== */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 34px; text-align: left; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 24px; transition: transform .2s ease, box-shadow .2s ease; backdrop-filter: blur(2px); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 42px rgba(0,195,255,.18); }
+    .icon { font-size: 1.9rem; color: var(--accent); margin-bottom: 12px; }
+    .card h3 { margin: 0 0 6px; font-size: 1.25rem; }
+    .card p { margin: 0; color: var(--muted); }
+
+    /* ===== Planes ===== */
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; margin-top: 34px; }
+    .plan { background: var(--primary-bg); border: 2px solid var(--border); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; min-height: 520px; transition: transform .2s ease; }
+    .plan:hover { transform: translateY(-4px); }
+    .plan--pro { border-color: var(--accent); box-shadow: 0 0 26px rgba(0,195,255,.28); position: relative; }
+    .badge { position: absolute; top: 12px; right: 12px; background: rgba(0,195,255,.12); color: var(--accent); font-weight: 800; font-size: .75rem; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .plan h3 { margin: 0 0 4px; font-size: 1.35rem; }
+    .plan span.tier { color: var(--accent); font-weight: 700; }
+    .price { display: flex; justify-content: center; align-items: baseline; gap: 8px; margin: 10px 0 14px; }
+    .price strong { font-size: 2rem; color: var(--accent); text-shadow: 0 0 8px rgba(0,195,255,.6); }
+    .price small { color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .plan p.desc { color: var(--muted); margin: 8px 0 16px; }
+    .features { list-style: none; padding: 0; margin: 0 0 18px; text-align: left; }
+    .features li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start; margin: 10px 0; color: var(--muted); }
+    .features li::before { content: "\2713"; color: var(--accent); font-weight: 900; }
+    .btn-cta { margin-top: auto; display: inline-block; width: 100%; background: var(--accent); color: #061018; text-decoration: none; padding: 12px 18px; border-radius: 10px; font-weight: 800; box-shadow: 0 10px 24px rgba(0,195,255,.32); transition: transform .2s ease; text-align: center; }
+    .btn-cta:hover { transform: translateY(-2px); }
+    .pricing-note { margin-top: 22px; color: var(--muted); font-size: .95rem; opacity: .9; }
+
+    /* ===== FAQ ===== */
+    .faq { max-width: 900px; margin: 26px auto 0; text-align: left; }
+    details { background: var(--secondary-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 10px 0; }
+    summary { cursor: pointer; font-weight: 800; color: var(--text); }
+    details p { margin: 10px 0 0; color: var(--muted); }
+
+    /* ===== Contacto ===== */
+    form { background: var(--secondary-bg); border: 1px solid var(--border); border-radius: 14px; padding: 26px; max-width: 540px; margin: 24px auto 0; text-align: left; box-shadow: var(--shadow); }
+    .field { margin-bottom: 16px; }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input, textarea { width: 100%; padding: 12px 14px; border-radius: 10px; background: #0b0f14; border: 1px solid var(--border); color: var(--text); font-size: 1rem; }
+    textarea { min-height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-submit { width: 100%; margin-top: 6px; }
+    .helper { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+
+    /* ===== Footer ===== */
+    footer { border-top: 1px solid var(--border); padding: 22px 0 40px; color: var(--muted); background: #0a0c10; }
+    .social { display: flex; gap: 14px; justify-content: center; margin-top: 10px; }
+    .social a { font-size: 1.4rem; color: var(--muted); }
+    .social a:hover { color: var(--accent); }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      :root { --brandbar-h: 60px; }
+      .brand-actions { gap: 8px; }
+      .vision-text { font-size: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+      body { scroll-behavior: auto !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NOVAIX Assist",
+    "url": "https://www.tu-dominio.com/",
+    "logo": "https://www.tu-dominio.com/logo_v2_horizontal_full.png",
+    "sameAs": ["https://www.linkedin.com/company/novaix", "https://x.com/novaix"]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="brandbar" role="banner">
+    <div class="container wrap">
+      <div class="brand-left">
+        <a class="brand-logo" href="#" aria-label="Inicio NOVAIX">
+        </a>
+        <div class="brand-meta" aria-hidden="true">
+          <p class="brand-name">NOVAIX</p>
+          <span class="brand-tag">Asistentes Virtuales con IA</span>
+        </div>
+      </div>
+      <div class="brand-actions">
+        <a class="btn-ghost" href="#planes">Planes</a>
+        <a class="btn-primary" href="#contacto">Solicitar demo</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="hero-bg" aria-hidden="true">
+      <picture>
+        <source srcset="./fondo.png" type="image/jpeg">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79d28c30c8?q=80&w=2000&auto=format&fit=crop" alt="Inteligencia Artificial y productividad" loading="eager" width="800" height="400">
+      </picture>
+    </div>
+<div class="container hero-content">
+  <h1 class="hero-title">
+    Tu negocio, siempre disponible.
+  </h1>
+
+  <p class="tagline">
+    Asistentes virtuales que conectan con tus clientes, generan oportunidades y reducen costes.
+  </p>
+
+  <p class="hero-subtagline">
+    IA conversacional personalizada para tu sector, desde 99€/mes.
+  </p>
+
+ <a href="#contacto" class="btn-hero">
+    Solicita ya
+  </a>
+
+  <p class="hero-meta">
+    <i class="fa-solid fa-shield-halved"></i> Cumplimiento RGPD ·
+    <i class="fa-solid fa-bolt"></i> Integración en días ·
+    <i class="fa-solid fa-headset"></i> Soporte prioritario
+  </p>
+</div>
+  </header>
+
+  <nav aria-label="Principal">
+    <div class="container nav-wrap">
+      <a class="nav-link" href="#quienes">Quiénes somos</a>
+      <a class="nav-link" href="#vision">Visión</a>
+      <a class="nav-link" href="#planes">Planes</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link" href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="quienes" class="quienes-somos-enhanced">
+  <div class="quienes-bg" aria-hidden="true">
+    <picture>
+      <source
+        srcset="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=2000"
+        type="image/jpeg"
+      >
+      <img
+        src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=2000"
+        alt="Entorno tecnológico profesional con visualización de datos"
+        loading="lazy"
+        decoding="async"
+        width="2000"
+        height="900"
+      >
+    </picture>
+  </div>
+
+  <div class="container quienes-content">
+    <h2 class="section-title">Quiénes somos</h2>
+
+    <div class="vision-text">
+      <p>
+        En <strong>NOVAIX</strong> somos una empresa tecnológica especializada en soluciones de Inteligencia Artificial
+        y automatización para negocios y profesionales que quieren dar un salto en su manera de trabajar.
+      </p>
+
+      <p>
+        Nacimos con la visión de hacer accesible la IA a cualquier empresa, sin importar su tamaño o sector,
+        transformando la automatización en una herramienta cercana, práctica y rentable que genere resultados
+        medibles en el día a día.
+      </p>
+
+      <p>
+        Nuestro equipo combina experiencia en tecnología, diseño, estrategia empresarial y comunicación,
+        lo que nos permite ofrecer soluciones integrales que van más allá del simple desarrollo técnico.
+        Acompañamos a cada cliente desde la idea hasta la puesta en marcha, asegurando que cada proyecto
+        refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
+      </p>
+
+      <p>
+        En <strong>NOVAIX</strong> creemos en la innovación con propósito: una tecnología ética, útil
+        y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir
+        relaciones duraderas basadas en la confianza, la transparencia y la excelencia en cada servicio que ofrecemos.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <section id="vision">
+      <div class="container">
+        <h2 class="section-title">Nuestra visión para tu sector</h2>
+        <p class="section-lead">Asistentes diseñados para impactar en KPIs reales: tiempo ahorrado, FCR, conversión y satisfacción del cliente.</p>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <i class="fa-solid fa-notes-medical icon" aria-hidden="true"></i>
+            <h3>Clínica / Médicos</h3>
+            <p><strong>Ahorra hasta 10 h/semana de gestión de citas</strong> y reduce el **ausentismo en un 20%** con recordatorios inteligentes. FAQ 24/7 y pre-registro automatizado.</p>
+          </article>
+          <article class="card" role="listitem">
+            <i class="fa-solid fa-gavel icon" aria-hidden="true"></i>
+            <h3>Abogados / Jurídico</h3>
+            <p><strong>Pre-califica el 60% de tus leads</strong> en el primer contacto. Capta datos esenciales y filtra consultas para que tu equipo legal se centre solo en casos de alto valor.</p>
+          </article>
+          <article class="card" role="listitem">
+            <i class="fa-solid fa-scissors icon" aria-hidden="true"></i>
+            <h3>Estética / Peluquería</h3>
+            <p>Aumenta la **disponibilidad de reserva un 35%** sin personal extra. Gestión automática de citas, precios y tratamientos 24/7.</p>
+          </article>
+          <article class="card" role="listitem">
+            <i class="fa-solid fa-utensils icon" aria-hidden="true"></i>
+            <h3>Hostelería / Restaurantes</h3>
+            <p><strong>Incrementa la tasa de ocupación</strong> gestionando reservas y pedidos sencillos en tiempo real. Resuelve el 90% de dudas sobre menús, horarios y eventos.</p>
+          </article>
+          <article class="card" role="listitem">
+            <i class="fa-solid fa-house icon" aria-hidden="true"></i>
+            <h3>Inmobiliaria</h3>
+            <p><strong>Mejora la calidad del lead en un 40%</strong> calificando a los interesados y coordinando visitas automáticamente. Respuestas inmediatas sobre inmuebles y opciones de financiación.</p>
+          </article>
+          <article class="card" role="listitem">
+            <i class="fa-solid fa-cart-shopping icon" aria-hidden="true"></i>
+            <h3>Comercio electrónico</h3>
+            <p><strong>Reduce el abandono de carrito un 15%</strong> con soporte 24/7. Resuelve automáticamente el 85% de consultas post-venta (envíos/devoluciones) y mejora el NPS.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planes">
+      <div class="container">
+        <h2 class="section-title">Planes a tu medida</h2>
+        <p class="section-lead">Escala sin fricción. Empieza sencillo y añade integraciones cuando lo necesites.</p>
+        <div class="plans">
+          <article class="plan">
+            <h3>Plan Básico</h3>
+            <span class="tier">Inicio Rápido / FAQ Automatizado</span>
+            <div class="price"><small>Desde</small><strong>99€</strong><small>/mes</small></div>
+            <p class="desc">Automatiza FAQs y atención inicial. Ideal para validar el canal y liberar tiempo del equipo.</p>
+            <ul class="features">
+              <li>Asistente 24/7 para atención inicial</li>
+              <li>Base de conocimiento personalizada</li>
+              <li>Hasta 500 interacciones/mes</li>
+              <li>Implementación en 24h</li>
+              <li>Soporte por email</li>
+            </ul>
+            <a class="btn-cta" href="#contacto" data-plan="Básico">Empezar con Básico</a>
+          </article>
+
+          <article class="plan plan--pro">
+            <span class="badge">Más elegido</span>
+            <h3>Plan Profesional</h3>
+            <span class="tier">Crecimiento / Integración Completa</span>
+            <div class="price"><small>Desde</small><strong>199€</strong><small>/mes</small></div>
+            <p class="desc">Crecimiento con integraciones y analítica: convierte más y mide impacto en tiempo real.</p>
+            <ul class="features">
+              <li>Todo lo del Plan Básico</li>
+              <li>Integración con CRM</li>
+              <li>Automatizaciones de workflows</li>
+              <li>Panel y métricas</li>
+              <li>Soporte prioritario por chat</li>
+              <li>Hasta 2.000 interacciones/mes</li>
+            </ul>
+            <a class="btn-cta" href="#contacto" data-plan="Profesional">Empezar con Profesional</a>
+          </article>
+
+          <article class="plan">
+            <h3>Plan Avanzado</h3>
+            <span class="tier">Enterprise / Máximo rendimiento</span>
+            <div class="price"><small>Desde</small><strong>299€</strong><small>/mes</small></div>
+            <p class="desc">Enterprise con IA orquestada, SLAs y mejora continua para maximizar ROI.</p>
+            <ul class="features">
+              <li>Todo lo del Plan Profesional</li>
+              <li>IA multiagente y orquestación</li>
+              <li>Optimización continua</li>
+              <li>Soporte 24/7 y gestor dedicado</li>
+              <li>Integraciones avanzadas (APIs)</li>
+              <li>Interacciones ilimitadas</li>
+              <li>Entrenamiento personalizado</li>
+            </ul>
+            <a class="btn-cta" href="#contacto" data-plan="Avanzado">Empezar con Avanzado</a>
+          </article>
+        </div>
+        <p class="pricing-note">Precios de partida. Pueden variar por volumen e integraciones. Solicita presupuesto.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <div class="faq">
+          <details>
+            <summary>¿Cumplís con RGPD y alojamiento en la UE?</summary>
+            <p>Sí. Implementamos medidas técnicas y organizativas para RGPD. Podemos desplegar en infraestructura europea.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tardáis en poner en marcha un asistente?</summary>
+            <p>El plan Básico se activa en 24-48h. Los planes con integraciones suelen requerir 5-10 días.</p>
+          </details>
+          <details>
+            <summary>¿Se integra con WhatsApp, web y CRM?</summary>
+            <p>Sí. Disponemos de integraciones con canales de mensajería, widgets web y CRMs populares.</p>
+          </details>
+          <details>
+            <summary>¿Cómo medimos el ROI del asistente?</summary>
+            <p>Definimos KPIs (tiempo ahorrado, FCR, conversión, CSAT) y panel con comparativas pre/post. En Profesional y Avanzado hay objetivos y revisiones mensuales.</p>
+          </details>
+          <details>
+            <summary>¿Qué canales soporta?</summary>
+            <p>Widget web, WhatsApp Business API, Instagram DM, Messenger, Telegram y email.</p>
+          </details>
+          <details>
+            <summary>¿Cómo entrenáis al asistente con mi contenido?</summary>
+            <p>Subimos documentación (PDF/URL), procesos y FAQs. Base de conocimiento versionada y QA antes de producción.</p>
+          </details>
+          <details>
+            <summary>¿Qué pasa si aumenta el volumen?</summary>
+            <p>Escalado por interacciones/canales. Ajuste de tarifa por uso real y capacidad sin interrupciones.</p>
+          </details>
+          <details>
+            <summary>¿Ofrecéis piloto o demo guiada?</summary>
+            <p>Sí, demo gratuita y piloto 7–14 días si encaja.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contáctanos para una demo</h2>
+        <p class="section-lead">Cuéntanos tu caso y te proponemos el enfoque óptimo.</p>
+        <form id="contact-form" action="https://formspree.io/f/tu-endpoint" method="POST" novalidate>
+          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
+          <input type="hidden" name="ts" id="ts" value="">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" autocomplete="name" required aria-required="true" />
+              <div class="helper" id="nameHelp"></div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true" />
+              <div class="helper" id="emailHelp"></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="company">Empresa</label>
+            <input id="company" name="company" type="text" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="message">Cuéntanos tu problemática</label>
+            <textarea id="message" name="message" placeholder="Qué quieres automatizar, canales, herramientas actuales…"></textarea>
+          </div>
+          <input type="hidden" name="plan_interes" id="plan_interes" value="" />
+          <button class="btn-cta btn-submit" type="submit">Solicitar demo</button>
+          <p class="helper">Al enviar aceptas nuestra política de privacidad.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="y"></span> NOVAIX Assist. Todos los derechos reservados.</p>
+      <div class="social" aria-label="Redes sociales">
+        <a href="#" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" aria-label="X/Twitter" rel="noopener"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Timestamp (anti-spam)
+    const tsEl = document.getElementById('ts'); if (tsEl) tsEl.value = Date.now();
+
+    // Autorrelleno plan desde CTA
+    document.querySelectorAll('[data-plan]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = document.getElementById('plan_interes');
+        if (input) input.value = btn.dataset.plan;
+      });
+    });
+
+    // Validación mínima del formulario
+    const form = document.getElementById('contact-form');
+    const email = document.getElementById('email');
+    const nameI = document.getElementById('name');
+    const emailHelp = document.getElementById('emailHelp');
+    const nameHelp = document.getElementById('nameHelp');
+    const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+    form.addEventListener('submit', (e) => {
+      let ok = true; emailHelp.textContent = ''; nameHelp.textContent = '';
+      if (document.getElementById('website').value) { e.preventDefault(); return; }
+      if (!nameI.value.trim()) { nameHelp.textContent = 'Por favor, escribe tu nombre.'; nameI.setAttribute('aria-invalid','true'); ok = false; } else { nameI.removeAttribute('aria-invalid'); }
+      if (!validEmail(email.value)) { emailHelp.textContent = 'Introduce un email válido.'; email.setAttribute('aria-invalid','true'); ok = false; } else { email.removeAttribute('aria-invalid'); }
+      if (!ok) e.preventDefault();
+    });
+
+    // Navegación suave
+    function smoothNavigate(targetId){
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      target.scrollIntoView({behavior:'smooth'});
+      if (history.pushState) history.pushState(null, '', targetId); else window.location.hash = targetId;
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if (href !== '#contacto') e.preventDefault();
+        smoothNavigate(href);
+      });
+    });
+  </script>
+</body>
+</html>
