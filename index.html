@@ -50,10 +50,10 @@
     /* ===== Brandbar (cabecera superior) ===== */
     .brandbar {
       position: sticky; top: 0; z-index: 40;
-      background: rgba(11,12,16,.9);
-      backdrop-filter: saturate(130%) blur(8px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      background: transparent;
+      backdrop-filter: none;        /* sin blur */
+      border-bottom: none;          /* sin borde */
+      box-shadow: none;  
     }
     .brandbar .wrap {
       display: grid; grid-template-columns: 1fr auto;
@@ -73,13 +73,15 @@
 
     /* ===== Header / Hero principal (CORREGIDO) ===== */
     header {
-      position: relative; padding: 120px 0; overflow: hidden;
+      position: relative; padding: 620px 0; overflow: hidden;
+      margin-top: calc(-1 * var(--brandbar-h));        /* sube el header detrás de la barra */
+      padding-top: calc(340px + var(--brandbar-h));
       background: var(--primary-bg); /* Fondo de fallback */
       text-align: center;
     }
     .hero-bg { position: absolute; inset: 0; z-index: 0; }
     .hero-bg img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 110%; object-fit: cover;
       filter: brightness(0.45) saturate(1.2); /* Mismo filtro que #quienes */
     }
     header::after { /* Capa oscura (overlay) */
@@ -88,8 +90,8 @@
       z-index: 1; 
     }
     .hero-content { /* Contenedor de texto y botones */
-      position: relative; z-index: 2;
-      max-width: 900px; margin: 0 auto;
+      position: relative; z-index: 1;
+      max-width: 1000px; margin: 0 auto;
     }
     /* Estilos del contenido del Hero */
     .hero-title { font-size: clamp(1.8rem, 3.8vw, 3.2rem); line-height: 1.1; font-weight: 900; margin: 18px 0 10px; }
@@ -199,10 +201,10 @@
   <div class="brandbar" role="banner">
     <div class="container wrap">
       <div class="brand-left">
-        <a class="brand-logo" href="#" aria-label="Inicio NOVAIX Assist">
+        <a class="brand-logo" href="#" aria-label="Inicio NOVAIX">
         </a>
         <div class="brand-meta" aria-hidden="true">
-          <p class="brand-name">NOVAIX Assist</p>
+          <p class="brand-name">NOVAIX</p>
           <span class="brand-tag">Asistentes Virtuales con IA</span>
         </div>
       </div>
@@ -216,16 +218,33 @@
   <header>
     <div class="hero-bg" aria-hidden="true">
       <picture>
-        <source srcset="./logo_v2_horizontal_full.png" type="image/jpeg">
-        <img src="https://images.unsplash.com/photo-1555949963-aa79d28c30c8?q=80&w=2000&auto=format&fit=crop" alt="Inteligencia Artificial y productividad" loading="eager" width="2000" height="900">
+        <source srcset="./fondo.png" type="image/jpeg">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79d28c30c8?q=80&w=2000&auto=format&fit=crop" alt="Inteligencia Artificial y productividad" loading="eager" width="800" height="400">
       </picture>
     </div>
-    <div class="container hero-content">
-      <h1 class="hero-title">Automatiza la Generación de Leads y la Atención 24/7. Más Ventas, Menos Costes.</h1>
-      <p class="tagline">Una IA conversacional diseñada para la conversión en tu sector, desde solo 99€/mes.</p>
-      <a href="#contacto" class="btn-hero">Solicita tu demo gratuita</a>
-      <p class="hero-meta"><i class="fa-solid fa-shield-halved"></i> Cumplimiento RGPD · <i class="fa-solid fa-bolt"></i> Integración en días · <i class="fa-solid fa-headset"></i> Soporte prioritario</p>
-    </div>
+<div class="container hero-content">
+  <h1 class="hero-title">
+    Tu negocio, siempre disponible.
+  </h1>
+
+  <p class="tagline">
+    Asistentes virtuales que conectan con tus clientes, generan oportunidades y reducen costes.
+  </p>
+
+  <p class="hero-subtagline">
+    IA conversacional personalizada para tu sector, desde 99€/mes.
+  </p>
+
+ <!--a href="#contacto" class="btn-hero">
+    Solicita ya
+  </a-->
+
+  <p class="hero-meta">
+    <i class="fa-solid fa-shield-halved"></i> Cumplimiento RGPD ·
+    <i class="fa-solid fa-bolt"></i> Integración en días ·
+    <i class="fa-solid fa-headset"></i> Soporte prioritario
+  </p>
+</div>
   </header>
 
   <nav aria-label="Principal">
@@ -240,22 +259,54 @@
 
   <main id="main">
     <section id="quienes" class="quienes-somos-enhanced">
-      <div class="quienes-bg" aria-hidden="true">
-        <picture>
-          <source srcset="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=2000&auto=format&fit=crop" type="image/jpeg">
-          <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=2000&auto=format&fit=crop" alt="Futuro digital empresarial" loading="lazy" decoding="async" width="2000" height="900">
-        </picture>
-      </div>
-      <div class="container quienes-content">
-        <h2 class="section-title">Quiénes somos</h2>
-        <p class="vision-text">
-          En <strong>NOVAIX Assist</strong> impulsamos la evolución digital de las empresas con <strong>asistentes virtuales de Inteligencia Artificial</strong> diseñados para el cambio.
-          Nuestra misión es <strong>acelerar la productividad</strong>, optimizar procesos y transformar la relación entre marcas y clientes.
-          Creemos en una IA <strong>humana, ética y eficiente</strong> que potencia las capacidades de cada organización y la prepara para el futuro.
-        </p>
-        <a href="#contacto" class="btn-primary">Solicita tu demo gratuita</a>
-      </div>
-    </section>
+  <div class="quienes-bg" aria-hidden="true">
+    <picture>
+      <source
+        srcset="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=2000"
+        type="image/jpeg"
+      >
+      <img
+        src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=2000"
+        alt="Entorno tecnológico profesional con visualización de datos"
+        loading="lazy"
+        decoding="async"
+        width="2000"
+        height="900"
+      >
+    </picture>
+  </div>
+
+  <div class="container quienes-content">
+    <h2 class="section-title">Quiénes somos</h2>
+
+    <div class="vision-text">
+      <p>
+        En <strong>NOVAIX</strong> somos una empresa tecnológica especializada en soluciones de Inteligencia Artificial
+        y automatización para negocios y profesionales que quieren dar un salto en su manera de trabajar.
+      </p>
+
+      <p>
+        Nacimos con la visión de hacer accesible la IA a cualquier empresa, sin importar su tamaño o sector,
+        transformando la automatización en una herramienta cercana, práctica y rentable que genere resultados
+        medibles en el día a día.
+      </p>
+
+      <p>
+        Nuestro equipo combina experiencia en tecnología, diseño, estrategia empresarial y comunicación,
+        lo que nos permite ofrecer soluciones integrales que van más allá del simple desarrollo técnico.
+        Acompañamos a cada cliente desde la idea hasta la puesta en marcha, asegurando que cada proyecto
+        refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
+      </p>
+
+      <p>
+        En <strong>NOVAIX</strong> creemos en la innovación con propósito: una tecnología ética, útil
+        y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir
+        relaciones duraderas basadas en la confianza, la transparencia y la excelencia en cada servicio que ofrecemos.
+      </p>
+    </div>
+  </div>
+</section>
+
 
     <section id="vision">
       <div class="container">
