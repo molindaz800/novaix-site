@@ -400,50 +400,50 @@ header::before {
 
 @media (max-width: 720px) {
   .side-nav {
-    left: 50%;
-    top: auto;
-    bottom: 16px;
-    transform: translate(-50%, 0);
-    width: calc(100% - 32px);
-    align-items: center;
+    left: 16px;
+    top: 16px;
+    bottom: auto;
+    transform: translate(0, 0);
+    width: auto;
+    align-items: flex-start;
   }
 
   .side-nav.side-nav--hidden {
-    transform: translate(-50%, 80px);
+    transform: translate(-60px, 0);
     opacity: 0;
   }
 
   .side-nav-toggle {
-    order: 1;
+    order: 0;
   }
 
   .side-nav-inner {
-    order: 2;
-    width: 100%;
-    max-width: none;
-    padding: 12px 14px;
+    order: 1;
+    width: auto;
+    max-width: 260px;
+    padding: 12px;
   }
 
   .side-nav-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 6px;
   }
 
   .side-nav-link {
-    flex: 1 1 auto;
-    justify-content: center;
-    font-size: 0.85rem;
-    padding: 8px 10px;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    font-size: 0.9rem;
+    padding: 8px 12px;
   }
 
   .side-nav-link span {
-    display: none;
+    display: inline;
   }
 
   .side-nav-link i {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
