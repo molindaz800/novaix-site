@@ -1,0 +1,142 @@
+{
+  "name": "Leads Gemini HTML Colmenar",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9a1b6c13-f3c2-44fd-8f45-50bbcf828096",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{\n  json: {\n    city: 'Colmenar Viejo',\n    categories: [\n      'peluquerías',\n      'clínicas',\n      'asesorías',\n      'restaurantes',\n      'pequeños comercios'\n    ],\n    maxResultsPerCategory: 10\n  }\n}];"
+      },
+      "id": "a395e304-badd-4936-8fa7-0ba27e3d753c",
+      "name": "Set Params",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        304,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyC_pjgL86VfBIHq5QTX3XXo88vpinELSNE\n",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"Actúa como un asistente de prospección comercial.\\n\\nQuiero que, usando resultados de búsqueda en internet, busques negocios en la ciudad de Colmenar Viejo de los siguientes tipos: peluquerías, clínicas, asesorías, restaurantes, pequeños comercios.\\n\\nPara cada negocio, intenta encontrar (si está disponible):\\n- nombre comercial\\n- tipo de negocio\\n- dirección\\n- ciudad\\n- teléfono\\n- web\\n- email (solo si es fácil de ver, no inventes)\\n\\nDevuélveme como resultado SOLO código HTML de una página completa, sin explicaciones adicionales.\\nLa página debe contener:\\n\\n- Un título \\\"Leads locales en Colmenar Viejo\\\".\\n- Una tabla con columnas: Tipo, Nombre, Dirección, Teléfono, Email, Web.\\n- Un máximo de 10 negocios por categoría.\\n\\nNo inventes datos: si no conoces un campo, déjalo vacío en la tabla.\"\n        }\n      ]\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "id": "57b7fb0c-8a28-4949-9a71-e2640502270f",
+      "name": "Call Gemini HTML",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        640,
+        0
+      ],
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "functionCode": "let text = '';\n\ntry {\n  text = $json.candidates[0].content.parts[0].text || '';\n} catch (e) {\n  text = '<html><body><h1>Error</h1><p>No se pudo leer la respuesta de Gemini.</p></body></html>';\n}\n\nconst buffer = Buffer.from(text, 'utf8');\n\nreturn [\n  {\n    json: {\n      fileName: 'leads_colmenar.html'\n    },\n    binary: {\n      data: {\n        data: buffer.toString('base64'),\n        mimeType: 'text/html',\n        fileName: 'leads_colmenar.html'\n      }\n    }\n  }\n];"
+      },
+      "id": "6b02d85c-a842-44d7-9d63-e03f60e0c3b4",
+      "name": "HTML to Binary",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        992,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "fileName": "/tmp/leads_colmenar.html",
+        "options": {}
+      },
+      "id": "5af0afd5-454a-4478-86ca-85a6d3be8400",
+      "name": "Write HTML File",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Params": {
+      "main": [
+        [
+          {
+            "node": "Call Gemini HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Gemini HTML": {
+      "main": [
+        [
+          {
+            "node": "HTML to Binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML to Binary": {
+      "main": [
+        [
+          {
+            "node": "Write HTML File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2a6328cb-4d37-47e4-bcda-c86af49f3f30",
+  "meta": {
+    "instanceId": "46d04eebb69c20759845665ba1f2159ecf8705bb5e7f49f08cfe1a3a7af068e2"
+  },
+  "id": "0kr1wLIolVRVl1mb",
+  "tags": []
+}
