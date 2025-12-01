@@ -130,6 +130,7 @@
       align-items: center;
       overflow: hidden;
     }
+    .hero > * { position: relative; z-index: 2; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--accent); font-size: 0.9rem; }
     .title { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; margin: 12px 0; position: relative; }
     .title-animated {
@@ -279,15 +280,17 @@
     /* Órbita hero */
     .orbital-track {
       position: absolute;
-      left: -40px;
+      left: -60px;
       top: 20px;
-      width: 520px;
+      width: 640px;
       height: 260px;
       border-radius: 50%;
       border: 1px solid rgba(255,105,180,0.4);
       filter: drop-shadow(0 0 12px rgba(255,105,180,0.4));
       pointer-events: none;
       animation: track-glow 6s ease-in-out infinite alternate;
+      z-index: 0;
+      mix-blend-mode: screen;
     }
     .orbital-dot {
       position: absolute;
@@ -296,11 +299,12 @@
       background: linear-gradient(140deg, #ff61d2, #fe9090);
       border-radius: 50%;
       filter: drop-shadow(0 0 10px #ff61d2);
-      offset-path: path("M0,130 C220,-90 500,-40 520,130");
+      offset-path: path("M0,130 C0,60 140,0 320,0 C500,0 640,60 640,130 C640,200 500,260 320,260 C140,260 0,200 0,130 Z");
       offset-rotate: 0deg;
       animation: orbit 9s linear infinite;
       pointer-events: none;
-      z-index: 3;
+      z-index: 0;
+      mix-blend-mode: screen;
     }
     @keyframes orbit { to { offset-distance: 100%; } }
     @keyframes track-glow {
@@ -785,7 +789,7 @@
         <div class="hero-cards">
           <div class="mini-card"><strong data-counter="92">0%</strong><small>Consultas resueltas sin agentes humanos.</small></div>
           <div class="mini-card"><strong data-counter="70">0%</strong><small>Back-office automatizado en clientes Pro.</small></div>
-          <div class="mini-card"><strong data-counter="2">0 sem</strong><small>Despliegue medio a producción.</small></div>
+          <div class="mini-card"><strong>2 semanas</strong><small>Despliegue medio a producción.</small></div>
         </div>
       </div>
       <div class="hero-video" aria-label="Demo video NOVAIX">
