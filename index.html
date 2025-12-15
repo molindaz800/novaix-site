@@ -418,7 +418,7 @@
       z-index: 1;
     }
     .quienes-left {
-      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('fondo_quienessomos.jpg') center/cover no-repeat;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('fondo_quienessomos.png') center/cover no-repeat;
       min-height: 320px;
       position: relative;
       opacity: 0;
@@ -562,6 +562,10 @@
       position: relative;
       overflow: hidden;
       padding: 8px;
+    }
+    .legal-modal .calendly-frame {
+      height: min(820px, 92vh);
+      overflow-y: auto;
     }
     .calendly-close {
       position: absolute;
@@ -775,7 +779,8 @@
         <a class="cl-effect-10" data-hover="Planes" href="#planes"><span>Planes</span></a>
         <a class="cl-effect-10" data-hover="Quiénes somos" href="#quienes"><span>Quiénes somos</span></a>
         <a class="cl-effect-10" data-hover="Contacto" href="#demo"><span>Contacto</span></a>
-        <a class="cta stroke cl-effect-20" href="#demo" data-calendly-open style="color:#f5f7fb;"><span>Agendar demo</span></a>
+        <a class="cl-effect-10 legal-open" data-hover="Legal" href="#legal"><span>Legal</span></a>
+        <a class="cta stroke cl-effect-20" href="#demo" data-calendly-open style="color:#f5f7fb;"><span>Agendar cita</span></a>
       </div>
     </div>
     <div class="hero">
@@ -1057,7 +1062,8 @@
             <span class="badge"><i class="fa-regular fa-clock"></i> 30 min</span>
             <h4>Sesión con NOVAIX</h4>
             <p>Videollamada. Revisamos tus casos y conectamos canales.</p>
-            <a class="cta stroke cl-effect-20" style="margin-top:14px; padding:12px 18px; color: #f5f7fb;" data-calendly-open><span>Agendar demo</span></a>
+            <a class="cta stroke cl-effect-20" style="margin-top:14px; padding:12px 18px; color: #f5f7fb;" data-calendly-open><span>Agendar cita</span></a>
+            <p style="color:#b0b0b0; font-size:0.9rem; margin:10px 0 0;">Al reservar aceptas nuestra <a href="#legal" style="color:var(--accent); text-decoration:none;">Política de Privacidad</a>.</p>
           </div>
         </div>
         <div class="demo-help">
@@ -1068,10 +1074,42 @@
     </div>
   </section>
 
+  <section id="legal" aria-hidden="true"></section>
+
   <div id="calendly-modal" class="calendly-modal" aria-hidden="true">
     <div class="calendly-frame">
       <button class="calendly-close" aria-label="Cerrar calendario">×</button>
       <div class="calendly-inline-widget" data-url="https://calendly.com/novaix-assist/30min?primary_color=00c3ff&text_color=f5f7fb&background_color=0a0f17"></div>
+    </div>
+  </div>
+
+  <div id="legal-modal" class="calendly-modal legal-modal" aria-hidden="true">
+    <div class="calendly-frame" style="max-width: 1020px; padding: 18px;">
+      <button class="calendly-close legal-close" aria-label="Cerrar legal">×</button>
+      <div class="faq" style="max-width: 960px; margin: 0 auto; text-align:left; color: var(--text);">
+        <h2 class="section-title" style="margin-top:0;">Política de Privacidad</h2>
+        <p><strong>Responsable:</strong> Daniel Molina (Nombre comercial: NOVAIX) · Email: <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a> · Sitio web: <a href="https://novaix.es" style="color:var(--accent);">https://novaix.es</a></p>
+        <p><strong>Datos que recogemos:</strong> nombre y apellidos, email, empresa o proyecto (si se facilita), fecha y hora de la cita solicitada, y cualquier información que incluyas en formularios o al agendar. No se recogen datos especialmente protegidos.</p>
+        <p><strong>Finalidad:</strong> gestionar solicitudes de contacto y reuniones, coordinar y confirmar citas, responder consultas comerciales e informar sobre servicios/demos de automatización e IA.</p>
+        <p><strong>Base legal:</strong> consentimiento del usuario y medidas precontractuales cuando pides información o una reunión sobre los servicios de NOVAIX.</p>
+        <p><strong>Herramientas externas:</strong> Calendly LLC (EE.UU.) como sistema de agenda; puede conectarse con Google Calendar, email o CRM. Calendly actúa como encargado de tratamiento y usa Cláusulas Contractuales Tipo (SCC). Política: <a href="https://calendly.com/privacy" style="color:var(--accent);" rel="noopener" target="_blank">calendly.com/privacy</a>.</p>
+        <p><strong>Transferencias internacionales:</strong> al usar Calendly los datos pueden alojarse en EE.UU. bajo SCC aprobadas por la Comisión Europea.</p>
+        <p><strong>Conservación:</strong> mientras exista relación comercial/contacto o hasta que solicites la supresión. Luego se eliminarán de forma segura.</p>
+        <p><strong>Destinatarios:</strong> no cedemos datos a terceros salvo obligación legal o proveedores tecnológicos necesarios (agenda, correo, etc.).</p>
+        <p><strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad. Escríbenos a <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a> indicando el derecho que quieres ejercer.</p>
+        <p><strong>Medidas de seguridad:</strong> aplicamos medidas técnicas y organizativas para proteger la confidencialidad e integridad de los datos.</p>
+        <p><strong>Cambios:</strong> podremos actualizar esta política para reflejar cambios legales o de servicio. La versión vigente estará siempre aquí.</p>
+        <p><strong>Aceptación:</strong> usar la web o agendar una cita implica la aceptación de esta Política de Privacidad.</p>
+
+        <h2 class="section-title" style="margin-top:32px;">Aviso Legal</h2>
+        <p><strong>Identidad:</strong> NOVAIX (Daniel Molina). Contacto: <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a></p>
+        <p><strong>Objeto:</strong> informar sobre servicios de automatización e IA conversacional. El uso del sitio implica la aceptación de este aviso.</p>
+        <p><strong>Propiedad intelectual:</strong> los contenidos, textos, imágenes y elementos gráficos son titularidad de NOVAIX o con licencia. No está permitida su reproducción sin autorización.</p>
+        <p><strong>Limitación de responsabilidad:</strong> NOVAIX no garantiza la ausencia de errores ni se responsabiliza de daños derivados del uso de la información.</p>
+
+        <h2 class="section-title" style="margin-top:32px;">Política de Cookies</h2>
+        <p>Usamos solo cookies técnicas necesarias para el funcionamiento. No usamos cookies publicitarias ni de seguimiento. Si incorporamos analítica o cookies adicionales, mostraremos un aviso de consentimiento y el detalle correspondiente.</p>
+      </div>
     </div>
   </div>
 
@@ -1118,6 +1156,11 @@
 
   <footer>
     <p>© <span id="year"></span> NOVAIX. Todos los derechos reservados.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:10px;">
+      <a href="#legal" style="color:var(--muted);">Política de Privacidad</a>
+      <a href="#legal" style="color:var(--muted);">Aviso Legal</a>
+      <a href="#legal" style="color:var(--muted);">Política de Cookies</a>
+    </div>
   </footer>
 
   <script>
@@ -1246,6 +1289,24 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeCalendlyModal();
     });
+
+    // Legal modal
+    const legalModal = document.getElementById('legal-modal');
+    const legalClose = legalModal?.querySelector('.legal-close');
+    const legalTriggers = document.querySelectorAll('.legal-open, a[href="#legal"]');
+    function openLegal(e) {
+      if (e) e.preventDefault();
+      legalModal?.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLegal() {
+      legalModal?.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    legalTriggers.forEach(l => l.addEventListener('click', openLegal));
+    legalClose?.addEventListener('click', closeLegal);
+    legalModal?.addEventListener('click', (e) => { if (e.target === legalModal) closeLegal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLegal(); });
 
     // contadores
     const counters = document.querySelectorAll('[data-counter]');
