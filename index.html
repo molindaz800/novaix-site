@@ -39,10 +39,10 @@
     .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space: nowrap; border:0; }
     :focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; }
 
-    .bg-ambient {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
+	    .bg-ambient {
+	      position: fixed;
+	      inset: 0;
+	      z-index: 0;
       pointer-events: none;
       opacity: 0.55;
       background:
@@ -52,13 +52,13 @@
         repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 140px),
         repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 140px);
       mix-blend-mode: screen;
-      transform: translateZ(0);
-    }
+	      transform: translateZ(0);
+	    }
 
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
+	    .scroll-progress {
+	      position: fixed;
+	      top: 0;
+	      left: 0;
       right: 0;
       height: 3px;
       background: rgba(255,255,255,0.06);
@@ -87,31 +87,98 @@
       overflow: hidden;
       background: radial-gradient(800px 600px at 65% 20%, rgba(0,195,255,0.16), transparent 55%), #05080f;
     }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(840px 640px at 60% 38%, rgba(10, 80, 120, 0.45), transparent 60%),
-        url('Logo_back.png') center/48% no-repeat;
-      opacity: 0.32;
-      pointer-events: none;
-      filter: drop-shadow(0 0 48px rgba(0,195,255,0.35));
-      mix-blend-mode: screen;
-    }
-    header::after {
-      /* efecto agua: se actualiza con JS */
-      content: "";
-      position: absolute;
-      inset: 0;
+	    header::before {
+	      content: "";
+	      position: absolute;
+	      inset: 0;
+	      background: radial-gradient(840px 640px at 60% 38%, rgba(10, 80, 120, 0.45), transparent 60%);
+	      opacity: 0.5;
+	      pointer-events: none;
+	      filter: drop-shadow(0 0 48px rgba(0,195,255,0.25));
+	      mix-blend-mode: screen;
+	    }
+	    header::after {
+	      /* efecto agua: se actualiza con JS */
+	      content: "";
+	      position: absolute;
+	      inset: 0;
       background: radial-gradient(circle at var(--rx,50%) var(--ry,40%), rgba(0,195,255,0.18), transparent 28%),
                   radial-gradient(circle at calc(var(--rx,50%) + 10%) calc(var(--ry,40%) + 10%), rgba(122,240,255,0.08), transparent 24%);
       filter: blur(22px);
       opacity: 0.75;
       pointer-events: none;
       transition: background-position 0.12s ease;
-      mix-blend-mode: screen;
-    }
+	      mix-blend-mode: screen;
+	    }
+	    .hero-planet {
+	      position: absolute;
+	      left: 62%;
+	      top: 42%;
+	      width: clamp(320px, 44vw, 720px);
+	      aspect-ratio: 340 / 387;
+	      transform: translate(-50%, -50%);
+	      pointer-events: none;
+	      user-select: none;
+	      z-index: 0;
+	      opacity: 0.36;
+	      background: url('Logo_back.png') center/contain no-repeat;
+	      mix-blend-mode: screen;
+	      filter: drop-shadow(0 0 48px rgba(0,195,255,0.35));
+	      clip-path: ellipse(45% 48% at 50% 50%);
+	    }
+	    @supports ((-webkit-mask-image: url("Logo_back.png")) or (mask-image: url("Logo_back.png"))) {
+	      .hero-planet {
+	        clip-path: none;
+	        -webkit-mask-image: url('Logo_back.png');
+	        -webkit-mask-repeat: no-repeat;
+	        -webkit-mask-position: center;
+	        -webkit-mask-size: contain;
+	        mask-image: url('Logo_back.png');
+	        mask-repeat: no-repeat;
+	        mask-position: center;
+	        mask-size: contain;
+	      }
+	    }
+	    .hero-planet::before {
+	      content: "";
+	      position: absolute;
+	      inset: -18%;
+	      background: radial-gradient(closest-side, rgba(0,195,255,0.22), transparent 62%);
+	      filter: blur(18px);
+	      opacity: 0.9;
+	      mix-blend-mode: screen;
+	    }
+	    .hero-planet::after {
+	      content: "";
+	      position: absolute;
+	      inset: -26%;
+	      background:
+	        linear-gradient(110deg,
+	          transparent 0%,
+	          rgba(0,195,255,0.0) 38%,
+	          rgba(0,195,255,0.24) 46%,
+	          rgba(245,247,251,0.72) 50%,
+	          rgba(0,195,255,0.24) 54%,
+	          rgba(0,195,255,0.0) 62%,
+	          transparent 100%
+	        ),
+	        repeating-linear-gradient(0deg,
+	          rgba(245,247,251,0.08) 0px,
+	          rgba(245,247,251,0.08) 1px,
+	          transparent 3px,
+	          transparent 6px
+	        );
+	      transform: translateX(-140%);
+	      animation: planet-scan 3.9s ease-in-out infinite;
+	      opacity: 0.78;
+	      mix-blend-mode: screen;
+	      filter: blur(0.25px) drop-shadow(0 0 18px rgba(0,195,255,0.28));
+	    }
+	    @keyframes planet-scan {
+	      0% { transform: translateX(-140%); }
+	      50% { transform: translateX(140%); }
+	      100% { transform: translateX(-140%); }
+	    }
 	    .nav {
 	      position: fixed;
 	      top: 18px;
@@ -714,11 +781,11 @@
       transition: opacity .25s ease;
       z-index: 160;
     }
-    .calendly-modal.open { opacity: 1; pointer-events: auto; }
-    .calendly-frame {
-      width: min(960px, 96vw);
-      height: min(760px, 90vh);
-      background: #0a0f17;
+	    .calendly-modal.open { opacity: 1; pointer-events: auto; }
+	    .calendly-frame {
+	      width: min(960px, 96vw);
+	      height: min(760px, 90vh);
+	      background: #0a0f17;
       border: 1px solid var(--border);
       border-radius: 18px;
       box-shadow: 0 30px 80px rgba(0,0,0,0.75);
@@ -726,10 +793,35 @@
       overflow: hidden;
       padding: 8px;
     }
-    .legal-modal .calendly-frame {
-      height: min(820px, 92vh);
-      overflow: auto;
-    }
+	    .legal-modal .calendly-frame {
+	      height: min(820px, 92vh);
+	      overflow: auto;
+	    }
+
+	    /* Legal modal: efecto "3D Slit" (Codrops ModalWindowEffects) */
+	    .legal-modal { -webkit-perspective: 1300px; perspective: 1300px; }
+	    .legal-modal .calendly-frame {
+	      -webkit-transform-style: preserve-3d;
+	      transform-style: preserve-3d;
+	      -webkit-backface-visibility: hidden;
+	      backface-visibility: hidden;
+	      -webkit-transform: translateZ(-3000px) rotateY(90deg);
+	      transform: translateZ(-3000px) rotateY(90deg);
+	      opacity: 0;
+	    }
+	    .legal-modal.open .calendly-frame {
+	      -webkit-animation: slit .7s forwards ease-out;
+	      animation: slit .7s forwards ease-out;
+	    }
+
+	    @-webkit-keyframes slit {
+	      50% { -webkit-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -webkit-animation-timing-function: ease-out; }
+	      100% { -webkit-transform: translateZ(0) rotateY(0deg); opacity: 1; }
+	    }
+	    @keyframes slit {
+	      50% { transform: translateZ(-250px) rotateY(89deg); opacity: .5; animation-timing-function: ease-out; }
+	      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
+	    }
     .calendly-close {
       position: absolute;
       top: 10px;
@@ -935,14 +1027,15 @@
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
-      header { padding: calc(var(--nav-h) + 44px) 5vw 70px; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-watermark { left: 6%; font-size: clamp(5rem, 30vw, 12rem); }
-      .nav {
-        top: 12px;
-        width: calc(100% - 24px);
-        height: auto;
+	    @media (max-width: 900px) {
+	      header { padding: calc(var(--nav-h) + 44px) 5vw 70px; }
+	      .hero { grid-template-columns: 1fr; }
+	      .hero-watermark { left: 6%; font-size: clamp(5rem, 30vw, 12rem); }
+	      .hero-planet { left: 50%; top: 54%; width: clamp(280px, 78vw, 520px); opacity: 0.28; }
+	      .nav {
+	        top: 12px;
+	        width: calc(100% - 24px);
+	        height: auto;
         padding: 10px 12px;
         align-items: flex-start;
         flex-wrap: wrap;
@@ -980,23 +1073,25 @@
       .carousel-arrows button { width: 34px; height: 34px; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .title-animated { animation: none; background-position: 50% 50%; }
-      .cta:hover::before { animation: none; }
-      .hero-video::before { animation: none; }
-      .integrations-track { animation: none; }
-      .orbital-dot, .orbital-track { animation: none; }
-      .carousel-track { transition: none; }
-      .reveal { transition: none; opacity: 1; transform: none; filter: none; }
-    }
+	    @media (prefers-reduced-motion: reduce) {
+	      html { scroll-behavior: auto; }
+	      .title-animated { animation: none; background-position: 50% 50%; }
+	      .cta:hover::before { animation: none; }
+	      .hero-video::before { animation: none; }
+	      .hero-planet::after { animation: none; opacity: 0.35; transform: translateX(0); }
+	      .integrations-track { animation: none; }
+	      .orbital-dot, .orbital-track { animation: none; }
+	      .carousel-track { transition: none; }
+	      .legal-modal .calendly-frame { animation: none !important; transform: none !important; opacity: 1 !important; }
+	      .reveal { transition: none; opacity: 1; transform: none; filter: none; }
+	    }
   </style>
 </head>
-<body>
-  <div class="bg-ambient" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <header id="top">
-    <nav class="nav" aria-label="Navegación principal">
+		<body>
+		  <div class="bg-ambient" aria-hidden="true"></div>
+		  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+		  <header id="top">
+	    <nav class="nav" aria-label="Navegación principal">
       <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
@@ -1008,8 +1103,9 @@
         <a class="cl-effect-10 legal-open" data-hover="Legal" href="#legal"><span>Legal</span></a>
         <a class="cta stroke cl-effect-20" href="#demo" data-calendly-open style="color:#f5f7fb;"><span>Agendar cita</span></a>
       </div>
-    </nav>
-    <div class="hero">
+	    </nav>
+	    <div class="hero-planet" aria-hidden="true"></div>
+	    <div class="hero">
       <div>
         <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Agentes de IA + Automatización</span>
         <h1 class="title title-animated">Automatiza ventas, soporte y operaciones con IA multicanal.</h1>
@@ -1399,14 +1495,14 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+	  <script>
+	    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Scroll progress
-    const progressBar = document.querySelector('.scroll-progress span');
-    let progressRaf = 0;
-    const updateProgress = () => {
-      progressRaf = 0;
+		    // Scroll progress
+		    const progressBar = document.querySelector('.scroll-progress span');
+		    let progressRaf = 0;
+		    const updateProgress = () => {
+	      progressRaf = 0;
       const doc = document.documentElement;
       const scrollTop = doc.scrollTop || document.body.scrollTop;
       const scrollHeight = doc.scrollHeight - doc.clientHeight;
