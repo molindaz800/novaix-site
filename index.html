@@ -110,74 +110,75 @@
       transition: background-position 0.12s ease;
 	      mix-blend-mode: screen;
 	    }
-	    .hero-planet {
+	    /* Montaje: galaxia + planeta + texto (solo hero) */
+	    .hero-galaxy {
 	      position: absolute;
-	      left: 62%;
-	      top: 42%;
-	      width: clamp(320px, 44vw, 720px);
-	      aspect-ratio: 340 / 387;
-	      transform: translate(-50%, -50%);
-	      pointer-events: none;
-	      user-select: none;
+	      inset: 0;
 	      z-index: 0;
-	      opacity: 0.36;
-	      background: url('Logo_back.png') center/contain no-repeat;
-	      mix-blend-mode: screen;
-	      filter: drop-shadow(0 0 48px rgba(0,195,255,0.35));
-	      clip-path: ellipse(45% 48% at 50% 50%);
+	      pointer-events: none;
+	      overflow: hidden;
+	      opacity: 0.95;
 	    }
-	    @supports ((-webkit-mask-image: url("Logo_back.png")) or (mask-image: url("Logo_back.png"))) {
-	      .hero-planet {
-	        clip-path: none;
-	        -webkit-mask-image: url('Logo_back.png');
-	        -webkit-mask-repeat: no-repeat;
-	        -webkit-mask-position: center;
-	        -webkit-mask-size: contain;
-	        mask-image: url('Logo_back.png');
-	        mask-repeat: no-repeat;
-	        mask-position: center;
-	        mask-size: contain;
-	      }
-	    }
-	    .hero-planet::before {
+	    .hero-galaxy::after {
 	      content: "";
 	      position: absolute;
-	      inset: -18%;
-	      background: radial-gradient(closest-side, rgba(0,195,255,0.22), transparent 62%);
-	      filter: blur(18px);
-	      opacity: 0.9;
-	      mix-blend-mode: screen;
-	    }
-	    .hero-planet::after {
-	      content: "";
-	      position: absolute;
-	      inset: -26%;
+	      inset: 0;
 	      background:
-	        linear-gradient(110deg,
-	          transparent 0%,
-	          rgba(0,195,255,0.0) 38%,
-	          rgba(0,195,255,0.24) 46%,
-	          rgba(245,247,251,0.72) 50%,
-	          rgba(0,195,255,0.24) 54%,
-	          rgba(0,195,255,0.0) 62%,
-	          transparent 100%
-	        ),
-	        repeating-linear-gradient(0deg,
-	          rgba(245,247,251,0.08) 0px,
-	          rgba(245,247,251,0.08) 1px,
-	          transparent 3px,
-	          transparent 6px
-	        );
-	      transform: translateX(-140%);
-	      animation: planet-scan 3.9s ease-in-out infinite;
-	      opacity: 0.78;
-	      mix-blend-mode: screen;
-	      filter: blur(0.25px) drop-shadow(0 0 18px rgba(0,195,255,0.28));
+	        radial-gradient(2600px 1200px at 30% 42%, rgba(0,0,0,0), rgba(5,8,15,0.46) 80%),
+	        linear-gradient(180deg, rgba(5,8,15,0.08), rgba(5,8,15,0.44));
+	      pointer-events: none;
 	    }
-	    @keyframes planet-scan {
-	      0% { transform: translateX(-140%); }
-	      50% { transform: translateX(140%); }
-	      100% { transform: translateX(-140%); }
+	    .hero-galaxy__canvas {
+	      position: absolute;
+	      inset: 0;
+	      width: 100%;
+	      height: 100%;
+	      display: block;
+	      opacity: 0.92;
+	      mix-blend-mode: screen;
+	      filter: saturate(1.35) contrast(1.05);
+	      transform: translateZ(0);
+	    }
+		    .hero-galaxy__planet-wrap {
+		      position: absolute;
+		      right: 26%;
+		      top: -1%;
+		      width: clamp(480px, 54vw, 980px);
+		      opacity: 0.9;
+		      filter: drop-shadow(0 24px 80px rgba(0,195,255,0.22));
+		      mix-blend-mode: screen;
+		    }
+	    .hero-galaxy__planet {
+	      width: 100%;
+	      height: auto;
+	      display: block;
+	      animation: galaxy-float-planet 8s ease-in-out infinite;
+	      will-change: transform;
+	    }
+		    .hero-galaxy__text-wrap {
+		      position: absolute;
+		      left: 50%;
+		      transform: translateX(-50%);
+		      bottom: -6%;
+		      width: clamp(520px, 64vw, 1040px);
+		      opacity: 0.62;
+		      filter: drop-shadow(0 22px 70px rgba(0,195,255,0.16));
+		      mix-blend-mode: screen;
+		    }
+	    .hero-galaxy__text {
+	      width: 100%;
+	      height: auto;
+	      display: block;
+	      animation: galaxy-float-text 10s ease-in-out infinite;
+	      will-change: transform;
+	    }
+	    @keyframes galaxy-float-planet {
+	      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+	      50% { transform: translate3d(-14px, -10px, 0) rotate(1.1deg) scale(1.02); }
+	    }
+	    @keyframes galaxy-float-text {
+	      0%, 100% { transform: translate3d(0, 0, 0); }
+	      50% { transform: translate3d(10px, -8px, 0); }
 	    }
 	    .nav {
 	      position: fixed;
@@ -316,10 +317,10 @@
     }
     .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 680px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-    .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
-    .mini-card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
-    .mini-card strong { font-size: 1.8rem; color: var(--accent); display: block; }
-    .mini-card small { color: var(--muted); }
+	    .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
+	    .mini-card { background: rgba(15, 20, 29, 0.72); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px; backdrop-filter: blur(10px); }
+	    .mini-card strong { font-size: 1.8rem; color: var(--accent); display: block; }
+	    .mini-card small { color: var(--muted); }
     .hero-video {
       position: relative;
       border: 1px solid var(--border);
@@ -356,10 +357,10 @@
       pointer-events: none;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .hero-watermark {
-      position: absolute;
-      bottom: 0;
-      left: 10%;
+	    .hero-watermark {
+	      position: absolute;
+	      bottom: 0;
+	      left: 10%;
       font-size: clamp(6rem, 24vw, 16rem);
       letter-spacing: 0.2em;
       font-weight: 900;
@@ -367,9 +368,11 @@
       text-transform: uppercase;
       pointer-events: none;
       user-select: none;
-      text-shadow: 0 0 30px rgba(0,195,255,0.18);
-      z-index: 0;
-    }
+	      text-shadow: 0 0 30px rgba(0,195,255,0.18);
+	      z-index: 0;
+	    }
+	    /* Sustituido por texto.png en el montaje del hero */
+	    .hero-watermark { display: none; }
     .card-highlight {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -1030,8 +1033,10 @@
 	    @media (max-width: 900px) {
 	      header { padding: calc(var(--nav-h) + 44px) 5vw 70px; }
 	      .hero { grid-template-columns: 1fr; }
-	      .hero-watermark { left: 6%; font-size: clamp(5rem, 30vw, 12rem); }
-	      .hero-planet { left: 50%; top: 54%; width: clamp(280px, 78vw, 520px); opacity: 0.28; }
+		      .hero-watermark { left: 6%; font-size: clamp(5rem, 30vw, 12rem); }
+		      .hero-galaxy__canvas { opacity: 0.7; }
+		      .hero-galaxy__planet-wrap { right: -2%; top: 34%; width: clamp(280px, 84vw, 520px); opacity: 0.72; }
+		      .hero-galaxy__text-wrap { left: 50%; transform: translateX(-50%); bottom: -10%; width: min(680px, 92vw); opacity: 0.45; }
 	      .nav {
 	        top: 12px;
 	        width: calc(100% - 24px);
@@ -1078,7 +1083,7 @@
 	      .title-animated { animation: none; background-position: 50% 50%; }
 	      .cta:hover::before { animation: none; }
 	      .hero-video::before { animation: none; }
-	      .hero-planet::after { animation: none; opacity: 0.35; transform: translateX(0); }
+	      .hero-galaxy__planet, .hero-galaxy__text { animation: none; transform: none; }
 	      .integrations-track { animation: none; }
 	      .orbital-dot, .orbital-track { animation: none; }
 	      .carousel-track { transition: none; }
@@ -1103,9 +1108,17 @@
         <a class="cl-effect-10 legal-open" data-hover="Legal" href="#legal"><span>Legal</span></a>
         <a class="cta stroke cl-effect-20" href="#demo" data-calendly-open style="color:#f5f7fb;"><span>Agendar cita</span></a>
       </div>
-	    </nav>
-	    <div class="hero-planet" aria-hidden="true"></div>
-	    <div class="hero">
+		    </nav>
+		    <div class="hero-galaxy" aria-hidden="true">
+		      <canvas id="hero-galaxy-canvas" class="hero-galaxy__canvas"></canvas>
+		      <div class="hero-galaxy__planet-wrap">
+		        <img class="hero-galaxy__planet" src="planeta.png" alt="" decoding="async" />
+		      </div>
+		      <div class="hero-galaxy__text-wrap">
+		        <img class="hero-galaxy__text" src="texto.png" alt="" decoding="async" />
+		      </div>
+		    </div>
+		    <div class="hero">
       <div>
         <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Agentes de IA + Automatización</span>
         <h1 class="title title-animated">Automatiza ventas, soporte y operaciones con IA multicanal.</h1>
@@ -1495,8 +1508,257 @@
     </div>
   </footer>
 
-	  <script>
-	    document.getElementById('year').textContent = new Date().getFullYear();
+		  <script>
+		    document.getElementById('year').textContent = new Date().getFullYear();
+
+		    // Galaxia animada (solo en el hero) + parallax suave
+			    (() => {
+			      const header = document.getElementById('top');
+			      const canvas = document.getElementById('hero-galaxy-canvas');
+			      if (!header || !canvas) return;
+			      const title = header.querySelector('.hero .title');
+
+			      const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+			      if (!ctx) return;
+
+		      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+		      const finePointer = window.matchMedia('(pointer: fine)');
+		      const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+		      const lowEndDevice = saveData
+		        || (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4)
+		        || (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4);
+
+		      const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+		      const createSprite = (innerColor, midColor) => {
+		        const c = document.createElement('canvas');
+		        c.width = 64; c.height = 64;
+		        const sctx = c.getContext('2d');
+		        if (!sctx) return c;
+		        const g = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+		        g.addColorStop(0, innerColor);
+		        g.addColorStop(0.35, midColor);
+		        g.addColorStop(1, 'rgba(0,0,0,0)');
+		        sctx.fillStyle = g;
+		        sctx.fillRect(0, 0, 64, 64);
+		        return c;
+		      };
+
+		      const spriteCore = createSprite('rgba(245,247,251,1)', 'rgba(255,220,255,0.95)');
+		      const spriteCyan = createSprite('rgba(245,247,251,0.95)', 'rgba(122,240,255,0.95)');
+		      const spriteBlue = createSprite('rgba(245,247,251,0.85)', 'rgba(0,195,255,0.9)');
+
+		      const arms = 4;
+		      const tilt = 0.78;
+		      const tiltSin = Math.sin(tilt);
+		      const tiltCos = Math.cos(tilt);
+
+		      let dpr = Math.min(2, window.devicePixelRatio || 1);
+		      let width = 0;
+		      let height = 0;
+		      let centerX = 0;
+		      let centerY = 0;
+		      let maxRadius = 0;
+		      let stretchX = 2.8;
+		      let stretchY = 1.25;
+		      let particles = [];
+
+		      let rafId = 0;
+		      let lastFrameAt = 0;
+		      let headerVisible = true;
+
+		      let pointerX = 0.56;
+		      let pointerY = 0.42;
+
+			      const buildParticles = () => {
+			        const areaFactor = Math.sqrt(width * height) / 980;
+			        const stretchBoost = width >= height ? clamp(stretchX / 2.4, 1, 1.7) : 1;
+			        const baseCount = Math.round(2400 * areaFactor * stretchBoost);
+			        const density = (lowEndDevice ? 0.7 : 1);
+			        const count = clamp(Math.round(baseCount * density), lowEndDevice ? 700 : 1100, 3400);
+			        const thicknessMax = maxRadius * 0.16;
+
+		        particles = Array.from({ length: count }, () => {
+		          const radiusNorm = Math.pow(Math.random(), 1.7);
+		          const radius = radiusNorm * maxRadius;
+		          const arm = Math.floor(Math.random() * arms);
+		          const baseAngle = Math.random() * Math.PI * 2;
+		          const angleJitter = (Math.random() - 0.5) * 0.75;
+		          const thickness = (Math.random() - 0.5) * thicknessMax * (1 - radiusNorm * 0.85);
+		          const speed = (0.018 + (1 - radiusNorm) * 0.14) * (0.55 + Math.random() * 0.85);
+			          const size = (1.15 + (1 - radiusNorm) * 3.4) * (0.75 + Math.random() * 0.95);
+			          const alpha = 0.06 + (1 - radiusNorm) * 0.22;
+			          return { radiusNorm, radius, arm, baseAngle, angleJitter, thickness, speed, size, alpha };
+			        });
+			      };
+
+			      const resize = () => {
+			        dpr = Math.min(2, window.devicePixelRatio || 1);
+			        const rect = header.getBoundingClientRect();
+			        width = Math.max(1, Math.round(rect.width));
+			        height = Math.max(1, Math.round(rect.height));
+
+		        canvas.width = Math.round(width * dpr);
+		        canvas.height = Math.round(height * dpr);
+		        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+				        const desktop = width >= 980;
+				        const aspect = width / height;
+
+				        // Ancla la galaxia al bloque del título (zona izquierda), para que se perciba grande en horizontal.
+				        const titleRect = title ? title.getBoundingClientRect() : null;
+				        if (titleRect && titleRect.width > 0 && titleRect.height > 0) {
+				          const relLeft = titleRect.left - rect.left;
+				          const relTop = titleRect.top - rect.top;
+
+				          centerX = relLeft + titleRect.width * (desktop ? 0.38 : 0.5);
+				          centerY = relTop + titleRect.height * (desktop ? 0.52 : 0.56);
+
+				          const padX = clamp(titleRect.width * (desktop ? 0.34 : 0.26), desktop ? 140 : 90, desktop ? 300 : 220);
+				          const padY = clamp(titleRect.height * (desktop ? 0.62 : 0.68), desktop ? 85 : 70, desktop ? 210 : 180);
+				          const targetRX = titleRect.width * 0.5 + padX;
+				          const targetRY = titleRect.height * 0.5 + padY;
+
+				          // La inclinación reduce el alto aparente, así que damos un poco más de radio.
+				          maxRadius = clamp(targetRY * (desktop ? 1.18 : 1.12), desktop ? 180 : 140, height * (desktop ? 0.6 : 0.5));
+				          stretchY = desktop ? 1.26 : 1.14;
+				          stretchX = clamp((targetRX / maxRadius) * (desktop ? 1.08 : 1.02), desktop ? 2.8 : 2.0, desktop ? 5.2 : 3.8);
+				        } else {
+				          centerX = desktop ? (width * 0.27) : (width / 2);
+				          centerY = desktop ? (height * 0.42) : (height / 2);
+				          stretchX = aspect >= 1 ? clamp(aspect * 1.75, 2.6, 4.6) : 1.2;
+				          stretchY = aspect >= 1 ? 1.26 : 1.1;
+				          maxRadius = desktop ? (height * 0.32) : (Math.min(width, height) * 0.38);
+				        }
+				        buildParticles();
+				        drawFrame(performance.now());
+				      };
+
+		      const drawFrame = (timestamp) => {
+		        if (!width || !height) return;
+
+		        const time = timestamp * 0.001;
+		        const armStep = (Math.PI * 2) / arms;
+		        const cameraZ = maxRadius * 2.5;
+
+		        const parallaxX = (pointerX - 0.5) * 42;
+		        const parallaxY = (pointerY - 0.5) * 30;
+		        const originX = centerX + parallaxX;
+		        const originY = centerY + parallaxY;
+
+		        ctx.clearRect(0, 0, width, height);
+
+		        // glow elíptico para acompañar el estirado horizontal
+		        ctx.save();
+		        ctx.translate(originX, originY);
+		        ctx.scale(stretchX, stretchY);
+		        const bg = ctx.createRadialGradient(0, 0, 0, 0, 0, maxRadius * 1.18);
+		        bg.addColorStop(0, 'rgba(122,240,255,0.12)');
+		        bg.addColorStop(0.35, 'rgba(0,195,255,0.06)');
+		        bg.addColorStop(1, 'rgba(0,0,0,0)');
+		        ctx.fillStyle = bg;
+		        ctx.fillRect(-originX / stretchX, -originY / stretchY, width / stretchX, height / stretchY);
+		        ctx.restore();
+
+		        ctx.globalCompositeOperation = 'lighter';
+
+		        for (let i = 0; i < particles.length; i++) {
+		          const p = particles[i];
+		          const twist = (p.radius / maxRadius) * 3.0;
+		          const angle = p.baseAngle + time * p.speed + p.arm * armStep + twist + p.angleJitter;
+
+		          const x = p.radius * Math.cos(angle) * stretchX;
+		          const y = p.radius * Math.sin(angle) * stretchY;
+		          const z = p.thickness;
+
+		          const yTilted = y * tiltCos + z * tiltSin;
+		          const zTilted = -y * tiltSin + z * tiltCos;
+		          const persp = cameraZ / (cameraZ - zTilted);
+
+		          const sx = originX + x * persp;
+		          const sy = originY + yTilted * persp;
+		          if (sx < -140 || sx > width + 140 || sy < -140 || sy > height + 140) continue;
+
+		          const size = p.size * persp;
+			          const leftBoost = clamp(1.35 - (sx / width) * 0.62, 0.72, 1.35);
+			          const alpha = p.alpha * leftBoost * (0.86 + Math.sin((p.radiusNorm * 7 + time) * 0.9) * 0.14);
+			          const sprite = p.radiusNorm < 0.18 ? spriteCore : (p.radiusNorm < 0.6 ? spriteCyan : spriteBlue);
+			          ctx.globalAlpha = alpha;
+			          ctx.drawImage(sprite, sx - size * 0.5, sy - size * 0.5, size, size);
+			        }
+
+		        ctx.globalCompositeOperation = 'source-over';
+		        ctx.globalAlpha = 1;
+		      };
+
+		      const stop = () => {
+		        if (!rafId) return;
+		        cancelAnimationFrame(rafId);
+		        rafId = 0;
+		      };
+
+		      const loop = (timestamp) => {
+		        if (prefersReducedMotion.matches || document.hidden || !headerVisible) {
+		          stop();
+		          drawFrame(timestamp);
+		          return;
+		        }
+
+		        const targetFps = lowEndDevice ? 24 : 30;
+		        const minDelta = 1000 / targetFps;
+		        if (!lastFrameAt || timestamp - lastFrameAt >= minDelta) {
+		          lastFrameAt = timestamp;
+		          drawFrame(timestamp);
+		        }
+		        rafId = requestAnimationFrame(loop);
+		      };
+
+		      const start = () => {
+		        stop();
+		        lastFrameAt = 0;
+		        rafId = requestAnimationFrame(loop);
+		      };
+
+		      if (finePointer.matches) {
+		        let pointerRaf = 0;
+		        window.addEventListener('pointermove', (e) => {
+		          if (pointerRaf) return;
+		          const x = clamp(e.clientX / window.innerWidth, 0, 1);
+		          const y = clamp(e.clientY / window.innerHeight, 0, 1);
+		          pointerRaf = requestAnimationFrame(() => {
+		            pointerRaf = 0;
+		            pointerX = x;
+		            pointerY = y;
+		          });
+		        }, { passive: true });
+		      }
+
+		      const visObs = new IntersectionObserver((entries) => {
+		        headerVisible = entries.some(e => e.isIntersecting);
+		        if (!headerVisible) stop();
+		        else if (!prefersReducedMotion.matches) start();
+		      }, { threshold: 0.02 });
+		      visObs.observe(header);
+
+		      const handleMotion = () => {
+		        if (prefersReducedMotion.matches) {
+		          stop();
+		          drawFrame(performance.now());
+		        } else if (headerVisible && !document.hidden) {
+		          start();
+		        }
+		      };
+		      if (prefersReducedMotion.addEventListener) prefersReducedMotion.addEventListener('change', handleMotion);
+		      else if (prefersReducedMotion.addListener) prefersReducedMotion.addListener(handleMotion);
+		      document.addEventListener('visibilitychange', handleMotion);
+
+		      window.addEventListener('resize', resize, { passive: true });
+		      if ('ResizeObserver' in window) {
+		        const ro = new ResizeObserver(resize);
+		        ro.observe(header);
+		      }
+		      resize();
+		      if (!prefersReducedMotion.matches) start();
+		    })();
 
 		    // Scroll progress
 		    const progressBar = document.querySelector('.scroll-progress span');
