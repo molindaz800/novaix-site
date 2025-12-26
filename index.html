@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOVAIX · Agentes IA, Automatización y Voz</title>
+  <meta name="description" content="Agentes de IA y automatizacion para empresas: ventas, soporte y operaciones multicanal con integraciones reales.">
+  <title>NOVAIX · Agentes IA, Automatizacion y Voz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   <style>
     :root {
       --bg: #0b0c10;
+      --bg-2: #05080f;
       --panel: #0f141d;
       --panel-2: #101927;
       --accent: #00c3ff;
@@ -22,7 +24,9 @@
       --glow: 0 18px 60px rgba(0,195,255,0.25);
       --nav-h: 64px;
       --radius-xl: 18px;
+      --container: min(1200px, 92vw);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -39,12 +43,28 @@
     .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space: nowrap; border:0; }
     :focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; }
 
-	    .bg-ambient {
-	      position: fixed;
-	      inset: 0;
-	      z-index: 0;
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -100px;
+      background: #0b0f14;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      z-index: 200;
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(110px); }
+
+    .container { width: var(--container); margin: 0 auto; }
+
+    .bg-ambient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
       pointer-events: none;
-      opacity: 0.55;
+      opacity: 0.45;
       background:
         radial-gradient(900px 600px at var(--mx,12%) var(--my,10%), rgba(0,195,255,0.12), transparent 55%),
         radial-gradient(700px 520px at calc(100% - var(--mx,12%)) calc(var(--my,10%) + 10%), rgba(122,240,255,0.1), transparent 60%),
@@ -52,13 +72,13 @@
         repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 140px),
         repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 140px);
       mix-blend-mode: screen;
-	      transform: translateZ(0);
-	    }
+      transform: translateZ(0);
+    }
 
-	    .scroll-progress {
-	      position: fixed;
-	      top: 0;
-	      left: 0;
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
       right: 0;
       height: 3px;
       background: rgba(255,255,255,0.06);
@@ -74,126 +94,124 @@
     }
 
     body > header,
-    body > section,
-    body > footer {
-      position: relative;
-    }
+    body > main,
+    body > footer { position: relative; }
     body > header { z-index: 2; }
-    body > section, body > footer { z-index: 1; }
+    body > main, body > footer { z-index: 1; }
 
     header {
       position: relative;
-      padding: calc(var(--nav-h) + 56px) 6vw 90px;
+      padding: calc(var(--nav-h) + 56px) 0 90px;
       overflow: hidden;
-      background: radial-gradient(800px 600px at 65% 20%, rgba(0,195,255,0.16), transparent 55%), #05080f;
+      background: radial-gradient(800px 600px at 65% 20%, rgba(0,195,255,0.16), transparent 55%), var(--bg-2);
     }
-	    header::before {
-	      content: "";
-	      position: absolute;
-	      inset: 0;
-	      background: radial-gradient(840px 640px at 60% 38%, rgba(10, 80, 120, 0.45), transparent 60%);
-	      opacity: 0.5;
-	      pointer-events: none;
-	      filter: drop-shadow(0 0 48px rgba(0,195,255,0.25));
-	      mix-blend-mode: screen;
-	    }
-	    header::after {
-	      /* efecto agua: se actualiza con JS */
-	      content: "";
-	      position: absolute;
-	      inset: 0;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(840px 640px at 60% 38%, rgba(10, 80, 120, 0.45), transparent 60%);
+      opacity: 0.4;
+      pointer-events: none;
+      filter: drop-shadow(0 0 48px rgba(0,195,255,0.25));
+      mix-blend-mode: screen;
+    }
+    header::after {
+      /* efecto agua: se actualiza con JS */
+      content: "";
+      position: absolute;
+      inset: 0;
       background: radial-gradient(circle at var(--rx,50%) var(--ry,40%), rgba(0,195,255,0.18), transparent 28%),
                   radial-gradient(circle at calc(var(--rx,50%) + 10%) calc(var(--ry,40%) + 10%), rgba(122,240,255,0.08), transparent 24%);
       filter: blur(22px);
       opacity: 0.75;
       pointer-events: none;
       transition: background-position 0.12s ease;
-	      mix-blend-mode: screen;
-	    }
-	    /* Montaje: galaxia + planeta + texto (solo hero) */
-	    .hero-galaxy {
-	      position: absolute;
-	      inset: 0;
-	      z-index: 0;
-	      pointer-events: none;
-	      overflow: hidden;
-	      opacity: 0.95;
-	    }
-	    .hero-galaxy::after {
-	      content: "";
-	      position: absolute;
-	      inset: 0;
-	      background:
-	        radial-gradient(2600px 1200px at 30% 42%, rgba(0,0,0,0), rgba(5,8,15,0.46) 80%),
-	        linear-gradient(180deg, rgba(5,8,15,0.08), rgba(5,8,15,0.44));
-	      pointer-events: none;
-	    }
-	    .hero-galaxy__canvas {
-	      position: absolute;
-	      inset: 0;
-	      width: 100%;
-	      height: 100%;
-	      display: block;
-	      opacity: 0.92;
-	      mix-blend-mode: screen;
-	      filter: saturate(1.35) contrast(1.05);
-	      transform: translateZ(0);
-	    }
-		    .hero-galaxy__planet-wrap {
-		      position: absolute;
-		      right: 26%;
-		      top: -1%;
-		      width: clamp(480px, 54vw, 980px);
-		      opacity: 0.9;
-		      filter: drop-shadow(0 24px 80px rgba(0,195,255,0.22));
-		      mix-blend-mode: screen;
-		    }
-	    .hero-galaxy__planet {
-	      width: 100%;
-	      height: auto;
-	      display: block;
-	      animation: galaxy-float-planet 8s ease-in-out infinite;
-	      will-change: transform;
-	    }
-		    .hero-galaxy__text-wrap {
-		      position: absolute;
-		      left: 50%;
-		      transform: translateX(-50%);
-		      bottom: 0%;
-		      width: clamp(520px, 64vw, 1040px);
-		      opacity: 0.62;
-		      filter: drop-shadow(0 22px 70px rgba(0,195,255,0.16));
-		      mix-blend-mode: screen;
-		    }
-	    .hero-galaxy__text {
-	      width: 100%;
-	      height: auto;
-	      display: block;
-	      animation: galaxy-float-text 10s ease-in-out infinite;
-	      will-change: transform;
-	    }
-	    @keyframes galaxy-float-planet {
-	      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-	      50% { transform: translate3d(-14px, -10px, 0) rotate(1.1deg) scale(1.02); }
-	    }
-	    @keyframes galaxy-float-text {
-	      0%, 100% { transform: translate3d(0, 0, 0); }
-	      50% { transform: translate3d(10px, -8px, 0); }
-	    }
-	    .nav {
-	      position: fixed;
-	      top: 18px;
-	      left: 50%;
-	      transform: translateX(-50%);
-	      width: max-content;
-	      max-width: calc(100% - 28px);
-	      z-index: 80;
+      mix-blend-mode: screen;
+    }
 
-	      display: inline-flex;
-	      align-items: center;
-	      justify-content: flex-start;
-	      gap: 14px;
+    /* Montaje: galaxia + planeta + texto (solo hero) */
+    .hero-galaxy {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.95;
+    }
+    .hero-galaxy::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(2600px 1200px at 30% 42%, rgba(0,0,0,0), rgba(5,8,15,0.46) 80%),
+        linear-gradient(180deg, rgba(5,8,15,0.08), rgba(5,8,15,0.44));
+      pointer-events: none;
+    }
+    .hero-galaxy__canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0.92;
+      mix-blend-mode: screen;
+      filter: saturate(1.35) contrast(1.05);
+      transform: translateZ(0);
+    }
+    .hero-galaxy__planet-wrap {
+      position: absolute;
+      right: 26%;
+      top: -1%;
+      width: clamp(480px, 54vw, 980px);
+      opacity: 0.9;
+      filter: drop-shadow(0 24px 80px rgba(0,195,255,0.22));
+      mix-blend-mode: screen;
+    }
+    .hero-galaxy__planet {
+      width: 100%;
+      height: auto;
+      display: block;
+      animation: galaxy-float-planet 8s ease-in-out infinite;
+      will-change: transform;
+    }
+    .hero-galaxy__text-wrap {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0%;
+      width: clamp(520px, 64vw, 1040px);
+      opacity: 0.62;
+      filter: drop-shadow(0 22px 70px rgba(0,195,255,0.16));
+      mix-blend-mode: screen;
+    }
+    .hero-galaxy__text {
+      width: 100%;
+      height: auto;
+      display: block;
+      animation: galaxy-float-text 10s ease-in-out infinite;
+      will-change: transform;
+    }
+    @keyframes galaxy-float-planet {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+      50% { transform: translate3d(-14px, -10px, 0) rotate(1.1deg) scale(1.02); }
+    }
+    @keyframes galaxy-float-text {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(10px, -8px, 0); }
+    }
 
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      max-width: calc(100% - 28px);
+      z-index: 80;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 14px;
       height: var(--nav-h);
       padding: 10px 14px;
       border-radius: var(--radius-xl);
@@ -216,15 +234,16 @@
       justify-content: center;
     }
     .nav-toggle:hover { border-color: rgba(0,195,255,0.5); color: var(--accent); }
-	    .nav-links { display: flex; gap: 12px; flex: 0 0 auto; width: max-content; flex-wrap: nowrap; align-items: center; justify-content: flex-start; }
+    .nav-links { display: flex; gap: 12px; flex: 0 0 auto; width: max-content; flex-wrap: nowrap; align-items: center; justify-content: flex-start; }
     .nav-links a:not(.cta) { padding: 8px 12px; border-radius: 10px; color: var(--muted); border: 1px solid transparent; position: relative; overflow: hidden; }
     .nav-links a:not(.cta):hover { color: var(--accent); }
 
-	    .nav.nav--hidden {
-	      opacity: 0;
-	      pointer-events: none;
-	      transform: translateX(-50%) translateY(-120%);
-	    }
+    .nav.nav--hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(-120%);
+    }
+
     /* efecto link 10 (bajo, barra deslizante) */
     .cl-effect-10 {
       position: relative;
@@ -252,6 +271,7 @@
     .cl-effect-10:hover { color: var(--accent); }
     .cl-effect-10:hover span { transform: translateY(-2px); }
     .cl-effect-10:hover::after { transform: scaleX(1); }
+
     .cta {
       background: linear-gradient(120deg, var(--accent), var(--accent-2));
       color: #041320;
@@ -267,6 +287,7 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      border: none;
     }
     .cta::before {
       content: "";
@@ -286,9 +307,17 @@
       from { transform: translateX(-60%) rotate(25deg); }
       to { transform: translateX(60%) rotate(25deg); }
     }
-	    .cta.stroke { color: #f5f7fb; text-shadow: 0 0 3px #000, 0 0 8px #000; }
+    .cta.stroke { color: #f5f7fb; text-shadow: 0 0 3px #000, 0 0 8px #000; }
     .cta:active { transform: translateY(1px) scale(0.99); filter: brightness(0.96); }
-    .ghost { border: 1px solid var(--border); padding: 10px 14px; border-radius: 12px; color: var(--text); background: rgba(255,255,255,0.02); transition: transform .18s ease, border-color .18s ease, color .18s ease; cursor: pointer; }
+    .ghost {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+      transition: transform .18s ease, border-color .18s ease, color .18s ease;
+      cursor: pointer;
+    }
     .ghost:active { transform: translateY(1px) scale(0.99); }
 
     .hero {
@@ -302,7 +331,16 @@
       overflow: hidden;
     }
     .hero > * { position: relative; z-index: 2; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--accent); font-size: 0.9rem; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
     .title { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; margin: 12px 0; position: relative; }
     .title-animated {
       background: linear-gradient(90deg, #f5f7fb 0%, #7af0ff 40%, #f5f7fb 80%);
@@ -317,98 +355,87 @@
     }
     .subtitle { color: var(--muted); font-size: 1.05rem; max-width: 680px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-	    .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
-	    .mini-card { background: rgba(15, 20, 29, 0.72); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px; backdrop-filter: blur(10px); }
-	    .mini-card strong { font-size: 1.8rem; color: var(--accent); display: block; }
-	    .mini-card small { color: var(--muted); }
-	    .hero-video {
-	      --frame-radius: 18px;
-	      --screen-pad: 12px;
-	      position: relative;
-	      padding: var(--screen-pad);
-	      border: 1px solid transparent;
-	      border-radius: var(--frame-radius);
-	      overflow: hidden;
-	      background:
-	        linear-gradient(135deg, rgba(0,195,255,0.34), rgba(122,240,255,0.12) 40%, rgba(0,0,0,0) 78%) border-box,
-	        radial-gradient(600px 420px at 18% 12%, rgba(0,195,255,0.14), rgba(5,10,18,0.72) 65%) padding-box;
-	      box-shadow:
-	        0 30px 90px rgba(0,0,0,0.65),
-	        0 0 0 1px rgba(0,195,255,0.12) inset,
-	        var(--glow);
-	      isolation: isolate;
-	      transform-origin: 70% 55%;
-	      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
-	    }
-	    @media (hover: hover) and (pointer: fine) {
-	      .hero-video { transform: perspective(1400px) rotateY(-6deg) rotateX(1.5deg); }
-	      .hero-video:hover {
-	        transform: perspective(1400px) rotateY(-2deg) rotateX(0.8deg) translateY(-2px);
-	        box-shadow:
-	          0 36px 110px rgba(0,0,0,0.7),
-	          0 0 0 1px rgba(0,195,255,0.18) inset,
-	          0 0 60px rgba(0,195,255,0.18);
-	      }
-	    }
-	    .hero-video::before {
-	      content: "";
-	      position: absolute;
-	      inset: -26px;
-	      background: conic-gradient(from 180deg, rgba(0,195,255,0), rgba(0,195,255,0.55), rgba(122,240,255,0.35), rgba(0,195,255,0));
-	      filter: blur(24px);
-	      opacity: 0.72;
-	      transform-origin: 50% 50%;
-	      animation: spin 10s linear infinite;
-	      z-index: -1;
-	      pointer-events: none;
-	    }
-	    .hero-video video {
-	      width: 100%;
-	      height: 100%;
-	      display: block;
-	      object-fit: cover;
-	      mix-blend-mode: screen;
-	      border-radius: calc(var(--frame-radius) - var(--screen-pad));
-	      outline: 1px solid rgba(255,255,255,0.06);
-	      outline-offset: -1px;
-	    }
-	    .hero-video::after {
-	      content: "";
-	      position: absolute;
-	      inset: var(--screen-pad);
-	      border-radius: calc(var(--frame-radius) - var(--screen-pad));
-	      background:
-	        radial-gradient(1200px 520px at 20% 12%, rgba(255,255,255,0.10), transparent 45%),
-	        linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.62)),
-	        repeating-linear-gradient(180deg, rgba(122,240,255,0.045), rgba(122,240,255,0.045) 1px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 7px),
-	        linear-gradient(rgba(0,195,255,0.25) 0 0) 14px 14px / 26px 2px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.25) 0 0) 14px 14px / 2px 26px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.22) 0 0) calc(100% - 40px) 14px / 26px 2px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.22) 0 0) calc(100% - 16px) 14px / 2px 26px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.18) 0 0) 14px calc(100% - 16px) / 26px 2px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.18) 0 0) 14px calc(100% - 40px) / 2px 26px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.18) 0 0) calc(100% - 40px) calc(100% - 16px) / 26px 2px no-repeat,
-	        linear-gradient(rgba(0,195,255,0.18) 0 0) calc(100% - 16px) calc(100% - 40px) / 2px 26px no-repeat;
-	      opacity: 0.88;
-	      pointer-events: none;
-	    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-	    .hero-watermark {
-	      position: absolute;
-	      bottom: 0;
-	      left: 10%;
-      font-size: clamp(6rem, 24vw, 16rem);
-      letter-spacing: 0.2em;
-      font-weight: 900;
-      color: rgba(0,195,255,0.06);
-      text-transform: uppercase;
+    .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
+    .mini-card { background: rgba(15, 20, 29, 0.72); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 14px; backdrop-filter: blur(10px); }
+    .mini-card strong { font-size: 1.8rem; color: var(--accent); display: block; }
+    .mini-card small { color: var(--muted); }
+
+    .hero-video {
+      --frame-radius: 18px;
+      --screen-pad: 12px;
+      position: relative;
+      padding: var(--screen-pad);
+      border: 1px solid transparent;
+      border-radius: var(--frame-radius);
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(0,195,255,0.34), rgba(122,240,255,0.12) 40%, rgba(0,0,0,0) 78%) border-box,
+        radial-gradient(600px 420px at 18% 12%, rgba(0,195,255,0.14), rgba(5,10,18,0.72) 65%) padding-box;
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.65),
+        0 0 0 1px rgba(0,195,255,0.12) inset,
+        var(--glow);
+      isolation: isolate;
+      transform-origin: 70% 55%;
+      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .hero-video { transform: perspective(1400px) rotateY(-6deg) rotateX(1.5deg); }
+      .hero-video:hover {
+        transform: perspective(1400px) rotateY(-2deg) rotateX(0.8deg) translateY(-2px);
+        box-shadow:
+          0 36px 110px rgba(0,0,0,0.7),
+          0 0 0 1px rgba(0,195,255,0.18) inset,
+          0 0 60px rgba(0,195,255,0.18);
+      }
+    }
+    .hero-video::before {
+      content: "";
+      position: absolute;
+      inset: -26px;
+      background: conic-gradient(from 180deg, rgba(0,195,255,0), rgba(0,195,255,0.55), rgba(122,240,255,0.35), rgba(0,195,255,0));
+      filter: blur(24px);
+      opacity: 0.72;
+      transform-origin: 50% 50%;
+      animation: spin 10s linear infinite;
+      z-index: -1;
       pointer-events: none;
-      user-select: none;
-	      text-shadow: 0 0 30px rgba(0,195,255,0.18);
-	      z-index: 0;
-	    }
-	    /* Sustituido por texto.png en el montaje del hero */
-	    .hero-watermark { display: none; }
+    }
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      mix-blend-mode: screen;
+      border-radius: calc(var(--frame-radius) - var(--screen-pad));
+      outline: 1px solid rgba(255,255,255,0.06);
+      outline-offset: -1px;
+    }
+    .hero-video::after {
+      content: "";
+      position: absolute;
+      inset: var(--screen-pad);
+      border-radius: calc(var(--frame-radius) - var(--screen-pad));
+      background:
+        radial-gradient(1200px 520px at 20% 12%, rgba(255,255,255,0.10), transparent 45%),
+        linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.62)),
+        repeating-linear-gradient(180deg, rgba(122,240,255,0.045), rgba(122,240,255,0.045) 1px, rgba(0,0,0,0) 3px, rgba(0,0,0,0) 7px),
+        linear-gradient(rgba(0,195,255,0.25) 0 0) 14px 14px / 26px 2px no-repeat,
+        linear-gradient(rgba(0,195,255,0.25) 0 0) 14px 14px / 2px 26px no-repeat,
+        linear-gradient(rgba(0,195,255,0.22) 0 0) calc(100% - 40px) 14px / 26px 2px no-repeat,
+        linear-gradient(rgba(0,195,255,0.22) 0 0) calc(100% - 16px) 14px / 2px 26px no-repeat,
+        linear-gradient(rgba(0,195,255,0.18) 0 0) 14px calc(100% - 16px) / 26px 2px no-repeat,
+        linear-gradient(rgba(0,195,255,0.18) 0 0) 14px calc(100% - 40px) / 2px 26px no-repeat,
+        linear-gradient(rgba(0,195,255,0.18) 0 0) calc(100% - 40px) calc(100% - 16px) / 26px 2px no-repeat,
+        linear-gradient(rgba(0,195,255,0.18) 0 0) calc(100% - 16px) calc(100% - 40px) / 2px 26px no-repeat;
+      opacity: 0.88;
+      pointer-events: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Sustituido por texto.png en el montaje del hero */
+    .hero-watermark { display: none; }
+
     .card-highlight {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -422,8 +449,13 @@
     }
     .card-highlight:hover { transform: translateY(-3px); box-shadow: 0 18px 60px rgba(0,195,255,0.35); }
 
+    .trust-strip { margin-top: 18px; display: grid; gap: 10px; }
+    .trust-strip p { color: var(--muted); font-size: 0.95rem; }
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .trust-badges span { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); color: var(--text); font-weight: 600; font-size: 0.9rem; }
+
     section {
-      padding: 60px 6vw;
+      padding: 60px 0;
       border-top: 1px solid rgba(255,255,255,0.04);
       background: radial-gradient(720px 420px at 18% 0%, rgba(0,195,255,0.06), transparent 55%);
     }
@@ -531,7 +563,8 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    /* Órbita hero */
+
+    /* Orbita hero */
     .orbital-track {
       position: absolute;
       left: -60px;
@@ -566,7 +599,28 @@
       100% { opacity: 1; }
     }
 
-    /* Métricas */
+    /* Beneficios */
+    .benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .benefit-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--glow);
+      display: grid;
+      gap: 8px;
+    }
+    .benefit-card h3 { margin: 0; }
+    .benefit-card p { color: var(--muted); margin: 0; }
+
+    /* Casos */
+    .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .case-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--glow); display: grid; gap: 8px; }
+    .case-card strong { color: var(--accent); }
+    .case-card p { color: var(--muted); margin: 0; }
+    .case-actions { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Metricas */
     .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 14px; }
     .metric { background: linear-gradient(145deg, rgba(0,195,255,0.08), rgba(0,195,255,0.02)); border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: var(--glow); }
     .metric strong { font-size: 2rem; display: block; }
@@ -629,10 +683,10 @@
     .plan-card:hover { transform: translateY(-6px) rotateX(3deg) rotateY(-3deg) scale(1.02); border-color: rgba(0,195,255,0.6); box-shadow: 0 30px 70px rgba(0,195,255,0.25); }
     .plan-card:hover::after { opacity: 1; }
     .plan-card h3 { margin: 0; font-size: 1.6rem; letter-spacing: 0.01em; }
-	    .plan-card.featured::before {
-	      content: "El más elegido";
-	      position: absolute;
-	      top: 12px; right: 12px;
+    .plan-card.featured::before {
+      content: "El mas elegido";
+      position: absolute;
+      top: 12px; right: 12px;
       background: linear-gradient(120deg, var(--accent), var(--accent-2));
       color: #041320;
       padding: 6px 12px;
@@ -640,32 +694,32 @@
       font-size: 0.75rem;
       font-weight: 800;
       box-shadow: var(--glow);
-	    }
-	    .plan-card .cta { margin-top: auto; width: 100%; text-align: center; }
-	    .price { display: flex; flex-direction: column; gap: 6px; }
-	    .price-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-	    .price-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-	    .price strong { font-size: 1.8rem; color: var(--accent); }
-	    .price-was { color: rgba(245,247,251,0.7); font-size: 0.95rem; }
-	    .price-was del { color: rgba(245,247,251,0.55); text-decoration-thickness: 2px; text-decoration-color: rgba(255,77,77,0.9); }
-	    .offer-pill {
-	      padding: 6px 10px;
-	      border-radius: 999px;
-	      border: 1px solid rgba(255, 77, 77, 0.45);
-	      background: rgba(255,77,77,0.08);
-	      color: rgba(255, 150, 150, 0.95);
-	      font-weight: 800;
-	      letter-spacing: 0.02em;
-	      font-size: 0.78rem;
-	      text-transform: uppercase;
-	    }
-	    .feature-list { list-style: none; display: grid; gap: 6px; padding: 0; margin: 0; color: var(--muted); }
-	    .feature-list li::before { content: "• "; color: var(--accent); }
+    }
+    .plan-card .cta { margin-top: auto; width: 100%; text-align: center; }
+    .price { display: flex; flex-direction: column; gap: 6px; }
+    .price-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .price-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .price strong { font-size: 1.8rem; color: var(--accent); }
+    .price-was { color: rgba(245,247,251,0.7); font-size: 0.95rem; }
+    .price-was del { color: rgba(245,247,251,0.55); text-decoration-thickness: 2px; text-decoration-color: rgba(255,77,77,0.9); }
+    .offer-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 77, 77, 0.45);
+      background: rgba(255,77,77,0.08);
+      color: rgba(255, 150, 150, 0.95);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+    .feature-list { list-style: none; display: grid; gap: 6px; padding: 0; margin: 0; color: var(--muted); }
+    .feature-list li::before { content: "• "; color: var(--accent); }
     .pricing-disclaimer { margin-top: 16px; padding: 16px; border-radius: 12px; border: 1px solid rgba(255, 77, 77, 0.6); background: rgba(255,77,77,0.05); }
     .pricing-note { margin: 4px 0; color: var(--muted); }
     .importante { color: #ff6b6b; font-weight: 800; text-transform: uppercase; }
 
-    /* Quiénes somos */
+    /* Quienes somos */
     .quienes {
       position: relative;
       display: grid;
@@ -729,12 +783,6 @@
     #faq .section-lead { text-align: center; margin: 0 auto 10px; }
     #faq .faq-wrap { gap: 10px; }
 
-    /* Contacto */
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-    .contact-form { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
-    .contact-form input, .contact-form textarea { width: 100%; margin-top: 4px; padding: 10px; border-radius: 10px; border: 1px solid var(--border); background: #0a0f17; color: var(--text); }
-    .contact-form textarea { min-height: 120px; }
-
     /* Demo Calendario */
     .demo { display: block; }
     .demo-panel {
@@ -760,16 +808,6 @@
       padding: 0;
       border-right: none;
     }
-    .calendar-card .ribbon {
-      position: absolute;
-      top: 12px; right: -60px;
-      transform: rotate(45deg);
-      background: #4b5563;
-      color: white;
-      padding: 6px 60px;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-    }
     .calendar-left {
       padding: 26px;
       display: flex;
@@ -788,8 +826,9 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      padding: 18px;
+      padding: 24px 18px;
       background: transparent;
+      overflow: visible;
     }
     .demo-help img { width: 100%; max-width: 520px; border-radius: 14px; object-fit: contain; filter: drop-shadow(0 10px 40px rgba(0,195,255,0.2)); }
     .help-text {
@@ -799,8 +838,9 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0;
-      transform: translateX(-120%);
-      white-space: nowrap;
+      transform: translateX(-60px);
+      text-align: center;
+      max-width: 92%;
     }
     .help-text.visible { animation: help-slide 0.9s ease forwards; }
     @keyframes help-slide {
@@ -820,11 +860,11 @@
       transition: opacity .25s ease;
       z-index: 160;
     }
-	    .calendly-modal.open { opacity: 1; pointer-events: auto; }
-	    .calendly-frame {
-	      width: min(960px, 96vw);
-	      height: min(760px, 90vh);
-	      background: #0a0f17;
+    .calendly-modal.open { opacity: 1; pointer-events: auto; }
+    .calendly-frame {
+      width: min(960px, 96vw);
+      height: min(760px, 90vh);
+      background: #0a0f17;
       border: 1px solid var(--border);
       border-radius: 18px;
       box-shadow: 0 30px 80px rgba(0,0,0,0.75);
@@ -832,35 +872,35 @@
       overflow: hidden;
       padding: 8px;
     }
-	    .legal-modal .calendly-frame {
-	      height: min(820px, 92vh);
-	      overflow: auto;
-	    }
+    .legal-modal .calendly-frame {
+      height: min(820px, 92vh);
+      overflow: auto;
+    }
 
-	    /* Legal modal: efecto "3D Slit" (Codrops ModalWindowEffects) */
-	    .legal-modal { -webkit-perspective: 1300px; perspective: 1300px; }
-	    .legal-modal .calendly-frame {
-	      -webkit-transform-style: preserve-3d;
-	      transform-style: preserve-3d;
-	      -webkit-backface-visibility: hidden;
-	      backface-visibility: hidden;
-	      -webkit-transform: translateZ(-3000px) rotateY(90deg);
-	      transform: translateZ(-3000px) rotateY(90deg);
-	      opacity: 0;
-	    }
-	    .legal-modal.open .calendly-frame {
-	      -webkit-animation: slit .7s forwards ease-out;
-	      animation: slit .7s forwards ease-out;
-	    }
+    /* Legal modal: efecto "3D Slit" (Codrops ModalWindowEffects) */
+    .legal-modal { -webkit-perspective: 1300px; perspective: 1300px; }
+    .legal-modal .calendly-frame {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translateZ(-3000px) rotateY(90deg);
+      transform: translateZ(-3000px) rotateY(90deg);
+      opacity: 0;
+    }
+    .legal-modal.open .calendly-frame {
+      -webkit-animation: slit .7s forwards ease-out;
+      animation: slit .7s forwards ease-out;
+    }
 
-	    @-webkit-keyframes slit {
-	      50% { -webkit-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -webkit-animation-timing-function: ease-out; }
-	      100% { -webkit-transform: translateZ(0) rotateY(0deg); opacity: 1; }
-	    }
-	    @keyframes slit {
-	      50% { transform: translateZ(-250px) rotateY(89deg); opacity: .5; animation-timing-function: ease-out; }
-	      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
-	    }
+    @-webkit-keyframes slit {
+      50% { -webkit-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -webkit-animation-timing-function: ease-out; }
+      100% { -webkit-transform: translateZ(0) rotateY(0deg); opacity: 1; }
+    }
+    @keyframes slit {
+      50% { transform: translateZ(-250px) rotateY(89deg); opacity: .5; animation-timing-function: ease-out; }
+      100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
+    }
     .calendly-close {
       position: absolute;
       top: 10px;
@@ -908,17 +948,23 @@
     .calendar-left h4 { margin: 0; font-size: 1.3rem; }
     .calendar-left .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); font-weight: 600; color: var(--text); }
     .calendar-left, .calendar-left p, .calendar-left h4 { color: var(--text); }
-    .calendar-right { padding: 0; display: flex; flex-direction: column; gap: 14px; color: var(--text); }
-    .calendar-header { display: flex; justify-content: space-between; align-items: center; }
-    .calendar-header button { border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; background: rgba(255,255,255,0.08); color: var(--text); cursor: pointer; }
-    .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
-    .day { padding: 12px; text-align: center; border-radius: 14px; background: rgba(255,255,255,0.06); cursor: pointer; border: 1px solid transparent; color: var(--text); }
-    .day.active { background: linear-gradient(135deg, rgba(0,195,255,0.25), rgba(122,240,255,0.2)); color: #041320; font-weight: 700; border-color: rgba(0,195,255,0.6); box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
-    .day:hover { background: rgba(0,195,255,0.18); border-color: rgba(0,195,255,0.4); }
 
-    .demo-form { display: none; }
+    /* CTA strip */
+    .cta-strip {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,195,255,0.35);
+      background: rgba(0,195,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-strip p { margin: 0; color: var(--muted); }
 
-    /* Chat flotante (versión funcional original) */
+    /* Chat flotante (version funcional original) */
     .chat-fab {
       position: fixed; bottom: 22px; right: 22px;
       width: 60px; height: 60px; border-radius: 20px;
@@ -1036,7 +1082,7 @@
     }
 
     footer {
-      padding: 32px 6vw;
+      padding: 32px 0;
       text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
@@ -1066,17 +1112,16 @@
     }
 
     /* Responsive */
-	    @media (max-width: 900px) {
-	      header { padding: calc(var(--nav-h) + 44px) 5vw 70px; }
-	      .hero { grid-template-columns: 1fr; }
-		      .hero-watermark { left: 6%; font-size: clamp(5rem, 30vw, 12rem); }
-		      .hero-galaxy__canvas { opacity: 0.7; }
-		      .hero-galaxy__planet-wrap { right: -2%; top: 34%; width: clamp(280px, 84vw, 520px); opacity: 0.72; }
-		      .hero-galaxy__text-wrap { left: 50%; transform: translateX(-50%); bottom: -10%; width: min(680px, 92vw); opacity: 0.45; }
-	      .nav {
-	        top: 12px;
-	        width: calc(100% - 24px);
-	        height: auto;
+    @media (max-width: 900px) {
+      header { padding: calc(var(--nav-h) + 44px) 0 70px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-galaxy__canvas { opacity: 0.7; }
+      .hero-galaxy__planet-wrap { right: -2%; top: 34%; width: clamp(280px, 84vw, 520px); opacity: 0.72; }
+      .hero-galaxy__text-wrap { left: 50%; transform: translateX(-50%); bottom: -10%; width: min(680px, 92vw); opacity: 0.45; }
+      .nav {
+        top: 12px;
+        width: calc(100% - 24px);
+        height: auto;
         padding: 10px 12px;
         align-items: flex-start;
         flex-wrap: wrap;
@@ -1101,7 +1146,6 @@
       .calendar-card { grid-template-columns: 1fr; }
       .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
       .calendar-left img.banner-img { height: 220px; object-fit: contain; }
-      .demo-form { grid-template-columns: 1fr; }
       .chatbox { width: 94vw; right: 10px; height: 70vh; }
       .chatbox--full { width: 96vw; height: 78vh; }
       .demo-panel { grid-template-columns: 1fr; }
@@ -1114,387 +1158,473 @@
       .carousel-arrows button { width: 34px; height: 34px; }
     }
 
-	    @media (prefers-reduced-motion: reduce) {
-	      html { scroll-behavior: auto; }
-	      .title-animated { animation: none; background-position: 50% 50%; }
-	      .cta:hover::before { animation: none; }
-	      .hero-video::before { animation: none; }
-	      .hero-galaxy__planet, .hero-galaxy__text { animation: none; transform: none; }
-	      .integrations-track { animation: none; }
-	      .orbital-dot, .orbital-track { animation: none; }
-	      .carousel-track { transition: none; }
-	      .legal-modal .calendly-frame { animation: none !important; transform: none !important; opacity: 1 !important; }
-	      .reveal { transition: none; opacity: 1; transform: none; filter: none; }
-	    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .title-animated { animation: none; background-position: 50% 50%; }
+      .cta:hover::before { animation: none; }
+      .hero-video::before { animation: none; }
+      .hero-galaxy__planet, .hero-galaxy__text { animation: none; transform: none; }
+      .integrations-track { animation: none; }
+      .orbital-dot, .orbital-track { animation: none; }
+      .carousel-track { transition: none; }
+      .legal-modal .calendly-frame { animation: none !important; transform: none !important; opacity: 1 !important; }
+      .reveal { transition: none; opacity: 1; transform: none; filter: none; }
+    }
   </style>
 </head>
-		<body>
-		  <div class="bg-ambient" aria-hidden="true"></div>
-		  <div class="scroll-progress" aria-hidden="true"><span></span></div>
-		  <header id="top">
-	    <nav class="nav" aria-label="Navegación principal">
-      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="bg-ambient" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header id="top">
+    <nav class="nav" aria-label="Navegacion principal">
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
       <div class="nav-links" id="nav-links">
         <a class="cl-effect-10" data-hover="Servicios" href="#servicios"><span>Servicios</span></a>
+        <a class="cl-effect-10" data-hover="Beneficios" href="#beneficios"><span>Beneficios</span></a>
+        <a class="cl-effect-10" data-hover="Casos" href="#casos"><span>Casos</span></a>
         <a class="cl-effect-10" data-hover="Planes" href="#planes"><span>Planes</span></a>
-        <a class="cl-effect-10" data-hover="Quiénes somos" href="#quienes"><span>Quiénes somos</span></a>
+        <a class="cl-effect-10" data-hover="Quienes somos" href="#quienes"><span>Quienes somos</span></a>
         <a class="cl-effect-10" data-hover="Contacto" href="#demo"><span>Contacto</span></a>
         <a class="cl-effect-10 legal-open" data-hover="Legal" href="#legal"><span>Legal</span></a>
-        <a class="cta stroke cl-effect-20" href="#demo" data-calendly-open style="color:#f5f7fb;"><span>Agendar cita</span></a>
+        <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span>Agenda una demo</span></button>
       </div>
-		    </nav>
-		    <div class="hero-galaxy" aria-hidden="true">
-		      <canvas id="hero-galaxy-canvas" class="hero-galaxy__canvas"></canvas>
-		      <div class="hero-galaxy__planet-wrap">
-		        <img class="hero-galaxy__planet" src="planeta.png" alt="" decoding="async" />
-		      </div>
-		      <div class="hero-galaxy__text-wrap">
-		        <img class="hero-galaxy__text" src="texto.png" alt="" decoding="async" />
-		      </div>
-		    </div>
-		    <div class="hero">
+    </nav>
+
+    <div class="hero-galaxy" aria-hidden="true">
+      <canvas id="hero-galaxy-canvas" class="hero-galaxy__canvas"></canvas>
+      <div class="hero-galaxy__planet-wrap">
+        <img class="hero-galaxy__planet" src="planeta.png" alt="" decoding="async" loading="lazy">
+      </div>
+      <div class="hero-galaxy__text-wrap">
+        <img class="hero-galaxy__text" src="texto.png" alt="" decoding="async" loading="lazy">
+      </div>
+    </div>
+
+    <div class="container hero" id="contenido">
       <div>
-        <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Agentes de IA + Automatización</span>
-        <h1 class="title title-animated">Automatiza ventas, soporte y operaciones con IA multicanal.</h1>
-        <p class="subtitle">Bots en WhatsApp, web y CRM que responden, reservan, resumen tickets y notifican a tu equipo. Integraciones listas con HubSpot, Zoho, Airtable, Notion y n8n.</p>
+        <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> IA aplicada a ventas, soporte y operaciones</span>
+        <h1 class="title title-animated">Automatiza procesos clave con agentes de IA listos para generar clientes.</h1>
+        <p class="subtitle">Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo cuando importa. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n.</p>
         <div class="hero-actions">
-          <a class="cta stroke cl-effect-20" href="#demo" data-calendly-open style="color:#f5f7fb;"><span>Agendar cita</span></a>
+          <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span>Agenda una demo</span></button>
           <a class="ghost cl-effect-10" data-hover="Ver servicios" href="#servicios"><span>Ver servicios</span></a>
         </div>
-        <div class="hero-cards">
+        <div class="hero-cards" aria-label="Resultados promedio">
           <div class="mini-card"><strong data-counter="92">0%</strong><small>Consultas resueltas sin agentes humanos.</small></div>
           <div class="mini-card"><strong data-counter="70">0%</strong><small>Back-office automatizado en clientes Pro.</small></div>
-          <div class="mini-card"><strong>2 semanas</strong><small>Despliegue medio a producción.</small></div>
+          <div class="mini-card"><strong>2 semanas</strong><small>Tiempo medio de despliegue.</small></div>
+        </div>
+        <div class="trust-strip" aria-label="Prueba social">
+          <p>Empresas que buscan automatizar confian en nuestro enfoque.</p>
+          <div class="trust-badges">
+            <span>Salud</span>
+            <span>Legal</span>
+            <span>Retail</span>
+            <span>SaaS</span>
+            <span>Logistica</span>
+          </div>
         </div>
       </div>
-      <div class="hero-video" aria-label="Demo video NOVAIX">
-        <video src="novaix.mp4" autoplay muted loop playsinline></video>
+      <div class="hero-video" aria-label="Demo en video de NOVAIX">
+        <video src="novaix.mp4" autoplay muted loop playsinline preload="metadata" poster="image.png"></video>
       </div>
     </div>
-    <div class="hero-watermark" aria-hidden="true">NOVAIX</div>
   </header>
 
-  <section id="servicios">
-    <h2 class="section-title">Servicios</h2>
-    <p class="section-lead">Diseñamos, desplegamos y optimizamos agentes de IA listos para vender, atender y ejecutar tareas reales en tus sistemas.</p>
-    <div class="carousel" id="carousel">
-      <div class="carousel-arrows">
-        <button id="carousel-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-        <button id="carousel-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
-      </div>
-      <div class="carousel-track">
-        <div class="slide">
-          <div class="service-block">
-            <div class="icon-badge"><i class="fa-solid fa-comments"></i></div>
-            <h3>Bots multicanal</h3>
-            <p>WhatsApp, webchat, Instagram y Messenger. Captura leads, agenda citas y responde FAQs con tono de tu marca.</p>
-          </div>
-          <div class="service-block">
-            <div class="icon-badge"><i class="fa-solid fa-diagram-project"></i></div>
-            <h3>Automatización n8n</h3>
-            <p>Reservas, pedidos, seguimiento y tareas. Conectado a HubSpot, Zoho, Airtable, Notion y Google Workspace.</p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="service-block">
-            <div class="icon-badge"><i class="fa-solid fa-file-circle-check"></i></div>
-            <h3>Lectura avanzada</h3>
-            <p>RAG con PDFs, imágenes y documentos. Resúmenes automáticos de tickets y conversaciones para tu equipo.</p>
-          </div>
-          <div class="service-block">
-            <div class="icon-badge"><i class="fa-solid fa-phone-volume"></i></div>
-            <h3>Voz y llamadas IA</h3>
-            <p>Llamadas entrantes/salientes para soporte, reservas o cualificación. Reportes y avisos en tiempo real.</p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="service-block">
-            <div class="icon-badge"><i class="fa-solid fa-chart-line"></i></div>
-            <h3>Entrenamiento continuo</h3>
-            <p>Reentrenos mensuales, revisión de prompts y KPIs. Asistencia VIP en picos de demanda.</p>
-          </div>
-          <div class="service-block">
-            <div class="icon-badge"><i class="fa-solid fa-rocket"></i></div>
-            <h3>Onboarding guiado</h3>
-            <p>Plan de arranque en 3 semanas, con dashboards y métricas clave desde el día uno.</p>
-          </div>
+  <main>
+    <section id="beneficios" aria-labelledby="beneficios-title">
+      <div class="container">
+        <h2 class="section-title" id="beneficios-title">Beneficios directos</h2>
+        <p class="section-lead">La IA no es un experimento: es una palanca clara para convertir visitas en oportunidades y reducir carga operativa.</p>
+        <div class="benefits">
+          <article class="benefit-card">
+            <h3>Captura inmediata</h3>
+            <p>Respuestas en segundos en web y WhatsApp para mejorar conversion en el primer contacto.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Calificacion inteligente</h3>
+            <p>Preguntas guiadas que entregan leads listos y reducen hasta 40% el tiempo comercial.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Escala sin friccion</h3>
+            <p>Atiende picos de demanda sin aumentar plantilla ni sacrificar calidad.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Visibilidad real</h3>
+            <p>Indicadores de conversion y tiempos para recortar ciclos operativos hasta 30%.</p>
+          </article>
         </div>
       </div>
-      <div class="carousel-nav" id="carousel-dots"></div>
-    </div>
-  </section>
+    </section>
 
-  <section id="integraciones">
-    <h2 class="section-title">Integraciones principales</h2>
-    <p class="section-lead">Conectamos con tus herramientas favoritas.</p>
-    <div class="integrations">
-      <div class="integrations-track" id="integrations-track">
-        <div class="integration-item"><i class="fa-brands fa-whatsapp"></i> WhatsApp</div>
-        <div class="integration-item"><i class="fa-brands fa-telegram"></i> Telegram</div>
-        <div class="integration-item"><i class="fa-regular fa-calendar"></i> Google Calendar</div>
-        <div class="integration-item"><i class="fa-solid fa-table"></i> Google Sheets</div>
-        <div class="integration-item"><i class="fa-solid fa-database"></i> PostgreSQL</div>
-        <div class="integration-item"><i class="fa-solid fa-database"></i> MySQL</div>
-        <div class="integration-item"><i class="fa-solid fa-layer-group"></i> Airtable</div>
-        <div class="integration-item"><i class="fa-solid fa-clipboard"></i> Notion</div>
-        <div class="integration-item"><i class="fa-solid fa-heart"></i> Holded</div>
-        <div class="integration-item"><i class="fa-brands fa-hubspot"></i> HubSpot</div>
-        <div class="integration-item"><i class="fa-solid fa-rectangle-ad"></i> Zoho</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="metricas">
-    <h2 class="section-title">Resultados</h2>
-    <p class="section-lead">Resultados típicos en proyectos similares (pueden variar según sector, volumen y canales).</p>
-    <div class="metrics">
-      <div class="metric"><strong data-counter="80">0%</strong><span>Productividad de equipo</span></div>
-      <div class="metric"><strong data-counter="95">0%</strong><span>Precisión en respuestas</span></div>
-      <div class="metric"><strong data-counter="60">0%</strong><span>Reducción de tickets repetitivos</span></div>
-      <div class="metric"><strong data-counter="40">0%</strong><span>Ahorro de tiempo en back-office</span></div>
-    </div>
-  </section>
-
-  <section id="aplicaciones">
-    <h2 class="section-title">Aplicaciones reales</h2>
-    <p class="section-lead">Casos típicos donde desplegamos IA y automatización.</p>
-    <div class="usecases">
-      <article class="usecase-card">
-        <div class="usecase-icon"><i class="fa-solid fa-notes-medical"></i></div>
-        <h3>Salud</h3>
-        <p>Reservas, recordatorios y triaje de pacientes 24/7. Reduce ausencias y llamadas perdidas.</p>
-      </article>
-      <article class="usecase-card">
-        <div class="usecase-icon"><i class="fa-solid fa-gavel"></i></div>
-        <h3>Legal</h3>
-        <p>Filtrado inicial de casos, recogida de datos clave y derivación al abogado adecuado.</p>
-      </article>
-      <article class="usecase-card">
-        <div class="usecase-icon"><i class="fa-solid fa-scissors"></i></div>
-        <h3>Estética & Belleza</h3>
-        <p>Agenda automática en web/WhatsApp, gestión de precios y tratamientos sin colas.</p>
-      </article>
-      <article class="usecase-card">
-        <div class="usecase-icon"><i class="fa-solid fa-utensils"></i></div>
-        <h3>Restaurantes</h3>
-        <p>Reservas, pedidos sencillos y respuestas instantáneas en horas punta.</p>
-      </article>
-      <article class="usecase-card">
-        <div class="usecase-icon"><i class="fa-solid fa-house"></i></div>
-        <h3>Inmobiliaria</h3>
-        <p>Captura leads, cualifica y agenda visitas. Información inmediata de inmuebles.</p>
-      </article>
-      <article class="usecase-card">
-        <div class="usecase-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-        <h3>eCommerce</h3>
-        <p>Asistencia en compra, abandono de carrito y soporte postventa con integraciones a CRM.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="planes">
-    <h2 class="section-title">Planes a tu medida</h2>
-    <p class="section-lead">Precios sin IVA. Ajustamos por volumen e integraciones.</p>
-    <div class="plans">
-	      <article class="plan-card">
-	        <h3>Plan Básico</h3>
-	        <span class="tier">Inicio rápido · Pequeños negocios</span>
-	        <div class="price">
-	          <div class="price-main"><small>Desde</small><strong>149€</strong><small>/mes · SIN IVA</small></div>
-	          <div class="price-meta"><span class="offer-pill">Oferta temporal</span></div>
-	        </div>
-	        <p>Chatbot esencial para arrancar con IA.</p>
-	        <ul class="feature-list">
-	          <li>Chatbot IA 24/7 para web, WhatsApp o Instagram (1 canal)</li>
-          <li>Respuestas inteligentes a FAQs básicas (horarios, precios, servicios)</li>
-          <li>Captura de leads sencilla (nombre, teléfono, email)</li>
-          <li>Panel básico de actividad</li>
-          <li>Hasta 500 interacciones al mes</li>
-          <li>Soporte por email</li>
-          <li>1 idioma</li>
-        </ul>
-        <a class="cta" href="#demo" style="text-align:center;">Solicitar Información</a>
-      </article>
-
-	      <article class="plan-card featured" style="border-color: rgba(0,195,255,0.5); box-shadow: var(--glow);">
-	        <h3>Plan Profesional</h3>
-	        <span class="tier">Automatización 40–70% back-office</span>
-	        <div class="price">
-	          <div class="price-main"><small>Desde</small><strong>249€</strong><small>/mes · SIN IVA</small></div>
-	          <div class="price-meta"><span class="offer-pill">Oferta temporal</span></div>
-	        </div>
-	        <p>Automatización real con n8n y multicanal.</p>
-	        <ul class="feature-list">
-	          <li>Todo lo del Plan Básico</li>
-          <li>3 canales integrados (web + WhatsApp + Instagram o Facebook)</li>
-          <li>Integración CRM (HubSpot, Zoho, Airtable, Notion…)</li>
-          <li>Automatización real mediante n8n: reservas, pedidos, recordatorios, pagos</li>
-          <li>Lectura automática de PDFs, imágenes y documentos</li>
-          <li>2.000 interacciones/mes</li>
-          <li>Bot multi-idioma (hasta 3 idiomas)</li>
-          <li>Notificaciones automáticas por email/Telegram</li>
-          <li>Entrenamiento mensual del bot</li>
-          <li>Soporte prioritario</li>
-        </ul>
-        <a class="cta" href="#demo" style="text-align:center;">Solicitar Información</a>
-      </article>
-
-	      <article class="plan-card">
-	        <h3>Plan Avanzado</h3>
-	        <span class="tier">Enterprise ligero · Cerebro operativo</span>
-	        <div class="price">
-	          <div class="price-main"><small>Desde</small><strong>449€</strong><small>/mes · SIN IVA</small></div>
-	          <div class="price-meta"><span class="offer-pill">Oferta temporal</span></div>
-	        </div>
-	        <p>IA integral con workflows complejos y voz.</p>
-	        <ul class="feature-list">
-	          <li>Todo lo del Profesional</li>
-          <li>Interacciones ilimitadas</li>
-          <li>Múltiples agentes especializados (ventas, soporte, marketing, comercial)</li>
-          <li>Automatización avanzada con n8n (workflows complejos + integraciones profundas)</li>
-          <li>Integraciones personalizadas con APIs propias del cliente</li>
-          <li>Llamadas telefónicas automáticas con IA (entrada y salida)</li>
-          <li>Lectura avanzada de PDFs, emails, facturas, documentos complejos</li>
-          <li>Memoria larga con Pinecone</li>
-          <li>IA multimodal (imagen, voz, video)</li>
-          <li>Automatización contable y pipeline comercial</li>
-          <li>Reentrenamiento continuo (mensual)</li>
-          <li>Reportes avanzados + métricas predictivas</li>
-          <li>Soporte VIP 24/7 garantizado</li>
-          <li>Asistencia en campañas o picos de demanda</li>
-        </ul>
-        <a class="cta" href="#demo" style="text-align:center;">Solicitar Información</a>
-      </article>
-    </div>
-    <div class="pricing-disclaimer">
-      <p class="pricing-note"><strong class="importante">Importante</strong><br>Los planes cubren el <strong>mantenimiento mensual del asistente</strong> (uso, soporte y mejora continua).</p>
-      <p class="pricing-note">El <strong>diseño y desarrollo inicial</strong> se presupuesta aparte tras revisar tu negocio, canales y procesos.</p>
-      <p class="pricing-note">Según la complejidad, cerramos un presupuesto de puesta en marcha y, aprobado, el asistente pasa a la cuota mensual del plan elegido. Precios sin IVA.</p>
-    </div>
-  </section>
-
-  <section id="quienes">
-    <h2 class="section-title">Quiénes somos</h2>
-    <p class="section-lead">Equipo especializado en IA aplicada a operaciones, soporte y ventas.</p>
-    <div class="quienes">
-      <div class="quienes-left" aria-hidden="true"></div>
-      <div class="quienes-content">
-        <h3>Nuestro enfoque</h3>
-        <p>Diseñamos asistentes conversacionales y flujos de automatización que reducen la carga operativa y aumentan conversión. Trabajamos con n8n, RAG y modelos de voz para cubrir canales digitales y teléfono.</p>
-        <p>Integramos con tus sistemas (CRM, ERP, calendarios) y mantenemos el modelo actualizado con tu contenido.</p>
-        <div class="quienes-badges">
-          <span class="q-badge">RAG + Voz</span>
-          <span class="q-badge">n8n avanzado</span>
-          <span class="q-badge">Multicanal</span>
-          <span class="q-badge">Integraciones API</span>
-        </div>
-        <div class="quienes-text">
-          <p>
-            En <strong>NOVAIX</strong> somos una empresa tecnológica especializada en <strong>soluciones de Inteligencia Artificial y automatización</strong> para negocios y profesionales
-            que quieren dar un salto real en su manera de trabajar.
-          </p>
-          <p>
-            Nacimos con la visión de <strong>hacer accesible la IA a cualquier empresa</strong>, sin importar su tamaño o sector, transformando la automatización en una herramienta cercana, práctica y rentable,
-            con resultados medibles en el día a día.
-          </p>
-          <p>
-            <strong>Nuestro equipo combina experiencia en tecnología, diseño, estrategia empresarial y comunicación</strong>. Esto nos permite ofrecer soluciones integrales que van más allá del simple desarrollo técnico. Acompañamos a cada cliente desde la idea hasta la puesta en marcha,
-            asegurando que cada proyecto refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
-          </p>
-          <p>
-            En <strong>NOVAIX</strong> creemos en la innovación con propósito: una tecnología ética, útil y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir relaciones duraderas basadas en la confianza,
-            la transparencia y la excelencia en cada servicio que ofrecemos.
-          </p>
+    <section id="servicios" aria-labelledby="servicios-title">
+      <div class="container">
+        <h2 class="section-title" id="servicios-title">Servicios</h2>
+        <p class="section-lead">Diseñamos, desplegamos y optimizamos agentes de IA listos para vender, atender y ejecutar tareas reales en tus sistemas.</p>
+        <div class="carousel" id="carousel" aria-roledescription="carrusel">
+          <div class="carousel-arrows">
+            <button id="carousel-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="carousel-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <div class="carousel-track">
+            <div class="slide" role="group" aria-roledescription="slide" aria-label="1 de 3">
+              <div class="service-block">
+                <div class="icon-badge"><i class="fa-solid fa-comments"></i></div>
+                <h3>Bots multicanal</h3>
+                <p>WhatsApp, webchat, Instagram y Messenger. Captura leads, agenda citas y responde FAQs con tono de tu marca.</p>
+              </div>
+              <div class="service-block">
+                <div class="icon-badge"><i class="fa-solid fa-diagram-project"></i></div>
+                <h3>Automatizacion n8n</h3>
+                <p>Reservas, pedidos, seguimiento y tareas. Conectado a HubSpot, Zoho, Airtable, Notion y Google Workspace.</p>
+              </div>
+            </div>
+            <div class="slide" role="group" aria-roledescription="slide" aria-label="2 de 3">
+              <div class="service-block">
+                <div class="icon-badge"><i class="fa-solid fa-file-circle-check"></i></div>
+                <h3>Lectura avanzada</h3>
+                <p>RAG con PDFs, imagenes y documentos. Resumenes automaticos de tickets y conversaciones para tu equipo.</p>
+              </div>
+              <div class="service-block">
+                <div class="icon-badge"><i class="fa-solid fa-phone-volume"></i></div>
+                <h3>Voz y llamadas IA</h3>
+                <p>Llamadas entrantes/salientes para soporte, reservas o cualificacion. Reportes y avisos en tiempo real.</p>
+              </div>
+            </div>
+            <div class="slide" role="group" aria-roledescription="slide" aria-label="3 de 3">
+              <div class="service-block">
+                <div class="icon-badge"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Entrenamiento continuo</h3>
+                <p>Reentrenos mensuales, revision de prompts y KPIs. Asistencia VIP en picos de demanda.</p>
+              </div>
+              <div class="service-block">
+                <div class="icon-badge"><i class="fa-solid fa-rocket"></i></div>
+                <h3>Onboarding guiado</h3>
+                <p>Plan de arranque en 3 semanas, con dashboards y metricas clave desde el dia uno.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-nav" id="carousel-dots" aria-label="Paginacion"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="faq">
-    <div class="faq-wrap">
-      <h2 class="section-title">FAQ</h2>
-      <div class="faq">
-        <details><summary>¿Cumplís con RGPD y alojamiento en la UE?</summary><div class="faq-content"><p>Sí. Trabajamos siguiendo el Reglamento General de Protección de Datos (RGPD) y podemos alojar el asistente en infraestructura dentro de la Unión Europea. Definimos contigo qué datos se recogen, para qué se usan y durante cuánto tiempo se guardan.</p></div></details>
-        <details><summary>¿Cuánto tardáis en poner en marcha un asistente?</summary><div class="faq-content"><p>Depende del plan y de la complejidad del proyecto. En los casos sencillos (Plan Básico) solemos tener un asistente funcionando en 24–72 horas desde que tenemos la información necesaria. Cuando hay integraciones con CRM u otras herramientas, el plazo habitual está entre 5 y 10 días.</p></div></details>
-        <details><summary>¿Se integra con WhatsApp, web y CRM?</summary><div class="faq-content"><p>Sí. Podemos desplegar el asistente en tu web (widget de chat), en WhatsApp Business y en otros canales de mensajería. También podemos conectarlo con CRMs habituales para registrar contactos, oportunidades o citas. En la primera reunión revisamos qué herramientas usas ahora y te proponemos la mejor forma de integrarlo.</p></div></details>
-        <details><summary>¿Cómo sabemos si el asistente está funcionando bien?</summary><div class="faq-content"><p>Antes de arrancar definimos contigo qué quieres conseguir: ahorrar tiempo, atender más consultas, generar más oportunidades, etc. Después medimos indicadores claros como: número de conversaciones atendidas, tiempo estimado ahorrado al equipo, oportunidades o citas generadas. En los planes Profesional y Avanzado revisamos estos datos contigo de forma periódica y ajustamos el asistente según los resultados.</p></div></details>
-        <details><summary>¿Qué canales soporta?</summary><div class="faq-content"><p>Podemos trabajar, entre otros, con: Widget web en tu página, WhatsApp Business API, Instagram DM, Facebook Messenger, Telegram, Email.</p></div></details>
-        <details><summary>¿Cómo entrenáis al asistente con mi contenido?</summary><div class="faq-content"><p>Partimos de tu propia información: web, documentos, PDFs, tarifas, procesos internos y preguntas frecuentes. Con todo ello creamos y estructuramos la base de conocimiento del asistente, la revisamos contigo y hacemos pruebas internas antes de pasarlo a producción.</p></div></details>
-        <details><summary>¿Qué pasa si aumenta el volumen?</summary><div class="faq-content"><p>Si tu negocio crece o se añaden nuevos canales, el sistema puede escalar sin interrumpir el servicio. En caso de que el volumen de conversaciones suba de forma estable, revisamos contigo el plan contratado y te proponemos el ajuste de cuota más adecuado al uso real.</p></div></details>
-        <details><summary>¿La cuota mensual incluye el desarrollo inicial del asistente?</summary><div class="faq-content"><p>No. Los planes que ves en la página corresponden al mantenimiento mensual del asistente: uso, soporte y mejora continua. El diseño y desarrollo inicial se presupuesta por separado, tras una primera reunión en la que analizamos tu caso, tus canales y los procesos que quieres automatizar.</p></div></details>
-        <details><summary>¿Qué necesito tener preparado antes de empezar?</summary><div class="faq-content"><p>No hace falta tenerlo todo perfecto. Con que tengas claro: tu tipo de negocio, por dónde te contactan los clientes (teléfono, WhatsApp, web…), y qué tareas o preguntas te gustaría automatizar, es suficiente para una primera reunión. A partir de ahí te ayudamos a ordenar la información y definir el alcance del asistente.</p></div></details>
-        <details><summary>¿El asistente sustituye a mi equipo?</summary><div class="faq-content"><p>No. El objetivo no es sustituir personas, sino liberarles de las tareas repetitivas: preguntas básicas, recordatorios, cambios de cita, recogida de datos, etc. Así tu equipo puede centrarse en las tareas de más valor: atender casos complejos, tomar decisiones y cuidar la relación con el cliente.</p></div></details>
-        <details><summary>¿Quién se encarga de mantener y mejorar el asistente?</summary><div class="faq-content"><p>Nosotros. En los planes Profesional y Avanzado revisamos periódicamente cómo está funcionando el asistente, detectamos posibles mejoras y aplicamos ajustes: nuevas respuestas, cambios en flujos, incorporación de nuevos servicios, etc. Siempre puedes pedir cambios puntuales si actualizas tarifas, servicios o tu forma de trabajar.</p></div></details>
-        <details><summary>¿Qué pasa si después de probarlo veo que necesito cambios?</summary><div class="faq-content"><p>Es normal ajustar cosas al principio. Tras la puesta en marcha hacemos una fase de seguimiento donde recogemos tu feedback y el de tu equipo. A partir de ahí refinamos mensajes, flujos y respuestas hasta que el asistente encaja con la forma de trabajar de tu negocio.</p></div></details>
-      </div>
-    </div>
-  </section>
-
-  <section id="demo">
-    <h2 class="section-title">Agenda tu cita</h2>
-    <p class="section-lead"></p>
-    <div class="demo">
-      <div class="demo-panel">
-        <div class="calendar-card">
-          <div class="calendar-left" style="grid-column: 1 / -1; text-align:center;">
-            <img src="banner.png" alt="NOVAIX" class="banner-img" alignment="center">
-            <span class="badge"><i class="fa-regular fa-clock"></i> 30 min</span>
-            <h4>Sesión con NOVAIX</h4>
-            <p>Videollamada. Revisamos tus casos y conectamos canales.</p>
-            <a class="cta stroke cl-effect-20" style="margin-top:14px; padding:12px 18px; color: #f5f7fb;" data-calendly-open><span>Agendar cita</span></a>
-            <p style="color:#b0b0b0; font-size:0.9rem; margin:10px 0 0;">Al reservar aceptas nuestra <a href="#legal" style="color:var(--accent); text-decoration:none;">Política de Privacidad</a>.</p>
+    <section id="integraciones" aria-labelledby="integraciones-title">
+      <div class="container">
+        <h2 class="section-title" id="integraciones-title">Integraciones principales</h2>
+        <p class="section-lead">Conectamos con tus herramientas favoritas.</p>
+        <div class="integrations">
+          <div class="integrations-track" id="integrations-track">
+            <div class="integration-item"><i class="fa-brands fa-whatsapp"></i> WhatsApp</div>
+            <div class="integration-item"><i class="fa-brands fa-telegram"></i> Telegram</div>
+            <div class="integration-item"><i class="fa-regular fa-calendar"></i> Google Calendar</div>
+            <div class="integration-item"><i class="fa-solid fa-table"></i> Google Sheets</div>
+            <div class="integration-item"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+            <div class="integration-item"><i class="fa-solid fa-database"></i> MySQL</div>
+            <div class="integration-item"><i class="fa-solid fa-layer-group"></i> Airtable</div>
+            <div class="integration-item"><i class="fa-solid fa-clipboard"></i> Notion</div>
+            <div class="integration-item"><i class="fa-solid fa-heart"></i> Holded</div>
+            <div class="integration-item"><i class="fa-brands fa-hubspot"></i> HubSpot</div>
+            <div class="integration-item"><i class="fa-solid fa-rectangle-ad"></i> Zoho</div>
           </div>
         </div>
-        <div class="demo-help">
-          <div class="help-text">¿Cómo podemos ayudarte?</div>
-          <img src="ayuda.png" alt="Soporte NOVAIX">
+      </div>
+    </section>
+
+    <section id="metricas" aria-labelledby="metricas-title">
+      <div class="container">
+        <h2 class="section-title" id="metricas-title">Resultados</h2>
+        <p class="section-lead">Resultados tipicos en proyectos similares (pueden variar segun sector, volumen y canales).</p>
+        <div class="metrics">
+          <div class="metric"><strong data-counter="80">0%</strong><span>Productividad de equipo</span></div>
+          <div class="metric"><strong data-counter="95">0%</strong><span>Precision en respuestas</span></div>
+          <div class="metric"><strong data-counter="60">0%</strong><span>Reduccion de tickets repetitivos</span></div>
+          <div class="metric"><strong data-counter="40">0%</strong><span>Ahorro de tiempo en back-office</span></div>
+        </div>
+        <div class="cta-strip">
+          <p>Recibe un diagnostico rapido con tu caso y objetivos.</p>
+          <button class="cta" type="button" data-calendly-open aria-haspopup="dialog">Quiero mi diagnostico</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="legal" aria-hidden="true"></section>
+    <section id="casos" aria-labelledby="casos-title">
+      <div class="container">
+        <h2 class="section-title" id="casos-title">Casos y resultados</h2>
+        <p class="section-lead">Ejemplos de impacto real al automatizar procesos con IA.</p>
+        <div class="cases-grid">
+          <article class="case-card">
+            <strong>Clinica privada</strong>
+            <p>Agenda automatica + recordatorios: reduccion del 35% en ausencias y mas consultas cualificadas.</p>
+          </article>
+          <article class="case-card">
+            <strong>Despacho legal</strong>
+            <p>Filtrado inicial de casos: 60% menos tiempo de triage y mayor foco en casos rentables.</p>
+          </article>
+          <article class="case-card">
+            <strong>eCommerce</strong>
+            <p>Soporte postventa automatizado: -42% tickets repetitivos y aumento en conversion.</p>
+          </article>
+        </div>
+        <div class="case-actions">
+          <a class="ghost cl-effect-10" data-hover="Ver casos" href="#aplicaciones"><span>Ver mas casos</span></a>
+        </div>
+      </div>
+    </section>
 
-  <div id="calendly-modal" class="calendly-modal" aria-hidden="true">
+    <section id="aplicaciones" aria-labelledby="aplicaciones-title">
+      <div class="container">
+        <h2 class="section-title" id="aplicaciones-title">Aplicaciones reales</h2>
+        <p class="section-lead">Casos tipicos donde desplegamos IA y automatizacion.</p>
+        <div class="usecases">
+          <article class="usecase-card">
+            <div class="usecase-icon"><i class="fa-solid fa-notes-medical"></i></div>
+            <h3>Salud</h3>
+            <p>Reservas, recordatorios y triaje de pacientes 24/7. Reduce ausencias y llamadas perdidas.</p>
+          </article>
+          <article class="usecase-card">
+            <div class="usecase-icon"><i class="fa-solid fa-gavel"></i></div>
+            <h3>Legal</h3>
+            <p>Filtrado inicial de casos, recogida de datos clave y derivacion al abogado adecuado.</p>
+          </article>
+          <article class="usecase-card">
+            <div class="usecase-icon"><i class="fa-solid fa-scissors"></i></div>
+            <h3>Estetica y belleza</h3>
+            <p>Agenda automatica en web/WhatsApp, gestion de precios y tratamientos sin colas.</p>
+          </article>
+          <article class="usecase-card">
+            <div class="usecase-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h3>Restaurantes</h3>
+            <p>Reservas, pedidos sencillos y respuestas instantaneas en horas punta.</p>
+          </article>
+          <article class="usecase-card">
+            <div class="usecase-icon"><i class="fa-solid fa-house"></i></div>
+            <h3>Inmobiliaria</h3>
+            <p>Captura leads, cualifica y agenda visitas. Informacion inmediata de inmuebles.</p>
+          </article>
+          <article class="usecase-card">
+            <div class="usecase-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h3>eCommerce</h3>
+            <p>Asistencia en compra, abandono de carrito y soporte postventa con integraciones a CRM.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planes" aria-labelledby="planes-title">
+      <div class="container">
+        <h2 class="section-title" id="planes-title">Planes a tu medida</h2>
+        <p class="section-lead">Precios sin IVA. Ajustamos por volumen e integraciones.</p>
+        <div class="plans">
+          <article class="plan-card">
+            <h3>Plan Basico</h3>
+            <span class="tier">Inicio rapido · Pequenos negocios</span>
+            <div class="price">
+              <div class="price-main"><small>Desde</small><strong>149€</strong><small>/mes · SIN IVA</small></div>
+              <div class="price-meta"><span class="offer-pill">Oferta temporal</span></div>
+            </div>
+            <p>Chatbot esencial para arrancar con IA.</p>
+            <ul class="feature-list">
+              <li>Chatbot IA 24/7 para web, WhatsApp o Instagram (1 canal)</li>
+              <li>Respuestas inteligentes a FAQs basicas (horarios, precios, servicios)</li>
+              <li>Captura de leads sencilla (nombre, telefono, email)</li>
+              <li>Panel basico de actividad</li>
+              <li>Hasta 500 interacciones al mes</li>
+              <li>Soporte por email</li>
+              <li>1 idioma</li>
+            </ul>
+            <button class="cta" type="button" data-calendly-open>Agenda una demo</button>
+          </article>
+
+          <article class="plan-card featured" style="border-color: rgba(0,195,255,0.5); box-shadow: var(--glow);">
+            <h3>Plan Profesional</h3>
+            <span class="tier">Automatizacion 40–70% back-office</span>
+            <div class="price">
+              <div class="price-main"><small>Desde</small><strong>249€</strong><small>/mes · SIN IVA</small></div>
+              <div class="price-meta"><span class="offer-pill">Oferta temporal</span></div>
+            </div>
+            <p>Automatizacion real con n8n y multicanal.</p>
+            <ul class="feature-list">
+              <li>Todo lo del Plan Basico</li>
+              <li>3 canales integrados (web + WhatsApp + Instagram o Facebook)</li>
+              <li>Integracion CRM (HubSpot, Zoho, Airtable, Notion…)</li>
+              <li>Automatizacion real mediante n8n: reservas, pedidos, recordatorios, pagos</li>
+              <li>Lectura automatica de PDFs, imagenes y documentos</li>
+              <li>2.000 interacciones/mes</li>
+              <li>Bot multi-idioma (hasta 3 idiomas)</li>
+              <li>Notificaciones automaticas por email/Telegram</li>
+              <li>Entrenamiento mensual del bot</li>
+              <li>Soporte prioritario</li>
+            </ul>
+            <button class="cta" type="button" data-calendly-open>Agenda una demo</button>
+          </article>
+
+          <article class="plan-card">
+            <h3>Plan Avanzado</h3>
+            <span class="tier">Enterprise ligero · Cerebro operativo</span>
+            <div class="price">
+              <div class="price-main"><small>Desde</small><strong>449€</strong><small>/mes · SIN IVA</small></div>
+              <div class="price-meta"><span class="offer-pill">Oferta temporal</span></div>
+            </div>
+            <p>IA integral con workflows complejos y voz.</p>
+            <ul class="feature-list">
+              <li>Todo lo del Profesional</li>
+              <li>Interacciones ilimitadas</li>
+              <li>Multiples agentes especializados (ventas, soporte, marketing, comercial)</li>
+              <li>Automatizacion avanzada con n8n (workflows complejos + integraciones profundas)</li>
+              <li>Integraciones personalizadas con APIs propias del cliente</li>
+              <li>Llamadas telefonicas automaticas con IA (entrada y salida)</li>
+              <li>Lectura avanzada de PDFs, emails, facturas, documentos complejos</li>
+              <li>Memoria larga con Pinecone</li>
+              <li>IA multimodal (imagen, voz, video)</li>
+              <li>Automatizacion contable y pipeline comercial</li>
+              <li>Reentrenamiento continuo (mensual)</li>
+              <li>Reportes avanzados + metricas predictivas</li>
+              <li>Soporte VIP 24/7 garantizado</li>
+              <li>Asistencia en campanas o picos de demanda</li>
+            </ul>
+            <button class="cta" type="button" data-calendly-open>Agenda una demo</button>
+          </article>
+        </div>
+        <div class="pricing-disclaimer">
+          <p class="pricing-note"><strong class="importante">Importante</strong><br>Los planes cubren el <strong>mantenimiento mensual del asistente</strong> (uso, soporte y mejora continua).</p>
+          <p class="pricing-note">El <strong>diseno y desarrollo inicial</strong> se presupuesta aparte tras revisar tu negocio, canales y procesos.</p>
+          <p class="pricing-note">Segun la complejidad, cerramos un presupuesto de puesta en marcha y, aprobado, el asistente pasa a la cuota mensual del plan elegido. Precios sin IVA.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quienes" aria-labelledby="quienes-title">
+      <div class="container">
+        <h2 class="section-title" id="quienes-title">Quienes somos</h2>
+        <p class="section-lead">Equipo especializado en IA aplicada a operaciones, soporte y ventas.</p>
+        <div class="quienes">
+          <div class="quienes-left" aria-hidden="true"></div>
+          <div class="quienes-content">
+            <h3>Nuestro enfoque</h3>
+            <p>Disenamos asistentes conversacionales y flujos de automatizacion que reducen la carga operativa y aumentan conversion. Trabajamos con n8n, RAG y modelos de voz para cubrir canales digitales y telefono.</p>
+            <p>Integramos con tus sistemas (CRM, ERP, calendarios) y mantenemos el modelo actualizado con tu contenido.</p>
+            <div class="quienes-badges">
+              <span class="q-badge">RAG + Voz</span>
+              <span class="q-badge">n8n avanzado</span>
+              <span class="q-badge">Multicanal</span>
+              <span class="q-badge">Integraciones API</span>
+            </div>
+            <div class="quienes-text">
+              <p>
+                En <strong>NOVAIX</strong> somos una empresa tecnologica especializada en <strong>soluciones de Inteligencia Artificial y automatizacion</strong> para negocios y profesionales
+                que quieren dar un salto real en su manera de trabajar.
+              </p>
+              <p>
+                Nacimos con la vision de <strong>hacer accesible la IA a cualquier empresa</strong>, sin importar su tamano o sector, transformando la automatizacion en una herramienta cercana, practica y rentable,
+                con resultados medibles en el dia a dia.
+              </p>
+              <p>
+                <strong>Nuestro equipo combina experiencia en tecnologia, diseno, estrategia empresarial y comunicacion</strong>. Esto nos permite ofrecer soluciones integrales que van mas alla del simple desarrollo tecnico. Acompanamos a cada cliente desde la idea hasta la puesta en marcha,
+                asegurando que cada proyecto refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
+              </p>
+              <p>
+                En <strong>NOVAIX</strong> creemos en la innovacion con proposito: una tecnologia etica, util y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir relaciones duraderas basadas en la confianza,
+                la transparencia y la excelencia en cada servicio que ofrecemos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="faq-wrap">
+        <h2 class="section-title" id="faq-title">FAQ</h2>
+        <p class="section-lead">Respuestas rapidas a las dudas mas comunes antes de agendar una demo.</p>
+        <div class="faq">
+          <details><summary>Cumplis con RGPD y alojamiento en la UE?</summary><div class="faq-content"><p>Si. Trabajamos siguiendo el Reglamento General de Proteccion de Datos (RGPD) y podemos alojar el asistente en infraestructura dentro de la Union Europea. Definimos contigo que datos se recogen, para que se usan y durante cuanto tiempo se guardan.</p></div></details>
+          <details><summary>Cuanto tardais en poner en marcha un asistente?</summary><div class="faq-content"><p>Depende del plan y de la complejidad del proyecto. En los casos sencillos (Plan Basico) solemos tener un asistente funcionando en 24–72 horas desde que tenemos la informacion necesaria. Cuando hay integraciones con CRM u otras herramientas, el plazo habitual esta entre 5 y 10 dias.</p></div></details>
+          <details><summary>Se integra con WhatsApp, web y CRM?</summary><div class="faq-content"><p>Si. Podemos desplegar el asistente en tu web (widget de chat), en WhatsApp Business y en otros canales de mensajeria. Tambien podemos conectarlo con CRMs habituales para registrar contactos, oportunidades o citas. En la primera reunion revisamos que herramientas usas ahora y te proponemos la mejor forma de integrarlo.</p></div></details>
+          <details><summary>Como sabemos si el asistente esta funcionando bien?</summary><div class="faq-content"><p>Antes de arrancar definimos contigo que quieres conseguir: ahorrar tiempo, atender mas consultas, generar mas oportunidades, etc. Despues medimos indicadores claros como: numero de conversaciones atendidas, tiempo estimado ahorrado al equipo, oportunidades o citas generadas. En los planes Profesional y Avanzado revisamos estos datos contigo de forma periodica y ajustamos el asistente segun los resultados.</p></div></details>
+          <details><summary>Que canales soporta?</summary><div class="faq-content"><p>Podemos trabajar, entre otros, con: widget web, WhatsApp Business API, Instagram DM, Facebook Messenger, Telegram, email.</p></div></details>
+          <details><summary>Como entrenais al asistente con mi contenido?</summary><div class="faq-content"><p>Partimos de tu propia informacion: web, documentos, PDFs, tarifas, procesos internos y preguntas frecuentes. Con todo ello creamos y estructuramos la base de conocimiento del asistente, la revisamos contigo y hacemos pruebas internas antes de pasarlo a produccion.</p></div></details>
+          <details><summary>Que pasa si aumenta el volumen?</summary><div class="faq-content"><p>Si tu negocio crece o se anaden nuevos canales, el sistema puede escalar sin interrumpir el servicio. En caso de que el volumen de conversaciones suba de forma estable, revisamos contigo el plan contratado y te proponemos el ajuste de cuota mas adecuado al uso real.</p></div></details>
+          <details><summary>La cuota mensual incluye el desarrollo inicial del asistente?</summary><div class="faq-content"><p>No. Los planes que ves en la pagina corresponden al mantenimiento mensual del asistente: uso, soporte y mejora continua. El diseno y desarrollo inicial se presupuesta por separado, tras una primera reunion en la que analizamos tu caso, tus canales y los procesos que quieres automatizar.</p></div></details>
+          <details><summary>Que necesito tener preparado antes de empezar?</summary><div class="faq-content"><p>No hace falta tenerlo todo perfecto. Con que tengas claro: tu tipo de negocio, por donde te contactan los clientes (telefono, WhatsApp, web…), y que tareas o preguntas te gustaria automatizar, es suficiente para una primera reunion. A partir de ahi te ayudamos a ordenar la informacion y definir el alcance del asistente.</p></div></details>
+          <details><summary>El asistente sustituye a mi equipo?</summary><div class="faq-content"><p>No. El objetivo no es sustituir personas, sino liberarles de las tareas repetitivas: preguntas basicas, recordatorios, cambios de cita, recogida de datos, etc. Asi tu equipo puede centrarse en las tareas de mas valor: atender casos complejos, tomar decisiones y cuidar la relacion con el cliente.</p></div></details>
+          <details><summary>Quien se encarga de mantener y mejorar el asistente?</summary><div class="faq-content"><p>Nosotros. En los planes Profesional y Avanzado revisamos periodicamente como esta funcionando el asistente, detectamos posibles mejoras y aplicamos ajustes: nuevas respuestas, cambios en flujos, incorporacion de nuevos servicios, etc. Siempre puedes pedir cambios puntuales si actualizas tarifas, servicios o tu forma de trabajar.</p></div></details>
+          <details><summary>Que pasa si despues de probarlo veo que necesito cambios?</summary><div class="faq-content"><p>Es normal ajustar cosas al principio. Tras la puesta en marcha hacemos una fase de seguimiento donde recogemos tu feedback y el de tu equipo. A partir de ahi refinamos mensajes, flujos y respuestas hasta que el asistente encaja con la forma de trabajar de tu negocio.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <h2 class="section-title" id="demo-title">Agenda tu cita</h2>
+        <p class="section-lead">Concretamos tu caso, procesos y objetivos. Incluye diagnostico y un roadmap inicial.</p>
+        <div class="demo">
+          <div class="demo-panel">
+            <div class="calendar-card">
+              <div class="calendar-left">
+                <img src="banner.png" alt="NOVAIX" class="banner-img" loading="lazy" decoding="async">
+                <span class="badge"><i class="fa-regular fa-clock"></i> 30 min</span>
+                <h4>Sesion con NOVAIX</h4>
+                <p>Videollamada. Revisamos tus casos y conectamos canales.</p>
+                <button class="cta stroke cl-effect-20" type="button" data-calendly-open style="margin-top:14px; padding:12px 18px;"><span>Agendar cita</span></button>
+                <p style="color:#b0b0b0; font-size:0.9rem; margin:10px 0 0;">Al reservar aceptas nuestra <a href="#legal" style="color:var(--accent); text-decoration:none;">Politica de Privacidad</a>.</p>
+              </div>
+            </div>
+            <div class="demo-help">
+              <div class="help-text">Como podemos ayudarte?</div>
+              <img src="ayuda.png" alt="Soporte NOVAIX" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal" aria-hidden="true"></section>
+  </main>
+
+  <div id="calendly-modal" class="calendly-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="calendly-title">
     <div class="calendly-frame">
-      <button class="calendly-close" aria-label="Cerrar calendario">×</button>
+      <button class="calendly-close" type="button" aria-label="Cerrar calendario">×</button>
+      <h2 id="calendly-title" class="visually-hidden">Agenda con NOVAIX</h2>
       <div class="calendly-inline-widget" data-url="https://calendly.com/novaix-assist/30min?primary_color=00c3ff&text_color=f5f7fb&background_color=0a0f17"></div>
     </div>
   </div>
 
-  <div id="legal-modal" class="calendly-modal legal-modal" aria-hidden="true">
+  <div id="legal-modal" class="calendly-modal legal-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="legal-title">
     <div class="calendly-frame" style="max-width: 1020px; padding: 18px;">
-      <button class="calendly-close legal-close" aria-label="Cerrar legal">×</button>
+      <button class="calendly-close legal-close" type="button" aria-label="Cerrar legal">×</button>
       <div class="faq" style="max-width: 960px; margin: 0 auto; text-align:left; color: var(--text);">
-        <h2 class="section-title" style="margin-top:0;">Política de Privacidad</h2>
+        <h2 class="section-title" id="legal-title" style="margin-top:0;">Politica de Privacidad</h2>
         <p><strong>Responsable:</strong> Daniel Molina (Nombre comercial: NOVAIX) · Email: <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a> · Sitio web: <a href="https://novaix.es" style="color:var(--accent);">https://novaix.es</a></p>
-        <p><strong>Datos que recogemos:</strong> nombre y apellidos, email, empresa o proyecto (si se facilita), fecha y hora de la cita solicitada, y cualquier información que incluyas en formularios o al agendar. No se recogen datos especialmente protegidos.</p>
-        <p><strong>Finalidad:</strong> gestionar solicitudes de contacto y reuniones, coordinar y confirmar citas, responder consultas comerciales e informar sobre servicios/demos de automatización e IA.</p>
-        <p><strong>Base legal:</strong> consentimiento del usuario y medidas precontractuales cuando pides información o una reunión sobre los servicios de NOVAIX.</p>
-        <p><strong>Herramientas externas:</strong> Calendly LLC (EE.UU.) como sistema de agenda; puede conectarse con Google Calendar, email o CRM. Calendly actúa como encargado de tratamiento y usa Cláusulas Contractuales Tipo (SCC). Política: <a href="https://calendly.com/privacy" style="color:var(--accent);" rel="noopener" target="_blank">calendly.com/privacy</a>.</p>
-        <p><strong>Transferencias internacionales:</strong> al usar Calendly los datos pueden alojarse en EE.UU. bajo SCC aprobadas por la Comisión Europea.</p>
-        <p><strong>Conservación:</strong> mientras exista relación comercial/contacto o hasta que solicites la supresión. Luego se eliminarán de forma segura.</p>
-        <p><strong>Destinatarios:</strong> no cedemos datos a terceros salvo obligación legal o proveedores tecnológicos necesarios (agenda, correo, etc.).</p>
-        <p><strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad. Escríbenos a <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a> indicando el derecho que quieres ejercer.</p>
-        <p><strong>Medidas de seguridad:</strong> aplicamos medidas técnicas y organizativas para proteger la confidencialidad e integridad de los datos.</p>
-        <p><strong>Cambios:</strong> podremos actualizar esta política para reflejar cambios legales o de servicio. La versión vigente estará siempre aquí.</p>
-        <p><strong>Aceptación:</strong> usar la web o agendar una cita implica la aceptación de esta Política de Privacidad.</p>
+        <p><strong>Datos que recogemos:</strong> nombre y apellidos, email, empresa o proyecto (si se facilita), fecha y hora de la cita solicitada, y cualquier informacion que incluyas en formularios o al agendar. No se recogen datos especialmente protegidos.</p>
+        <p><strong>Finalidad:</strong> gestionar solicitudes de contacto y reuniones, coordinar y confirmar citas, responder consultas comerciales e informar sobre servicios/demos de automatizacion e IA.</p>
+        <p><strong>Base legal:</strong> consentimiento del usuario y medidas precontractuales cuando pides informacion o una reunion sobre los servicios de NOVAIX.</p>
+        <p><strong>Herramientas externas:</strong> Calendly LLC (EE.UU.) como sistema de agenda; puede conectarse con Google Calendar, email o CRM. Calendly actua como encargado de tratamiento y usa Clausulas Contractuales Tipo (SCC). Politica: <a href="https://calendly.com/privacy" style="color:var(--accent);" rel="noopener" target="_blank">calendly.com/privacy</a>.</p>
+        <p><strong>Transferencias internacionales:</strong> al usar Calendly los datos pueden alojarse en EE.UU. bajo SCC aprobadas por la Comision Europea.</p>
+        <p><strong>Conservacion:</strong> mientras exista relacion comercial/contacto o hasta que solicites la supresion. Luego se eliminaran de forma segura.</p>
+        <p><strong>Destinatarios:</strong> no cedemos datos a terceros salvo obligacion legal o proveedores tecnologicos necesarios (agenda, correo, etc.).</p>
+        <p><strong>Derechos:</strong> acceso, rectificacion, supresion, oposicion, limitacion y portabilidad. Escribenos a <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a> indicando el derecho que quieres ejercer.</p>
+        <p><strong>Medidas de seguridad:</strong> aplicamos medidas tecnicas y organizativas para proteger la confidencialidad e integridad de los datos.</p>
+        <p><strong>Cambios:</strong> podremos actualizar esta politica para reflejar cambios legales o de servicio. La version vigente estara siempre aqui.</p>
+        <p><strong>Aceptacion:</strong> usar la web o agendar una cita implica la aceptacion de esta Politica de Privacidad.</p>
 
         <h2 class="section-title" style="margin-top:32px;">Aviso Legal</h2>
         <p><strong>Identidad:</strong> NOVAIX (Daniel Molina). Contacto: <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a></p>
-        <p><strong>Objeto:</strong> informar sobre servicios de automatización e IA conversacional. El uso del sitio implica la aceptación de este aviso.</p>
-        <p><strong>Propiedad intelectual:</strong> los contenidos, textos, imágenes y elementos gráficos son titularidad de NOVAIX o con licencia. No está permitida su reproducción sin autorización.</p>
-        <p><strong>Limitación de responsabilidad:</strong> NOVAIX no garantiza la ausencia de errores ni se responsabiliza de daños derivados del uso de la información.</p>
+        <p><strong>Objeto:</strong> informar sobre servicios de automatizacion e IA conversacional. El uso del sitio implica la aceptacion de este aviso.</p>
+        <p><strong>Propiedad intelectual:</strong> los contenidos, textos, imagenes y elementos graficos son titularidad de NOVAIX o con licencia. No esta permitida su reproduccion sin autorizacion.</p>
+        <p><strong>Limitacion de responsabilidad:</strong> NOVAIX no garantiza la ausencia de errores ni se responsabiliza de danos derivados del uso de la informacion.</p>
 
-        <h2 class="section-title" style="margin-top:32px;">Política de Cookies</h2>
-        <p>Usamos solo cookies técnicas necesarias para el funcionamiento. No usamos cookies publicitarias ni de seguimiento. Si incorporamos analítica o cookies adicionales, mostraremos un aviso de consentimiento y el detalle correspondiente.</p>
+        <h2 class="section-title" style="margin-top:32px;">Politica de Cookies</h2>
+        <p>Usamos solo cookies tecnicas necesarias para el funcionamiento. No usamos cookies publicitarias ni de seguimiento. Si incorporamos analitica o cookies adicionales, mostraremos un aviso de consentimiento y el detalle correspondiente.</p>
       </div>
     </div>
   </div>
 
-  <!-- Chat flotante (versión funcional) -->
+  <!-- Chat flotante (version funcional) -->
   <div id="chat-fab" class="chat-fab" aria-label="Abrir chat IA NOVAIX">
     <i class="fa-solid fa-message"></i>
   </div>
@@ -1514,293 +1644,295 @@
     <div id="chat-messages" class="chatbox__messages">
       <div class="bubble-row bot">
         <div class="avatar"><i class="fa-solid fa-robot"></i></div>
-        <div class="bubble">Hola, soy la IA de NOVAIX. ¿En qué puedo ayudarte hoy?</div>
+        <div class="bubble">Hola, soy la IA de NOVAIX. En que puedo ayudarte hoy?</div>
       </div>
     </div>
 
     <div class="chatbox__footer-area">
       <div class="quick-replies">
-        <button class="chip-btn" onclick="sendQuick(this)">¿Qué es un agente de IA y cómo ayuda a mi negocio?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">¿Cumplís con RGPD y alojamiento en la UE?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">¿Cómo integráis el asistente con mi CRM o WhatsApp?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">Dame ejemplos de cómo un agente de IA mejora ventas y soporte.</button>
+        <button class="chip-btn" onclick="sendQuick(this)">Que es un agente de IA y como ayuda a mi negocio?</button>
+        <button class="chip-btn" onclick="sendQuick(this)">Cumplis con RGPD y alojamiento en la UE?</button>
+        <button class="chip-btn" onclick="sendQuick(this)">Como integras el asistente con mi CRM o WhatsApp?</button>
+        <button class="chip-btn" onclick="sendQuick(this)">Dame ejemplos de como un agente de IA mejora ventas y soporte.</button>
       </div>
-      
+
       <form id="chat-form" class="input-area" autocomplete="off">
         <input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu mensaje..." required>
         <button type="submit" class="send-btn">Enviar</button>
       </form>
-      
+
       <p class="status-bar">Powered by NOVAIX AI</p>
     </div>
   </div>
 
   <footer>
-    <p>© <span id="year"></span> NOVAIX. Todos los derechos reservados.</p>
-    <div class="footer-links">
-      <a href="#legal">Política de Privacidad</a>
-      <a href="#legal">Aviso Legal</a>
-      <a href="#legal">Política de Cookies</a>
+    <div class="container">
+      <p>© <span id="year"></span> NOVAIX. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#legal">Politica de Privacidad</a>
+        <a href="#legal">Aviso Legal</a>
+        <a href="#legal">Politica de Cookies</a>
+      </div>
     </div>
   </footer>
 
-		  <script>
-		    document.getElementById('year').textContent = new Date().getFullYear();
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-		    // Galaxia animada (solo en el hero) + parallax suave
-			    (() => {
-			      const header = document.getElementById('top');
-			      const canvas = document.getElementById('hero-galaxy-canvas');
-			      if (!header || !canvas) return;
-			      const title = header.querySelector('.hero .title');
+    // Galaxia animada (solo en el hero) + parallax suave
+    (() => {
+      const header = document.getElementById('top');
+      const canvas = document.getElementById('hero-galaxy-canvas');
+      if (!header || !canvas) return;
+      const title = header.querySelector('.hero .title');
 
-			      const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
-			      if (!ctx) return;
+      const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+      if (!ctx) return;
 
-		      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-		      const finePointer = window.matchMedia('(pointer: fine)');
-		      const saveData = Boolean(navigator.connection && navigator.connection.saveData);
-		      const lowEndDevice = saveData
-		        || (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4)
-		        || (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4);
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const finePointer = window.matchMedia('(pointer: fine)');
+      const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+      const lowEndDevice = saveData
+        || (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4)
+        || (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4);
 
-		      const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
-		      const createSprite = (innerColor, midColor) => {
-		        const c = document.createElement('canvas');
-		        c.width = 64; c.height = 64;
-		        const sctx = c.getContext('2d');
-		        if (!sctx) return c;
-		        const g = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-		        g.addColorStop(0, innerColor);
-		        g.addColorStop(0.35, midColor);
-		        g.addColorStop(1, 'rgba(0,0,0,0)');
-		        sctx.fillStyle = g;
-		        sctx.fillRect(0, 0, 64, 64);
-		        return c;
-		      };
+      const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+      const createSprite = (innerColor, midColor) => {
+        const c = document.createElement('canvas');
+        c.width = 64; c.height = 64;
+        const sctx = c.getContext('2d');
+        if (!sctx) return c;
+        const g = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        g.addColorStop(0, innerColor);
+        g.addColorStop(0.35, midColor);
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        sctx.fillStyle = g;
+        sctx.fillRect(0, 0, 64, 64);
+        return c;
+      };
 
-		      const spriteCore = createSprite('rgba(245,247,251,1)', 'rgba(255,220,255,0.95)');
-		      const spriteCyan = createSprite('rgba(245,247,251,0.95)', 'rgba(122,240,255,0.95)');
-		      const spriteBlue = createSprite('rgba(245,247,251,0.85)', 'rgba(0,195,255,0.9)');
+      const spriteCore = createSprite('rgba(245,247,251,1)', 'rgba(255,220,255,0.95)');
+      const spriteCyan = createSprite('rgba(245,247,251,0.95)', 'rgba(122,240,255,0.95)');
+      const spriteBlue = createSprite('rgba(245,247,251,0.85)', 'rgba(0,195,255,0.9)');
 
-		      const arms = 4;
-		      const tilt = 0.78;
-		      const tiltSin = Math.sin(tilt);
-		      const tiltCos = Math.cos(tilt);
+      const arms = 4;
+      const tilt = 0.78;
+      const tiltSin = Math.sin(tilt);
+      const tiltCos = Math.cos(tilt);
 
-		      let dpr = Math.min(2, window.devicePixelRatio || 1);
-		      let width = 0;
-		      let height = 0;
-		      let centerX = 0;
-		      let centerY = 0;
-		      let maxRadius = 0;
-		      let stretchX = 2.8;
-		      let stretchY = 1.25;
-		      let particles = [];
+      let dpr = Math.min(2, window.devicePixelRatio || 1);
+      let width = 0;
+      let height = 0;
+      let centerX = 0;
+      let centerY = 0;
+      let maxRadius = 0;
+      let stretchX = 2.8;
+      let stretchY = 1.25;
+      let particles = [];
 
-		      let rafId = 0;
-		      let lastFrameAt = 0;
-		      let headerVisible = true;
+      let rafId = 0;
+      let lastFrameAt = 0;
+      let headerVisible = true;
 
-		      let pointerX = 0.56;
-		      let pointerY = 0.42;
+      let pointerX = 0.56;
+      let pointerY = 0.42;
 
-			      const buildParticles = () => {
-			        const areaFactor = Math.sqrt(width * height) / 980;
-			        const stretchBoost = width >= height ? clamp(stretchX / 2.4, 1, 1.7) : 1;
-			        const baseCount = Math.round(2400 * areaFactor * stretchBoost);
-			        const density = (lowEndDevice ? 0.7 : 1);
-			        const count = clamp(Math.round(baseCount * density), lowEndDevice ? 700 : 1100, 3400);
-			        const thicknessMax = maxRadius * 0.16;
+      const buildParticles = () => {
+        const areaFactor = Math.sqrt(width * height) / 980;
+        const stretchBoost = width >= height ? clamp(stretchX / 2.4, 1, 1.7) : 1;
+        const baseCount = Math.round(2400 * areaFactor * stretchBoost);
+        const density = (lowEndDevice ? 0.7 : 1);
+        const count = clamp(Math.round(baseCount * density), lowEndDevice ? 700 : 1100, 3400);
+        const thicknessMax = maxRadius * 0.16;
 
-		        particles = Array.from({ length: count }, () => {
-		          const radiusNorm = Math.pow(Math.random(), 1.7);
-		          const radius = radiusNorm * maxRadius;
-		          const arm = Math.floor(Math.random() * arms);
-		          const baseAngle = Math.random() * Math.PI * 2;
-		          const angleJitter = (Math.random() - 0.5) * 0.75;
-		          const thickness = (Math.random() - 0.5) * thicknessMax * (1 - radiusNorm * 0.85);
-		          const speed = (0.018 + (1 - radiusNorm) * 0.14) * (0.55 + Math.random() * 0.85);
-			          const size = (1.15 + (1 - radiusNorm) * 3.4) * (0.75 + Math.random() * 0.95);
-			          const alpha = 0.06 + (1 - radiusNorm) * 0.22;
-			          return { radiusNorm, radius, arm, baseAngle, angleJitter, thickness, speed, size, alpha };
-			        });
-			      };
+        particles = Array.from({ length: count }, () => {
+          const radiusNorm = Math.pow(Math.random(), 1.7);
+          const radius = radiusNorm * maxRadius;
+          const arm = Math.floor(Math.random() * arms);
+          const baseAngle = Math.random() * Math.PI * 2;
+          const angleJitter = (Math.random() - 0.5) * 0.75;
+          const thickness = (Math.random() - 0.5) * thicknessMax * (1 - radiusNorm * 0.85);
+          const speed = (0.018 + (1 - radiusNorm) * 0.14) * (0.55 + Math.random() * 0.85);
+          const size = (1.15 + (1 - radiusNorm) * 3.4) * (0.75 + Math.random() * 0.95);
+          const alpha = 0.06 + (1 - radiusNorm) * 0.22;
+          return { radiusNorm, radius, arm, baseAngle, angleJitter, thickness, speed, size, alpha };
+        });
+      };
 
-			      const resize = () => {
-			        dpr = Math.min(2, window.devicePixelRatio || 1);
-			        const rect = header.getBoundingClientRect();
-			        width = Math.max(1, Math.round(rect.width));
-			        height = Math.max(1, Math.round(rect.height));
+      const resize = () => {
+        dpr = Math.min(2, window.devicePixelRatio || 1);
+        const rect = header.getBoundingClientRect();
+        width = Math.max(1, Math.round(rect.width));
+        height = Math.max(1, Math.round(rect.height));
 
-		        canvas.width = Math.round(width * dpr);
-		        canvas.height = Math.round(height * dpr);
-		        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-				        const desktop = width >= 980;
-				        const aspect = width / height;
+        const desktop = width >= 980;
+        const aspect = width / height;
 
-				        // Ancla la galaxia al bloque del título (zona izquierda), para que se perciba grande en horizontal.
-				        const titleRect = title ? title.getBoundingClientRect() : null;
-				        if (titleRect && titleRect.width > 0 && titleRect.height > 0) {
-				          const relLeft = titleRect.left - rect.left;
-				          const relTop = titleRect.top - rect.top;
+        // Ancla la galaxia al bloque del titulo (zona izquierda), para que se perciba grande en horizontal.
+        const titleRect = title ? title.getBoundingClientRect() : null;
+        if (titleRect && titleRect.width > 0 && titleRect.height > 0) {
+          const relLeft = titleRect.left - rect.left;
+          const relTop = titleRect.top - rect.top;
 
-				          centerX = relLeft + titleRect.width * (desktop ? 0.38 : 0.5);
-				          centerY = relTop + titleRect.height * (desktop ? 0.52 : 0.56);
+          centerX = relLeft + titleRect.width * (desktop ? 0.38 : 0.5);
+          centerY = relTop + titleRect.height * (desktop ? 0.52 : 0.56);
 
-				          const padX = clamp(titleRect.width * (desktop ? 0.34 : 0.26), desktop ? 140 : 90, desktop ? 300 : 220);
-				          const padY = clamp(titleRect.height * (desktop ? 0.62 : 0.68), desktop ? 85 : 70, desktop ? 210 : 180);
-				          const targetRX = titleRect.width * 0.5 + padX;
-				          const targetRY = titleRect.height * 0.5 + padY;
+          const padX = clamp(titleRect.width * (desktop ? 0.34 : 0.26), desktop ? 140 : 90, desktop ? 300 : 220);
+          const padY = clamp(titleRect.height * (desktop ? 0.62 : 0.68), desktop ? 85 : 70, desktop ? 210 : 180);
+          const targetRX = titleRect.width * 0.5 + padX;
+          const targetRY = titleRect.height * 0.5 + padY;
 
-				          // La inclinación reduce el alto aparente, así que damos un poco más de radio.
-				          maxRadius = clamp(targetRY * (desktop ? 1.18 : 1.12), desktop ? 180 : 140, height * (desktop ? 0.6 : 0.5));
-				          stretchY = desktop ? 1.26 : 1.14;
-				          stretchX = clamp((targetRX / maxRadius) * (desktop ? 1.08 : 1.02), desktop ? 2.8 : 2.0, desktop ? 5.2 : 3.8);
-				        } else {
-				          centerX = desktop ? (width * 0.27) : (width / 2);
-				          centerY = desktop ? (height * 0.42) : (height / 2);
-				          stretchX = aspect >= 1 ? clamp(aspect * 1.75, 2.6, 4.6) : 1.2;
-				          stretchY = aspect >= 1 ? 1.26 : 1.1;
-				          maxRadius = desktop ? (height * 0.32) : (Math.min(width, height) * 0.38);
-				        }
-				        buildParticles();
-				        drawFrame(performance.now());
-				      };
+          // La inclinacion reduce el alto aparente, asi que damos un poco mas de radio.
+          maxRadius = clamp(targetRY * (desktop ? 1.18 : 1.12), desktop ? 180 : 140, height * (desktop ? 0.6 : 0.5));
+          stretchY = desktop ? 1.26 : 1.14;
+          stretchX = clamp((targetRX / maxRadius) * (desktop ? 1.08 : 1.02), desktop ? 2.8 : 2.0, desktop ? 5.2 : 3.8);
+        } else {
+          centerX = desktop ? (width * 0.27) : (width / 2);
+          centerY = desktop ? (height * 0.42) : (height / 2);
+          stretchX = aspect >= 1 ? clamp(aspect * 1.75, 2.6, 4.6) : 1.2;
+          stretchY = aspect >= 1 ? 1.26 : 1.1;
+          maxRadius = desktop ? (height * 0.32) : (Math.min(width, height) * 0.38);
+        }
+        buildParticles();
+        drawFrame(performance.now());
+      };
 
-		      const drawFrame = (timestamp) => {
-		        if (!width || !height) return;
+      const drawFrame = (timestamp) => {
+        if (!width || !height) return;
 
-		        const time = timestamp * 0.001;
-		        const armStep = (Math.PI * 2) / arms;
-		        const cameraZ = maxRadius * 2.5;
+        const time = timestamp * 0.001;
+        const armStep = (Math.PI * 2) / arms;
+        const cameraZ = maxRadius * 2.5;
 
-		        const parallaxX = (pointerX - 0.5) * 42;
-		        const parallaxY = (pointerY - 0.5) * 30;
-		        const originX = centerX + parallaxX;
-		        const originY = centerY + parallaxY;
+        const parallaxX = (pointerX - 0.5) * 42;
+        const parallaxY = (pointerY - 0.5) * 30;
+        const originX = centerX + parallaxX;
+        const originY = centerY + parallaxY;
 
-		        ctx.clearRect(0, 0, width, height);
+        ctx.clearRect(0, 0, width, height);
 
-		        // glow elíptico para acompañar el estirado horizontal
-		        ctx.save();
-		        ctx.translate(originX, originY);
-		        ctx.scale(stretchX, stretchY);
-		        const bg = ctx.createRadialGradient(0, 0, 0, 0, 0, maxRadius * 1.18);
-		        bg.addColorStop(0, 'rgba(122,240,255,0.12)');
-		        bg.addColorStop(0.35, 'rgba(0,195,255,0.06)');
-		        bg.addColorStop(1, 'rgba(0,0,0,0)');
-		        ctx.fillStyle = bg;
-		        ctx.fillRect(-originX / stretchX, -originY / stretchY, width / stretchX, height / stretchY);
-		        ctx.restore();
+        // glow eliptico para acompanar el estirado horizontal
+        ctx.save();
+        ctx.translate(originX, originY);
+        ctx.scale(stretchX, stretchY);
+        const bg = ctx.createRadialGradient(0, 0, 0, 0, 0, maxRadius * 1.18);
+        bg.addColorStop(0, 'rgba(122,240,255,0.12)');
+        bg.addColorStop(0.35, 'rgba(0,195,255,0.06)');
+        bg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = bg;
+        ctx.fillRect(-originX / stretchX, -originY / stretchY, width / stretchX, height / stretchY);
+        ctx.restore();
 
-		        ctx.globalCompositeOperation = 'lighter';
+        ctx.globalCompositeOperation = 'lighter';
 
-		        for (let i = 0; i < particles.length; i++) {
-		          const p = particles[i];
-		          const twist = (p.radius / maxRadius) * 3.0;
-		          const angle = p.baseAngle + time * p.speed + p.arm * armStep + twist + p.angleJitter;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          const twist = (p.radius / maxRadius) * 3.0;
+          const angle = p.baseAngle + time * p.speed + p.arm * armStep + twist + p.angleJitter;
 
-		          const x = p.radius * Math.cos(angle) * stretchX;
-		          const y = p.radius * Math.sin(angle) * stretchY;
-		          const z = p.thickness;
+          const x = p.radius * Math.cos(angle) * stretchX;
+          const y = p.radius * Math.sin(angle) * stretchY;
+          const z = p.thickness;
 
-		          const yTilted = y * tiltCos + z * tiltSin;
-		          const zTilted = -y * tiltSin + z * tiltCos;
-		          const persp = cameraZ / (cameraZ - zTilted);
+          const yTilted = y * tiltCos + z * tiltSin;
+          const zTilted = -y * tiltSin + z * tiltCos;
+          const persp = cameraZ / (cameraZ - zTilted);
 
-		          const sx = originX + x * persp;
-		          const sy = originY + yTilted * persp;
-		          if (sx < -140 || sx > width + 140 || sy < -140 || sy > height + 140) continue;
+          const sx = originX + x * persp;
+          const sy = originY + yTilted * persp;
+          if (sx < -140 || sx > width + 140 || sy < -140 || sy > height + 140) continue;
 
-		          const size = p.size * persp;
-			          const leftBoost = clamp(1.35 - (sx / width) * 0.62, 0.72, 1.35);
-			          const alpha = p.alpha * leftBoost * (0.86 + Math.sin((p.radiusNorm * 7 + time) * 0.9) * 0.14);
-			          const sprite = p.radiusNorm < 0.18 ? spriteCore : (p.radiusNorm < 0.6 ? spriteCyan : spriteBlue);
-			          ctx.globalAlpha = alpha;
-			          ctx.drawImage(sprite, sx - size * 0.5, sy - size * 0.5, size, size);
-			        }
+          const size = p.size * persp;
+          const leftBoost = clamp(1.35 - (sx / width) * 0.62, 0.72, 1.35);
+          const alpha = p.alpha * leftBoost * (0.86 + Math.sin((p.radiusNorm * 7 + time) * 0.9) * 0.14);
+          const sprite = p.radiusNorm < 0.18 ? spriteCore : (p.radiusNorm < 0.6 ? spriteCyan : spriteBlue);
+          ctx.globalAlpha = alpha;
+          ctx.drawImage(sprite, sx - size * 0.5, sy - size * 0.5, size, size);
+        }
 
-		        ctx.globalCompositeOperation = 'source-over';
-		        ctx.globalAlpha = 1;
-		      };
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 1;
+      };
 
-		      const stop = () => {
-		        if (!rafId) return;
-		        cancelAnimationFrame(rafId);
-		        rafId = 0;
-		      };
+      const stop = () => {
+        if (!rafId) return;
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      };
 
-		      const loop = (timestamp) => {
-		        if (prefersReducedMotion.matches || document.hidden || !headerVisible) {
-		          stop();
-		          drawFrame(timestamp);
-		          return;
-		        }
+      const loop = (timestamp) => {
+        if (prefersReducedMotion.matches || document.hidden || !headerVisible) {
+          stop();
+          drawFrame(timestamp);
+          return;
+        }
 
-		        const targetFps = lowEndDevice ? 24 : 30;
-		        const minDelta = 1000 / targetFps;
-		        if (!lastFrameAt || timestamp - lastFrameAt >= minDelta) {
-		          lastFrameAt = timestamp;
-		          drawFrame(timestamp);
-		        }
-		        rafId = requestAnimationFrame(loop);
-		      };
+        const targetFps = lowEndDevice ? 24 : 30;
+        const minDelta = 1000 / targetFps;
+        if (!lastFrameAt || timestamp - lastFrameAt >= minDelta) {
+          lastFrameAt = timestamp;
+          drawFrame(timestamp);
+        }
+        rafId = requestAnimationFrame(loop);
+      };
 
-		      const start = () => {
-		        stop();
-		        lastFrameAt = 0;
-		        rafId = requestAnimationFrame(loop);
-		      };
+      const start = () => {
+        stop();
+        lastFrameAt = 0;
+        rafId = requestAnimationFrame(loop);
+      };
 
-		      if (finePointer.matches) {
-		        let pointerRaf = 0;
-		        window.addEventListener('pointermove', (e) => {
-		          if (pointerRaf) return;
-		          const x = clamp(e.clientX / window.innerWidth, 0, 1);
-		          const y = clamp(e.clientY / window.innerHeight, 0, 1);
-		          pointerRaf = requestAnimationFrame(() => {
-		            pointerRaf = 0;
-		            pointerX = x;
-		            pointerY = y;
-		          });
-		        }, { passive: true });
-		      }
+      if (finePointer.matches) {
+        let pointerRaf = 0;
+        window.addEventListener('pointermove', (e) => {
+          if (pointerRaf) return;
+          const x = clamp(e.clientX / window.innerWidth, 0, 1);
+          const y = clamp(e.clientY / window.innerHeight, 0, 1);
+          pointerRaf = requestAnimationFrame(() => {
+            pointerRaf = 0;
+            pointerX = x;
+            pointerY = y;
+          });
+        }, { passive: true });
+      }
 
-		      const visObs = new IntersectionObserver((entries) => {
-		        headerVisible = entries.some(e => e.isIntersecting);
-		        if (!headerVisible) stop();
-		        else if (!prefersReducedMotion.matches) start();
-		      }, { threshold: 0.02 });
-		      visObs.observe(header);
+      const visObs = new IntersectionObserver((entries) => {
+        headerVisible = entries.some(e => e.isIntersecting);
+        if (!headerVisible) stop();
+        else if (!prefersReducedMotion.matches) start();
+      }, { threshold: 0.02 });
+      visObs.observe(header);
 
-		      const handleMotion = () => {
-		        if (prefersReducedMotion.matches) {
-		          stop();
-		          drawFrame(performance.now());
-		        } else if (headerVisible && !document.hidden) {
-		          start();
-		        }
-		      };
-		      if (prefersReducedMotion.addEventListener) prefersReducedMotion.addEventListener('change', handleMotion);
-		      else if (prefersReducedMotion.addListener) prefersReducedMotion.addListener(handleMotion);
-		      document.addEventListener('visibilitychange', handleMotion);
+      const handleMotion = () => {
+        if (prefersReducedMotion.matches) {
+          stop();
+          drawFrame(performance.now());
+        } else if (headerVisible && !document.hidden) {
+          start();
+        }
+      };
+      if (prefersReducedMotion.addEventListener) prefersReducedMotion.addEventListener('change', handleMotion);
+      else if (prefersReducedMotion.addListener) prefersReducedMotion.addListener(handleMotion);
+      document.addEventListener('visibilitychange', handleMotion);
 
-		      window.addEventListener('resize', resize, { passive: true });
-		      if ('ResizeObserver' in window) {
-		        const ro = new ResizeObserver(resize);
-		        ro.observe(header);
-		      }
-		      resize();
-		      if (!prefersReducedMotion.matches) start();
-		    })();
+      window.addEventListener('resize', resize, { passive: true });
+      if ('ResizeObserver' in window) {
+        const ro = new ResizeObserver(resize);
+        ro.observe(header);
+      }
+      resize();
+      if (!prefersReducedMotion.matches) start();
+    })();
 
-		    // Scroll progress
-		    const progressBar = document.querySelector('.scroll-progress span');
-		    let progressRaf = 0;
-		    const updateProgress = () => {
-	      progressRaf = 0;
+    // Scroll progress
+    const progressBar = document.querySelector('.scroll-progress span');
+    let progressRaf = 0;
+    const updateProgress = () => {
+      progressRaf = 0;
       const doc = document.documentElement;
       const scrollTop = doc.scrollTop || document.body.scrollTop;
       const scrollHeight = doc.scrollHeight - doc.clientHeight;
@@ -1814,113 +1946,113 @@
     window.addEventListener('scroll', requestProgressUpdate, { passive: true });
     requestProgressUpdate();
 
-	    // Navbar: se oculta al hacer scroll (desktop) y reaparece al acercar el ratón arriba
-	    const nav = document.querySelector('.nav');
-	    const navToggle = document.querySelector('.nav-toggle');
-	    const hoverFine = window.matchMedia('(hover: hover) and (pointer: fine)');
+    // Navbar: se oculta al hacer scroll (desktop) y reaparece al acercar el raton arriba
+    const nav = document.querySelector('.nav');
+    const navToggle = document.querySelector('.nav-toggle');
+    const hoverFine = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-	    const NAV_HIDE_SCROLL = 110;
-	    const NAV_REVEAL_ZONE = 44; // px desde arriba
-	    const NAV_HIDE_DELAY = 650;
+    const NAV_HIDE_SCROLL = 110;
+    const NAV_REVEAL_ZONE = 44; // px desde arriba
+    const NAV_HIDE_DELAY = 650;
 
-	    let navRaf = 0;
-	    let navHideTimer = 0;
-	    let lastPointerY = Number.POSITIVE_INFINITY;
+    let navRaf = 0;
+    let navHideTimer = 0;
+    let lastPointerY = Number.POSITIVE_INFINITY;
 
-	    const clearNavHideTimer = () => {
-	      if (!navHideTimer) return;
-	      clearTimeout(navHideTimer);
-	      navHideTimer = 0;
-	    };
-	    const showNav = () => {
-	      if (!nav) return;
-	      clearNavHideTimer();
-	      nav.classList.remove('nav--hidden');
-	    };
-	    const hideNav = () => {
-	      if (!nav || !hoverFine.matches) return;
-	      if (window.scrollY <= NAV_HIDE_SCROLL) return;
-	      if (nav.classList.contains('nav--open')) return;
-	      if (nav.matches(':hover')) return;
-	      if (nav.contains(document.activeElement)) return;
-	      if (lastPointerY <= NAV_REVEAL_ZONE) return;
-	      nav.classList.add('nav--hidden');
-	    };
-	    const scheduleHideNav = () => {
-	      clearNavHideTimer();
-	      navHideTimer = setTimeout(hideNav, NAV_HIDE_DELAY);
-	    };
-	    const updateNavVisibility = () => {
-	      navRaf = 0;
-	      if (!nav) return;
+    const clearNavHideTimer = () => {
+      if (!navHideTimer) return;
+      clearTimeout(navHideTimer);
+      navHideTimer = 0;
+    };
+    const showNav = () => {
+      if (!nav) return;
+      clearNavHideTimer();
+      nav.classList.remove('nav--hidden');
+    };
+    const hideNav = () => {
+      if (!nav || !hoverFine.matches) return;
+      if (window.scrollY <= NAV_HIDE_SCROLL) return;
+      if (nav.classList.contains('nav--open')) return;
+      if (nav.matches(':hover')) return;
+      if (nav.contains(document.activeElement)) return;
+      if (lastPointerY <= NAV_REVEAL_ZONE) return;
+      nav.classList.add('nav--hidden');
+    };
+    const scheduleHideNav = () => {
+      clearNavHideTimer();
+      navHideTimer = setTimeout(hideNav, NAV_HIDE_DELAY);
+    };
+    const updateNavVisibility = () => {
+      navRaf = 0;
+      if (!nav) return;
 
-	      // En móvil/touch no ocultamos (no hay hover fiable)
-	      if (!hoverFine.matches) {
-	        nav.classList.remove('nav--hidden');
-	        return;
-	      }
+      // En movil/touch no ocultamos (no hay hover fiable)
+      if (!hoverFine.matches) {
+        nav.classList.remove('nav--hidden');
+        return;
+      }
 
-	      if (window.scrollY <= NAV_HIDE_SCROLL) {
-	        showNav();
-	        return;
-	      }
+      if (window.scrollY <= NAV_HIDE_SCROLL) {
+        showNav();
+        return;
+      }
 
-	      if (nav.classList.contains('nav--open') || nav.matches(':hover') || nav.contains(document.activeElement) || lastPointerY <= NAV_REVEAL_ZONE) {
-	        showNav();
-	        return;
-	      }
+      if (nav.classList.contains('nav--open') || nav.matches(':hover') || nav.contains(document.activeElement) || lastPointerY <= NAV_REVEAL_ZONE) {
+        showNav();
+        return;
+      }
 
-	      nav.classList.add('nav--hidden');
-	    };
-	    const requestNavUpdate = () => {
-	      if (navRaf) return;
-	      navRaf = requestAnimationFrame(updateNavVisibility);
-	    };
+      nav.classList.add('nav--hidden');
+    };
+    const requestNavUpdate = () => {
+      if (navRaf) return;
+      navRaf = requestAnimationFrame(updateNavVisibility);
+    };
 
-	    window.addEventListener('scroll', requestNavUpdate, { passive: true });
-	    window.addEventListener('resize', requestNavUpdate, { passive: true });
-	    if (hoverFine.addEventListener) hoverFine.addEventListener('change', requestNavUpdate);
-	    else if (hoverFine.addListener) hoverFine.addListener(requestNavUpdate);
+    window.addEventListener('scroll', requestNavUpdate, { passive: true });
+    window.addEventListener('resize', requestNavUpdate, { passive: true });
+    if (hoverFine.addEventListener) hoverFine.addEventListener('change', requestNavUpdate);
+    else if (hoverFine.addListener) hoverFine.addListener(requestNavUpdate);
 
-	    if (hoverFine.matches) {
-	      window.addEventListener('pointermove', (e) => {
-	        lastPointerY = e.clientY;
-	        if (lastPointerY <= NAV_REVEAL_ZONE) showNav();
-	        else scheduleHideNav();
-	      }, { passive: true });
-	    }
+    if (hoverFine.matches) {
+      window.addEventListener('pointermove', (e) => {
+        lastPointerY = e.clientY;
+        if (lastPointerY <= NAV_REVEAL_ZONE) showNav();
+        else scheduleHideNav();
+      }, { passive: true });
+    }
 
-	    nav?.addEventListener('mouseenter', showNav);
-	    nav?.addEventListener('mouseleave', scheduleHideNav);
-	    nav?.addEventListener('focusin', showNav);
-	    nav?.addEventListener('focusout', scheduleHideNav);
+    nav?.addEventListener('mouseenter', showNav);
+    nav?.addEventListener('mouseleave', scheduleHideNav);
+    nav?.addEventListener('focusin', showNav);
+    nav?.addEventListener('focusout', scheduleHideNav);
 
-	    requestNavUpdate();
+    requestNavUpdate();
 
-	    // Mobile nav toggle
-	    if (nav && navToggle) {
-	      const setNavOpen = (open) => {
-	        nav.classList.toggle('nav--open', open);
-	        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-	        showNav();
-	        requestNavUpdate();
-	      };
+    // Mobile nav toggle
+    if (nav && navToggle) {
+      const setNavOpen = (open) => {
+        nav.classList.toggle('nav--open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        showNav();
+        requestNavUpdate();
+      };
 
-	      navToggle.addEventListener('click', (e) => {
-	        e.preventDefault();
-	        e.stopPropagation();
-	        setNavOpen(!nav.classList.contains('nav--open'));
-	      });
+      navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setNavOpen(!nav.classList.contains('nav--open'));
+      });
 
-	      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setNavOpen(false)));
-	      document.addEventListener('click', (e) => { if (!nav.contains(e.target)) setNavOpen(false); });
-	      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setNavOpen(false); });
-	    }
+      nav.querySelectorAll('a, button').forEach(link => link.addEventListener('click', () => setNavOpen(false)));
+      document.addEventListener('click', (e) => { if (!nav.contains(e.target)) setNavOpen(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setNavOpen(false); });
+    }
 
-	    // Reveal on scroll
-	    const revealTargets = document.querySelectorAll('section');
-	    revealTargets.forEach(el => el.classList.add('reveal'));
-	    const revealObs = new IntersectionObserver((entries, obsr) => {
+    // Reveal on scroll
+    const revealTargets = document.querySelectorAll('section');
+    revealTargets.forEach(el => el.classList.add('reveal'));
+    const revealObs = new IntersectionObserver((entries, obsr) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
@@ -1930,7 +2062,7 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
     revealTargets.forEach(el => { if (el.id !== 'legal') revealObs.observe(el); });
 
-    // efecto agua (onditas)
+    // Efecto agua (onditas) en hero
     const hero = document.getElementById('top');
     const rippleLayer = document.createElement('div');
     rippleLayer.style.position = 'absolute';
@@ -1986,7 +2118,7 @@
       });
     }
 
-    // Ambient glow (cursor spotlight en toda la página)
+    // Ambient glow (cursor spotlight en toda la pagina)
     if (finePointer.matches && !prefersReducedMotion.matches) {
       let glowRaf = 0;
       let lastX = 0;
@@ -2005,7 +2137,7 @@
       }, { passive: true });
     }
 
-    // carrusel
+    // Carrusel
     const track = document.querySelector('.carousel-track');
     const slides = Array.from(document.querySelectorAll('.slide'));
     const dotsContainer = document.getElementById('carousel-dots');
@@ -2015,6 +2147,7 @@
     slides.forEach((_, i) => {
       const btn = document.createElement('button');
       btn.className = 'dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', `Ir al slide ${i + 1}`);
       btn.addEventListener('click', () => goTo(i));
       dotsContainer.appendChild(btn);
     });
@@ -2055,20 +2188,20 @@
       b.addEventListener('mouseleave', startCarousel);
     });
 
-	    // Swipe en móvil/trackpad
-	    if (carouselEl && track) {
-	      let startX = 0;
-	      let activePointerId = null;
+    // Swipe en movil/trackpad
+    if (carouselEl && track) {
+      let startX = 0;
+      let activePointerId = null;
 
-	      carouselEl.addEventListener('pointerdown', (e) => {
-	        if (e.pointerType === 'mouse' && e.button !== 0) return;
-	        // No iniciar swipe si el usuario está interactuando con controles (flechas/dots/enlaces)
-	        if (e.target && e.target.closest && e.target.closest('button, a, input, textarea, select, label')) return;
-	        startX = e.clientX;
-	        activePointerId = e.pointerId;
-	        carouselEl.setPointerCapture(activePointerId);
-	        stopCarousel();
-	      });
+      carouselEl.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        // No iniciar swipe si el usuario esta interactuando con controles (flechas/dots/enlaces)
+        if (e.target && e.target.closest && e.target.closest('button, a, input, textarea, select, label')) return;
+        startX = e.clientX;
+        activePointerId = e.pointerId;
+        carouselEl.setPointerCapture(activePointerId);
+        stopCarousel();
+      });
 
       const finishSwipe = (e) => {
         if (activePointerId === null) return;
@@ -2093,7 +2226,7 @@
       integrationsTrack.innerHTML += integrationsTrack.innerHTML; // duplicar para loop
     }
 
-    // help text animación on-visible
+    // help text animacion on-visible
     const helpText = document.querySelector('.help-text');
     if (helpText) {
       const helpObs = new IntersectionObserver((entries, obsr) => {
@@ -2107,20 +2240,46 @@
       helpObs.observe(helpText);
     }
 
+    // Modal generico con foco accesible
+    const trapFocus = (modal) => {
+      const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      return function handleKeydown(e) {
+        if (e.key !== 'Tab') return;
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      };
+    };
+
     // Calendly modal oscuro
     const calModal = document.getElementById('calendly-modal');
     const calClose = calModal?.querySelector('.calendly-close');
     const calTriggers = document.querySelectorAll('[data-calendly-open]');
+    let lastFocused = null;
+    let calTrap = null;
+
     function openCalendlyModal(e) {
       if (e) e.preventDefault();
+      lastFocused = document.activeElement;
       calModal?.classList.add('open');
       calModal?.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      calTrap = trapFocus(calModal);
+      calModal.addEventListener('keydown', calTrap);
+      calClose?.focus();
     }
     function closeCalendlyModal() {
       calModal?.classList.remove('open');
       calModal?.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (calTrap) calModal.removeEventListener('keydown', calTrap);
+      lastFocused?.focus();
     }
     calTriggers.forEach(btn => btn.addEventListener('click', openCalendlyModal));
     calClose?.addEventListener('click', closeCalendlyModal);
@@ -2135,16 +2294,23 @@
     const legalModal = document.getElementById('legal-modal');
     const legalClose = legalModal?.querySelector('.legal-close');
     const legalTriggers = document.querySelectorAll('.legal-open, a[href="#legal"]');
+    let legalTrap = null;
     function openLegal(e) {
       if (e) e.preventDefault();
+      lastFocused = document.activeElement;
       legalModal?.classList.add('open');
       legalModal?.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      legalTrap = trapFocus(legalModal);
+      legalModal.addEventListener('keydown', legalTrap);
+      legalClose?.focus();
     }
     function closeLegal() {
       legalModal?.classList.remove('open');
       legalModal?.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (legalTrap) legalModal.removeEventListener('keydown', legalTrap);
+      lastFocused?.focus();
     }
     legalTriggers.forEach(l => l.addEventListener('click', openLegal));
     legalClose?.addEventListener('click', closeLegal);
@@ -2152,7 +2318,7 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLegal(); });
     if (window.location.hash === '#legal') openLegal();
 
-    // contadores
+    // Contadores
     const counters = document.querySelectorAll('[data-counter]');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -2173,7 +2339,7 @@
     }, { threshold: 0.4 });
     counters.forEach(c => obs.observe(c));
 
-    // animación "Quiénes somos"
+    // Animacion "Quienes somos"
     const quienes = document.querySelector('.quienes');
     if (quienes) {
       const qObs = new IntersectionObserver((entries) => {
@@ -2187,9 +2353,10 @@
       qObs.observe(quienes);
     }
 
-    // scroll suave personalizado a demo (más lento)
+    // Scroll suave personalizado a demo (mas lento)
     document.querySelectorAll('a[href="#demo"]:not([data-calendly-open])').forEach(link => {
       link.addEventListener('click', (e) => {
+        if (prefersReducedMotion.matches) return;
         e.preventDefault();
         const target = document.getElementById('demo');
         if (!target) return;
@@ -2243,16 +2410,16 @@
         const isFull = chatbox.classList.toggle('chatbox--full');
         fullBtn.setAttribute('aria-pressed', isFull ? 'true' : 'false');
         fullBtn.innerHTML = isFull
-          ? '<i class=\"fa-solid fa-down-left-and-up-right-to-center\"></i>'
-          : '<i class=\"fa-solid fa-up-right-and-down-left-from-center\"></i>';
+          ? '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>'
+          : '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
       });
 
       function addMessage(text, sender) {
         const div = document.createElement('div');
         div.className = `bubble-row ${sender}`;
         div.innerHTML = sender === 'bot'
-          ? `<div class=\"avatar\"><i class=\"fa-solid fa-robot\"></i></div><div class=\"bubble\">${text}</div>`
-          : `<div class=\"bubble\">${text}</div>`;
+          ? `<div class="avatar"><i class="fa-solid fa-robot"></i></div><div class="bubble">${text}</div>`
+          : `<div class="bubble">${text}</div>`;
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
       }
@@ -2279,26 +2446,26 @@
         } catch (err) {
           console.error(err);
           addMessage('No he podido conectar con el asistente. Revisa la URL del webhook en n8n.', 'bot');
-          statusBar.textContent = 'Error de conexión';
+          statusBar.textContent = 'Error de conexion';
         }
       }
 
       form?.addEventListener('submit', (e) => {
         e.preventDefault();
         const val = input.value.trim();
-        if(!val) return;
+        if (!val) return;
         sendToN8n(val);
       });
 
       window.sendQuick = function(btn) {
         const text = btn.innerText;
         sendToN8n(text);
-      }
+      };
     })();
   </script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async type="text/javascript"></script>
   <script>
-    // órbita tipo satélite
+    // Orbita tipo satelite
     const heroArea = document.querySelector('.hero');
     const orbiter = document.createElement('div');
     const orbitTrack = document.createElement('div');
@@ -2306,9 +2473,6 @@
     orbitTrack.className = 'orbital-track';
     heroArea.appendChild(orbitTrack);
     heroArea.appendChild(orbiter);
-
-    // Calendly badge popup
-    // (Calendly badge eliminado para evitar solaparse con chat)
   </script>
 </body>
 </html>
