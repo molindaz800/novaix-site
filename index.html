@@ -1821,6 +1821,24 @@
       filter: invert(0) hue-rotate(0deg);
       opacity: 0.98;
     }
+    .cookie-banner {
+      position: fixed;
+      inset: auto 16px 16px 16px;
+      background: rgba(8,12,18,0.92);
+      border: 1px solid rgba(0,195,255,0.25);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      z-index: 180;
+      display: none;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+    }
+    .cookie-banner.show { display: flex; }
+    .cookie-banner p { margin: 0; color: var(--muted); }
+    .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
     /* Efecto enlace (inspirado en cl-effect-20) */
     .cl-effect-20 {
@@ -2685,6 +2703,14 @@
     </div>
   </div>
 
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+    <p>Usamos Calendly para agendar citas. Solo cargamos sus cookies tras tu consentimiento. <a href="#legal" class="legal-open" style="color:var(--accent);">Ver politica de cookies</a>.</p>
+    <div class="cookie-actions">
+      <button id="cookie-accept" class="cta" type="button">Aceptar</button>
+      <button id="cookie-decline" class="ghost" type="button">Rechazar</button>
+    </div>
+  </div>
+
   <!-- Chat flotante (version funcional) -->
   <div id="chat-fab" class="chat-fab" aria-label="Abrir chat IA NOVAIX">
     <i class="fa-solid fa-message"></i>
@@ -3339,6 +3365,12 @@
 
     function openCalendlyModal(e) {
       if (e) e.preventDefault();
+      const consent = localStorage.getItem('novaix_calendly_consent');
+      if (consent !== 'accepted') {
+        document.getElementById('cookie-banner')?.classList.add('show');
+        return;
+      }
+      loadCalendlyScript();
       lastFocused = document.activeElement;
       calModal?.classList.add('open');
       calModal?.setAttribute('aria-hidden', 'false');
@@ -4394,7 +4426,45 @@
       init();
     })();
   </script>
-  <script src="https://assets.calendly.com/assets/external/widget.js" async type="text/javascript"></script>
+  <script>
+    // Calendly loader (consent)
+    const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+    const CALENDLY_CONSENT_KEY = 'novaix_calendly_consent';
+    let calendlyLoaded = false;
+
+    function loadCalendlyScript() {
+      if (calendlyLoaded) return;
+      const script = document.createElement('script');
+      script.src = CALENDLY_SCRIPT_SRC;
+      script.async = true;
+      script.type = 'text/javascript';
+      document.head.appendChild(script);
+      calendlyLoaded = true;
+    }
+
+    function setCalendlyConsent(accepted) {
+      localStorage.setItem(CALENDLY_CONSENT_KEY, accepted ? 'accepted' : 'declined');
+      if (accepted) loadCalendlyScript();
+    }
+
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieDecline = document.getElementById('cookie-decline');
+    const existingConsent = localStorage.getItem(CALENDLY_CONSENT_KEY);
+    if (existingConsent === 'accepted') {
+      loadCalendlyScript();
+    } else if (!existingConsent) {
+      cookieBanner?.classList.add('show');
+    }
+    cookieAccept?.addEventListener('click', () => {
+      setCalendlyConsent(true);
+      cookieBanner?.classList.remove('show');
+    });
+    cookieDecline?.addEventListener('click', () => {
+      setCalendlyConsent(false);
+      cookieBanner?.classList.remove('show');
+    });
+  </script>
   <script>
     // Orbita tipo satelite
     const heroArea = document.querySelector('.hero');
