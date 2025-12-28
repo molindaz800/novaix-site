@@ -727,17 +727,63 @@
       background: rgba(0,0,0,0.22);
       backdrop-filter: blur(10px);
     }
-    .ops-copy h2 {
-      margin: 0; font-size: clamp(1.9rem, 3.2vw, 2.6rem);
-      letter-spacing: 0.04em; text-transform: uppercase;
+    .ops-copy h2 { margin: 0; }
+    .ops-title {
+      font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       background: linear-gradient(120deg, #7af0ff, #8be4ff 40%, #00c3ff 70%, #7af0ff);
-      -webkit-background-clip: text; color: transparent;
-      text-shadow: 0 0 24px rgba(0,195,255,0.35);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(0,195,255,0.28);
       animation: shimmer 8s ease-in-out infinite;
     }
     .ops-copy p { margin: 0; color: var(--muted); font-size: 1.02rem; max-width: 760px; }
     .ops-actions { display: flex; flex-wrap: wrap; gap: 10px; }
     .ops-actions .ghost { background: rgba(255,255,255,0.04); }
+    .ops-highlights { list-style: none; display: grid; gap: 8px; margin: 6px 0 0; padding: 0; color: var(--muted); }
+    .ops-highlights li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+    .ops-highlights i { color: var(--accent); margin-top: 3px; }
+
+    .compare-grid { display: grid; gap: 12px; }
+    .compare-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) minmax(220px, 1.3fr) minmax(220px, 1.3fr);
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8,12,18,0.7);
+    }
+    .compare-row.head {
+      background: rgba(0,195,255,0.08);
+      border-color: rgba(0,195,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 800;
+    }
+    .compare-row strong { color: var(--text); }
+    .compare-row span { color: var(--muted); }
+    .compare-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,195,255,0.35);
+      background: rgba(0,195,255,0.08);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .compare-row { grid-template-columns: 1fr; }
+      .compare-row.head { text-align: left; }
+    }
 
     .nx-solar {
       display: grid;
@@ -2106,9 +2152,14 @@
       <div class="ops-inner">
         <div class="ops-header">
           <div class="ops-copy">
-            <span class="ops-eyebrow"><i class="fa-solid fa-sparkles"></i> NOVAIX Ops Hub</span>
-            <h2 id="ops-hub-title">OPS HUB / Flujos orquestados con IA</h2>
-            <p>Suite de especialistas conectados: capturan, agendan, responden, cobran y reportan sin friccion. <strong>PRIME</strong> orquesta canales, CRM y n8n para que tu equipo solo valide y decida.</p>
+            <h2 class="section-title ops-title" id="ops-hub-title">Ops Hub: asistentes inteligentes para operaciones de alto impacto</h2>
+            <p>Suite de asistentes que aprenden tu operativa, se entrenan con tu data y se despliegan en tiempo record para que tu equipo recupere el poder de decidir.</p>
+            <ul class="ops-highlights">
+              <li><i class="fa-solid fa-check"></i><span>Especialistas digitales por proceso: captacion, agenda, cobranza y reportabilidad avanzada.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Entrenamiento profundo con la logica y contexto de tu negocio.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Despliegue agil con integracion a canales, CRM y n8n sin fricciones.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Orquestacion PRIME: sincroniza herramientas y elimina silos operativos.</span></li>
+            </ul>
           </div>
           <div class="ops-actions">
             <button class="cta" type="button" data-calendly-open><span>Agenda una demo</span></button>
@@ -2198,6 +2249,45 @@
               </div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparativa" aria-labelledby="comparativa-title">
+      <div class="container">
+        <h2 class="section-title" id="comparativa-title">Comparativa</h2>
+        <p class="section-lead">Diferencias clave entre la automatizacion tradicional y NOVAIX Ops Hub.</p>
+        <div class="compare-grid">
+          <div class="compare-row head">
+            <div>Capacidad</div>
+            <div>Automatizacion tradicional</div>
+            <div>NOVAIX Ops Hub</div>
+          </div>
+          <div class="compare-row">
+            <strong>Arquitectura de robot</strong>
+            <span>Bots de respuesta rigida y limitada.</span>
+            <span>Especialistas digitales con logica de negocio.</span>
+          </div>
+          <div class="compare-row">
+            <strong>Aprendizaje IA</strong>
+            <span>Requiere ajustes manuales constantes.</span>
+            <span>Entrenamiento continuo: aprende de cada interaccion.</span>
+          </div>
+          <div class="compare-row">
+            <strong>Implementacion</strong>
+            <span>Semanas de configuracion tecnica.</span>
+            <span>Despliegue agil tipo <span class="compare-badge">plug & play</span>.</span>
+          </div>
+          <div class="compare-row">
+            <strong>Conectividad</strong>
+            <span>Herramientas aisladas y silos de datos.</span>
+            <span>Orquestacion PRIME con canales, CRM y n8n integrados.</span>
+          </div>
+          <div class="compare-row">
+            <strong>Rol humano</strong>
+            <span>Operativo y correctivo.</span>
+            <span>Estrategico: tu equipo valida y decide.</span>
+          </div>
         </div>
       </div>
     </section>
