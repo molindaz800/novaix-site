@@ -1987,6 +1987,16 @@
       .carousel-arrows { inset: auto 10px 10px 10px; }
       .carousel-arrows button { width: 34px; height: 34px; }
     }
+    @media (max-width: 980px) {
+      #ops-hub { padding-bottom: 60px; }
+      .nx-stage { box-shadow: 0 18px 50px rgba(0,0,0,0.5); }
+      .nx-stars,
+      .nx-face,
+      .nx-links,
+      .nx-scanlines,
+      .nx-volumetric,
+      .nx-planet { display: none; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -2613,6 +2623,18 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reduce carga en movil: pausa video hero si no hay hover o se pide ahorro de datos.
+    (() => {
+      const heroVideo = document.querySelector('.hero-video video');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+      const isMobileLite = window.matchMedia('(max-width: 980px)').matches || prefersReducedMotion.matches || saveData;
+      if (heroVideo && isMobileLite) {
+        heroVideo.pause();
+        heroVideo.removeAttribute('autoplay');
+      }
+    })();
 
     // Galaxia animada (solo en el hero) + parallax suave
     (() => {
@@ -3446,6 +3468,10 @@
       let linkW = 0;
       let linkH = 0;
 
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+      const isMobileLite = window.matchMedia('(max-width: 980px)').matches || prefersReducedMotion.matches || saveData;
+
       function setAccent(rgbStr, rgbStr2) {
         document.documentElement.style.setProperty('--nx-agent-accent', rgbStr);
         document.documentElement.style.setProperty('--nx-agent-accent2', rgbStr2 || rgbStr);
@@ -3846,6 +3872,7 @@
       }
 
       function drawStars() {
+        if (isMobileLite) return;
         const w = stage.clientWidth;
         const h = stage.clientHeight;
         ctx.clearRect(0, 0, w, h);
@@ -4055,6 +4082,7 @@
       }
 
       function drawLinks(ts) {
+        if (isMobileLite && ts > 0) return;
         lctx.clearRect(0, 0, linkW, linkH);
 
         if (!selectedId || linkEdges.length === 0) {
@@ -4189,6 +4217,7 @@
       }
 
       function spawnComet() {
+        if (isMobileLite) return;
         const w = stage.clientWidth;
         const h = stage.clientHeight;
 
@@ -4212,6 +4241,7 @@
       }
 
       function cometLoop() {
+        if (isMobileLite) return;
         const chance = 0.011;
         if (Math.random() < chance) spawnComet();
         setTimeout(cometLoop, 1100 + Math.random() * 900);
@@ -4222,19 +4252,21 @@
         resizeCanvases();
         initStars();
         layout();
-        drawStars();
+        if (!isMobileLite) drawStars();
         drawLinks(0);
-        cometLoop();
+        if (!isMobileLite) cometLoop();
 
-        setInterval(() => {
-          if (Math.random() < 0.40) {
-            const w = stage.clientWidth;
-            const h = stage.clientHeight;
-            const x = w * 0.32 + Math.random() * w * 0.36;
-            const y = h * 0.32 + Math.random() * h * 0.36;
-            burstSparks(x, y, 3);
-          }
-        }, 2200);
+        if (!isMobileLite) {
+          setInterval(() => {
+            if (Math.random() < 0.40) {
+              const w = stage.clientWidth;
+              const h = stage.clientHeight;
+              const x = w * 0.32 + Math.random() * w * 0.36;
+              const y = h * 0.32 + Math.random() * h * 0.36;
+              burstSparks(x, y, 3);
+            }
+          }, 2200);
+        }
       }
 
       window.addEventListener('resize', () => {
