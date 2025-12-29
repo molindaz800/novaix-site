@@ -1,2 +1,6 @@
+imagenes/*.png filter=lfs diff=lfs merge=lfs -text
+imagenes/*.jpg filter=lfs diff=lfs merge=lfs -text
+imagenes/*.PNG filter=lfs diff=lfs merge=lfs -text
+videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
 imagenes/* !text !filter !merge !diff
 videos/* !text !filter !merge !diff
