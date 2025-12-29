@@ -250,6 +250,19 @@
     .nav-links { display: flex; gap: 12px; flex: 0 0 auto; width: max-content; flex-wrap: nowrap; align-items: center; justify-content: flex-start; }
     .nav-links a:not(.cta) { padding: 8px 12px; border-radius: 10px; color: var(--muted); border: 1px solid transparent; position: relative; overflow: hidden; }
     .nav-links a:not(.cta):hover { color: var(--accent); }
+    .nav-home {
+      width: 20px;
+      height: 30px;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-home i { font-size: 1rem; line-height: 1; }
+    .nav-home:hover { color: var(--accent); }
 
     .nav.nav--hidden {
       opacity: 0;
@@ -2111,6 +2124,7 @@
 
   <header id="top">
     <nav class="nav" aria-label="Navegacion principal">
+      <a class="nav-home cl-effect-10" href="#top" aria-label="Ir al inicio"><i class="fa-solid fa-house"></i></a>
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
