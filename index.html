@@ -2064,17 +2064,20 @@
         justify-content: space-between;
       }
       .nav-toggle { display: inline-flex; margin-left: auto; }
-      .nav-links {
-        width: 100%;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255,255,255,0.08);
-      }
-      .nav.nav--open .nav-links { display: flex; }
-      .nav-links a { width: 100%; }
+    .nav-links {
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5, 10, 18, 0.7);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .nav.nav--open .nav-links { display: flex; }
+    .nav-links a { width: 100%; }
       .hero-video { max-width: 640px; margin: 0 auto; }
       .hero-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
       .slide { grid-template-columns: 1fr; }
@@ -2787,9 +2790,14 @@
       const heroVideo = document.querySelector('.hero-video video');
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+      const isMobile = window.matchMedia('(max-width: 980px)').matches;
       if (heroVideo && (prefersReducedMotion.matches || saveData)) {
         heroVideo.pause();
         heroVideo.removeAttribute('autoplay');
+      }
+      if (heroVideo && isMobile) {
+        heroVideo.controls = true;
+        heroVideo.play().catch(() => {});
       }
     })();
 
@@ -3063,6 +3071,7 @@
     // Navbar: se oculta al hacer scroll (desktop) y reaparece al acercar el raton arriba
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('nav-links');
     const hoverFine = window.matchMedia('(hover: hover) and (pointer: fine)');
 
     const NAV_HIDE_SCROLL = 110;
@@ -3148,6 +3157,7 @@
       const setNavOpen = (open) => {
         nav.classList.toggle('nav--open', open);
         navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (navLinks) navLinks.style.display = open ? 'flex' : '';
         showNav();
         requestNavUpdate();
       };
