@@ -2062,21 +2062,35 @@
         flex-wrap: wrap;
         gap: 10px;
         justify-content: space-between;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+      .nav.nav--open {
+        background: rgba(5, 10, 18, 0.58);
+        border-color: rgba(255,255,255,0.09);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+        backdrop-filter: blur(14px);
       }
       .nav-toggle { display: inline-flex; margin-left: auto; }
     .nav-links {
       width: 100%;
-      display: none;
+      display: flex;
       flex-direction: column;
       align-items: stretch;
       gap: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: rgba(5, 10, 18, 0.7);
+      border-top: 1px solid rgba(255,255,255,0);
+      background: rgba(5, 10, 18, 0);
       border-radius: 12px;
-      padding: 12px;
+      padding: 0;
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: max-height .25s ease, opacity .25s ease;
     }
-    .nav.nav--open .nav-links { display: flex; }
+      .nav.nav--open .nav-links { max-height: 80vh; opacity: 1; visibility: visible; background: rgba(5, 10, 18, 0.7); border-top-color: rgba(255,255,255,0.08); padding: 12px; }
     .nav-links a { width: 100%; }
       .hero-video { max-width: 640px; margin: 0 auto; }
       .hero-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
@@ -2127,7 +2141,7 @@
 
   <header id="top">
     <nav class="nav" aria-label="Navegacion principal">
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links" data-inline-toggle="true" onclick="(function(btn){const nav=btn.closest('.nav');const open=nav.classList.toggle('nav--open');btn.setAttribute('aria-expanded', open ? 'true' : 'false');const links=document.getElementById('nav-links');if(links) links.style.display=open?'flex':'';})(this)">
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links" data-inline-toggle="true" onclick="(function(btn,evt){evt.preventDefault();evt.stopPropagation();const nav=btn.closest('.nav');const open=nav.classList.toggle('nav--open');btn.setAttribute('aria-expanded', open ? 'true' : 'false');})(this,event)" ontouchstart="(function(btn,evt){evt.preventDefault();evt.stopPropagation();const nav=btn.closest('.nav');const open=nav.classList.toggle('nav--open');btn.setAttribute('aria-expanded', open ? 'true' : 'false');})(this,event)">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
       <div class="nav-links" id="nav-links">
@@ -3157,7 +3171,11 @@
       const setNavOpen = (open) => {
         nav.classList.toggle('nav--open', open);
         navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (navLinks) navLinks.style.display = open ? 'flex' : '';
+        if (navLinks) {
+          navLinks.style.maxHeight = open ? '80vh' : '';
+          navLinks.style.opacity = open ? '1' : '';
+          navLinks.style.visibility = open ? 'visible' : '';
+        }
         showNav();
         requestNavUpdate();
       };
@@ -3171,7 +3189,10 @@
       }
 
       nav.querySelectorAll('a, button').forEach(link => link.addEventListener('click', () => setNavOpen(false)));
-      document.addEventListener('click', (e) => { if (!nav.contains(e.target)) setNavOpen(false); });
+      document.addEventListener('click', (e) => {
+        if (e.target && e.target.closest && e.target.closest('.nav-toggle')) return;
+        if (!nav.contains(e.target)) setNavOpen(false);
+      });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setNavOpen(false); });
     }
 
