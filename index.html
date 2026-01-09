@@ -251,8 +251,8 @@
     .nav-links a:not(.cta) { padding: 8px 12px; border-radius: 10px; color: var(--muted); border: 1px solid transparent; position: relative; overflow: hidden; }
     .nav-links a:not(.cta):hover { color: var(--accent); }
     .nav-home {
-      width: 20px;
-      height: 30px;
+      width: 35px;
+      height: 48px;
       border-radius: 0;
       border: none;
       background: transparent;
@@ -2737,7 +2737,7 @@
   </div>
 
   <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
-    <p>Usamos Calendly para agendar citas. Solo cargamos sus cookies tras tu consentimiento. <a href="#legal" class="legal-open" style="color:var(--accent);">Ver politica de cookies</a>.</p>
+    <p>Usamos Calendly y analitica (GTM) para mejorar la experiencia. Solo cargamos cookies tras tu consentimiento. <a href="#legal" class="legal-open" style="color:var(--accent);">Ver politica de cookies</a>.</p>
     <div class="cookie-actions">
       <button id="cookie-accept" class="cta" type="button">Aceptar</button>
       <button id="cookie-decline" class="ghost" type="button">Rechazar</button>
@@ -4475,10 +4475,12 @@
     })();
   </script>
   <script>
-    // Calendly loader (consent)
+    // Calendly + GTM loader (consent)
     const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js';
     const CALENDLY_CONSENT_KEY = 'novaix_calendly_consent';
+    const GTM_ID = 'GTM-M9PJJC95';
     let calendlyLoaded = false;
+    let gtmLoaded = false;
 
     function loadCalendlyScript() {
       if (calendlyLoaded) return;
@@ -4490,9 +4492,35 @@
       calendlyLoaded = true;
     }
 
+    function loadGtmScript() {
+      if (gtmLoaded) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+      document.head.appendChild(script);
+
+      const noscript = document.createElement('noscript');
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.googletagmanager.com/ns.html?id=${GTM_ID}`;
+      iframe.height = '0';
+      iframe.width = '0';
+      iframe.style.display = 'none';
+      iframe.style.visibility = 'hidden';
+      noscript.appendChild(iframe);
+      document.body.appendChild(noscript);
+
+      gtmLoaded = true;
+    }
+
     function setCalendlyConsent(accepted) {
       localStorage.setItem(CALENDLY_CONSENT_KEY, accepted ? 'accepted' : 'declined');
-      if (accepted) loadCalendlyScript();
+      if (accepted) {
+        loadCalendlyScript();
+        loadGtmScript();
+      }
     }
 
     const cookieBanner = document.getElementById('cookie-banner');
@@ -4501,6 +4529,7 @@
     const existingConsent = localStorage.getItem(CALENDLY_CONSENT_KEY);
     if (existingConsent === 'accepted') {
       loadCalendlyScript();
+      loadGtmScript();
     } else if (!existingConsent) {
       cookieBanner?.classList.add('show');
     }
