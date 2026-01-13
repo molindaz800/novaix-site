@@ -1,6 +1,0 @@
-.env
-.DS_Store
-backup/
-android-app/
-node_modules/
-*.log
