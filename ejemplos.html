@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ejemplos de uso de agentes de inteligencia artificial NOVAIX para stock, llamadas, restaurantes y automatizacion.">
+  <title>NOVAIX · Ejemplos de uso de agentes IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --bg: #05080f;
+      --panel: #0f141d;
+      --panel-2: #101927;
+      --accent: #00c3ff;
+      --accent-2: #7af0ff;
+      --text: #f5f7fb;
+      --muted: #c3cad5;
+      --border: rgba(255,255,255,0.08);
+      --glow: 0 18px 60px rgba(0,195,255,0.25);
+      --container: min(1180px, 92vw);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 620px at 12% 0%, rgba(0,195,255,0.16), transparent 58%),
+        radial-gradient(760px 480px at 86% 18%, rgba(122,240,255,0.10), transparent 62%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 110px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.014) 0 1px, transparent 1px 110px),
+        var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(520px 320px at 50% 30%, rgba(0,195,255,0.08), transparent 64%),
+        linear-gradient(180deg, rgba(5,8,15,0.1), rgba(5,8,15,0.58));
+      mix-blend-mode: screen;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+    .page-nav {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 18px auto 0;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      background: rgba(5,10,18,0.68);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,195,255,0.48);
+      background: rgba(0,195,255,0.10);
+      box-shadow: 0 14px 34px rgba(0,195,255,0.16);
+    }
+    .button.primary {
+      border: 0;
+      color: #041320;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      box-shadow: var(--glow);
+    }
+
+    header {
+      padding: 74px 0 30px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(0,195,255,0.24);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(0,0,0,0.22);
+      font-weight: 800;
+    }
+    h1 {
+      max-width: 900px;
+      margin: 16px 0 12px;
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, #f5f7fb 0%, #7af0ff 42%, #f5f7fb 84%);
+      background-size: 190% 100%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shimmer 7s ease-in-out infinite alternate;
+    }
+    @keyframes shimmer {
+      from { background-position: 0% 50%; }
+      to { background-position: 100% 50%; }
+    }
+    .lead {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .video-shell {
+      position: relative;
+      margin: 28px 0 60px;
+      border: 1px solid rgba(0,195,255,0.18);
+      border-radius: 18px;
+      padding: clamp(16px, 3vw, 28px);
+      background: linear-gradient(145deg, rgba(5,10,18,0.9), rgba(11,18,28,0.76));
+      box-shadow: 0 30px 90px rgba(0,0,0,0.45), var(--glow);
+      overflow: hidden;
+    }
+    .video-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(760px 420px at 16% 0%, rgba(0,195,255,0.14), transparent 58%),
+        radial-gradient(640px 420px at 90% 88%, rgba(122,240,255,0.08), transparent 65%);
+      pointer-events: none;
+    }
+    .video-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.016) 1px, transparent 1px);
+      background-size: 92px 92px;
+      -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+      mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+      pointer-events: none;
+    }
+    .video-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .video-card {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(8,13,21,0.82);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.38);
+      min-height: 100%;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,195,255,0.45);
+      box-shadow: 0 24px 70px rgba(0,195,255,0.16);
+    }
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #05080f;
+      border: 1px solid rgba(0,195,255,0.18);
+    }
+    .video-card.short .video-frame {
+      width: min(100%, 260px);
+      aspect-ratio: 9 / 16;
+      justify-self: center;
+    }
+    .video-frame iframe,
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+    .video-thumb {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05) brightness(0.74);
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .video-launch {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.48));
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .video-launch:hover .video-thumb {
+      transform: scale(1.04);
+      filter: saturate(1.15) contrast(1.1) brightness(0.86);
+    }
+    .play-core {
+      position: relative;
+      z-index: 1;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041320;
+      box-shadow: 0 0 32px rgba(0,195,255,0.52);
+      font-size: 1.25rem;
+    }
+    .video-copy { display: grid; gap: 8px; }
+    .video-copy h2 { margin: 0; font-size: 1.08rem; line-height: 1.25; }
+    .video-copy p { margin: 0; color: var(--muted); }
+    .video-link {
+      color: var(--accent);
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: max-content;
+    }
+    .embed-help {
+      font-size: 0.86rem;
+      color: rgba(195,202,213,0.82);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 28px 0 38px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 720px) {
+      .page-nav { align-items: flex-start; flex-direction: column; }
+      .nav-actions { width: 100%; justify-content: flex-start; }
+      .button { width: 100%; }
+      header { padding-top: 48px; }
+      .video-card.short .video-frame { width: min(100%, 220px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      h1 { animation: none; }
+      .button,
+      .video-card,
+      .video-thumb { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="container page-nav" aria-label="Navegacion de ejemplos">
+    <a class="brand" href="index.html" aria-label="Volver a NOVAIX"><i class="fa-solid fa-satellite-dish"></i> NOVAIX</a>
+    <div class="nav-actions">
+      <a class="button" href="index.html"><i class="fa-solid fa-arrow-left"></i> Atras</a>
+      <a class="button primary" href="https://www.youtube.com/@novaix-assist" target="_blank" rel="noopener">Canal YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </nav>
+
+  <header class="container">
+    <span class="eyebrow"><i class="fa-solid fa-play"></i> Ejemplos reales de agentes IA</span>
+    <h1>Agentes que atienden, llaman, reservan y gestionan operaciones.</h1>
+    <p class="lead">Videos cortos para ver como se aplican agentes de inteligencia artificial a stock, llamadas de calidad y gestion diaria de restaurantes.</p>
+  </header>
+
+  <main class="container">
+    <section class="video-shell" aria-labelledby="videos-title">
+      <h2 id="videos-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Videos de ejemplos de uso</h2>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <button class="video-launch" type="button" data-youtube-id="kTak3zXqXEg" data-youtube-url="https://youtu.be/kTak3zXqXEg" data-title="Garbis, agente de gestion de stock" aria-label="Reproducir Garbis, agente de gestion de stock">
+              <img class="video-thumb" src="https://i.ytimg.com/vi/kTak3zXqXEg/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-core"><i class="fa-solid fa-play"></i></span>
+            </button>
+          </div>
+          <div class="video-copy">
+            <h2>Garbis, agente de gestion de stock</h2>
+            <p>Control de inventario, avisos y seguimiento operativo conectado a tus procesos.</p>
+            <a class="video-link" href="https://youtu.be/kTak3zXqXEg" target="_blank" rel="noopener">Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <p class="embed-help">Si el reproductor no carga, abre el enlace de YouTube.</p>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <button class="video-launch" type="button" data-youtube-id="HZo5933jg98" data-youtube-url="https://youtu.be/HZo5933jg98" data-title="Ejemplo de llamadas de calidad para taller de coches" aria-label="Reproducir ejemplo de llamadas de calidad para taller de coches">
+              <img class="video-thumb" src="https://i.ytimg.com/vi/HZo5933jg98/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-core"><i class="fa-solid fa-play"></i></span>
+            </button>
+          </div>
+          <div class="video-copy">
+            <h2>Ejemplo de llamadas de calidad para taller de coches</h2>
+            <p>Agente de voz para revisar servicio, detectar incidencias y registrar feedback.</p>
+            <a class="video-link" href="https://youtu.be/HZo5933jg98" target="_blank" rel="noopener">Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <p class="embed-help">Si el reproductor no carga, abre el enlace de YouTube.</p>
+          </div>
+        </article>
+
+        <article class="video-card short">
+          <div class="video-frame">
+            <button class="video-launch" type="button" data-youtube-id="UkUgHuEm66o" data-youtube-url="https://youtube.com/shorts/UkUgHuEm66o?feature=share" data-title="LauraX tu robot de gestion para restaurantes" aria-label="Reproducir LauraX tu robot de gestion para restaurantes">
+              <img class="video-thumb" src="https://i.ytimg.com/vi/UkUgHuEm66o/hq2.jpg" alt="" loading="lazy" decoding="async">
+              <span class="play-core"><i class="fa-solid fa-play"></i></span>
+            </button>
+          </div>
+          <div class="video-copy">
+            <h2>LauraX tu robot de gestion para restaurantes</h2>
+            <p>Reservas, consultas y gestion diaria para reducir llamadas repetitivas.</p>
+            <a class="video-link" href="https://youtube.com/shorts/UkUgHuEm66o?feature=share" target="_blank" rel="noopener">Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <p class="embed-help">Si el reproductor no carga, abre el enlace de YouTube.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> NOVAIX. Ejemplos de agentes de inteligencia artificial.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.video-launch').forEach(button => {
+      button.addEventListener('click', () => {
+        const id = button.dataset.youtubeId;
+        const title = button.dataset.title || 'Video NOVAIX';
+        const youtubeUrl = button.dataset.youtubeUrl;
+        const frame = button.closest('.video-frame');
+        if (!id || !frame) return;
+
+        if (!/^https?:$/.test(window.location.protocol)) {
+          if (youtubeUrl) window.open(youtubeUrl, '_blank', 'noopener');
+          return;
+        }
+
+        const origin = encodeURIComponent(window.location.origin);
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=${origin}`;
+        iframe.title = title;
+        iframe.loading = 'lazy';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+
+        frame.replaceChildren(iframe);
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>

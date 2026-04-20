@@ -639,15 +639,15 @@
     .benefit-card h3 { margin: 0; }
     .benefit-card p { color: var(--muted); margin: 0; }
 
-    /* Casos */
-    .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .case-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--glow); display: grid; gap: 8px; }
-    .case-card strong { color: var(--accent); }
-    .case-card p { color: var(--muted); margin: 0; }
-    .case-actions { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px; }
+	    /* Casos */
+	    .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+	    .case-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--glow); display: grid; gap: 8px; }
+	    .case-card strong { color: var(--accent); }
+	    .case-card p { color: var(--muted); margin: 0; }
+	    .case-actions { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px; }
 
-    /* Metricas */
-    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 14px; }
+	    /* Metricas */
+	    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 14px; }
     .metric { background: linear-gradient(145deg, rgba(0,195,255,0.08), rgba(0,195,255,0.02)); border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: var(--glow); }
     .metric strong { font-size: 2rem; display: block; }
     .metric span { color: var(--muted); }
@@ -2034,15 +2034,21 @@
       background: rgba(255,255,255,0.02);
       transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease;
     }
-    .footer-links a:hover {
-      color: var(--accent);
-      border-color: rgba(0,195,255,0.45);
-      background: rgba(0,195,255,0.1);
-      transform: translateY(-1px);
-    }
+	    .footer-links a:hover {
+	      color: var(--accent);
+	      border-color: rgba(0,195,255,0.45);
+	      background: rgba(0,195,255,0.1);
+	      transform: translateY(-1px);
+	    }
 
-    /* Responsive */
-    @media (max-width: 900px) {
+	    /* Responsive */
+	    @media (max-width: 1100px) and (min-width: 901px) {
+	      .nav { padding: 8px 10px; gap: 8px; }
+	      .nav-links { gap: 6px; }
+	      .nav-links a:not(.cta) { padding: 8px 8px; font-size: 0.92rem; }
+	      .nav .cta { padding: 9px 10px; font-size: 0.92rem; }
+	    }
+	    @media (max-width: 900px) {
       :root {
         --nx-stage-minH: 520px;
         --nx-stage-H: clamp(480px, 58vh, 610px);
@@ -2095,10 +2101,10 @@
       .hero-video { max-width: 640px; margin: 0 auto; }
       .hero-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
       .slide { grid-template-columns: 1fr; }
-      .calendar-card { grid-template-columns: 1fr; }
-      .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .calendar-left img.banner-img { height: 220px; object-fit: contain; }
-      .chatbox { width: 94vw; right: 10px; height: 70vh; }
+	      .calendar-card { grid-template-columns: 1fr; }
+	      .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+	      .calendar-left img.banner-img { height: 220px; object-fit: contain; }
+	      .chatbox { width: 94vw; right: 10px; height: 70vh; }
       .chatbox--full { width: 96vw; height: 78vh; }
       .demo-panel { grid-template-columns: 1fr; }
       .demo-help { max-width: 520px; margin: 0 auto; background: transparent; }
@@ -2147,11 +2153,12 @@
       <div class="nav-links" id="nav-links">
         <a class="nav-home cl-effect-10" href="#top" aria-label="Ir al inicio"><i class="fa-solid fa-house"></i></a>
         <a class="cl-effect-10" data-hover="Beneficios" href="#beneficios"><span>Beneficios</span></a>
-        <a class="cl-effect-10" data-hover="Ops Hub" href="#ops-hub"><span>Ops Hub</span></a>
-        <a class="cl-effect-10" data-hover="Servicios" href="#servicios"><span>Servicios</span></a>
-        <a class="cl-effect-10" data-hover="Casos" href="#casos"><span>Casos</span></a>
-        <a class="cl-effect-10" data-hover="Planes" href="#planes"><span>Planes</span></a>
-        <a class="cl-effect-10" data-hover="Quienes somos" href="#quienes"><span>Quienes somos</span></a>
+	        <a class="cl-effect-10" data-hover="Ops Hub" href="#ops-hub"><span>Ops Hub</span></a>
+	        <a class="cl-effect-10" data-hover="Servicios" href="#servicios"><span>Servicios</span></a>
+	        <a class="cl-effect-10" data-hover="Casos" href="#casos"><span>Casos</span></a>
+	        <a class="cl-effect-10" data-hover="Ejemplos" href="ejemplos.html"><span>Ejemplos</span></a>
+	        <a class="cl-effect-10" data-hover="Planes" href="#planes"><span>Planes</span></a>
+	        <a class="cl-effect-10" data-hover="Quienes somos" href="#quienes"><span>Quienes somos</span></a>
         <a class="cl-effect-10" data-hover="Contacto" href="#demo"><span>Contacto</span></a>
         <a class="cl-effect-10 legal-open" data-hover="Legal" href="#legal"><span>Legal</span></a>
         <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span>Agenda una demo</span></button>
@@ -2477,14 +2484,15 @@
             <strong>eCommerce</strong>
             <p>Soporte postventa automatizado: -42% tickets repetitivos y aumento en conversion.</p>
           </article>
-        </div>
-        <div class="case-actions">
-          <a class="ghost cl-effect-10" data-hover="Ver casos" href="#aplicaciones"><span>Ver mas casos</span></a>
-        </div>
-      </div>
-    </section>
+	        </div>
+	        <div class="case-actions">
+	          <a class="ghost cl-effect-10" data-hover="Ver casos" href="#aplicaciones"><span>Ver mas casos</span></a>
+	          <a class="ghost cl-effect-10" data-hover="Ver videos" href="ejemplos.html"><span>Ver ejemplos en video</span></a>
+	        </div>
+	      </div>
+	    </section>
 
-    <section id="aplicaciones" aria-labelledby="aplicaciones-title">
+	    <section id="aplicaciones" aria-labelledby="aplicaciones-title">
       <div class="container">
         <h2 class="section-title" id="aplicaciones-title">Aplicaciones reales</h2>
         <p class="section-lead">Casos tipicos donde desplegamos IA y automatizacion.</p>
@@ -2712,7 +2720,7 @@
           <p><strong>Datos que recogemos:</strong> nombre y apellidos, email, empresa o proyecto (si se facilita), fecha y hora de la cita solicitada, y cualquier informacion que incluyas en formularios o al agendar. No se recogen datos especialmente protegidos.</p>
           <p><strong>Finalidad:</strong> gestionar solicitudes de contacto y reuniones, coordinar y confirmar citas, responder consultas comerciales e informar sobre servicios/demos de automatizacion e IA.</p>
           <p><strong>Base legal:</strong> consentimiento del usuario y medidas precontractuales cuando pides informacion o una reunion sobre los servicios de NOVAIX.</p>
-          <p><strong>Herramientas externas:</strong> Calendly LLC (EE.UU.) como sistema de agenda; puede conectarse con Google Calendar, email o CRM. Calendly actua como encargado de tratamiento y usa Clausulas Contractuales Tipo (SCC). Politica: <a href="https://calendly.com/privacy" style="color:var(--accent);" rel="noopener" target="_blank">calendly.com/privacy</a>.</p>
+	          <p><strong>Herramientas externas:</strong> Calendly LLC (EE.UU.) como sistema de agenda; puede conectarse con Google Calendar, email o CRM. Tambien mostramos miniaturas y videos embebidos de YouTube/Google LLC en la seccion de ejemplos; los reproductores se cargan solo cuando decides reproducirlos. Calendly actua como encargado de tratamiento y usa Clausulas Contractuales Tipo (SCC). Politica: <a href="https://calendly.com/privacy" style="color:var(--accent);" rel="noopener" target="_blank">calendly.com/privacy</a>.</p>
           <p><strong>Transferencias internacionales:</strong> al usar Calendly los datos pueden alojarse en EE.UU. bajo SCC aprobadas por la Comision Europea.</p>
           <p><strong>Conservacion:</strong> mientras exista relacion comercial/contacto o hasta que solicites la supresion. Luego se eliminaran de forma segura.</p>
           <p><strong>Destinatarios:</strong> no cedemos datos a terceros salvo obligacion legal o proveedores tecnologicos necesarios (agenda, correo, etc.).</p>
@@ -2730,14 +2738,14 @@
           <p><strong>Limitacion de responsabilidad:</strong> NOVAIX no garantiza la ausencia de errores ni se responsabiliza de danos derivados del uso de la informacion.</p>
 
           <h2 class="section-title" style="margin-top:32px;">Politica de Cookies</h2>
-          <p>Usamos solo cookies tecnicas necesarias para el funcionamiento. No usamos cookies publicitarias ni de seguimiento. Si incorporamos analitica o cookies adicionales, mostraremos un aviso de consentimiento y el detalle correspondiente.</p>
+	          <p>Usamos cookies tecnicas necesarias para el funcionamiento. Tambien podemos cargar servicios externos como Calendly, YouTube y analitica mediante Google Tag Manager tras tu consentimiento, al ver miniaturas externas o cuando decides reproducir contenido embebido. No usamos cookies publicitarias propias.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
-    <p>Usamos Calendly y analitica (GTM) para mejorar la experiencia. Solo cargamos cookies tras tu consentimiento. <a href="#legal" class="legal-open" style="color:var(--accent);">Ver politica de cookies</a>.</p>
+	    <p>Usamos Calendly, YouTube y analitica (GTM) para mejorar la experiencia. Los reproductores de video se cargan solo cuando pulsas reproducir. <a href="#legal" class="legal-open" style="color:var(--accent);">Ver politica de cookies</a>.</p>
     <div class="cookie-actions">
       <button id="cookie-accept" class="cta" type="button">Aceptar</button>
       <button id="cookie-decline" class="ghost" type="button">Rechazar</button>
@@ -3206,11 +3214,11 @@
           obsr.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
-    revealTargets.forEach(el => { if (el.id !== 'legal') revealObs.observe(el); });
+	    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+	    revealTargets.forEach(el => { if (el.id !== 'legal') revealObs.observe(el); });
 
-    // Efecto agua (onditas) en hero
-    const hero = document.getElementById('top');
+	    // Efecto agua (onditas) en hero
+	    const hero = document.getElementById('top');
     const rippleLayer = document.createElement('div');
     rippleLayer.style.position = 'absolute';
     rippleLayer.style.inset = '0';
