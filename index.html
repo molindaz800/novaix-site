@@ -1622,10 +1622,99 @@
       background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('imagenes/fondo_quienessomos.png') center/cover no-repeat;
       min-height: 320px;
       position: relative;
+      z-index: 2;
+      display: grid;
+      align-content: end;
+      gap: 14px;
+      padding: clamp(18px, 3vw, 24px);
       opacity: 0;
       transform: translateX(-40px);
       transition: opacity .9s ease, transform .9s ease;
       overflow: hidden;
+    }
+    .quienes-left::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(140deg, rgba(5,10,18,0.84), rgba(5,10,18,0.28) 48%, rgba(0,195,255,0.10)),
+        radial-gradient(360px 260px at 20% 20%, rgba(0,195,255,0.20), transparent 68%);
+      pointer-events: none;
+    }
+    .founders-kicker {
+      position: relative;
+      z-index: 1;
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+    .founders-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .founder-card {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      min-height: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      background: rgba(8,13,21,0.72);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.35);
+    }
+    .founder-photo {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(0,195,255,0.28);
+      background:
+        radial-gradient(circle at 50% 24%, rgba(122,240,255,0.18), transparent 46%),
+        linear-gradient(160deg, rgba(0,195,255,0.16), rgba(255,255,255,0.035));
+    }
+    .founder-photo::before {
+      content: attr(data-initials);
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(122,240,255,0.55);
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+    .founder-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.96) contrast(1.05);
+    }
+    .founder-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+    .founder-role {
+      margin: -6px 0 0;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+    .founder-card p:not(.founder-role) {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
     }
     .quienes-content {
       position: relative;
@@ -1643,7 +1732,8 @@
     .quienes.visible .quienes-content { opacity: 1; transform: translateX(0); }
     .quienes-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     .q-badge { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); color: var(--accent); font-weight: 700; font-size: 0.9rem; }
-    .quienes-text p { text-align: justify; }
+    .quienes-text { display: grid; gap: 10px; }
+    .quienes-text p { color: var(--muted); }
 
     /* FAQ */
     .faq-wrap { display: grid; gap: 16px; max-width: 1100px; margin: 0 auto; }
@@ -2098,23 +2188,28 @@
     }
       .nav.nav--open .nav-links { max-height: 80vh; opacity: 1; visibility: visible; background: rgba(5, 10, 18, 0.7); border-top-color: rgba(255,255,255,0.08); padding: 12px; }
     .nav-links a { width: 100%; }
-      .hero-video { max-width: 640px; margin: 0 auto; }
-      .hero-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-      .slide { grid-template-columns: 1fr; }
-	      .calendar-card { grid-template-columns: 1fr; }
-	      .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-	      .calendar-left img.banner-img { height: 220px; object-fit: contain; }
+	      .hero-video { max-width: 640px; margin: 0 auto; }
+	      .hero-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+	      .slide { grid-template-columns: 1fr; }
+	      .founders-grid { grid-template-columns: 1fr; }
+	      .founder-card { grid-template-columns: 112px 1fr; align-items: center; }
+	      .founder-photo { height: 140px; aspect-ratio: auto; }
+		      .calendar-card { grid-template-columns: 1fr; }
+		      .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+		      .calendar-left img.banner-img { height: 220px; object-fit: contain; }
 	      .chatbox { width: 94vw; right: 10px; height: 70vh; }
       .chatbox--full { width: 96vw; height: 78vh; }
       .demo-panel { grid-template-columns: 1fr; }
       .demo-help { max-width: 520px; margin: 0 auto; background: transparent; }
     }
     @media (max-width: 640px) {
-      .nav-links a:not(.cta) { padding: 8px 10px; }
-      .usecases { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-      .carousel-arrows { inset: auto 10px 10px 10px; }
-      .carousel-arrows button { width: 34px; height: 34px; }
-    }
+	      .nav-links a:not(.cta) { padding: 8px 10px; }
+	      .usecases { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+	      .carousel-arrows { inset: auto 10px 10px 10px; }
+	      .carousel-arrows button { width: 34px; height: 34px; }
+	      .founder-card { grid-template-columns: 1fr; }
+	      .founder-photo { height: auto; aspect-ratio: 4 / 4.6; }
+	    }
     @media (max-width: 980px) {
       #ops-hub { padding-bottom: 60px; }
       .nx-stage { box-shadow: 0 18px 50px rgba(0,0,0,0.5); }
@@ -2619,33 +2714,47 @@
         <h2 class="section-title" id="quienes-title">Quienes somos</h2>
         <p class="section-lead">Equipo especializado en IA aplicada a operaciones, soporte y ventas.</p>
         <div class="quienes">
-          <div class="quienes-left" aria-hidden="true"></div>
+          <div class="quienes-left">
+            <span class="founders-kicker">Las personas detras de NOVAIX</span>
+            <div class="founders-grid" aria-label="Fundadores de NOVAIX">
+              <article class="founder-card">
+                <div class="founder-photo" data-initials="JA">
+                  <img src="imagenes/juan-arano.jpg" alt="Juan Arano, cofundador de NOVAIX" loading="lazy" decoding="async" onerror="this.remove()">
+                </div>
+                <div>
+                  <h3>Juan Arano</h3>
+                  <p class="founder-role">Estrategia, procesos y automatizacion</p>
+                  <p>Convierte problemas reales de negocio en flujos de IA claros, medibles y faciles de adoptar por equipos comerciales, soporte y operaciones.</p>
+                </div>
+              </article>
+              <article class="founder-card">
+                <div class="founder-photo" data-initials="DM">
+                  <img src="imagenes/daniel-molina.jpg" alt="Daniel Molina, cofundador de NOVAIX" loading="lazy" decoding="async" onerror="this.remove()">
+                </div>
+                <div>
+                  <h3>Daniel Molina</h3>
+                  <p class="founder-role">Producto, integraciones y despliegue</p>
+                  <p>Une agentes, canales y herramientas como calendarios, CRM, voz y automatizaciones para que la IA trabaje dentro de la operativa diaria.</p>
+                </div>
+              </article>
+            </div>
+          </div>
           <div class="quienes-content">
-            <h3>Nuestro enfoque</h3>
-            <p>Disenamos asistentes conversacionales y flujos de automatizacion que reducen la carga operativa y aumentan conversion. Trabajamos con n8n, RAG y modelos de voz para cubrir canales digitales y telefono.</p>
-            <p>Integramos con tus sistemas (CRM, ERP, calendarios) y mantenemos el modelo actualizado con tu contenido.</p>
+            <h3>IA practica, cercana y con impacto real</h3>
+            <p>En NOVAIX disenamos agentes de IA que atienden emails, llamadas y chats, organizan citas, actualizan herramientas internas y ayudan a vender, responder y operar con menos friccion.</p>
+            <p>Trabajamos cada proyecto desde la realidad del negocio: entendemos tus procesos, conectamos tus sistemas y acompanamos la puesta en marcha para que la tecnologia se note en tiempo ahorrado, mejores respuestas y mas oportunidades.</p>
             <div class="quienes-badges">
-              <span class="q-badge">RAG + Voz</span>
+              <span class="q-badge">IA aplicada</span>
               <span class="q-badge">n8n avanzado</span>
               <span class="q-badge">Multicanal</span>
               <span class="q-badge">Integraciones API</span>
             </div>
             <div class="quienes-text">
               <p>
-                En <strong>NOVAIX</strong> somos una empresa tecnologica especializada en <strong>soluciones de Inteligencia Artificial y automatizacion</strong> para negocios y profesionales
-                que quieren dar un salto real en su manera de trabajar.
+                Combinamos vision de negocio, desarrollo tecnico y obsesion por la experiencia del usuario para crear asistentes utiles desde el primer dia.
               </p>
               <p>
-                Nacimos con la vision de <strong>hacer accesible la IA a cualquier empresa</strong>, sin importar su tamano o sector, transformando la automatizacion en una herramienta cercana, practica y rentable,
-                con resultados medibles en el dia a dia.
-              </p>
-              <p>
-                <strong>Nuestro equipo combina experiencia en tecnologia, diseno, estrategia empresarial y comunicacion</strong>. Esto nos permite ofrecer soluciones integrales que van mas alla del simple desarrollo tecnico. Acompanamos a cada cliente desde la idea hasta la puesta en marcha,
-                asegurando que cada proyecto refleje su identidad, mejore su eficiencia y potencie la experiencia de sus clientes.
-              </p>
-              <p>
-                En <strong>NOVAIX</strong> creemos en la innovacion con proposito: una tecnologia etica, util y centrada en las personas. Nuestro objetivo no es solo implementar herramientas de IA, sino construir relaciones duraderas basadas en la confianza,
-                la transparencia y la excelencia en cada servicio que ofrecemos.
+                Nuestro objetivo es que cualquier empresa pueda usar IA sin complicarse: soluciones entendibles, mantenibles y orientadas a resultados.
               </p>
             </div>
           </div>
