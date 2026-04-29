@@ -1741,6 +1741,11 @@
         linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.18)),
         linear-gradient(160deg, rgba(0,195,255,0.10), rgba(255,255,255,0.02));
     }
+    .founder-face--back picture {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
     .founder-face--back img {
       position: absolute;
       inset: 0;
@@ -2203,76 +2208,256 @@
 	      .nav .cta { padding: 9px 10px; font-size: 0.92rem; }
 	    }
 	    @media (max-width: 900px) {
-      :root {
-        --nx-stage-minH: 520px;
-        --nx-stage-H: clamp(480px, 58vh, 610px);
-        --nx-tx-minW: 0px;
-      }
-      header { padding: calc(var(--nav-h) + 44px) 0 70px; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-galaxy__canvas { opacity: 0.7; }
-      .hero-galaxy__planet-wrap { right: -2%; top: 34%; width: clamp(280px, 84vw, 520px); opacity: 0.72; }
-      .hero-galaxy__text-wrap { left: 50%; transform: translateX(-50%); bottom: -10%; width: min(680px, 92vw); opacity: 0.45; }
-      .nav {
-        top: 12px;
-        width: calc(100% - 24px);
-        height: auto;
-        padding: 10px 12px;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: space-between;
-        background: transparent;
-        border-color: transparent;
-        box-shadow: none;
-        backdrop-filter: none;
-      }
-      .nav.nav--open {
-        background: rgba(5, 10, 18, 0.58);
-        border-color: rgba(255,255,255,0.09);
-        box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-        backdrop-filter: blur(14px);
-      }
-      .nav-toggle { display: inline-flex; margin-left: auto; }
-    .nav-links {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 10px;
-      border-top: 1px solid rgba(255,255,255,0);
-      background: rgba(5, 10, 18, 0);
-      border-radius: 12px;
-      padding: 0;
-      max-height: 0;
-      opacity: 0;
-      visibility: hidden;
-      overflow: hidden;
-      transition: max-height .25s ease, opacity .25s ease;
-    }
-      .nav.nav--open .nav-links { max-height: 80vh; opacity: 1; visibility: visible; background: rgba(5, 10, 18, 0.7); border-top-color: rgba(255,255,255,0.08); padding: 12px; }
-    .nav-links a { width: 100%; }
-	      .hero-video { max-width: 640px; margin: 0 auto; }
-	      .hero-cards { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-	      .slide { grid-template-columns: 1fr; }
+	      :root {
+	        --container: min(100% - 32px, 680px);
+	        --nx-stage-minH: 500px;
+	        --nx-stage-H: clamp(470px, 56vh, 590px);
+	        --nx-tx-minW: 0px;
+	      }
+	      body { overflow-x: hidden; }
+	      header {
+	        min-height: auto;
+	        padding: 86px 0 52px;
+	      }
+	      section { padding: 46px 0; }
+	      .section-title { font-size: 1.15rem; line-height: 1.2; }
+	      .section-lead { font-size: 0.98rem; margin-bottom: 14px; }
+	      .hero {
+	        grid-template-columns: minmax(0, 1fr);
+	        gap: 18px;
+	        margin-top: 12px;
+	        overflow: visible;
+	      }
+	      .hero > div:first-child { min-width: 0; }
+	      .eyebrow {
+	        max-width: 100%;
+	        white-space: normal;
+	        line-height: 1.25;
+	        font-size: 0.78rem;
+	      }
+	      .title {
+	        max-width: 11ch;
+	        font-size: 2.35rem;
+	        line-height: 1.02;
+	        overflow-wrap: anywhere;
+	        text-wrap: balance;
+	      }
+	      .subtitle {
+	        max-width: 34ch;
+	        font-size: 1rem;
+	        line-height: 1.55;
+	      }
+	      .hero-actions {
+	        display: grid;
+	        grid-template-columns: 1fr 1fr;
+	        gap: 10px;
+	        margin-top: 16px;
+	      }
+	      .hero-actions .cta,
+	      .hero-actions .ghost {
+	        min-height: 48px;
+	        width: 100%;
+	        text-align: center;
+	        justify-content: center;
+	      }
+	      .hero-cards {
+	        grid-template-columns: repeat(3, minmax(0, 1fr));
+	        gap: 8px;
+	        margin-top: 14px;
+	      }
+	      .mini-card {
+	        min-width: 0;
+	        padding: 10px;
+	        border-radius: 10px;
+	      }
+	      .mini-card strong {
+	        font-size: 1.35rem;
+	        line-height: 1.05;
+	      }
+	      .mini-card small {
+	        display: block;
+	        font-size: 0.78rem;
+	        line-height: 1.35;
+	      }
+	      .trust-strip { display: none; }
+	      .hero-video {
+	        --frame-radius: 16px;
+	        --screen-pad: 8px;
+	        width: min(100%, 520px);
+	        max-width: 100%;
+	        margin: 2px auto 0;
+	        aspect-ratio: 16 / 9;
+	        transform: none;
+	      }
+	      .hero-video video { object-fit: cover; }
+	      .hero-video::before { opacity: 0.34; animation-duration: 18s; }
+	      .hero-video::after { opacity: 0.58; }
+	      .hero-galaxy__canvas { opacity: 0.52; }
+	      .hero-galaxy__planet-wrap { right: -24%; top: 44%; width: clamp(260px, 92vw, 500px); opacity: 0.60; }
+	      .hero-galaxy__text-wrap { left: 50%; transform: translateX(-50%); bottom: -8%; width: min(620px, 96vw); opacity: 0.34; }
+	      .nav {
+	        top: max(10px, env(safe-area-inset-top));
+	        width: auto;
+	        left: 16px;
+	        right: 16px;
+	        transform: none;
+	        height: auto;
+	        padding: 8px;
+	        align-items: flex-start;
+	        flex-wrap: wrap;
+	        gap: 8px;
+	        justify-content: space-between;
+	        background: transparent;
+	        border-color: transparent;
+	        box-shadow: none;
+	        backdrop-filter: none;
+	      }
+	      .nav.nav--open {
+	        background: rgba(5, 10, 18, 0.82);
+	        border-color: rgba(255,255,255,0.10);
+	        box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+	        backdrop-filter: blur(14px);
+	      }
+	      .nav-toggle {
+	        display: inline-flex;
+	        margin-left: auto;
+	        width: 44px;
+	        height: 44px;
+	      }
+	      .nav-links {
+	        width: 100%;
+	        display: flex;
+	        flex-direction: column;
+	        align-items: stretch;
+	        gap: 8px;
+	        border-top: 1px solid rgba(255,255,255,0);
+	        background: rgba(5, 10, 18, 0);
+	        border-radius: 12px;
+	        padding: 0;
+	        max-height: 0;
+	        opacity: 0;
+	        visibility: hidden;
+	        overflow: hidden;
+	        transition: max-height .25s ease, opacity .25s ease;
+	      }
+	      .nav.nav--open .nav-links {
+	        max-height: calc(100dvh - 88px);
+	        overflow-y: auto;
+	        opacity: 1;
+	        visibility: visible;
+	        background: rgba(5, 10, 18, 0.72);
+	        border-top-color: rgba(255,255,255,0.08);
+	        padding: 10px;
+	      }
+	      .nav-links a,
+	      .nav-links button { width: 100%; min-height: 44px; justify-content: center; }
+	      .nav-links a:not(.cta) { padding: 10px 12px; }
+	      .slide {
+	        grid-template-columns: 1fr;
+	        padding: 18px 16px 62px;
+	      }
+	      .slide p {
+	        -webkit-line-clamp: unset;
+	        max-height: none;
+	      }
+	      .service-block:hover { transform: none; }
+	      .carousel-nav { left: 16px; right: auto; bottom: 18px; }
+	      .carousel-arrows {
+	        inset: auto 14px 14px auto;
+	        justify-content: flex-end;
+	        gap: 8px;
+	        padding: 0;
+	      }
+	      .carousel-arrows button { width: 42px; height: 42px; }
+	      .plans { grid-template-columns: 1fr; }
+	      .plan-card:hover { transform: none; }
+	      .quienes {
+	        grid-template-columns: 1fr;
+	        border-radius: 16px;
+	      }
+	      .quienes-content { border-left: 0; border-top: 1px solid var(--border); }
 	      .founders-grid { grid-template-columns: 1fr; }
 	      .founder-card { grid-template-columns: 112px 1fr; align-items: center; }
 	      .founder-photo { height: 140px; aspect-ratio: auto; }
-		      .calendar-card { grid-template-columns: 1fr; }
-		      .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-		      .calendar-left img.banner-img { height: 220px; object-fit: contain; }
-	      .chatbox { width: 94vw; right: 10px; height: 70vh; }
-      .chatbox--full { width: 96vw; height: 78vh; }
-      .demo-panel { grid-template-columns: 1fr; }
-      .demo-help { max-width: 520px; margin: 0 auto; background: transparent; }
-    }
-    @media (max-width: 640px) {
-	      .nav-links a:not(.cta) { padding: 8px 10px; }
-	      .usecases { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-	      .carousel-arrows { inset: auto 10px 10px 10px; }
-	      .carousel-arrows button { width: 34px; height: 34px; }
+	      .calendar-card { grid-template-columns: 1fr; }
+	      .calendar-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+	      .calendar-left img.banner-img { height: 220px; object-fit: contain; }
+	      .demo-panel { grid-template-columns: 1fr; }
+	      .demo-help { max-width: 520px; margin: 0 auto; background: transparent; }
+	      .cookie-banner {
+	        inset: auto 12px calc(12px + env(safe-area-inset-bottom)) 12px;
+	        width: min(360px, calc(100vw - 24px));
+	        display: none;
+	        grid-template-columns: 1fr;
+	        align-items: center;
+	        gap: 10px;
+	        padding: 10px;
+	        border-radius: 14px;
+	      }
+	      .cookie-banner.show { display: grid; }
+	      .cookie-banner p { font-size: 0.86rem; line-height: 1.45; }
+	      .cookie-actions {
+	        display: grid;
+	        grid-template-columns: repeat(2, minmax(0, 1fr));
+	        gap: 8px;
+	        margin-left: 0;
+	      }
+	      .cookie-actions .cta,
+	      .cookie-actions .ghost {
+	        min-height: 40px;
+	        padding: 8px 12px;
+	        white-space: nowrap;
+	      }
+	      .cookie-actions .ghost { margin-right: 0; }
+	      .chat-fab {
+	        width: 52px;
+	        height: 52px;
+	        right: 14px;
+	        bottom: calc(14px + env(safe-area-inset-bottom));
+	        border-radius: 16px;
+	        font-size: 1.35rem;
+	      }
+	      .cookie-banner.show + .chat-fab {
+	        bottom: calc(122px + env(safe-area-inset-bottom));
+	      }
+	      .chatbox {
+	        width: calc(100vw - 24px);
+	        right: 12px;
+	        bottom: calc(78px + env(safe-area-inset-bottom));
+	        height: min(70dvh, 560px);
+	        max-width: none;
+	      }
+	      .chatbox--full { width: calc(100vw - 16px); height: 82dvh; right: 8px; }
+	    }
+	    @media (max-width: 640px) {
+	      :root { --container: min(100% - 28px, 520px); }
+	      header { padding-top: 76px; padding-bottom: 44px; }
+	      .title { font-size: 2.08rem; max-width: 10.5ch; }
+	      .subtitle { font-size: 0.96rem; max-width: 32ch; }
+	      .hero-actions { grid-template-columns: 1fr; }
+	      .hero-cards {
+	        grid-template-columns: 1fr;
+	      }
+	      .usecases { grid-template-columns: 1fr; }
 	      .founder-card { grid-template-columns: 1fr; }
-	      .founder-photo { height: auto; aspect-ratio: 4 / 4.6; }
+	      .founder-photo {
+	        height: auto;
+	        aspect-ratio: 4 / 4.5;
+	        max-height: 360px;
+	      }
+	      .quick-replies { grid-template-columns: 1fr; }
+	    }
+	    @media (max-width: 420px) {
+	      :root { --container: min(100% - 24px, 420px); }
+	      .title { font-size: 1.9rem; }
+	      .mini-card {
+	        display: grid;
+	        grid-template-columns: auto 1fr;
+	        align-items: center;
+	        gap: 10px;
+	      }
+	      .mini-card strong { min-width: 84px; }
+	      .mini-card small { font-size: 0.84rem; }
 	    }
     @media (max-width: 980px) {
       #ops-hub { padding-bottom: 60px; }
@@ -2788,7 +2973,10 @@
                       <span>JA</span>
                     </div>
                     <div class="founder-face founder-face--back">
-                      <img src="imagenes/juan-arano.png" alt="Juan Arano, cofundador de NOVAIX" loading="lazy" decoding="async" onerror="this.closest('.founder-photo').classList.add('founder-photo--missing')">
+                      <picture>
+                        <source srcset="imagenes/juan-arano.webp" type="image/webp">
+                        <img src="imagenes/juan-arano.png" alt="Juan Arano, cofundador de NOVAIX" loading="lazy" decoding="async" onerror="this.closest('.founder-photo').classList.add('founder-photo--missing')">
+                      </picture>
                     </div>
                   </div>
                 </div>
@@ -2805,7 +2993,10 @@
                       <span>DM</span>
                     </div>
                     <div class="founder-face founder-face--back">
-                      <img src="imagenes/daniel-molina.png" alt="Daniel Molina, cofundador de NOVAIX" loading="lazy" decoding="async" onerror="this.closest('.founder-photo').classList.add('founder-photo--missing')">
+                      <picture>
+                        <source srcset="imagenes/daniel-molina.webp" type="image/webp">
+                        <img src="imagenes/daniel-molina.png" alt="Daniel Molina, cofundador de NOVAIX" loading="lazy" decoding="async" onerror="this.closest('.founder-photo').classList.add('founder-photo--missing')">
+                      </picture>
                     </div>
                   </div>
                 </div>
