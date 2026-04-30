@@ -1710,11 +1710,13 @@
       transition: transform .9s cubic-bezier(.22,.78,.17,1);
     }
     .founder-card:hover .founder-photo-inner,
+    .founder-card.is-flipped .founder-photo-inner,
     .founder-card:focus-within .founder-photo-inner {
       transform: rotateY(180deg);
     }
     .founder-photo--missing .founder-photo-inner,
     .founder-photo--missing:hover .founder-photo-inner,
+    .founder-card.is-flipped .founder-photo--missing .founder-photo-inner,
     .founder-card:focus-within .founder-photo--missing .founder-photo-inner {
       transform: none;
     }
@@ -1767,7 +1769,14 @@
       pointer-events: none;
     }
     @media (hover: none) {
-      .founder-card:hover .founder-photo-inner {
+      .founder-card:hover .founder-photo-inner,
+      .founder-card:focus-within .founder-photo-inner {
+        transform: none;
+      }
+      .founder-card.is-flipped .founder-photo-inner {
+        transform: rotateY(180deg);
+      }
+      .founder-card.is-flipped .founder-photo--missing .founder-photo-inner {
         transform: none;
       }
     }
@@ -3008,7 +3017,7 @@
           <div class="quienes-left">
             <span class="founders-kicker">Las personas detras de NOVAIX</span>
             <div class="founders-grid" aria-label="Fundadores de NOVAIX">
-              <article class="founder-card" tabindex="0">
+              <article class="founder-card" tabindex="0" role="button" aria-pressed="false" aria-label="Ver foto de Juan Arano">
                 <div class="founder-photo" aria-hidden="true">
                   <div class="founder-photo-inner">
                     <div class="founder-face founder-face--front">
@@ -3028,7 +3037,7 @@
                   <p>Convierte problemas reales de negocio en flujos de IA claros, medibles y faciles de adoptar por equipos comerciales, soporte y operaciones.</p>
                 </div>
               </article>
-              <article class="founder-card" tabindex="0">
+              <article class="founder-card" tabindex="0" role="button" aria-pressed="false" aria-label="Ver foto de Daniel Molina">
                 <div class="founder-photo" aria-hidden="true">
                   <div class="founder-photo-inner">
                     <div class="founder-face founder-face--front">
@@ -3223,6 +3232,86 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      function hasClass(el, className) {
+        return el && (' ' + el.className + ' ').indexOf(' ' + className + ' ') > -1;
+      }
+      function addClass(el, className) {
+        if (!el || hasClass(el, className)) return;
+        el.className = (el.className ? el.className + ' ' : '') + className;
+      }
+      function removeClass(el, className) {
+        if (!el) return;
+        el.className = (' ' + el.className + ' ').replace(' ' + className + ' ', ' ').replace(/^\s+|\s+$/g, '');
+      }
+      function closestByClass(el, className) {
+        while (el && el.nodeType === 1) {
+          if (hasClass(el, className)) return el;
+          el = el.parentNode;
+        }
+        return null;
+      }
+      function isTapMode() {
+        var fineHover = false;
+        if (window.matchMedia) {
+          try {
+            fineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+          } catch (e) {
+            fineHover = false;
+          }
+        }
+        return window.innerWidth <= 900 || !fineHover;
+      }
+      function getCards() {
+        return document.querySelectorAll ? document.querySelectorAll('.founder-card') : [];
+      }
+      function closeCards(exceptCard) {
+        var cards = getCards();
+        for (var i = 0; i < cards.length; i++) {
+          if (cards[i] === exceptCard) continue;
+          removeClass(cards[i], 'is-flipped');
+          cards[i].setAttribute('aria-pressed', 'false');
+        }
+      }
+      function toggleCard(card) {
+        if (!card || (card.querySelector && card.querySelector('.founder-photo--missing'))) return;
+        var shouldOpen = !hasClass(card, 'is-flipped');
+        closeCards(card);
+        if (shouldOpen) addClass(card, 'is-flipped');
+        else removeClass(card, 'is-flipped');
+        card.setAttribute('aria-pressed', shouldOpen ? 'true' : 'false');
+      }
+      function bindFounderCards() {
+        var cards = getCards();
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].onclick = function (event) {
+            if (!isTapMode()) return;
+            toggleCard(this);
+            if (event && event.stopPropagation) event.stopPropagation();
+          };
+          cards[i].onkeydown = function (event) {
+            event = event || window.event;
+            var key = event.key || event.keyCode;
+            if (key !== 'Enter' && key !== ' ' && key !== 13 && key !== 32) return;
+            if (event.preventDefault) event.preventDefault();
+            toggleCard(this);
+          };
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindFounderCards);
+      } else {
+        bindFounderCards();
+      }
+      document.addEventListener('click', function (event) {
+        if (!isTapMode()) return;
+        if (closestByClass(event.target || event.srcElement, 'founder-card')) return;
+        closeCards(null);
+      });
+    })();
+  </script>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
