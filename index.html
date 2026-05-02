@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agentes de IA y automatizacion para empresas: ventas, soporte y operaciones multicanal con integraciones reales.">
+  <meta name="description" content="Agentes de IA y automatizacion para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.">
   <title>NOVAIX · Agentes IA, Automatizacion y Voz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -482,6 +482,35 @@
     .trust-strip p { color: var(--muted); font-size: 0.95rem; }
     .trust-badges { display: flex; flex-wrap: wrap; gap: 8px; }
     .trust-badges span { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); color: var(--text); font-weight: 600; font-size: 0.9rem; }
+    .security-strip {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid rgba(0,195,255,0.22);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(0,195,255,0.10), rgba(122,240,255,0.035)),
+        rgba(5,10,18,0.55);
+      box-shadow: 0 18px 52px rgba(0,195,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+    .security-strip p { color: var(--muted); margin: 0; font-size: 0.94rem; }
+    .security-strip strong { color: var(--text); }
+    .security-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .security-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,195,255,0.26);
+      background: rgba(0,195,255,0.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+    .security-badges i { color: var(--accent); }
 
     section {
       padding: 60px 0;
@@ -641,6 +670,147 @@
     }
     .benefit-card h3 { margin: 0; }
     .benefit-card p { color: var(--muted); margin: 0; }
+
+    /* Seguridad y cumplimiento */
+    #seguridad {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(780px 520px at 18% 20%, rgba(0,195,255,0.14), transparent 58%),
+        radial-gradient(620px 420px at 86% 20%, rgba(122,240,255,0.08), transparent 60%),
+        linear-gradient(180deg, rgba(5,8,15,0.96), rgba(8,13,21,0.98));
+    }
+    #seguridad::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(0,195,255,0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0,195,255,0.035) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(circle at 35% 35%, #000, transparent 72%);
+      opacity: 0.65;
+    }
+    .security-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .security-primary,
+    .security-panel {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      background: rgba(8,13,21,0.74);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.44), var(--glow);
+      backdrop-filter: blur(12px);
+    }
+    .security-primary {
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+    .security-primary h3 {
+      margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .security-primary p { color: var(--muted); margin: 0; font-size: 1.02rem; }
+    .security-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+    }
+    .security-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+    }
+    .security-list i { color: var(--accent); margin-top: 4px; }
+    .security-panel {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .security-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -35% 20%;
+      height: 58%;
+      background: radial-gradient(420px 260px at 50% 50%, rgba(0,195,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .security-panel-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .security-panel-head h3 { margin: 0; }
+    .security-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,195,255,0.30);
+      background: rgba(0,195,255,0.08);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .security-card {
+      display: grid;
+      gap: 8px;
+      min-height: 150px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+    }
+    .security-card i {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: #041320;
+      background: linear-gradient(145deg, var(--accent), var(--accent-2));
+      box-shadow: 0 14px 36px rgba(0,195,255,0.20);
+    }
+    .security-card strong { color: var(--text); line-height: 1.15; }
+    .security-card span { color: var(--muted); font-size: 0.92rem; }
+    .security-footnote {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding-top: 4px;
+    }
 
 	    /* Casos */
 	    .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
@@ -2410,6 +2580,7 @@
 	        animation: none;
 	        transform: none !important;
 	      }
+	      .integration-item--clone { display: none; }
 	      .integration-item { white-space: normal; }
 	      .service-block:hover { transform: none; }
 	      .carousel-nav { left: 16px; right: auto; bottom: 18px; }
@@ -2422,6 +2593,10 @@
 	      .carousel-arrows button { width: 42px; height: 42px; }
 	      .plans { grid-template-columns: 1fr; }
 	      .plan-card:hover { transform: none; }
+	      .security-layout { grid-template-columns: 1fr; }
+	      .security-primary,
+	      .security-panel { border-radius: 16px; }
+	      .security-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	      .quienes {
 	        grid-template-columns: 1fr;
 	        border-radius: 16px;
@@ -2489,6 +2664,12 @@
 	      .hero-cards {
 	        grid-template-columns: 1fr;
 	      }
+	      .security-strip { padding: 12px; }
+	      .security-badges span { width: 100%; justify-content: flex-start; }
+	      .security-primary,
+	      .security-panel { padding: 16px; }
+	      .security-grid { grid-template-columns: 1fr; }
+	      .security-card { min-height: auto; }
 	      .usecases { grid-template-columns: 1fr; }
 	      .founder-card { grid-template-columns: 1fr; }
 	      .founder-photo {
@@ -2548,6 +2729,7 @@
       <div class="nav-links" id="nav-links">
         <a class="nav-home cl-effect-10" href="#top" aria-label="Ir al inicio"><i class="fa-solid fa-house"></i></a>
         <a class="cl-effect-10" data-hover="Beneficios" href="#beneficios"><span>Beneficios</span></a>
+	        <a class="cl-effect-10" data-hover="Seguridad" href="#seguridad"><span>Seguridad</span></a>
 	        <a class="cl-effect-10" data-hover="Ops Hub" href="#ops-hub"><span>Ops Hub</span></a>
 	        <a class="cl-effect-10" data-hover="Servicios" href="#servicios"><span>Servicios</span></a>
 	        <a class="cl-effect-10" data-hover="Casos" href="#casos"><span>Casos</span></a>
@@ -2572,9 +2754,9 @@
 
     <div class="container hero" id="contenido">
       <div>
-        <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> IA aplicada a ventas, soporte y operaciones</span>
+        <span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> IA segura para ventas, soporte y operaciones</span>
         <h1 class="title title-animated">Automatiza procesos clave con agentes de IA listos para generar clientes.</h1>
-        <p class="subtitle">Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo cuando importa. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n.</p>
+        <p class="subtitle">Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimizacion de datos.</p>
         <div class="hero-actions">
           <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span>Agendar cita</span></button>
           <a class="ghost cl-effect-10" data-hover="Ver servicios" href="#servicios"><span>Ver servicios</span></a>
@@ -2583,6 +2765,15 @@
           <div class="mini-card"><strong data-counter="92">0%</strong><small>Consultas resueltas sin agentes humanos.</small></div>
           <div class="mini-card"><strong data-counter="70">0%</strong><small>Back-office automatizado en clientes Pro.</small></div>
           <div class="mini-card"><strong>2 semanas</strong><small>Tiempo medio de despliegue.</small></div>
+        </div>
+        <div class="security-strip" aria-label="Enfoque de seguridad y privacidad">
+          <p><strong>Privacidad como ventaja competitiva:</strong> diseñamos agentes con enfoque RGPD y LOPD-GDD, minimizacion de datos y controles de seguridad desde el primer flujo.</p>
+          <div class="security-badges">
+            <span><i class="fa-solid fa-shield-halved"></i> RGPD + LOPD-GDD</span>
+            <span><i class="fa-solid fa-lock"></i> Cifrado en transito</span>
+            <span><i class="fa-solid fa-user-lock"></i> Accesos por rol</span>
+            <span><i class="fa-solid fa-server"></i> UE disponible</span>
+          </div>
         </div>
         <div class="trust-strip" aria-label="Prueba social">
           <p>Empresas que buscan automatizar confian en nuestro enfoque.</p>
@@ -2616,13 +2807,72 @@
             <p>Preguntas guiadas que entregan leads listos y reducen hasta 40% el tiempo comercial.</p>
           </article>
           <article class="benefit-card">
-            <h3>Escala sin friccion</h3>
-            <p>Atiende picos de demanda sin aumentar plantilla ni sacrificar calidad.</p>
+            <h3>Escala con control</h3>
+            <p>Atiende picos de demanda con reglas claras sobre datos, acceso humano y escalado seguro.</p>
           </article>
           <article class="benefit-card">
             <h3>Visibilidad real</h3>
             <p>Indicadores de conversion y tiempos para recortar ciclos operativos hasta 30%.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="seguridad" aria-labelledby="seguridad-title">
+      <div class="container">
+        <h2 class="section-title" id="seguridad-title">Seguridad y proteccion de datos</h2>
+        <p class="section-lead">Automatizar no debe significar perder control. Nuestro enfoque pone la privacidad, la trazabilidad y la minimizacion de datos en el centro de cada agente.</p>
+        <div class="security-layout">
+          <article class="security-primary">
+            <span class="eyebrow"><i class="fa-solid fa-fingerprint"></i> Privacidad desde el diseño</span>
+            <h3>IA preparada para tratar informacion de negocio sin convertir tus datos en un riesgo.</h3>
+            <p>Antes de desplegar definimos que datos necesita el agente, para que se usan, quien puede verlos, donde se alojan y como se conservan. El objetivo es que el asistente sea util, medible y proporcional al proceso que automatiza.</p>
+            <ul class="security-list">
+              <li><i class="fa-solid fa-check"></i><span>Mapa de datos y finalidad del tratamiento antes de activar flujos con clientes.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Configuracion orientada a RGPD y LOPD-GDD: minimizacion, conservacion limitada y derechos del usuario.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Proveedores, integraciones y alojamiento revisados segun el caso; infraestructura en la UE disponible.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Escalado a humano para casos sensibles, incidencias o solicitudes que no deba resolver la IA sola.</span></li>
+            </ul>
+          </article>
+          <aside class="security-panel" aria-label="Controles de seguridad NOVAIX">
+            <div class="security-panel-head">
+              <h3>Controles por defecto</h3>
+              <span class="security-status"><i class="fa-solid fa-lock"></i> Data safe</span>
+            </div>
+            <div class="security-grid">
+              <div class="security-card">
+                <i class="fa-solid fa-lock"></i>
+                <strong>Cifrado y canales seguros</strong>
+                <span>Conexiones HTTPS y cifrado en transito en los servicios integrados que lo soportan.</span>
+              </div>
+              <div class="security-card">
+                <i class="fa-solid fa-user-shield"></i>
+                <strong>Acceso minimo necesario</strong>
+                <span>Roles, permisos y credenciales separados para limitar quien puede leer o modificar datos.</span>
+              </div>
+              <div class="security-card">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <strong>Trazabilidad operativa</strong>
+                <span>Registro de eventos clave para revisar conversaciones, derivaciones y automatizaciones.</span>
+              </div>
+              <div class="security-card">
+                <i class="fa-solid fa-database"></i>
+                <strong>Datos justos y necesarios</strong>
+                <span>Capturamos solo la informacion imprescindible para responder, reservar, cualificar o escalar.</span>
+              </div>
+              <div class="security-card">
+                <i class="fa-solid fa-file-contract"></i>
+                <strong>Encargados y proveedores</strong>
+                <span>Documentamos herramientas externas como Calendly, CRM, n8n o canales de mensajeria.</span>
+              </div>
+              <div class="security-card">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <strong>Guardrails de IA</strong>
+                <span>Limites de respuesta, escalado y revision humana para evitar usos fuera del alcance acordado.</span>
+              </div>
+            </div>
+            <p class="security-footnote">Cada proyecto se ajusta al tratamiento real de datos: no prometemos una configuracion unica, disenamos el nivel de seguridad adecuado para tu negocio y sector.</p>
+          </aside>
         </div>
       </div>
     </section>
@@ -2944,6 +3194,7 @@
               <li>Respuestas inteligentes a FAQs basicas (horarios, precios, servicios)</li>
               <li>Captura de leads sencilla (nombre, telefono, email)</li>
               <li>Panel basico de actividad</li>
+              <li>Configuracion base de privacidad y consentimiento</li>
               <li>Hasta 500 interacciones al mes</li>
               <li>Soporte por email</li>
               <li>1 idioma</li>
@@ -2968,6 +3219,7 @@
               <li>2.000 interacciones/mes</li>
               <li>Bot multi-idioma (hasta 3 idiomas)</li>
               <li>Notificaciones automaticas por email/Telegram</li>
+              <li>Revision de flujos con enfoque RGPD/LOPD-GDD y minimizacion de datos</li>
               <li>Entrenamiento mensual del bot</li>
               <li>Soporte prioritario</li>
             </ul>
@@ -2995,6 +3247,7 @@
               <li>Automatizacion contable y pipeline comercial</li>
               <li>Reentrenamiento continuo (mensual)</li>
               <li>Reportes avanzados + metricas predictivas</li>
+              <li>Auditoria funcional de trazabilidad, permisos y proveedores conectados</li>
               <li>Soporte VIP 24/7 garantizado</li>
               <li>Asistencia en campanas o picos de demanda</li>
             </ul>
@@ -3005,6 +3258,7 @@
           <p class="pricing-note"><strong class="importante">Importante</strong><br>Los planes cubren el <strong>mantenimiento mensual del asistente</strong> (uso, soporte y mejora continua).</p>
           <p class="pricing-note">El <strong>diseno y desarrollo inicial</strong> se presupuesta aparte tras revisar tu negocio, canales y procesos.</p>
           <p class="pricing-note">Segun la complejidad, cerramos un presupuesto de puesta en marcha y, aprobado, el asistente pasa a la cuota mensual del plan elegido. Precios sin IVA.</p>
+          <p class="pricing-note">Los requisitos de seguridad, cifrado, alojamiento en la UE o controles especificos se concretan en el alcance tecnico de cada proyecto.</p>
         </div>
       </div>
     </section>
@@ -3087,7 +3341,9 @@
         <h2 class="section-title" id="faq-title">FAQ</h2>
         <p class="section-lead">Respuestas rapidas a las dudas mas comunes antes de agendar una demo.</p>
         <div class="faq">
-          <details><summary>Cumplis con RGPD y alojamiento en la UE?</summary><div class="faq-content"><p>Si. Trabajamos siguiendo el Reglamento General de Proteccion de Datos (RGPD) y podemos alojar el asistente en infraestructura dentro de la Union Europea. Definimos contigo que datos se recogen, para que se usan y durante cuanto tiempo se guardan.</p></div></details>
+          <details open><summary>Cumplis con RGPD, LOPD-GDD y alojamiento en la UE?</summary><div class="faq-content"><p>Trabajamos con enfoque RGPD y LOPD-GDD desde el diseno del agente: minimizacion de datos, finalidad clara, conservacion limitada, control de accesos y revision de proveedores. Si el proyecto lo requiere, podemos plantear infraestructura dentro de la Union Europea y limitar que herramientas externas intervienen en el flujo.</p></div></details>
+          <details><summary>Mis datos se usan para entrenar modelos publicos?</summary><div class="faq-content"><p>No usamos la informacion de tu empresa para entrenar modelos publicos sin autorizacion. El alcance de cada agente se define con tus documentos, procesos y canales, y se revisa que datos necesita realmente para operar.</p></div></details>
+          <details><summary>Que medidas de seguridad aplicais en los agentes?</summary><div class="faq-content"><p>Aplicamos controles proporcionales al proyecto: conexiones HTTPS, cifrado en transito cuando el proveedor lo soporta, accesos por rol, credenciales separadas, registro de eventos relevantes, escalado a humano y limitacion de datos recogidos. En proyectos avanzados revisamos permisos, proveedores e integraciones conectadas.</p></div></details>
           <details><summary>Cuanto tardais en poner en marcha un asistente?</summary><div class="faq-content"><p>Depende del plan y de la complejidad del proyecto. En los casos sencillos (Plan Basico) solemos tener un asistente funcionando en 24–72 horas desde que tenemos la informacion necesaria. Cuando hay integraciones con CRM u otras herramientas, el plazo habitual esta entre 5 y 10 dias.</p></div></details>
           <details><summary>Se integra con WhatsApp, web y CRM?</summary><div class="faq-content"><p>Si. Podemos desplegar el asistente en tu web (widget de chat), en WhatsApp Business y en otros canales de mensajeria. Tambien podemos conectarlo con CRMs habituales para registrar contactos, oportunidades o citas. En la primera reunion revisamos que herramientas usas ahora y te proponemos la mejor forma de integrarlo.</p></div></details>
           <details><summary>Como sabemos si el asistente esta funcionando bien?</summary><div class="faq-content"><p>Antes de arrancar definimos contigo que quieres conseguir: ahorrar tiempo, atender mas consultas, generar mas oportunidades, etc. Despues medimos indicadores claros como: numero de conversaciones atendidas, tiempo estimado ahorrado al equipo, oportunidades o citas generadas. En los planes Profesional y Avanzado revisamos estos datos contigo de forma periodica y ajustamos el asistente segun los resultados.</p></div></details>
@@ -3154,7 +3410,9 @@
           <p><strong>Conservacion:</strong> mientras exista relacion comercial/contacto o hasta que solicites la supresion. Luego se eliminaran de forma segura.</p>
           <p><strong>Destinatarios:</strong> no cedemos datos a terceros salvo obligacion legal o proveedores tecnologicos necesarios (agenda, correo, etc.).</p>
           <p><strong>Derechos:</strong> acceso, rectificacion, supresion, oposicion, limitacion y portabilidad. Escribenos a <a href="mailto:novaix.assist@gmail.com" style="color:var(--accent);">novaix.assist@gmail.com</a> indicando el derecho que quieres ejercer.</p>
-          <p><strong>Medidas de seguridad:</strong> aplicamos medidas tecnicas y organizativas para proteger la confidencialidad e integridad de los datos.</p>
+          <p><strong>Marco normativo:</strong> tratamos la informacion conforme al Reglamento General de Proteccion de Datos (RGPD) y la Ley Organica 3/2018 de Proteccion de Datos Personales y garantia de los derechos digitales (LOPD-GDD), dentro del alcance real de los servicios contratados.</p>
+          <p><strong>Medidas de seguridad:</strong> aplicamos medidas tecnicas y organizativas proporcionales al riesgo, como control de accesos, minimizacion de datos, revision de proveedores, cifrado en transito cuando el servicio lo permite y buenas practicas de confidencialidad e integridad.</p>
+          <p><strong>IA y datos del cliente:</strong> los datos facilitados para analizar una solicitud, preparar una demo o configurar un agente se usan solo para la finalidad acordada. No se utilizan para entrenar modelos publicos sin autorizacion expresa.</p>
           <p><strong>Cambios:</strong> podremos actualizar esta politica para reflejar cambios legales o de servicio. La version vigente estara siempre aqui.</p>
           <p><strong>Aceptacion:</strong> usar la web o agendar una cita implica la aceptacion de esta Politica de Privacidad.</p>
         </div>
@@ -3208,7 +3466,7 @@
     <div class="chatbox__footer-area">
       <div class="quick-replies">
         <button class="chip-btn" onclick="sendQuick(this)">Que es un agente de IA y como ayuda a mi negocio?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">Cumplis con RGPD y alojamiento en la UE?</button>
+        <button class="chip-btn" onclick="sendQuick(this)">Cumplis con RGPD, LOPD-GDD y alojamiento en la UE?</button>
         <button class="chip-btn" onclick="sendQuick(this)">Como integras el asistente con mi CRM o WhatsApp?</button>
         <button class="chip-btn" onclick="sendQuick(this)">Dame ejemplos de como un agente de IA mejora ventas y soporte.</button>
       </div>
@@ -3887,7 +4145,12 @@
     // Integraciones scroll duplicado
     const integrationsTrack = document.getElementById('integrations-track');
     if (integrationsTrack) {
-      integrationsTrack.innerHTML += integrationsTrack.innerHTML; // duplicar para loop
+      Array.from(integrationsTrack.children).forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.classList.add('integration-item--clone');
+        clone.setAttribute('aria-hidden', 'true');
+        integrationsTrack.appendChild(clone);
+      });
     }
 
     // help text animacion on-visible
