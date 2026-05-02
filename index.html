@@ -2235,7 +2235,7 @@
     }
     .cta-strip p { margin: 0; color: var(--muted); }
 
-    /* Chat flotante (version funcional original) */
+    /* Chat flotante */
     .chat-fab {
       position: fixed; bottom: 22px; right: 22px;
       width: 60px; height: 60px; border-radius: 20px;
@@ -2250,106 +2250,227 @@
     .chat-fab:hover { transform: translateY(-3px); }
     .chatbox {
       position: fixed; bottom: 90px; right: 22px;
-      width: 380px; height: 550px; max-height: 80vh; max-width: 92vw;
-      background: #0c1119;
-      border: 1px solid rgba(0,195,255,0.3);
-      border-radius: 18px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      width: min(430px, calc(100vw - 32px));
+      height: min(650px, calc(100dvh - 118px));
+      max-height: 82vh;
+      background:
+        radial-gradient(520px 340px at 20% -10%, rgba(0,195,255,0.18), transparent 62%),
+        linear-gradient(180deg, rgba(10,18,29,0.98), rgba(5,9,16,0.98));
+      border: 1px solid rgba(0,195,255,0.36);
+      border-radius: 22px;
+      box-shadow: 0 34px 90px rgba(0,0,0,0.78), 0 0 44px rgba(0,195,255,0.16);
       display: flex; flex-direction: column; justify-content: flex-start;
       overflow: hidden;
       transform: translateY(120%); opacity: 0; pointer-events: none;
       transition: transform .3s ease, opacity .3s;
       z-index: 998;
+      font-size: 0.95rem;
     }
     .chatbox--open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-    .chatbox--full { width: min(900px, 94vw); height: 640px; right: 10px; }
+    .chatbox--full { width: min(900px, 94vw); height: min(720px, 86vh); right: 10px; }
     .chatbox__header {
       flex: 0 0 auto;
-      padding: 16px;
-      background: linear-gradient(180deg, rgba(0,195,255,0.15), rgba(5,10,18,0.9));
-      border-bottom: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 16px 14px;
+      background:
+        linear-gradient(180deg, rgba(0,195,255,0.13), rgba(5,10,18,0.82)),
+        rgba(255,255,255,0.015);
+      border-bottom: 1px solid rgba(0,195,255,0.18);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
     }
-    .chat-header-text { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
-    .chat-header-text h3 { margin: 0; font-size: 1.1rem; color: white; line-height: 1.2; text-align: left; }
-    .chat-header-text small { color: var(--muted); font-size: 0.85rem; display: block; margin-top: 2px; text-align: left; }
+    .chat-header-text { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px; min-width: 0; }
+    .chat-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #041320;
+      background: linear-gradient(145deg, var(--accent), var(--accent-2));
+      box-shadow: 0 16px 36px rgba(0,195,255,0.28);
+    }
+    .chat-title { min-width: 0; }
+    .chat-badge-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,195,255,0.25);
+      background: rgba(0,195,255,0.08);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .chat-header-text h3 { margin: 4px 0 0; font-size: 1.08rem; color: white; line-height: 1.15; text-align: left; }
+    .chat-header-text small { color: var(--muted); font-size: 0.78rem; display: block; margin-top: 2px; text-align: left; line-height: 1.35; }
     .chat-actions { display: flex; gap: 8px; align-items: center; }
     .chatbox__full, .chatbox__close {
-      width: 34px; height: 34px; border-radius: 10px;
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      width: 38px; height: 38px; border-radius: 12px;
+      background: rgba(255,255,255,0.055); border: 1px solid rgba(255,255,255,0.10);
       color: var(--text); display: inline-flex; align-items: center; justify-content: center;
       cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
     }
+    .chatbox__full:hover, .chatbox__close:hover { border-color: rgba(0,195,255,0.45); background: rgba(0,195,255,0.10); color: var(--accent); transform: translateY(-1px); }
     .chatbox__messages {
       flex: 1 1 auto;
-      padding: 14px;
+      padding: 16px;
       overflow-y: auto;
-      display: grid; gap: 10px;
-      background: rgba(5,10,18,0.75);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background:
+        linear-gradient(180deg, rgba(5,10,18,0.58), rgba(5,10,18,0.82)),
+        radial-gradient(420px 300px at 15% 10%, rgba(0,195,255,0.08), transparent 70%);
+      min-height: 0;
     }
-    .bubble-row { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
-    .bubble-row.user { grid-template-columns: 1fr auto; }
+    .chatbox__messages::-webkit-scrollbar { width: 8px; }
+    .chatbox__messages::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+    .chatbox__messages::-webkit-scrollbar-thumb { background: rgba(0,195,255,0.22); border-radius: 999px; }
+    .bubble-row { display: flex; gap: 10px; align-items: flex-end; }
+    .bubble-row.user { justify-content: flex-end; }
     .bubble-row .avatar {
-      width: 30px; height: 30px; border-radius: 10px;
-      background: rgba(0,195,255,0.18);
+      width: 32px; height: 32px; border-radius: 12px;
+      flex: 0 0 32px;
+      background: rgba(0,195,255,0.16);
       display: inline-flex; align-items: center; justify-content: center;
       color: var(--accent);
-      box-shadow: inset 0 0 0 1px var(--border);
+      box-shadow: inset 0 0 0 1px rgba(0,195,255,0.18);
     }
     .bubble-row .bubble {
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
+      padding: 11px 13px;
+      border-radius: 16px 16px 16px 6px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.09);
       color: var(--text);
-      max-width: 86%;
+      max-width: min(76%, 620px);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
     .bubble-row.user .bubble {
-      justify-self: end;
-      background: linear-gradient(145deg, rgba(0,195,255,0.16), rgba(0,195,255,0.06));
+      border-radius: 16px 16px 6px 16px;
+      background: linear-gradient(145deg, rgba(0,195,255,0.18), rgba(0,195,255,0.07));
       border-color: rgba(0,195,255,0.35);
+    }
+    .bubble-row.loading .bubble {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+    }
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.42;
+      animation: typingPulse 1.2s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: .16s; }
+    .typing-dot:nth-child(3) { animation-delay: .32s; }
+    @keyframes typingPulse {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }
+      40% { transform: translateY(-3px); opacity: 1; }
     }
     .chatbox__footer-area {
       flex: 0 0 auto;
       display: grid; gap: 10px;
-      padding: 12px;
-      background: rgba(5,10,18,0.9);
-      border-top: 1px solid var(--border);
+      padding: 12px 14px 14px;
+      background: rgba(5,10,18,0.92);
+      border-top: 1px solid rgba(0,195,255,0.16);
     }
-    .quick-replies { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
+    .quick-replies-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+    .quick-replies-head strong { color: var(--text); font-size: 0.82rem; }
+    .quick-replies-head span { color: var(--accent); font-weight: 700; }
+    .quick-replies {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 1px 0 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,195,255,0.28) transparent;
+    }
+    .quick-replies::-webkit-scrollbar { height: 5px; }
+    .quick-replies::-webkit-scrollbar-track { background: transparent; }
+    .quick-replies::-webkit-scrollbar-thumb { background: rgba(0,195,255,0.25); border-radius: 999px; }
     .chip-btn {
       background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
       color: var(--text);
-      padding: 8px;
+      padding: 8px 11px;
       cursor: pointer;
       text-align: left;
+      flex: 0 0 auto;
+      max-width: 245px;
+      font-size: 0.86rem;
+      line-height: 1.25;
+      white-space: normal;
+      transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
     }
-    .chip-btn:hover { border-color: rgba(0,195,255,0.6); color: var(--accent); }
-    .input-area { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    .chip-btn:hover { border-color: rgba(0,195,255,0.6); color: var(--accent); background: rgba(0,195,255,0.08); transform: translateY(-1px); }
+    .input-area {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      padding: 5px;
+      border-radius: 18px;
+      border: 1px solid rgba(0,195,255,0.24);
+      background: rgba(255,255,255,0.035);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
     .chat-input {
-      background: #0b0f14;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      border-radius: 14px;
       padding: 10px 12px;
       color: var(--text);
+      outline: none;
     }
+    .chat-input::placeholder { color: rgba(195,202,213,0.55); }
     .send-btn {
-      background: var(--accent);
+      min-height: 42px;
+      background: linear-gradient(145deg, var(--accent), var(--accent-2));
       color: #041320;
       font-weight: 800;
       border: none;
-      border-radius: 12px;
-      padding: 10px 14px;
+      border-radius: 14px;
+      padding: 10px 15px;
       cursor: pointer;
       box-shadow: 0 8px 24px rgba(0,195,255,0.32);
     }
+    .send-btn:disabled,
+    .chip-btn:disabled { opacity: 0.58; cursor: not-allowed; transform: none; }
     .status-bar {
       margin: 0;
       color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
+      font-size: 0.78rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .status-bar::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(0,195,255,0.75);
     }
 
     footer {
@@ -2650,8 +2771,9 @@
 	        width: calc(100vw - 24px);
 	        right: 12px;
 	        bottom: calc(78px + env(safe-area-inset-bottom));
-	        height: min(70dvh, 560px);
+	        height: min(74dvh, 590px);
 	        max-width: none;
+	        font-size: 0.9rem;
 	      }
 	      .chatbox--full { width: calc(100vw - 16px); height: 82dvh; right: 8px; }
 	    }
@@ -2677,7 +2799,34 @@
 	        aspect-ratio: 4 / 4.5;
 	        max-height: 360px;
 	      }
-	      .quick-replies { grid-template-columns: 1fr; }
+	      .chatbox__header { padding: 14px; }
+	      .chat-header-text { gap: 9px; }
+	      .chat-logo { width: 38px; height: 38px; border-radius: 13px; }
+	      .chat-header-text h3 { font-size: 1rem; }
+	      .chat-header-text small { font-size: 0.74rem; }
+	      .chat-badge-mini { font-size: 0.68rem; padding: 2px 7px; }
+	      .chat-actions { gap: 6px; }
+	      .chatbox__full,
+	      .chatbox__close { width: 36px; height: 36px; }
+	      .chatbox__messages { padding: 13px; gap: 10px; }
+	      .bubble-row .avatar { width: 30px; height: 30px; flex-basis: 30px; border-radius: 11px; }
+	      .bubble-row .bubble { max-width: 84%; padding: 10px 12px; line-height: 1.42; }
+	      .chatbox__footer-area { padding: 9px 10px 10px; gap: 8px; }
+	      .quick-replies-head small { display: none; }
+	      .quick-replies { gap: 7px; padding-bottom: 2px; }
+	      .chip-btn {
+	        max-width: 185px;
+	        min-height: 36px;
+	        padding: 7px 10px;
+	        font-size: 0.78rem;
+	        white-space: nowrap;
+	        overflow: hidden;
+	        text-overflow: ellipsis;
+	      }
+	      .input-area { grid-template-columns: minmax(0, 1fr) auto; padding: 4px; border-radius: 16px; }
+	      .chat-input { padding: 9px 10px; font-size: 0.9rem; }
+	      .send-btn { min-height: 38px; padding: 8px 12px; }
+	      .status-bar { font-size: 0.74rem; }
 	    }
 	    @media (max-width: 420px) {
 	      :root { --container: min(100% - 24px, 420px); }
@@ -3446,9 +3595,12 @@
   <div id="chatbox" class="chatbox" role="dialog" aria-label="Chat IA NOVAIX">
     <div class="chatbox__header">
       <div class="chat-header-text">
-        <span class="chat-badge-mini">IA</span>
-        <h3>NOVAIX Chat</h3>
-        <small>&nbsp;</small>
+        <span class="chat-logo" aria-hidden="true"><i class="fa-solid fa-robot"></i></span>
+        <div class="chat-title">
+          <span class="chat-badge-mini"><i class="fa-solid fa-shield-halved"></i> IA privada</span>
+          <h3>NOVAIX Chat</h3>
+          <small>Consulta agentes, integraciones, seguridad y RGPD.</small>
+        </div>
       </div>
       <div class="chat-actions">
         <button id="toggle-full" class="chatbox__full" aria-pressed="false" aria-label="Maximizar chat"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
@@ -3459,16 +3611,20 @@
     <div id="chat-messages" class="chatbox__messages">
       <div class="bubble-row bot">
         <div class="avatar"><i class="fa-solid fa-robot"></i></div>
-        <div class="bubble">Hola, soy la IA de NOVAIX. En que puedo ayudarte hoy?</div>
+        <div class="bubble">Hola, soy NOVAIX. Puedo ayudarte con agentes de IA, integraciones, seguridad y RGPD.</div>
       </div>
     </div>
 
     <div class="chatbox__footer-area">
+      <div class="quick-replies-head">
+        <strong>Temas rapidos</strong>
+        <small>Desliza para ver mas</small>
+      </div>
       <div class="quick-replies">
-        <button class="chip-btn" onclick="sendQuick(this)">Que es un agente de IA y como ayuda a mi negocio?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">Cumplis con RGPD, LOPD-GDD y alojamiento en la UE?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">Como integras el asistente con mi CRM o WhatsApp?</button>
-        <button class="chip-btn" onclick="sendQuick(this)">Dame ejemplos de como un agente de IA mejora ventas y soporte.</button>
+        <button class="chip-btn" data-prompt="Que es un agente de IA y como ayuda a mi negocio?" onclick="sendQuick(this)">Agentes IA</button>
+        <button class="chip-btn" data-prompt="Cumplis con RGPD, LOPD-GDD y alojamiento en la UE?" onclick="sendQuick(this)">RGPD y seguridad</button>
+        <button class="chip-btn" data-prompt="Como integras el asistente con mi CRM o WhatsApp?" onclick="sendQuick(this)">CRM y WhatsApp</button>
+        <button class="chip-btn" data-prompt="Dame ejemplos de como un agente de IA mejora ventas y soporte." onclick="sendQuick(this)">Casos de uso</button>
       </div>
 
       <form id="chat-form" class="input-area" autocomplete="off">
@@ -3476,7 +3632,7 @@
         <button type="submit" class="send-btn">Enviar</button>
       </form>
 
-      <p class="status-bar">Powered by NOVAIX AI</p>
+      <p class="status-bar">Listo para responder</p>
     </div>
   </div>
 
@@ -4320,12 +4476,16 @@
       const input = document.getElementById('chat-input');
       const messages = document.getElementById('chat-messages');
       const statusBar = document.querySelector('.status-bar');
+      const quickButtons = document.querySelectorAll('.chip-btn');
+      const sendBtn = form?.querySelector('.send-btn');
 
       const N8N_WEBHOOK_URL = 'https://hooks.novaix.es/webhook/ai-chat';
       const sessionId = (() => {
         const existing = localStorage.getItem('novaix_session');
         if (existing) return existing;
-        const fresh = crypto.randomUUID();
+        const fresh = window.crypto && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `nx-${Date.now()}-${Math.random().toString(16).slice(2)}`;
         localStorage.setItem('novaix_session', fresh);
         return fresh;
       })();
@@ -4350,17 +4510,53 @@
       function addMessage(text, sender) {
         const div = document.createElement('div');
         div.className = `bubble-row ${sender}`;
-        div.innerHTML = sender === 'bot'
-          ? `<div class="avatar"><i class="fa-solid fa-robot"></i></div><div class="bubble">${text}</div>`
-          : `<div class="bubble">${text}</div>`;
+        if (sender === 'bot') {
+          const avatar = document.createElement('div');
+          avatar.className = 'avatar';
+          avatar.innerHTML = '<i class="fa-solid fa-robot"></i>';
+          div.appendChild(avatar);
+        }
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.textContent = text;
+        div.appendChild(bubble);
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
+      }
+
+      function addLoadingMessage() {
+        const div = document.createElement('div');
+        div.className = 'bubble-row bot loading';
+        const avatar = document.createElement('div');
+        avatar.className = 'avatar';
+        avatar.innerHTML = '<i class="fa-solid fa-robot"></i>';
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.setAttribute('aria-label', 'La IA esta escribiendo');
+        for (let i = 0; i < 3; i += 1) {
+          const dot = document.createElement('span');
+          dot.className = 'typing-dot';
+          bubble.appendChild(dot);
+        }
+        div.appendChild(avatar);
+        div.appendChild(bubble);
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return div;
+      }
+
+      function setChatBusy(isBusy) {
+        if (input) input.disabled = isBusy;
+        if (sendBtn) sendBtn.disabled = isBusy;
+        quickButtons.forEach(btn => { btn.disabled = isBusy; });
+        if (statusBar) statusBar.textContent = isBusy ? 'La IA esta pensando...' : 'Listo para responder';
       }
 
       async function sendToN8n(text) {
         addMessage(text, 'user');
         input.value = '';
-        statusBar.textContent = 'Hablando con la IA...';
+        setChatBusy(true);
+        const loading = addLoadingMessage();
         try {
           const res = await fetch(N8N_WEBHOOK_URL, {
             method: 'POST',
@@ -4374,12 +4570,16 @@
           });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const data = await res.json();
+          loading.remove();
           addMessage(data.reply || 'No he recibido respuesta de la IA. Intenta de nuevo.', 'bot');
-          statusBar.textContent = 'Listo';
+          setChatBusy(false);
+          input?.focus();
         } catch (err) {
           console.error(err);
+          loading.remove();
           addMessage('No he podido conectar con el asistente. Revisa la URL del webhook en n8n.', 'bot');
-          statusBar.textContent = 'Error de conexion';
+          setChatBusy(false);
+          if (statusBar) statusBar.textContent = 'Error de conexion';
         }
       }
 
@@ -4391,7 +4591,7 @@
       });
 
       window.sendQuick = function(btn) {
-        const text = btn.innerText;
+        const text = btn.dataset.prompt || btn.innerText;
         sendToN8n(text);
       };
     })();
