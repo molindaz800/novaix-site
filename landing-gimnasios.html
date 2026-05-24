@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing de NOVAIX para gimnasios: recepcion IA 24/7, reservas de clases, seguimiento de leads y automatizacion por WhatsApp, llamadas y email.">
+  <title>NOVAIX Gimnasios · Recepcion IA 24/7</title>
+  <link rel="canonical" href="https://novaix.es/landing-gimnasios.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#090a0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NOVAIX Gimnasios · Recepcion IA 24/7">
+  <meta property="og:description" content="Automatiza atencion, reservas y seguimiento comercial para gimnasios con IA multicanal.">
+  <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --bg: #090a0a;
+      --surface: #101211;
+      --surface-2: #171a18;
+      --line: rgba(255,255,255,0.12);
+      --text: #f8f5ec;
+      --muted: #b8bbb3;
+      --lime: #caff3a;
+      --cyan: #37f4d6;
+      --coral: #ff6f52;
+      --ink: #050606;
+      --shadow: 0 24px 70px rgba(0,0,0,0.42);
+      --container: min(1180px, calc(100% - 40px));
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px) 0 0 / 88px 88px,
+        linear-gradient(180deg, rgba(255,255,255,0.025) 1px, transparent 1px) 0 0 / 88px 88px,
+        radial-gradient(900px 520px at 12% 10%, rgba(202,255,58,0.13), transparent 62%),
+        radial-gradient(760px 460px at 92% 4%, rgba(55,244,214,0.12), transparent 64%),
+        #090a0a;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    img { max-width: 100%; display: block; }
+    :focus-visible { outline: 3px solid rgba(202,255,58,0.85); outline-offset: 3px; }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      transform: translateY(-120px);
+      padding: 10px 14px;
+      background: var(--text);
+      color: var(--ink);
+      border-radius: var(--radius);
+      z-index: 200;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 90;
+      width: min(1120px, calc(100% - 32px));
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 12px;
+      background: rgba(9,10,10,0.76);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .brand img {
+      width: 96px;
+      height: auto;
+    }
+    .brand span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-links a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: color .18s ease, background .18s ease;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .nav-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--lime);
+      color: var(--ink);
+      box-shadow: 0 16px 42px rgba(202,255,58,0.22);
+    }
+    .btn-primary:hover { background: #dbff6c; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border-color: var(--line);
+    }
+    .btn-secondary:hover { border-color: rgba(202,255,58,0.45); color: var(--lime); }
+
+    .hero {
+      position: relative;
+      min-height: 82svh;
+      display: grid;
+      align-items: center;
+      padding: 112px 0 34px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        linear-gradient(90deg, rgba(9,10,10,0.94) 0%, rgba(9,10,10,0.76) 46%, rgba(9,10,10,0.26) 100%),
+        linear-gradient(180deg, rgba(9,10,10,0.35), rgba(9,10,10,0.93)),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=80") center / cover no-repeat;
+      transform: scale(1.02);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      z-index: -2;
+      background: linear-gradient(180deg, transparent, var(--bg));
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.8fr);
+      gap: 48px;
+      align-items: center;
+      min-width: 0;
+    }
+    .hero-copy-block { min-width: 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 10px;
+      border: 1px solid rgba(202,255,58,0.34);
+      border-radius: 999px;
+      background: rgba(202,255,58,0.08);
+      color: var(--lime);
+      font-weight: 800;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 820px;
+      margin: 18px 0 18px;
+      font-size: 4.8rem;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+    .hero-copy {
+      max-width: 690px;
+      color: #d8d9d0;
+      font-size: 1.16rem;
+      overflow-wrap: break-word;
+    }
+    .accent-text { color: var(--lime); }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 26px;
+    }
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 760px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16,18,17,0.72);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+    .proof-item {
+      padding: 16px;
+      border-right: 1px solid var(--line);
+    }
+    .proof-item:last-child { border-right: 0; }
+    .proof-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .proof-item span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .ops-panel {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 8px;
+      background: rgba(16,18,17,0.88);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+    .ops-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(340px 240px at 18% 4%, rgba(202,255,58,0.18), transparent 70%),
+        radial-gradient(280px 220px at 92% 16%, rgba(55,244,214,0.16), transparent 64%);
+    }
+    .ops-head {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px;
+      border-bottom: 1px solid var(--line);
+    }
+    .status-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--lime);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .status-dot::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 18px rgba(202,255,58,0.9);
+    }
+    .ops-body {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+    .ops-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .ops-metric {
+      min-height: 82px;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+    }
+    .ops-metric strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      color: var(--text);
+    }
+    .ops-metric span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.25;
+    }
+    .conversation {
+      display: grid;
+      gap: 9px;
+      min-height: 260px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(5,6,6,0.62);
+    }
+    .message {
+      max-width: 88%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #ecefe6;
+      overflow-wrap: anywhere;
+    }
+    .message.client {
+      justify-self: start;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .message.ai {
+      justify-self: end;
+      background: rgba(202,255,58,0.14);
+      border: 1px solid rgba(202,255,58,0.24);
+    }
+    .ops-footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding-top: 4px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .pulse-line {
+      height: 9px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+    }
+    .pulse-line span {
+      display: block;
+      width: 74%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--lime), var(--cyan), var(--coral));
+      animation: pulseBar 3.4s ease-in-out infinite;
+    }
+    @keyframes pulseBar {
+      0%, 100% { transform: translateX(-8%); opacity: .75; }
+      50% { transform: translateX(20%); opacity: 1; }
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+    main .section:first-child { padding-top: 42px; }
+    .section-alt {
+      background:
+        radial-gradient(760px 420px at 90% 0%, rgba(255,111,82,0.08), transparent 62%),
+        rgba(255,255,255,0.025);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-kicker {
+      display: inline-flex;
+      margin-bottom: 14px;
+      color: var(--cyan);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .section h2 {
+      max-width: 820px;
+      margin-bottom: 14px;
+      font-size: 2.45rem;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .section-lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .feature-card {
+      min-height: 230px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      box-shadow: 0 14px 38px rgba(0,0,0,0.16);
+    }
+    .feature-card i {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: rgba(202,255,58,0.13);
+      color: var(--lime);
+      font-size: 1.12rem;
+    }
+    .feature-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+      line-height: 1.18;
+    }
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .image-stack {
+      position: relative;
+      min-height: 520px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(9,10,10,0.08), rgba(9,10,10,0.76)),
+        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1400&q=80") center / cover no-repeat;
+    }
+    .image-stack::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(202,255,58,0.15), transparent 42%, rgba(255,111,82,0.18));
+      mix-blend-mode: screen;
+    }
+    .floating-proof {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .floating-proof div {
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 8px;
+      background: rgba(9,10,10,0.76);
+      backdrop-filter: blur(12px);
+    }
+    .floating-proof strong {
+      display: block;
+      color: var(--lime);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .floating-proof span {
+      display: block;
+      margin-top: 5px;
+      color: #d4d7cc;
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.045);
+    }
+    .step span {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: var(--text);
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+      align-items: stretch;
+    }
+    .calc-inputs,
+    .calc-output {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16,18,17,0.84);
+      padding: 22px;
+    }
+    .range-group {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .range-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 800;
+    }
+    .range-label output {
+      color: var(--lime);
+      min-width: 74px;
+      text-align: right;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--lime);
+    }
+    .calc-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .calc-output {
+      display: grid;
+      gap: 12px;
+    }
+    .big-number {
+      display: grid;
+      gap: 4px;
+      padding: 18px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(202,255,58,0.16), rgba(55,244,214,0.08));
+      border: 1px solid rgba(202,255,58,0.22);
+    }
+    .big-number strong {
+      font-size: 3.4rem;
+      line-height: 1;
+      color: var(--lime);
+    }
+    .big-number span { color: var(--muted); }
+    .mini-results {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .mini-results div {
+      min-height: 104px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.045);
+    }
+    .mini-results strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.5rem;
+    }
+    .mini-results span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .channel {
+      min-height: 106px;
+      display: grid;
+      place-items: center;
+      gap: 8px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.045);
+      color: var(--muted);
+      text-align: center;
+      font-weight: 800;
+    }
+    .channel i {
+      color: var(--cyan);
+      font-size: 1.35rem;
+    }
+
+    .offer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.6fr);
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 30px;
+    }
+    .offer-main,
+    .offer-side {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.055);
+      padding: 22px;
+    }
+    .offer-main ul,
+    .offer-side ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .offer-main li,
+    .offer-side li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 8px;
+      color: var(--muted);
+    }
+    .offer-main i,
+    .offer-side i { color: var(--lime); margin-top: 4px; }
+
+    .faq {
+      display: grid;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.045);
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      padding: 16px 18px;
+      font-weight: 800;
+    }
+    details p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
+    }
+
+    .cta-band {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0;
+      background:
+        linear-gradient(120deg, rgba(202,255,58,0.18), rgba(55,244,214,0.12), rgba(255,111,82,0.13)),
+        #101211;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .cta-band .container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .cta-band h2 {
+      margin-bottom: 8px;
+      font-size: 2.35rem;
+      line-height: 1.08;
+    }
+    .cta-band p {
+      max-width: 680px;
+      margin: 0;
+      color: #d9dbd2;
+    }
+
+    footer {
+      padding: 34px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+    }
+    .footer-inner a { color: var(--text); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 140;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(0,0,0,0.72);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-frame {
+      width: min(980px, 100%);
+      height: min(760px, 88vh);
+      position: relative;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #0a0d10;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0,0,0,0.72);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 100%;
+    }
+    .cookie-banner {
+      position: fixed;
+      left: 50%;
+      right: auto;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 130;
+      display: none;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      width: min(980px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(9,10,10,0.92);
+      color: var(--muted);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .cookie-banner.is-visible { display: flex; }
+    .cookie-banner p { margin: 0; font-size: 0.9rem; }
+    .cookie-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+    .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .calculator,
+      .offer,
+      .cta-band .container {
+        grid-template-columns: 1fr;
+      }
+      .ops-panel { max-width: 620px; }
+      h1 { font-size: 3.45rem; }
+      .section h2,
+      .cta-band h2 { font-size: 2.05rem; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .channels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+      .nav-toggle { display: inline-flex; margin-left: auto; }
+      .nav-links {
+        display: none;
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding-top: 8px;
+      }
+      .nav.open .nav-links { display: grid; }
+      .nav-links .btn { width: 100%; }
+      .brand span { display: none; }
+      .hero { min-height: auto; padding-top: 112px; }
+      .hero .ops-panel { display: none; }
+      h1 { font-size: 2.62rem; line-height: 1.02; }
+      .mobile-break { display: block; }
+      .hero-copy { font-size: 1rem; }
+      .ops-panel { max-width: 100%; }
+      .ops-head { flex-wrap: wrap; }
+      .proof-row,
+      .ops-metric-grid,
+      .floating-proof,
+      .mini-results {
+        grid-template-columns: 1fr;
+      }
+      .proof-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { border-bottom: 0; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .section { padding: 58px 0; }
+      .image-stack { min-height: 460px; }
+      .cookie-banner {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .cookie-actions { width: 100%; }
+      .cookie-actions .btn { flex: 1; }
+    }
+
+    @media (max-width: 520px) {
+      :root { --container: calc(100% - 48px); }
+      .brand img { width: 82px; }
+      h1 { font-size: 2.02rem; }
+      .hero-copy { font-size: 0.96rem; }
+      .section h2,
+      .cta-band h2 { font-size: 1.72rem; }
+      .hero-actions .btn { width: 100%; }
+      .channels { grid-template-columns: 1fr; }
+      .ops-footer { grid-template-columns: 1fr; }
+      .big-number strong { font-size: 2.75rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <nav class="nav" aria-label="Navegacion principal">
+    <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
+      <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
+      <span>Gimnasios</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#sistema">Sistema</a>
+      <a href="#operativa">Operativa</a>
+      <a href="#impacto">Impacto</a>
+      <a href="#piloto">Piloto</a>
+      <button class="btn btn-primary" type="button" data-calendly-open>
+        <i class="fa-regular fa-calendar-check"></i>
+        Diagnostico
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero" id="contenido">
+    <div class="container hero-grid">
+      <div class="hero-copy-block reveal">
+        <span class="eyebrow"><i class="fa-solid fa-dumbbell"></i> IA para gimnasios y boxes</span>
+        <h1>Recepcion IA 24/7 <span class="mobile-break">para gimnasios que no pueden perder leads.</span></h1>
+        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y email, reserva clases de prueba, reactiva indecisos y deriva a tu equipo solo lo que necesita trato humano. El cliente recibe respuesta inmediata y tu recepcion deja de vivir apagando fuegos.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="button" data-calendly-open>
+            <i class="fa-solid fa-bolt"></i>
+            Ver diagnostico gratuito
+          </button>
+          <a class="btn btn-secondary" href="#impacto">
+            <i class="fa-solid fa-chart-simple"></i>
+            Calcular impacto
+          </a>
+        </div>
+        <div class="proof-row" aria-label="Metricas clave">
+          <div class="proof-item">
+            <strong>&lt;60s</strong>
+            <span>primera respuesta a nuevos leads</span>
+          </div>
+          <div class="proof-item">
+            <strong>24/7</strong>
+            <span>reservas, dudas y recordatorios</span>
+          </div>
+          <div class="proof-item">
+            <strong>15h+</strong>
+            <span>tiempo administrativo recuperable cada semana</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de la recepcion IA">
+        <div class="ops-head">
+          <strong>Gym Ops AI</strong>
+          <span class="status-dot">Online</span>
+        </div>
+        <div class="ops-body">
+          <div class="ops-metric-grid">
+            <div class="ops-metric">
+              <strong>38</strong>
+              <span>leads atendidos hoy</span>
+            </div>
+            <div class="ops-metric">
+              <strong>14</strong>
+              <span>pruebas reservadas</span>
+            </div>
+            <div class="ops-metric">
+              <strong>91%</strong>
+              <span>consultas resueltas sin espera</span>
+            </div>
+          </div>
+          <div class="conversation" aria-label="Conversacion automatizada">
+            <div class="message client">Hola, quiero probar cross training. Teneis plaza esta semana?</div>
+            <div class="message ai">Si. Te puedo reservar martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa comoda.</div>
+            <div class="message client">Jueves me va bien. Cuanto cuesta despues?</div>
+            <div class="message ai">Perfecto, queda reservado. Tras la prueba, el plan base es desde 49 euros/mes. Te envio tambien ubicacion y recordatorio.</div>
+          </div>
+          <div class="ops-footer">
+            <div class="pulse-line" aria-hidden="true"><span></span></div>
+            <span>WhatsApp + agenda + CRM sincronizados</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="sistema">
+      <div class="container">
+        <span class="section-kicker reveal">Sistema comercial y operativo</span>
+        <h2 class="reveal">No es un chatbot decorativo. Es una capa de recepcion, ventas y reservas conectada a tu gimnasio.</h2>
+        <p class="section-lead reveal">La aproximacion de Claude iba bien orientada: atacar el cuello de botella real de un gimnasio, la atencion constante. La mejora aqui es hacerla mas concreta, con flujos visibles, calculadora y una propuesta de piloto accionable.</p>
+        <div class="grid-3">
+          <article class="feature-card reveal">
+            <i class="fa-brands fa-whatsapp"></i>
+            <h3>Atencion multicanal inmediata</h3>
+            <p>Responde dudas de horarios, tarifas, ubicacion, permanencia y servicios por WhatsApp, llamada o email con tono de marca.</p>
+          </article>
+          <article class="feature-card reveal">
+            <i class="fa-regular fa-calendar-check"></i>
+            <h3>Reservas sin friccion</h3>
+            <p>Agenda clases de prueba, sesiones de valoracion o visitas al centro y envia recordatorios automaticos para reducir ausencias.</p>
+          </article>
+          <article class="feature-card reveal">
+            <i class="fa-solid fa-filter-circle-dollar"></i>
+            <h3>Lead scoring comercial</h3>
+            <p>Clasifica intencion, urgencia, zona, objetivo y presupuesto para que tu equipo priorice oportunidades reales.</p>
+          </article>
+          <article class="feature-card reveal">
+            <i class="fa-solid fa-rotate"></i>
+            <h3>Recuperacion de indecisos</h3>
+            <p>Activa secuencias de seguimiento para quien pregunto precio, no vino a la prueba o dejo una conversacion a medias.</p>
+          </article>
+          <article class="feature-card reveal">
+            <i class="fa-solid fa-user-shield"></i>
+            <h3>Derivacion humana clara</h3>
+            <p>Cuando hay baja, incidencia sensible o negociacion, la IA resume el caso y lo pasa al responsable correcto.</p>
+          </article>
+          <article class="feature-card reveal">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Informes de operativa</h3>
+            <p>Detecta picos de demanda, preguntas repetidas, canales que convierten y huecos donde se pierden reservas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="operativa">
+      <div class="container split">
+        <div class="reveal">
+          <span class="section-kicker">Como trabaja</span>
+          <h2>Del primer mensaje a la clase reservada, sin perseguir al cliente.</h2>
+          <p class="section-lead">El sistema no sustituye tu criterio comercial. Quita ruido, contesta lo repetitivo y prepara cada oportunidad para que llegue ordenada.</p>
+          <div class="steps">
+            <div class="step">
+              <span>1</span>
+              <div>
+                <strong>Captura el contacto</strong>
+                <p>Detecta origen del lead, canal, horario, objetivo y contexto de la consulta.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>2</span>
+              <div>
+                <strong>Resuelve o agenda</strong>
+                <p>Contesta preguntas frecuentes y propone huecos disponibles para prueba, visita o valoracion.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>3</span>
+              <div>
+                <strong>Hace seguimiento</strong>
+                <p>Envia recordatorios, recupera no-shows y reactiva conversaciones sin saturar al usuario.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span>4</span>
+              <div>
+                <strong>Entrega contexto al equipo</strong>
+                <p>Registra resumen, etiquetas y siguiente accion para recepcion, ventas o direccion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="image-stack reveal" role="img" aria-label="Entrenamiento funcional en gimnasio">
+          <div class="floating-proof">
+            <div>
+              <strong>+31%</strong>
+              <span>mas citas atendidas fuera de horario</span>
+            </div>
+            <div>
+              <strong>-22%</strong>
+              <span>menos ausencias a clase de prueba</span>
+            </div>
+            <div>
+              <strong>1 vista</strong>
+              <span>para leads, agenda y seguimiento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impacto">
+      <div class="container">
+        <span class="section-kicker reveal">Estimador rapido</span>
+        <h2 class="reveal">Calcula el tiempo que tu equipo puede dejar de perder en mensajes repetidos.</h2>
+        <p class="section-lead reveal">Es una estimacion conservadora para orientar el diagnostico. En la llamada revisamos tus canales, horarios, equipo y conversion actual.</p>
+        <div class="calculator reveal">
+          <div class="calc-inputs">
+            <div class="range-group">
+              <label class="range-label" for="leadsRange">
+                Leads y consultas al mes
+                <output id="leadsOutput">120</output>
+              </label>
+              <input type="range" id="leadsRange" min="40" max="420" value="120" step="10">
+            </div>
+            <div class="range-group">
+              <label class="range-label" for="minutesRange">
+                Minutos medios por consulta
+                <output id="minutesOutput">7</output>
+              </label>
+              <input type="range" id="minutesRange" min="3" max="18" value="7" step="1">
+            </div>
+            <div class="range-group">
+              <label class="range-label" for="recoveryRange">
+                Leads que se quedan sin seguimiento
+                <output id="recoveryOutput">28%</output>
+              </label>
+              <input type="range" id="recoveryRange" min="5" max="60" value="28" step="1">
+            </div>
+            <p class="calc-note">NOVAIX suele automatizar la primera respuesta, preguntas frecuentes, reservas, recordatorios y reactivaciones. El resultado final depende de tus procesos y volumen real.</p>
+          </div>
+          <div class="calc-output" aria-live="polite">
+            <div class="big-number">
+              <strong id="hoursSaved">14h</strong>
+              <span>tiempo operativo estimado recuperable al mes</span>
+            </div>
+            <div class="mini-results">
+              <div>
+                <strong id="leadRecovered">34</strong>
+                <span>leads que podrian recibir seguimiento automatico</span>
+              </div>
+              <div>
+                <strong id="weeklySaved">3.5h</strong>
+                <span>menos carga semanal para recepcion y ventas</span>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="button" data-calendly-open>
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              Revisar mi caso
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="piloto">
+      <div class="container">
+        <span class="section-kicker reveal">Piloto NOVAIX</span>
+        <h2 class="reveal">Un piloto enfocado a conversion, no a tener otra herramienta mas.</h2>
+        <p class="section-lead reveal">Empezamos por un flujo medible: leads entrantes, reserva de prueba, recordatorio y seguimiento posterior. Si eso no mueve la aguja, no escalamos.</p>
+        <div class="offer">
+          <div class="offer-main reveal">
+            <h3>Incluye</h3>
+            <ul>
+              <li><i class="fa-solid fa-check"></i><span>Auditoria de canales actuales: WhatsApp, telefono, formularios, Instagram, email y CRM.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Mapa de conversaciones frecuentes con tono, objeciones y derivaciones humanas.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Automatizacion del flujo de clase de prueba: captacion, reserva, recordatorio y post-visita.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Panel de seguimiento con volumen, respuestas, reservas, no-shows y oportunidades recuperadas.</span></li>
+            </ul>
+          </div>
+          <aside class="offer-side reveal">
+            <h3>Integraciones habituales</h3>
+            <ul>
+              <li><i class="fa-solid fa-plug"></i><span>WhatsApp Business</span></li>
+              <li><i class="fa-solid fa-plug"></i><span>Google Calendar o agenda interna</span></li>
+              <li><i class="fa-solid fa-plug"></i><span>CRM, hojas de calculo o formulario web</span></li>
+              <li><i class="fa-solid fa-plug"></i><span>Email, llamadas y analitica</span></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="channels reveal" aria-label="Canales compatibles">
+          <div class="channel"><i class="fa-brands fa-whatsapp"></i>WhatsApp</div>
+          <div class="channel"><i class="fa-solid fa-phone"></i>Llamadas</div>
+          <div class="channel"><i class="fa-regular fa-envelope"></i>Email</div>
+          <div class="channel"><i class="fa-brands fa-instagram"></i>Instagram</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <span class="section-kicker reveal">FAQ</span>
+        <h2 class="reveal">Preguntas normales antes de automatizar un gimnasio.</h2>
+        <div class="faq">
+          <details class="reveal">
+            <summary>La IA puede responder precios y promociones?</summary>
+            <p>Si, con reglas claras. Puede explicar planes, condiciones y promociones activas, y derivar a una persona cuando haya negociacion, baja, incidencia o caso sensible.</p>
+          </details>
+          <details class="reveal">
+            <summary>Sirve si ya usamos WhatsApp Business?</summary>
+            <p>Si. La idea es mantener el canal que el cliente ya usa y anadir automatizacion, seguimiento y registro para que no dependas de revisar conversaciones a mano.</p>
+          </details>
+          <details class="reveal">
+            <summary>Puede reservar clases en nuestra agenda?</summary>
+            <p>Depende de la herramienta de agenda, pero normalmente se puede conectar mediante Calendly, Google Calendar, CRM, formularios o integraciones a medida.</p>
+          </details>
+          <details class="reveal">
+            <summary>Que pasa con datos personales y RGPD?</summary>
+            <p>El piloto se plantea con minimizacion de datos, permisos por canal, documentacion de proveedores y derivacion humana para informacion sensible.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="demo">
+      <div class="container">
+        <div class="reveal">
+          <h2>Quieres ver que automatizariamos en tu gimnasio?</h2>
+          <p>En 30 minutos revisamos tus canales, volumen de consultas, reservas y seguimiento comercial. Sales con un mapa claro de lo que merece la pena automatizar primero.</p>
+        </div>
+        <button class="btn btn-primary reveal" type="button" data-calendly-open>
+          <i class="fa-regular fa-calendar-check"></i>
+          Agendar diagnostico
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
+    </div>
+  </footer>
+
+  <div class="modal" id="calendly-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Agenda con NOVAIX">
+    <div class="modal-frame">
+      <button class="modal-close" type="button" aria-label="Cerrar agenda">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/novaix-assist/30min?primary_color=caff3a&text_color=f8f5ec&background_color=090a0a"></div>
+    </div>
+  </div>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
+      <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    const navToggle = document.querySelector('.nav-toggle');
+    const year = document.getElementById('year');
+    const modal = document.getElementById('calendly-modal');
+    const modalClose = document.querySelector('.modal-close');
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieDecline = document.getElementById('cookie-decline');
+    const CALENDLY_SRC = 'https://assets.calendly.com/assets/external/widget.js';
+    let calendlyLoaded = false;
+
+    year.textContent = new Date().getFullYear();
+
+    navToggle?.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+        if (navToggle) navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    function loadCalendly() {
+      if (calendlyLoaded) return;
+      const script = document.createElement('script');
+      script.src = CALENDLY_SRC;
+      script.async = true;
+      document.body.appendChild(script);
+      calendlyLoaded = true;
+    }
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      loadCalendly();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-calendly-open]').forEach((button) => {
+      button.addEventListener('click', openModal);
+    });
+    modalClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+    const leadsRange = document.getElementById('leadsRange');
+    const minutesRange = document.getElementById('minutesRange');
+    const recoveryRange = document.getElementById('recoveryRange');
+    const leadsOutput = document.getElementById('leadsOutput');
+    const minutesOutput = document.getElementById('minutesOutput');
+    const recoveryOutput = document.getElementById('recoveryOutput');
+    const hoursSaved = document.getElementById('hoursSaved');
+    const weeklySaved = document.getElementById('weeklySaved');
+    const leadRecovered = document.getElementById('leadRecovered');
+
+    function updateCalculator() {
+      const leads = Number(leadsRange.value);
+      const minutes = Number(minutesRange.value);
+      const recovery = Number(recoveryRange.value);
+      const automatedMinutes = leads * minutes * 0.72;
+      const monthlyHours = Math.max(1, Math.round(automatedMinutes / 60));
+      const weeklyHours = (monthlyHours / 4).toFixed(1);
+      const recovered = Math.round(leads * (recovery / 100));
+
+      leadsOutput.textContent = leads;
+      minutesOutput.textContent = minutes;
+      recoveryOutput.textContent = `${recovery}%`;
+      hoursSaved.textContent = `${monthlyHours}h`;
+      weeklySaved.textContent = `${weeklyHours}h`;
+      leadRecovered.textContent = recovered;
+    }
+
+    [leadsRange, minutesRange, recoveryRange].forEach((input) => {
+      input?.addEventListener('input', updateCalculator);
+    });
+    updateCalculator();
+
+    const cookieKey = 'novaix_gym_cookie_notice';
+    if (!localStorage.getItem(cookieKey)) {
+      cookieBanner.classList.add('is-visible');
+    }
+    function hideCookieBanner() {
+      localStorage.setItem(cookieKey, 'closed');
+      cookieBanner.classList.remove('is-visible');
+    }
+    cookieAccept?.addEventListener('click', hideCookieBanner);
+    cookieDecline?.addEventListener('click', hideCookieBanner);
+  </script>
+</body>
+</html>
