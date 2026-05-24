@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Landing de NOVAIX para fisioterapia: recepcion IA 24/7, primeras visitas, cambios de cita, recordatorios y derivacion profesional.">
-  <title>NOVAIX Fisioterapia · Recepcion IA 24/7</title>
+  <meta name="description" content="Landing de NOVAIX para fisioterapia: recepción IA 24/7, primeras visitas, cambios de cita, recordatorios y derivación profesional.">
+  <title>NOVAIX Fisioterapia · Recepción IA 24/7</title>
   <link rel="canonical" href="https://novaix.es/landing-fisioterapia.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#071013">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NOVAIX Fisioterapia · Recepcion IA 24/7">
-  <meta property="og:description" content="Automatiza recepcion, primeras visitas, cambios de cita y seguimiento administrativo para fisioterapia.">
+  <meta property="og:title" content="NOVAIX Fisioterapia · Recepción IA 24/7">
+  <meta property="og:description" content="Automatiza recepción, primeras visitas, cambios de cita y seguimiento administrativo para fisioterapia.">
   <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,8 +115,7 @@
     .ops-metric { min-height: 82px; padding: 11px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.05); }
     .ops-metric strong { display: block; font-size: 1.35rem; line-height: 1.1; color: var(--text); }
     .ops-metric span { display: block; margin-top: 5px; color: var(--muted); font-size: .76rem; line-height: 1.25; }
-    .whatsapp-screen, .mobile-wa-preview { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
-    .mobile-wa-preview { display: none; }
+    .whatsapp-screen { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
     .whatsapp-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 10px; border-radius: 8px; background: rgba(7,94,84,.42); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); color: #eafff4; font-size: .86rem; font-weight: 800; }
     .whatsapp-top span { display: inline-flex; align-items: center; gap: 6px; color: color-mix(in srgb, var(--primary) 75%, white); font-size: .76rem; text-transform: uppercase; letter-spacing: .07em; }
     .whatsapp-top span::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--primary); box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 80%, transparent); }
@@ -186,6 +185,33 @@
     .cta-band .container { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
     .cta-band h2 { margin-bottom: 8px; font-size: 2.25rem; line-height: 1.05; }
     .cta-band p { color: var(--muted); margin-bottom: 0; }
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(255,255,255,0.08), transparent 62%),
+        rgba(255,255,255,0.045);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     footer { padding: 26px 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
     .footer-inner { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
     footer p { margin: 0; }
@@ -197,7 +223,7 @@
     .cookie-banner { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 130; width: min(980px, calc(100% - 32px)); display: none; align-items: center; justify-content: space-between; gap: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: rgba(5,8,8,.94); box-shadow: 0 18px 60px rgba(0,0,0,.42); backdrop-filter: blur(18px); }
     .cookie-banner.is-visible { display: flex; }
     .cookie-banner p { margin: 0; color: #e7e2d8; }
-    .cookie-actions { display: flex; gap: 8px; }
+    .cookie-actions { display: flex; gap: 12px; }
     .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -217,23 +243,18 @@
       .nav-links .btn { width: 100%; }
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
-      .hero .ops-panel { display: none; }
       .hero-grid { gap: 30px; }
       .hero-copy-block { display: flex; flex-direction: column; }
       .hero-copy-block .eyebrow { align-self: flex-start; }
-      .hero-copy-block .mobile-wa-preview { order: 1; }
       .hero-copy-block .hero-copy { order: 2; }
       .hero-copy-block .hero-actions { order: 3; }
       .hero-copy-block .proof-row { order: 4; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
-      .mobile-wa-preview { display: grid; gap: 9px; margin: 20px 0 18px; padding: 10px; border-color: color-mix(in srgb, var(--primary) 24%, transparent); }
-      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
-      .mobile-wa-preview .wa-tabs { gap: 4px; }
-      .mobile-wa-preview .wa-tab { min-height: 42px; padding: 6px 5px; font-size: .55rem; }
-      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
-      .mobile-wa-preview .wa-bubble { max-width: 94%; font-size: .8rem; padding: 8px 10px 7px; }
+      .hero-copy-block .proof-row { display: none; }
+      .hero .ops-panel { margin-top: 0; }
+      .hero .ops-metric-grid { display: none; }
       .ops-head { flex-wrap: wrap; }
       .proof-row, .floating-proof, .mini-results { grid-template-columns: 1fr; }
       .ops-metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -245,6 +266,9 @@
       .grid-3 { grid-template-columns: 1fr; }
       .section { padding: 58px 0; }
       .image-stack { min-height: 460px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner { align-items: stretch; flex-direction: column; }
       .cookie-actions { width: 100%; }
       .cookie-actions .btn { flex: 1; }
@@ -268,74 +292,39 @@
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <div class="nav-hover-zone" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Navegacion principal">
+  <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
       <span>Fisioterapia</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
       <a href="#sistema">Sistema</a>
       <a href="#operativa">Operativa</a>
       <a href="#impacto">Impacto</a>
       <a href="#piloto">Piloto</a>
-      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnostico</button>
+      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnóstico</button>
     </div>
   </nav>
 
   <header class="hero" id="contenido">
     <div class="container hero-grid">
       <div class="hero-copy-block reveal">
-        <span class="eyebrow"><i class="fa-solid fa-hand-holding-medical"></i> IA para clinicas de fisioterapia</span>
-        <h1>Recepcion IA 24/7 para fisioterapia que no puede perder primeras visitas.</h1>
-        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y formularios, agenda primeras visitas, reprograma sesiones, envia recordatorios y deriva cualquier consulta clinica al fisioterapeuta. Menos interrupciones y mejor continuidad del paciente.</p>
+        <span class="eyebrow"><i class="fa-solid fa-hand-holding-medical"></i> IA para clínicas de fisioterapia</span>
+        <h1>Recepción IA 24/7 para fisioterapia que no puede perder primeras visitas.</h1>
+        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y formularios, agenda primeras visitas, reprograma sesiones, envía recordatorios y deriva cualquier consulta clínica al fisioterapeuta. Menos interrupciones y mejor continuidad del paciente.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-calendar-check"></i>Ver diagnostico gratuito</button>
+          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-calendar-check"></i>Ver diagnóstico gratuito</button>
           <a class="btn btn-secondary" href="#impacto"><i class="fa-solid fa-chart-simple"></i>Calcular impacto</a>
         </div>
-        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
-          <div class="whatsapp-top"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span><span>Online</span></div>
-          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="primera">Primera visita</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="cambio">Cambio de cita</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Bonos y precios</button>
-          </div>
-            <div class="wa-panel is-active" role="tabpanel" data-wa-panel="primera">
-              <div class="wa-thread">
-                <div class="wa-label">Primera visita</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Hola, tengo dolor lumbar y queria cita con un fisio.<small>08:32</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo agendar primera valoracion. No hacemos diagnostico por chat. Es dolor reciente o recurrente?<small>08:32</small></div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Recurrente, pero hoy estoy peor.<small>08:33</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tengo hueco hoy 18:00 o manana 09:30. Si hay sintomas de alarma, te paso con el equipo ahora.<small>08:33</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="cambio" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Cambio de cita</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>No puedo ir a la sesion de manana.<small>13:06</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Sin problema. Hay hueco jueves 17:30 o viernes 10:00 con tu fisio.<small>13:06</small></div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Jueves 17:30.<small>13:07</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Cita cambiada. Te envio nuevo recordatorio y mantenemos la continuidad del tratamiento.<small>13:07</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Bonos y precios</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Cuanto cuesta una sesion? Hay bono?<small>18:44</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo explicar precios y bonos aprobados. Para recomendar frecuencia, lo revisa el fisio en valoracion.<small>18:44</small></div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Vale, quiero primera cita.<small>18:45</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo manana 12:00 o jueves 19:00. Te envio ubicacion y preparacion.<small>18:45</small></div>
-              </div>
-            </div>
-        </div>
-        <div class="proof-row" aria-label="Metricas clave">
+        <div class="proof-row" aria-label="Métricas clave">
           <div class="proof-item"><strong>&lt;60s</strong><span>primera respuesta a pacientes</span></div>
           <div class="proof-item"><strong>24/7</strong><span>citas, cambios y recordatorios</span></div>
           <div class="proof-item"><strong>15h+</strong><span>tiempo administrativo recuperable al mes</span></div>
         </div>
       </div>
 
-      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepcion IA">
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepción IA">
         <div class="ops-head"><strong>Physio Desk AI</strong><span class="status-dot">Online</span></div>
         <div class="ops-body">
           <div class="ops-metric-grid">
@@ -353,28 +342,28 @@
             <div class="wa-panel is-active" role="tabpanel" data-wa-panel="primera">
               <div class="wa-thread">
                 <div class="wa-label">Primera visita</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Hola, tengo dolor lumbar y queria cita con un fisio.<small>08:32</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo agendar primera valoracion. No hacemos diagnostico por chat. Es dolor reciente o recurrente?<small>08:32</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Hola, tengo dolor lumbar y quería cita con un fisio.<small>08:32</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo agendar primera valoración. No hacemos diagnóstico por chat. Es dolor reciente o recurrente?<small>08:32</small></div>
                 <div class="wa-bubble user"><strong>Paciente</strong>Recurrente, pero hoy estoy peor.<small>08:33</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tengo hueco hoy 18:00 o manana 09:30. Si hay sintomas de alarma, te paso con el equipo ahora.<small>08:33</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tengo hueco hoy 18:00 o mañana 09:30. Si hay síntomas de alarma, te paso con el equipo ahora.<small>08:33</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="cambio" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Cambio de cita</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>No puedo ir a la sesion de manana.<small>13:06</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>No puedo ir a la sesión de mañana.<small>13:06</small></div>
                 <div class="wa-bubble ai"><strong>NOVAIX</strong>Sin problema. Hay hueco jueves 17:30 o viernes 10:00 con tu fisio.<small>13:06</small></div>
                 <div class="wa-bubble user"><strong>Paciente</strong>Jueves 17:30.<small>13:07</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Cita cambiada. Te envio nuevo recordatorio y mantenemos la continuidad del tratamiento.<small>13:07</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Cita cambiada. Te envío nuevo recordatorio y mantenemos la continuidad del tratamiento.<small>13:07</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Bonos y precios</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Cuanto cuesta una sesion? Hay bono?<small>18:44</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo explicar precios y bonos aprobados. Para recomendar frecuencia, lo revisa el fisio en valoracion.<small>18:44</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Cuánto cuesta una sesión? Hay bono?<small>18:44</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo explicar precios y bonos aprobados. Para recomendar frecuencia, lo revisa el fisio en valoración.<small>18:44</small></div>
                 <div class="wa-bubble user"><strong>Paciente</strong>Vale, quiero primera cita.<small>18:45</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo manana 12:00 o jueves 19:00. Te envio ubicacion y preparacion.<small>18:45</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo mañana 12:00 o jueves 19:00. Te envío ubicación y preparación.<small>18:45</small></div>
               </div>
             </div>
           </div>
@@ -388,23 +377,23 @@
     <section class="section" id="sistema">
       <div class="container">
         <span class="section-kicker reveal">Sistema comercial y operativo</span>
-        <h2 class="reveal">Una recepcion que agenda y filtra sin hacer criterio clinico.</h2>
-        <p class="section-lead reveal">En fisioterapia, la IA debe ser util y prudente: agenda, organiza y deriva lo clinico al profesional.</p>
+        <h2 class="reveal">Una recepción que agenda y filtra sin hacer criterio clínico.</h2>
+        <p class="section-lead reveal">En fisioterapia, la IA debe ser útil y prudente: agenda, organiza y deriva lo clínico al profesional.</p>
         <div class="grid-3">
           <article class="feature-card reveal">
             <i class="fa-brands fa-whatsapp"></i>
-            <h3>Atencion inmediata</h3>
-            <p>Responde horarios, ubicacion, precios, bonos y disponibilidad por WhatsApp, llamada o formulario.</p>
+            <h3>Atención inmediata</h3>
+            <p>Responde horarios, ubicación, precios, bonos y disponibilidad por WhatsApp, llamada o formulario.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-regular fa-calendar-check"></i>
             <h3>Primeras visitas</h3>
-            <p>Agenda valoraciones iniciales y sesiones segun disponibilidad, profesional y duracion.</p>
+            <p>Agenda valoraciones iniciales y sesiones según disponibilidad, profesional y duración.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-user-doctor"></i>
-            <h3>Derivacion clinica</h3>
-            <p>Escala sintomas de alarma, dudas de tratamiento o evolucion al fisioterapeuta.</p>
+            <h3>Derivación clínica</h3>
+            <p>Escala síntomas de alarma, dudas de tratamiento o evolución al fisioterapeuta.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-repeat"></i>
@@ -414,12 +403,12 @@
           <article class="feature-card reveal">
             <i class="fa-solid fa-bell"></i>
             <h3>Recordatorios</h3>
-            <p>Confirma citas, envia preparacion y reduce ausencias.</p>
+            <p>Confirma citas, envía preparación y reduce ausencias.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-chart-line"></i>
             <h3>Seguimiento administrativo</h3>
-            <p>Ordena consultas, sesiones, no-shows y reactivaciones sin invadir informacion clinica innecesaria.</p>
+            <p>Ordena consultas, sesiones, no-shows y reactivaciones sin invadir información clínica innecesaria.</p>
           </article>
         </div>
       </div>
@@ -428,29 +417,29 @@
     <section class="section section-alt" id="operativa">
       <div class="container split">
         <div class="reveal">
-          <span class="section-kicker">Como trabaja</span>
-          <h2>Del primer mensaje a la cita correcta, con limites clinicos claros.</h2>
-          <p class="section-lead">La IA ayuda en recepcion y agenda. El criterio sanitario se queda en el equipo profesional.</p>
+          <span class="section-kicker">Cómo trabaja</span>
+          <h2>Del primer mensaje a la cita correcta, con límites clínicos claros.</h2>
+          <p class="section-lead">La IA ayuda en recepción y agenda. El criterio sanitario se queda en el equipo profesional.</p>
           <div class="steps">
             <div class="step">
               <span>1</span>
               <div>
                 <strong>Recoge motivo administrativo</strong>
-                <p>Primera visita, sesion, cambio, bono, precio o disponibilidad.</p>
+                <p>Primera visita, sesión, cambio, bono, precio o disponibilidad.</p>
               </div>
             </div>
             <div class="step">
               <span>2</span>
               <div>
                 <strong>Detecta sensibilidad</strong>
-                <p>Si hay duda clinica, sintomas de alarma o evolucion, deriva al fisioterapeuta.</p>
+                <p>Si hay duda clínica, síntomas de alarma o evolución, deriva al fisioterapeuta.</p>
               </div>
             </div>
             <div class="step">
               <span>3</span>
               <div>
                 <strong>Agenda o reprograma</strong>
-                <p>Propone huecos y confirma preparacion, ubicacion y recordatorio.</p>
+                <p>Propone huecos y confirma preparación, ubicación y recordatorio.</p>
               </div>
             </div>
             <div class="step">
@@ -462,7 +451,7 @@
             </div>
           </div>
         </div>
-        <div class="image-stack reveal" role="img" aria-label="Clinica de fisioterapia con tratamiento manual">
+        <div class="image-stack reveal" role="img" aria-label="Clínica de fisioterapia con tratamiento manual">
           <div class="floating-proof">
             <div><strong>+27%</strong><span>primeras respuestas fuera de horario</span></div>
             <div><strong>-20%</strong><span>citas sin confirmar</span></div>
@@ -474,15 +463,15 @@
 
     <section class="section" id="impacto">
       <div class="container">
-        <span class="section-kicker reveal">Estimador rapido</span>
-        <h2 class="reveal">Cuanto tiempo consume tu recepcion?</h2>
+        <span class="section-kicker reveal">Estimador rápido</span>
+        <h2 class="reveal">Cuánto tiempo consume tu recepción?</h2>
         <p class="section-lead reveal">Estima el impacto de automatizar primera respuesta, cambios de cita, bonos y recordatorios.</p>
         <div class="calculator reveal">
           <div class="impact-card">
             <div class="range-row"><label for="leadsRange">Consultas mensuales <strong id="leadsOutput">180</strong></label><input id="leadsRange" type="range" min="40" max="600" value="180"></div>
             <div class="range-row"><label for="minutesRange">Minutos medios por consulta <strong><span id="minutesOutput">6</span> min</strong></label><input id="minutesRange" type="range" min="2" max="18" value="6"></div>
             <div class="range-row"><label for="recoveryRange">Consultas administrativas automatizables <strong id="recoveryOutput">68%</strong></label><input id="recoveryRange" type="range" min="25" max="90" value="68"></div>
-            <p class="calc-note">NOVAIX no diagnostica ni prescribe. Agenda, informa y deriva cualquier consulta clinica al equipo.</p>
+            <p class="calc-note">NOVAIX no diagnostica ni prescribe. Agenda, informa y deriva cualquier consulta clínica al equipo.</p>
           </div>
           <div class="big-number">
             <span>Horas recuperables al mes</span>
@@ -500,19 +489,19 @@
       <div class="container">
         <span class="section-kicker reveal">Piloto NOVAIX</span>
         <h2 class="reveal">Un piloto prudente para agenda y continuidad del paciente.</h2>
-        <p class="section-lead reveal">Empezamos por primeras visitas, cambios, recordatorios, bonos y derivacion de dudas clinicas.</p>
+        <p class="section-lead reveal">Empezamos por primeras visitas, cambios, recordatorios, bonos y derivación de dudas clínicas.</p>
         <div class="offer">
           <div class="pilot-card reveal"><ul>
-              <li><i class="fa-solid fa-check"></i><span>Auditoria de canales: WhatsApp, telefono, formularios, agenda y CRM.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Mapa de servicios, duraciones, bonos, reglas de agenda y limites clinicos.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Automatizacion de primera visita, cambio, recordatorio, bono y seguimiento administrativo.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Auditoría de canales: WhatsApp, teléfono, formularios, agenda y CRM.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Mapa de servicios, duraciones, bonos, reglas de agenda y límites clínicos.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Automatización de primera visita, cambio, recordatorio, bono y seguimiento administrativo.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Panel con citas, pacientes potenciales, ausencias, reactivaciones y derivaciones.</span></li>
           </ul></div>
           <div class="pilot-card reveal">
             <h3>Conectores habituales</h3>
             <ul>
               <li><i class="fa-solid fa-plug"></i><span>WhatsApp Business</span></li>
-              <li><i class="fa-solid fa-plug"></i><span>Agenda clinica</span></li>
+              <li><i class="fa-solid fa-plug"></i><span>Agenda clínica</span></li>
               <li><i class="fa-solid fa-plug"></i><span>Formularios</span></li>
               <li><i class="fa-solid fa-plug"></i><span>CRM o hoja de pacientes</span></li>
             </ul>
@@ -526,12 +515,12 @@
         <span class="section-kicker reveal">FAQ</span>
         <h2 class="reveal">Preguntas normales antes de automatizar fisioterapia.</h2>
           <details class="reveal">
-            <summary>Puede responder dudas clinicas?</summary>
+            <summary>Puede responder dudas clínicas?</summary>
             <p>No sustituye al fisioterapeuta. Puede recoger la duda y derivarla con contexto.</p>
           </details>
           <details class="reveal">
             <summary>Puede agendar primeras visitas?</summary>
-            <p>Si. Propone huecos segun duracion, profesional y disponibilidad.</p>
+            <p>Sí. Propone huecos según duración, profesional y disponibilidad.</p>
           </details>
           <details class="reveal">
             <summary>Puede gestionar bonos?</summary>
@@ -539,25 +528,37 @@
           </details>
           <details class="reveal">
             <summary>Cumple con datos sensibles?</summary>
-            <p>El piloto se disena con minimizacion de datos y reglas para no recoger informacion clinica innecesaria.</p>
+            <p>El piloto se diseña con minimización de datos y reglas para no recoger información clínica innecesaria.</p>
           </details>
+      </div>
+    </section>
+
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="section-kicker">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas ver cómo cambia la automatización según el tipo de cliente, agenda y canal de entrada.</p>
+        </div>
+        <a class="btn btn-secondary" href="landing-negocios.html"><i class="fa-solid fa-layer-group"></i>Ver todos los negocios</a>
       </div>
     </section>
 
     <section class="cta-band">
       <div class="container">
         <div class="reveal">
-          <h2>Quieres ver que automatizariamos en tu clinica de fisioterapia?</h2>
-          <p>En 30 minutos revisamos tus canales, agenda, servicios y limites clinicos. Sales con un mapa de automatizacion prudente y medible.</p>
+          <h2>Quieres ver qué automatizaríamos en tu clínica de fisioterapia?</h2>
+          <p>En 30 minutos revisamos tus canales, agenda, servicios y límites clínicos. Sales con un mapa de automatización prudente y medible.</p>
         </div>
-        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnostico</button>
+        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnóstico</button>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p>© <span id="year"></span> NOVAIX. Automatización e IA para operaciones, ventas y atención.</p>
       <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
     </div>
   </footer>
@@ -570,8 +571,11 @@
   </div>
 
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
-    <div class="cookie-actions"><button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button><button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button></div>
+    <p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+        <div class="cookie-actions">
+      <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
+      <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
+    </div>
   </div>
 
   <script>
@@ -624,7 +628,7 @@
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
 
-    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
       const tabs = widget.querySelectorAll('[data-wa-tab]');
       const panels = widget.querySelectorAll('[data-wa-panel]');
       tabs.forEach((tab) => {

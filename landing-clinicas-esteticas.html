@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Landing de NOVAIX para clinicas esteticas: recepcion IA 24/7, gestion de citas, seguimiento de pacientes potenciales y automatizacion multicanal.">
-  <title>NOVAIX Clinicas Esteticas · Recepcion IA 24/7</title>
+  <meta name="description" content="Landing de NOVAIX para clínicas estéticas: recepción IA 24/7, gestión de citas, seguimiento de pacientes potenciales y automatización multicanal.">
+  <title>NOVAIX Clínicas Estéticas · Recepción IA 24/7</title>
   <link rel="canonical" href="https://novaix.es/landing-clinicas-esteticas.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#07100f">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NOVAIX Clinicas Esteticas · Recepcion IA 24/7">
-  <meta property="og:description" content="Automatiza atencion, reservas de valoracion, recordatorios y seguimiento comercial para clinicas esteticas.">
+  <meta property="og:title" content="NOVAIX Clínicas Estéticas · Recepción IA 24/7">
+  <meta property="og:description" content="Automatiza atención, reservas de valoración, recordatorios y seguimiento comercial para clínicas estéticas.">
   <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -460,7 +460,6 @@
         linear-gradient(45deg, rgba(255,255,255,0.025) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.025) 50%, rgba(255,255,255,0.025) 75%, transparent 75%, transparent) 0 0 / 22px 22px,
         rgba(8, 14, 12, 0.72);
     }
-    .mobile-wa-preview { display: none; }
     .wa-label {
       justify-self: center;
       padding: 4px 9px;
@@ -871,6 +870,33 @@
       color: #e0ded6;
     }
 
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(255,255,255,0.08), transparent 62%),
+        rgba(255,255,255,0.045);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     footer {
       padding: 34px 0;
       color: var(--muted);
@@ -956,7 +982,7 @@
     }
     .cookie-banner.is-visible { display: flex; }
     .cookie-banner p { margin: 0; font-size: 0.9rem; }
-    .cookie-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+    .cookie-actions { display: flex; gap: 12px; flex: 0 0 auto; }
     .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
 
     .reveal {
@@ -1002,44 +1028,21 @@
       .nav-links .btn { width: 100%; }
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
-      .hero .ops-panel { display: none; }
       .hero-grid { gap: 30px; }
       .hero-copy-block {
         display: flex;
         flex-direction: column;
       }
       .hero-copy-block .eyebrow { align-self: flex-start; }
-      .hero-copy-block .mobile-wa-preview { order: 1; }
       .hero-copy-block .hero-copy { order: 2; }
       .hero-copy-block .hero-actions { order: 3; }
       .hero-copy-block .proof-row { order: 4; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
-      .mobile-wa-preview {
-        display: grid;
-        gap: 9px;
-        margin: 20px 0 18px;
-        padding: 10px;
-        border: 1px solid rgba(124,247,212,0.2);
-        border-radius: 8px;
-        background:
-          linear-gradient(135deg, rgba(124,247,212,0.15), rgba(255,143,163,0.08)),
-          rgba(4,10,9,0.66);
-      }
-      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
-      .mobile-wa-preview .wa-tabs { gap: 4px; }
-      .mobile-wa-preview .wa-tab {
-        min-height: 42px;
-        padding: 6px 5px;
-        font-size: 0.55rem;
-      }
-      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
-      .mobile-wa-preview .wa-bubble {
-        max-width: 94%;
-        font-size: 0.8rem;
-        padding: 8px 10px 7px;
-      }
+      .hero-copy-block .proof-row { display: none; }
+      .hero .ops-panel { margin-top: 0; }
+      .hero .ops-metric-grid { display: none; }
       .ops-head { flex-wrap: wrap; }
       .proof-row,
       .floating-proof,
@@ -1058,6 +1061,9 @@
       .grid-3 { grid-template-columns: 1fr; }
       .section { padding: 58px 0; }
       .image-stack { min-height: 460px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner {
         align-items: stretch;
         flex-direction: column;
@@ -1093,12 +1099,12 @@
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
   <div class="nav-hover-zone" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Navegacion principal">
+  <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
-      <span>Clinicas esteticas</span>
+      <span>Clínicas estéticas</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="nav-links">
@@ -1108,7 +1114,7 @@
       <a href="#piloto">Piloto</a>
       <button class="btn btn-primary" type="button" data-calendly-open>
         <i class="fa-regular fa-calendar-check"></i>
-        Diagnostico
+        Diagnóstico
       </button>
     </div>
   </nav>
@@ -1116,58 +1122,20 @@
   <header class="hero" id="contenido">
     <div class="container hero-grid">
       <div class="hero-copy-block reveal">
-        <span class="eyebrow"><i class="fa-solid fa-spa"></i> IA para clinicas esteticas</span>
-        <h1>Recepcion IA 24/7 <span class="mobile-break">para clinicas que no pueden perder citas de valor.</span></h1>
-        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas, formularios e Instagram, agenda valoraciones, resuelve dudas frecuentes con criterios aprobados y deriva al equipo clinico cualquier consulta sensible. Menos espera, menos no-shows y mejor seguimiento.</p>
+        <span class="eyebrow"><i class="fa-solid fa-spa"></i> IA para clínicas estéticas</span>
+        <h1>Recepción IA 24/7 <span class="mobile-break">para clínicas que no pueden perder citas de valor.</span></h1>
+        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas, formularios e Instagram, agenda valoraciones, resuelve dudas frecuentes con criterios aprobados y deriva al equipo clínico cualquier consulta sensible. Menos espera, menos no-shows y mejor seguimiento.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" type="button" data-calendly-open>
             <i class="fa-solid fa-wand-magic-sparkles"></i>
-            Ver diagnostico gratuito
+            Ver diagnóstico gratuito
           </button>
           <a class="btn btn-secondary" href="#impacto">
             <i class="fa-solid fa-chart-simple"></i>
             Calcular impacto
           </a>
         </div>
-        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
-          <div class="whatsapp-top">
-            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span>
-            <span>Online</span>
-          </div>
-          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-            <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="valoracion">Valoracion inicial</button>
-            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de cita</button>
-            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
-          </div>
-          <div class="wa-panel is-active" role="tabpanel" data-wa-panel="valoracion">
-            <div class="wa-thread">
-              <div class="wa-label">Valoracion inicial</div>
-              <div class="wa-bubble user"><strong>Paciente</strong>Hola, quiero informacion sobre limpieza facial y manchas. No se que necesito.<small>18:12</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo agendar una valoracion con el equipo. No hacemos diagnostico por chat. Que horario te encaja?<small>18:12</small></div>
-              <div class="wa-bubble user"><strong>Paciente</strong>Mejor por la tarde.<small>18:13</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Tienes miercoles 18:30 o viernes 11:00. La valoracion dura 20 min y te enviamos indicaciones.<small>18:13</small></div>
-            </div>
-          </div>
-          <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
-            <div class="wa-thread">
-              <div class="wa-label">Reserva de cita</div>
-              <div class="wa-bubble user"><strong>Paciente</strong>Queria reservar para higiene facial esta semana.<small>10:24</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco jueves 17:00 o viernes 12:30. Te confirmo sede y profesional antes de cerrar la cita.<small>10:24</small></div>
-              <div class="wa-bubble user"><strong>Paciente</strong>Jueves 17:00 me va bien.<small>10:25</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, preparacion y recordatorio 24 h antes.<small>10:25</small></div>
-            </div>
-          </div>
-          <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
-            <div class="wa-thread">
-              <div class="wa-label">Consulta de precios</div>
-              <div class="wa-bubble user"><strong>Paciente</strong>Cuanto cuesta un tratamiento facial? Hay promocion?<small>16:41</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Los precios dependen del protocolo. Puedo pasarte rangos autorizados o reservar valoracion para indicarte la opcion adecuada.<small>16:41</small></div>
-              <div class="wa-bubble user"><strong>Paciente</strong>Prefiero que me lo expliquen.<small>16:42</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo llamada de 10 min hoy 19:00 o manana 13:30 con recepcion.<small>16:42</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="proof-row" aria-label="Metricas clave">
+        <div class="proof-row" aria-label="Métricas clave">
           <div class="proof-item">
             <strong>&lt;60s</strong>
             <span>primera respuesta a pacientes potenciales</span>
@@ -1183,7 +1151,7 @@
         </div>
       </div>
 
-      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepcion IA para clinica estetica">
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepción IA para clínica estetica">
         <div class="ops-head">
           <strong>Clinic Flow AI</strong>
           <span class="status-dot">Online</span>
@@ -1209,35 +1177,35 @@
               <span>Online</span>
             </div>
             <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="valoracion">Valoracion inicial</button>
+              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="valoracion">Valoración inicial</button>
               <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de cita</button>
               <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
             </div>
             <div class="wa-panel is-active" role="tabpanel" data-wa-panel="valoracion">
               <div class="wa-thread">
-                <div class="wa-label">Valoracion inicial</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Hola, quiero informacion sobre limpieza facial y manchas. No se que necesito.<small>18:12</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo orientar de forma administrativa y agendar valoracion con el equipo. No hacemos diagnostico por chat. Que horario te encaja?<small>18:12</small></div>
+                <div class="wa-label">Valoración inicial</div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Hola, quiero información sobre limpieza facial y manchas. No sé qué necesito.<small>18:12</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo orientar de forma administrativa y agendar valoración con el equipo. No hacemos diagnóstico por chat. Qué horario te encaja?<small>18:12</small></div>
                 <div class="wa-bubble user"><strong>Paciente</strong>Mejor por la tarde.<small>18:13</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tienes miercoles 18:30 o viernes 11:00. La valoracion dura 20 min y te enviamos indicaciones y recordatorio.<small>18:13</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tienes miércoles 18:30 o viernes 11:00. La valoración dura 20 min y te enviamos indicaciones y recordatorio.<small>18:13</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Reserva de cita</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Queria reservar para higiene facial esta semana.<small>10:24</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Quería reservar para higiene facial esta semana.<small>10:24</small></div>
                 <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco jueves 17:00 o viernes 12:30. Te confirmo sede y profesional antes de cerrar la cita.<small>10:24</small></div>
                 <div class="wa-bubble user"><strong>Paciente</strong>Jueves 17:00 me va bien.<small>10:25</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, preparacion y recordatorio 24 h antes. Si surge una duda clinica, la revisa el equipo.<small>10:25</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envío ubicación, preparación y recordatorio 24 h antes. Si surge una duda clínica, la revisa el equipo.<small>10:25</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Consulta de precios</div>
-                <div class="wa-bubble user"><strong>Paciente</strong>Cuanto cuesta un tratamiento facial? Hay promocion?<small>16:41</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Los precios dependen del protocolo. Puedo pasarte rangos autorizados o reservar valoracion para indicarte la opcion adecuada.<small>16:41</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Cuánto cuesta un tratamiento facial? Hay promoción?<small>16:41</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Los precios dependen del protocolo. Puedo pasarte rangos autorizados o reservar valoración para indicarte la opción adecuada.<small>16:41</small></div>
                 <div class="wa-bubble user"><strong>Paciente</strong>Prefiero que me lo expliquen.<small>16:42</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo llamada de 10 min hoy 19:00 o manana 13:30 con recepcion. Te dejo la cita preconfirmada?<small>16:42</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo llamada de 10 min hoy 19:00 o mañana 13:30 con recepción. Te dejo la cita preconfirmada?<small>16:42</small></div>
               </div>
             </div>
           </div>
@@ -1254,28 +1222,28 @@
     <section class="section" id="sistema">
       <div class="container">
         <span class="section-kicker reveal">Sistema comercial y agenda</span>
-        <h2 class="reveal">No es un bot que improvisa. Es una recepcion digital con respuestas aprobadas y derivacion profesional.</h2>
-        <p class="section-lead reveal">En clinicas esteticas el valor esta en responder rapido sin prometer resultados, agendar la valoracion correcta y mantener el seguimiento sin saturar al equipo.</p>
+        <h2 class="reveal">No es un bot que improvisa. Es una recepción digital con respuestas aprobadas y derivación profesional.</h2>
+        <p class="section-lead reveal">En clínicas estéticas el valor esta en responder rápido sin prometer resultados, agendar la valoración correcta y mantener el seguimiento sin saturar al equipo.</p>
         <div class="grid-3">
           <article class="feature-card reveal">
             <i class="fa-brands fa-whatsapp"></i>
-            <h3>Atencion multicanal inmediata</h3>
-            <p>Responde preguntas de horarios, ubicacion, precios orientativos y disponibilidad por WhatsApp, llamada, email o formularios.</p>
+            <h3>Atención multicanal inmediata</h3>
+            <p>Responde preguntas de horarios, ubicación, precios orientativos y disponibilidad por WhatsApp, llamada, email o formularios.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-regular fa-calendar-check"></i>
             <h3>Valoraciones agendadas</h3>
-            <p>Propone huecos, confirma datos minimos, envia recordatorios y reduce friccion antes de la primera visita.</p>
+            <p>Propone huecos, confirma datos mínimos, envía recordatorios y reduce fricción antes de la primera visita.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-user-check"></i>
-            <h3>Cualificacion prudente</h3>
-            <p>Ordena prioridad por tratamiento de interes, urgencia, presupuesto y disponibilidad sin entrar en diagnostico clinico.</p>
+            <h3>Cualificación prudente</h3>
+            <p>Ordena prioridad por tratamiento de interés, urgencia, presupuesto y disponibilidad sin entrar en diagnóstico clínico.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-bell"></i>
             <h3>Menos no-shows</h3>
-            <p>Activa confirmaciones, recordatorios y recuperacion de citas canceladas para proteger huecos de agenda.</p>
+            <p>Activa confirmaciones, recordatorios y recuperación de citas canceladas para proteger huecos de agenda.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-heart-pulse"></i>
@@ -1285,7 +1253,7 @@
           <article class="feature-card reveal">
             <i class="fa-solid fa-shield-halved"></i>
             <h3>RGPD y control de datos</h3>
-            <p>Flujos con minimizacion de datos, proveedores documentados y reglas claras para no tratar informacion clinica innecesaria.</p>
+            <p>Flujos con minimización de datos, proveedores documentados y reglas claras para no tratar información clínica innecesaria.</p>
           </article>
         </div>
       </div>
@@ -1294,21 +1262,21 @@
     <section class="section section-alt" id="operativa">
       <div class="container split">
         <div class="reveal">
-          <span class="section-kicker">Como trabaja</span>
-          <h2>Del primer mensaje a la valoracion confirmada, con control del equipo.</h2>
-          <p class="section-lead">La IA no sustituye al profesional. Filtra, agenda, documenta y escala cuando la conversacion requiere criterio clinico.</p>
+          <span class="section-kicker">Cómo trabaja</span>
+          <h2>Del primer mensaje a la valoración confirmada, con control del equipo.</h2>
+          <p class="section-lead">La IA no sustituye al profesional. Filtra, agenda, documenta y escala cuando la conversación requiere criterio clínico.</p>
           <div class="steps">
             <div class="step">
               <span>1</span>
               <div>
                 <strong>Captura la consulta</strong>
-                <p>Identifica canal, tratamiento de interes, horario, sede y motivo de la visita.</p>
+                <p>Identifica canal, tratamiento de interés, horario, sede y motivo de la visita.</p>
               </div>
             </div>
             <div class="step">
               <span>2</span>
               <div>
-                <strong>Agenda la valoracion</strong>
+                <strong>Agenda la valoración</strong>
                 <p>Propone huecos disponibles y confirma la cita con instrucciones claras.</p>
               </div>
             </div>
@@ -1316,23 +1284,23 @@
               <span>3</span>
               <div>
                 <strong>Reduce ausencias</strong>
-                <p>Envia recordatorios y reprograma de forma ordenada cuando el paciente no puede asistir.</p>
+                <p>Envía recordatorios y reprograma de forma ordenada cuando el paciente no puede asistir.</p>
               </div>
             </div>
             <div class="step">
               <span>4</span>
               <div>
                 <strong>Escala lo delicado</strong>
-                <p>Cuando hay duda medica, reaccion, contraindicacion o caso sensible, resume y deriva al equipo.</p>
+                <p>Cuando hay duda médica, reaccion, contraindicacion o caso sensible, resume y deriva al equipo.</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="image-stack reveal" role="img" aria-label="Clinica estetica con equipo profesional">
+        <div class="image-stack reveal" role="img" aria-label="Clínica estetica con equipo profesional">
           <div class="floating-proof">
             <div>
               <strong>+28%</strong>
-              <span>mas solicitudes atendidas fuera de horario</span>
+              <span>más solicitudes atendidas fuera de horario</span>
             </div>
             <div>
               <strong>-19%</strong>
@@ -1349,9 +1317,9 @@
 
     <section class="section" id="impacto">
       <div class="container">
-        <span class="section-kicker reveal">Estimador rapido</span>
-        <h2 class="reveal">Calcula cuanto tiempo y cuantas oportunidades puede recuperar tu recepcion.</h2>
-        <p class="section-lead reveal">Es una estimacion inicial para orientar el diagnostico. En la llamada revisamos volumen real, tratamientos, agenda, canales y tasa de no-show.</p>
+        <span class="section-kicker reveal">Estimador rápido</span>
+        <h2 class="reveal">Calcula cuánto tiempo y cuantas oportunidades puede recuperar tu recepción.</h2>
+        <p class="section-lead reveal">Es una estimación inicial para orientar el diagnóstico. En la llamada revisamos volumen real, tratamientos, agenda, canales y tasa de no-show.</p>
         <div class="calculator reveal">
           <div class="calc-inputs">
             <div class="range-group">
@@ -1375,7 +1343,7 @@
               </label>
               <input type="range" id="recoveryRange" min="5" max="65" value="30" step="1">
             </div>
-            <p class="calc-note">NOVAIX automatiza primera respuesta, preguntas frecuentes, reservas, recordatorios y reactivacion. No hace diagnosticos ni sustituye indicaciones profesionales.</p>
+            <p class="calc-note">NOVAIX automatiza primera respuesta, preguntas frecuentes, reservas, recordatorios y reactivación. No hace diagnósticos ni sustituye indicaciones profesionales.</p>
           </div>
           <div class="calc-output" aria-live="polite">
             <div class="big-number">
@@ -1385,11 +1353,11 @@
             <div class="mini-results">
               <div>
                 <strong id="leadRecovered">42</strong>
-                <span>consultas que podrian recibir seguimiento automatico</span>
+                <span>consultas que podrían recibir seguimiento automático</span>
               </div>
               <div>
                 <strong id="weeklySaved">4.2h</strong>
-                <span>menos carga semanal para recepcion</span>
+                <span>menos carga semanal para recepción</span>
               </div>
             </div>
             <button class="btn btn-primary" type="button" data-calendly-open>
@@ -1404,15 +1372,15 @@
     <section class="section section-alt" id="piloto">
       <div class="container">
         <span class="section-kicker reveal">Piloto NOVAIX</span>
-        <h2 class="reveal">Un piloto enfocado a agenda y conversion, con limites clinicos claros.</h2>
-        <p class="section-lead reveal">Empezamos por un flujo medible: consulta entrante, valoracion, recordatorio, asistencia y seguimiento posterior. Lo que requiere criterio profesional se deriva.</p>
+        <h2 class="reveal">Un piloto enfocado a agenda y conversión, con límites clínicos claros.</h2>
+        <p class="section-lead reveal">Empezamos por un flujo medible: consulta entrante, valoración, recordatorio, asistencia y seguimiento posterior. Lo que requiere criterio profesional se deriva.</p>
         <div class="offer">
           <div class="offer-main reveal">
             <h3>Incluye</h3>
             <ul>
-              <li><i class="fa-solid fa-check"></i><span>Auditoria de canales actuales: WhatsApp, telefono, Instagram, formularios, email y CRM.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Mapa de preguntas frecuentes por tratamiento con respuestas aprobadas por la clinica.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Automatizacion de valoraciones: captacion, reserva, confirmacion, recordatorio y reprogramacion.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Auditoría de canales actuales: WhatsApp, teléfono, Instagram, formularios, email y CRM.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Mapa de preguntas frecuentes por tratamiento con respuestas aprobadas por la clínica.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Automatización de valoraciones: captación, reserva, confirmación, recordatorio y reprogramación.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Panel de seguimiento con consultas, citas, no-shows, reactivaciones y derivaciones humanas.</span></li>
             </ul>
           </div>
@@ -1438,37 +1406,49 @@
     <section class="section" id="faq">
       <div class="container">
         <span class="section-kicker reveal">FAQ</span>
-        <h2 class="reveal">Preguntas normales antes de automatizar una clinica estetica.</h2>
+        <h2 class="reveal">Preguntas normales antes de automatizar una clínica estetica.</h2>
         <div class="faq">
           <details class="reveal">
             <summary>La IA puede hablar de tratamientos?</summary>
-            <p>Si, de forma informativa y con textos aprobados por la clinica. No diagnostica, no promete resultados y deriva las preguntas clinicas al equipo profesional.</p>
+            <p>Sí, de forma informativa y con textos aprobados por la clínica. No diagnostica, no promete resultados y deriva las preguntas clínicas al equipo profesional.</p>
           </details>
           <details class="reveal">
             <summary>Puede gestionar precios y promociones?</summary>
-            <p>Puede explicar rangos, condiciones y promociones autorizadas. Si hay caso personalizado, negociacion o duda clinica, lo pasa a recepcion o direccion.</p>
+            <p>Puede explicar rangos, condiciones y promociones autorizadas. Si hay caso personalizado, negociación o duda clínica, lo pasa a recepción o dirección.</p>
           </details>
           <details class="reveal">
-            <summary>Como se tratan los datos sensibles?</summary>
-            <p>El piloto se disena con minimizacion de datos, permisos por canal, proveedores documentados y reglas para no recoger informacion clinica que no sea necesaria.</p>
+            <summary>Cómo se tratan los datos sensibles?</summary>
+            <p>El piloto se diseña con minimización de datos, permisos por canal, proveedores documentados y reglas para no recoger información clínica que no sea necesaria.</p>
           </details>
           <details class="reveal">
             <summary>Sirve si recibimos muchas consultas por Instagram?</summary>
-            <p>Si. Podemos ordenar la entrada desde Instagram, WhatsApp, formularios y llamadas para que cada oportunidad termine en agenda o seguimiento medible.</p>
+            <p>Sí. Podemos ordenar la entrada desde Instagram, WhatsApp, formularios y llamadas para que cada oportunidad termine en agenda o seguimiento medible.</p>
           </details>
         </div>
+      </div>
+    </section>
+
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="section-kicker">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas ver cómo cambia la automatización según el tipo de cliente, agenda y canal de entrada.</p>
+        </div>
+        <a class="btn btn-secondary" href="landing-negocios.html"><i class="fa-solid fa-layer-group"></i>Ver todos los negocios</a>
       </div>
     </section>
 
     <section class="cta-band" id="demo">
       <div class="container">
         <div class="reveal">
-          <h2>Quieres ver que automatizariamos en tu clinica?</h2>
+          <h2>Quieres ver qué automatizaríamos en tu clínica?</h2>
           <p>En 30 minutos revisamos tus canales, agenda, no-shows y seguimiento. Sales con un mapa claro de lo que merece la pena automatizar primero.</p>
         </div>
         <button class="btn btn-primary reveal" type="button" data-calendly-open>
           <i class="fa-regular fa-calendar-check"></i>
-          Agendar diagnostico
+          Agendar diagnóstico
         </button>
       </div>
     </section>
@@ -1476,7 +1456,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p>&copy; <span id="year"></span> NOVAIX. Automatización e IA para operaciones, ventas y atención.</p>
       <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
     </div>
   </footer>
@@ -1491,7 +1471,7 @@
   </div>
 
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+    <p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
     <div class="cookie-actions">
       <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
       <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
@@ -1562,7 +1542,7 @@
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
 
-    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
       const tabs = widget.querySelectorAll('[data-wa-tab]');
       const panels = widget.querySelectorAll('[data-wa-panel]');
 

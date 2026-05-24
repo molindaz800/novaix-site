@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Landing de NOVAIX para peluquerias: recepcion IA 24/7, reservas, cambios de cita, precios y seguimiento por WhatsApp.">
-  <title>NOVAIX Peluquerias · Recepcion IA 24/7</title>
+  <meta name="description" content="Landing de NOVAIX para peluquerías: recepción IA 24/7, reservas, cambios de cita, precios y seguimiento por WhatsApp.">
+  <title>NOVAIX Peluquerías · Recepción IA 24/7</title>
   <link rel="canonical" href="https://novaix.es/landing-peluquerias.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#10100a">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NOVAIX Peluquerias · Recepcion IA 24/7">
-  <meta property="og:description" content="Automatiza reservas, cambios de hora, consultas de precios y recordatorios para peluquerias.">
+  <meta property="og:title" content="NOVAIX Peluquerías · Recepción IA 24/7">
+  <meta property="og:description" content="Automatiza reservas, cambios de hora, consultas de precios y recordatorios para peluquerías.">
   <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,8 +115,7 @@
     .ops-metric { min-height: 82px; padding: 11px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.05); }
     .ops-metric strong { display: block; font-size: 1.35rem; line-height: 1.1; color: var(--text); }
     .ops-metric span { display: block; margin-top: 5px; color: var(--muted); font-size: .76rem; line-height: 1.25; }
-    .whatsapp-screen, .mobile-wa-preview { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
-    .mobile-wa-preview { display: none; }
+    .whatsapp-screen { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
     .whatsapp-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 10px; border-radius: 8px; background: rgba(7,94,84,.42); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); color: #eafff4; font-size: .86rem; font-weight: 800; }
     .whatsapp-top span { display: inline-flex; align-items: center; gap: 6px; color: color-mix(in srgb, var(--primary) 75%, white); font-size: .76rem; text-transform: uppercase; letter-spacing: .07em; }
     .whatsapp-top span::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--primary); box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 80%, transparent); }
@@ -186,6 +185,33 @@
     .cta-band .container { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
     .cta-band h2 { margin-bottom: 8px; font-size: 2.25rem; line-height: 1.05; }
     .cta-band p { color: var(--muted); margin-bottom: 0; }
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(255,255,255,0.08), transparent 62%),
+        rgba(255,255,255,0.045);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     footer { padding: 26px 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
     .footer-inner { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
     footer p { margin: 0; }
@@ -197,7 +223,7 @@
     .cookie-banner { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 130; width: min(980px, calc(100% - 32px)); display: none; align-items: center; justify-content: space-between; gap: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: rgba(5,8,8,.94); box-shadow: 0 18px 60px rgba(0,0,0,.42); backdrop-filter: blur(18px); }
     .cookie-banner.is-visible { display: flex; }
     .cookie-banner p { margin: 0; color: #e7e2d8; }
-    .cookie-actions { display: flex; gap: 8px; }
+    .cookie-actions { display: flex; gap: 12px; }
     .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -217,23 +243,18 @@
       .nav-links .btn { width: 100%; }
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
-      .hero .ops-panel { display: none; }
       .hero-grid { gap: 30px; }
       .hero-copy-block { display: flex; flex-direction: column; }
       .hero-copy-block .eyebrow { align-self: flex-start; }
-      .hero-copy-block .mobile-wa-preview { order: 1; }
       .hero-copy-block .hero-copy { order: 2; }
       .hero-copy-block .hero-actions { order: 3; }
       .hero-copy-block .proof-row { order: 4; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
-      .mobile-wa-preview { display: grid; gap: 9px; margin: 20px 0 18px; padding: 10px; border-color: color-mix(in srgb, var(--primary) 24%, transparent); }
-      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
-      .mobile-wa-preview .wa-tabs { gap: 4px; }
-      .mobile-wa-preview .wa-tab { min-height: 42px; padding: 6px 5px; font-size: .55rem; }
-      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
-      .mobile-wa-preview .wa-bubble { max-width: 94%; font-size: .8rem; padding: 8px 10px 7px; }
+      .hero-copy-block .proof-row { display: none; }
+      .hero .ops-panel { margin-top: 0; }
+      .hero .ops-metric-grid { display: none; }
       .ops-head { flex-wrap: wrap; }
       .proof-row, .floating-proof, .mini-results { grid-template-columns: 1fr; }
       .ops-metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -245,6 +266,9 @@
       .grid-3 { grid-template-columns: 1fr; }
       .section { padding: 58px 0; }
       .image-stack { min-height: 460px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner { align-items: stretch; flex-direction: column; }
       .cookie-actions { width: 100%; }
       .cookie-actions .btn { flex: 1; }
@@ -268,75 +292,40 @@
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <div class="nav-hover-zone" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Navegacion principal">
+  <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
-      <span>Peluquerias</span>
+      <span>Peluquerías</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
       <a href="#sistema">Sistema</a>
       <a href="#operativa">Operativa</a>
       <a href="#impacto">Impacto</a>
       <a href="#piloto">Piloto</a>
-      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnostico</button>
+      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnóstico</button>
     </div>
   </nav>
 
   <header class="hero" id="contenido">
     <div class="container hero-grid">
       <div class="hero-copy-block reveal">
-        <span class="eyebrow"><i class="fa-solid fa-scissors"></i> IA para peluquerias y salones</span>
-        <h1>Recepcion IA 24/7 para peluquerias que no pueden perder citas.</h1>
-        <p class="hero-copy">NOVAIX responde WhatsApp, llamadas, formularios e Instagram, reserva huecos, reorganiza agenda y reactiva clientes que preguntaron precio. Tu equipo sigue cortando, peinando y vendiendo servicios sin vivir pegado al telefono.</p>
+        <span class="eyebrow"><i class="fa-solid fa-scissors"></i> IA para peluquerías y salónes</span>
+        <h1>Recepción IA 24/7 para peluquerías que no pueden perder citas.</h1>
+        <p class="hero-copy">NOVAIX responde WhatsApp, llamadas, formularios e Instagram, reserva huecos, reorganiza agenda y reactiva clientes que preguntaron precio. Tu equipo sigue cortando, peinando y vendiendo servicios sin vivir pegado al teléfono.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-wand-magic-sparkles"></i>Ver diagnostico gratuito</button>
+          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-wand-magic-sparkles"></i>Ver diagnóstico gratuito</button>
           <a class="btn btn-secondary" href="#impacto"><i class="fa-solid fa-chart-simple"></i>Calcular impacto</a>
         </div>
-        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
-          <div class="whatsapp-top"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span><span>Online</span></div>
-          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="reserva">Reserva de cita</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="cambio">Cambio de hora</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
-          </div>
-            <div class="wa-panel is-active" role="tabpanel" data-wa-panel="reserva">
-              <div class="wa-thread">
-                <div class="wa-label">Reserva de cita</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Hola, queria corte y color esta semana. Teneis hueco?<small>18:21</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Tengo jueves 17:30 o sabado 10:00. Para color necesito confirmar largo y si es primera vez.<small>18:21</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Jueves me va bien. Es media melena.<small>18:22</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto, te dejo pre-reservado jueves 17:30. Te envio direccion, precio orientativo y recordatorio 24 h antes.<small>18:22</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="cambio" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Cambio de hora</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>No puedo ir manana a las 12:00. Se puede cambiar?<small>09:16</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco manana 18:15 o viernes 11:30 con el mismo servicio.<small>09:16</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Viernes 11:30 mejor.<small>09:17</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Cambio realizado. Tu cita queda viernes 11:30 y te envio el nuevo recordatorio.<small>09:17</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Consulta de precios</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta balayage? Tengo el pelo largo.<small>16:38</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>El precio depende de largo, cantidad y matiz. Te puedo dar rango orientativo o reservar diagnostico express.<small>16:38</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Prefiero diagnostico.<small>16:39</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo videollamada de 10 min hoy 19:00 o cita presencial viernes 12:00.<small>16:39</small></div>
-              </div>
-            </div>
-        </div>
-        <div class="proof-row" aria-label="Metricas clave">
+        <div class="proof-row" aria-label="Métricas clave">
           <div class="proof-item"><strong>&lt;60s</strong><span>primera respuesta a nuevos clientes</span></div>
           <div class="proof-item"><strong>24/7</strong><span>reservas, cambios y recordatorios</span></div>
           <div class="proof-item"><strong>12h+</strong><span>tiempo administrativo recuperable al mes</span></div>
         </div>
       </div>
 
-      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepcion IA">
-        <div class="ops-head"><strong>Salon Desk AI</strong><span class="status-dot">Online</span></div>
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepción IA">
+        <div class="ops-head"><strong>Salón Desk AI</strong><span class="status-dot">Online</span></div>
         <div class="ops-body">
           <div class="ops-metric-grid">
             <div class="ops-metric"><strong>42</strong><span>consultas atendidas hoy</span></div>
@@ -353,27 +342,27 @@
             <div class="wa-panel is-active" role="tabpanel" data-wa-panel="reserva">
               <div class="wa-thread">
                 <div class="wa-label">Reserva de cita</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Hola, queria corte y color esta semana. Teneis hueco?<small>18:21</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Tengo jueves 17:30 o sabado 10:00. Para color necesito confirmar largo y si es primera vez.<small>18:21</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Hola, quería corte y color esta semana. Tenéis hueco?<small>18:21</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Sí. Tengo jueves 17:30 o sábado 10:00. Para color necesito confirmar largo y si es primera vez.<small>18:21</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Jueves me va bien. Es media melena.<small>18:22</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto, te dejo pre-reservado jueves 17:30. Te envio direccion, precio orientativo y recordatorio 24 h antes.<small>18:22</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto, te dejo pre-reservado jueves 17:30. Te envío dirección, precio orientativo y recordatorio 24 h antes.<small>18:22</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="cambio" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Cambio de hora</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>No puedo ir manana a las 12:00. Se puede cambiar?<small>09:16</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco manana 18:15 o viernes 11:30 con el mismo servicio.<small>09:16</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>No puedo ir mañana a las 12:00. Se puede cambiar?<small>09:16</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco mañana 18:15 o viernes 11:30 con el mismo servicio.<small>09:16</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Viernes 11:30 mejor.<small>09:17</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Cambio realizado. Tu cita queda viernes 11:30 y te envio el nuevo recordatorio.<small>09:17</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Cambio realizado. Tu cita queda viernes 11:30 y te envío el nuevo recordatorio.<small>09:17</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Consulta de precios</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta balayage? Tengo el pelo largo.<small>16:38</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>El precio depende de largo, cantidad y matiz. Te puedo dar rango orientativo o reservar diagnostico express.<small>16:38</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Prefiero diagnostico.<small>16:39</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Cuánto cuesta balayage? Tengo el pelo largo.<small>16:38</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>El precio depende de largo, cantidad y matiz. Te puedo dar rango orientativo o reservar diagnóstico express.<small>16:38</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Prefiero diagnóstico.<small>16:39</small></div>
                 <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo videollamada de 10 min hoy 19:00 o cita presencial viernes 12:00.<small>16:39</small></div>
               </div>
             </div>
@@ -388,18 +377,18 @@
     <section class="section" id="sistema">
       <div class="container">
         <span class="section-kicker reveal">Sistema comercial y operativo</span>
-        <h2 class="reveal">Una recepcion que protege agenda, ticket medio y experiencia del cliente.</h2>
-        <p class="section-lead reveal">En una peluqueria, contestar tarde significa huecos perdidos, cambios desordenados y clientes que se van a otro salon.</p>
+        <h2 class="reveal">Una recepción que protege agenda, ticket medio y experiencia del cliente.</h2>
+        <p class="section-lead reveal">En una peluquería, contestar tarde significa huecos perdidos, cambios desordenados y clientes que se van a otro salón.</p>
         <div class="grid-3">
           <article class="feature-card reveal">
             <i class="fa-brands fa-whatsapp"></i>
-            <h3>Atencion inmediata</h3>
-            <p>Responde dudas de servicios, horarios, disponibilidad, ubicacion y precios orientativos por WhatsApp, llamada o Instagram.</p>
+            <h3>Atención inmediata</h3>
+            <p>Responde dudas de servicios, horarios, disponibilidad, ubicación y precios orientativos por WhatsApp, llamada o Instagram.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-regular fa-calendar-check"></i>
             <h3>Agenda ordenada</h3>
-            <p>Reserva cortes, color, tratamientos, barberia o diagnosticos y evita solapes por duracion del servicio.</p>
+            <p>Reserva cortes, color, tratamientos, barbería o diagnósticos y evita solapes por duración del servicio.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-repeat"></i>
@@ -409,12 +398,12 @@
           <article class="feature-card reveal">
             <i class="fa-solid fa-bell"></i>
             <h3>Menos ausencias</h3>
-            <p>Envia confirmaciones y recordatorios para reducir no-shows en servicios largos o de alto valor.</p>
+            <p>Envía confirmaciones y recordatorios para reducir no-shows en servicios largos o de alto valor.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-gift"></i>
             <h3>Venta de bonos</h3>
-            <p>Detecta interes en tarjetas regalo, packs, tratamientos y promociones aprobadas por el salon.</p>
+            <p>Detecta interés en tarjetas regalo, packs, tratamientos y promociones aprobadas por el salón.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-chart-line"></i>
@@ -428,7 +417,7 @@
     <section class="section section-alt" id="operativa">
       <div class="container split">
         <div class="reveal">
-          <span class="section-kicker">Como trabaja</span>
+          <span class="section-kicker">Cómo trabaja</span>
           <h2>Del primer mensaje al hueco confirmado, con la agenda bajo control.</h2>
           <p class="section-lead">La IA pregunta lo justo para proponer un hueco real y dejar a tu equipo solo las excepciones.</p>
           <div class="steps">
@@ -436,21 +425,21 @@
               <span>1</span>
               <div>
                 <strong>Captura el servicio</strong>
-                <p>Identifica si es corte, color, tratamiento, barberia, recogido o diagnostico.</p>
+                <p>Identifica si es corte, color, tratamiento, barbería, recogido o diagnóstico.</p>
               </div>
             </div>
             <div class="step">
               <span>2</span>
               <div>
-                <strong>Calcula duracion</strong>
-                <p>Aplica reglas de agenda segun servicio, profesional, sede y disponibilidad.</p>
+                <strong>Calcula duración</strong>
+                <p>Aplica reglas de agenda según servicio, profesional, sede y disponibilidad.</p>
               </div>
             </div>
             <div class="step">
               <span>3</span>
               <div>
                 <strong>Confirma cita</strong>
-                <p>Envia ubicacion, preparacion, precio orientativo y recordatorio automatico.</p>
+                <p>Envía ubicación, preparación, precio orientativo y recordatorio automático.</p>
               </div>
             </div>
             <div class="step">
@@ -462,7 +451,7 @@
             </div>
           </div>
         </div>
-        <div class="image-stack reveal" role="img" aria-label="Salon de peluqueria con equipo trabajando">
+        <div class="image-stack reveal" role="img" aria-label="Salón de peluquería con equipo trabajando">
           <div class="floating-proof">
             <div><strong>+31%</strong><span>consultas atendidas fuera de horario</span></div>
             <div><strong>-22%</strong><span>citas sin confirmar</span></div>
@@ -474,15 +463,15 @@
 
     <section class="section" id="impacto">
       <div class="container">
-        <span class="section-kicker reveal">Estimador rapido</span>
-        <h2 class="reveal">Cuanto tiempo consume tu recepcion cada mes?</h2>
+        <span class="section-kicker reveal">Estimador rápido</span>
+        <h2 class="reveal">Cuánto tiempo consume tu recepción cada mes?</h2>
         <p class="section-lead reveal">Estima el impacto de automatizar primera respuesta, reservas, cambios de cita y recordatorios.</p>
         <div class="calculator reveal">
           <div class="impact-card">
             <div class="range-row"><label for="leadsRange">Consultas mensuales <strong id="leadsOutput">180</strong></label><input id="leadsRange" type="range" min="40" max="600" value="180"></div>
             <div class="range-row"><label for="minutesRange">Minutos medios por consulta <strong><span id="minutesOutput">6</span> min</strong></label><input id="minutesRange" type="range" min="2" max="18" value="6"></div>
             <div class="range-row"><label for="recoveryRange">Consultas que se pueden automatizar <strong id="recoveryOutput">68%</strong></label><input id="recoveryRange" type="range" min="25" max="90" value="68"></div>
-            <p class="calc-note">NOVAIX automatiza reservas, preguntas frecuentes y seguimiento sin tocar servicios que requieren criterio del salon.</p>
+            <p class="calc-note">NOVAIX automatiza reservas, preguntas frecuentes y seguimiento sin tocar servicios que requieren criterio del salón.</p>
           </div>
           <div class="big-number">
             <span>Horas recuperables al mes</span>
@@ -500,12 +489,12 @@
       <div class="container">
         <span class="section-kicker reveal">Piloto NOVAIX</span>
         <h2 class="reveal">Un piloto centrado en reservas y agenda, medible desde la primera semana.</h2>
-        <p class="section-lead reveal">Empezamos por los flujos de mayor volumen: reserva, cambio, precio orientativo, recordatorio y recuperacion.</p>
+        <p class="section-lead reveal">Empezamos por los flujos de mayor volumen: reserva, cambio, precio orientativo, recordatorio y recuperación.</p>
         <div class="offer">
           <div class="pilot-card reveal"><ul>
-              <li><i class="fa-solid fa-check"></i><span>Auditoria de canales actuales: WhatsApp, telefono, Instagram, formularios y agenda.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Auditoría de canales actuales: WhatsApp, teléfono, Instagram, formularios y agenda.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Mapa de servicios, duraciones, precios orientativos y reglas de reserva.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Automatizacion de reserva, cambio, confirmacion, recordatorio y reactivacion.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Automatización de reserva, cambio, confirmación, recordatorio y reactivación.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Panel con citas creadas, huecos recuperados, consultas resueltas y derivaciones humanas.</span></li>
           </ul></div>
           <div class="pilot-card reveal">
@@ -524,40 +513,52 @@
     <section class="section">
       <div class="container">
         <span class="section-kicker reveal">FAQ</span>
-        <h2 class="reveal">Preguntas normales antes de automatizar una peluqueria.</h2>
+        <h2 class="reveal">Preguntas normales antes de automatizar una peluquería.</h2>
           <details class="reveal">
-            <summary>Puede reservar segun cada servicio?</summary>
-            <p>Si. Se configuran duraciones, profesionales, sedes y reglas por servicio para no bloquear huecos incorrectos.</p>
+            <summary>Puede reservar según cada servicio?</summary>
+            <p>Sí. Se configuran duraciones, profesionales, sedes y reglas por servicio para no bloquear huecos incorrectos.</p>
           </details>
           <details class="reveal">
             <summary>Puede responder precios?</summary>
-            <p>Puede explicar precios orientativos y condiciones aprobadas. Si hace falta diagnostico, agenda una valoracion.</p>
+            <p>Puede explicar precios orientativos y condiciones aprobadas. Si hace falta diagnóstico, agenda una valoración.</p>
           </details>
           <details class="reveal">
             <summary>Y si el cliente quiere algo complicado?</summary>
-            <p>La IA resume la conversacion y la deriva al equipo para que decida.</p>
+            <p>La IA resume la conversación y la deriva al equipo para que decida.</p>
           </details>
           <details class="reveal">
             <summary>Funciona con Instagram?</summary>
-            <p>Si. Puede ordenar mensajes de Instagram, WhatsApp, formularios y llamadas para convertirlos en agenda.</p>
+            <p>Sí. Puede ordenar mensajes de Instagram, WhatsApp, formularios y llamadas para convertirlos en agenda.</p>
           </details>
+      </div>
+    </section>
+
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="section-kicker">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas ver cómo cambia la automatización según el tipo de cliente, agenda y canal de entrada.</p>
+        </div>
+        <a class="btn btn-secondary" href="landing-negocios.html"><i class="fa-solid fa-layer-group"></i>Ver todos los negocios</a>
       </div>
     </section>
 
     <section class="cta-band">
       <div class="container">
         <div class="reveal">
-          <h2>Quieres ver que automatizariamos en tu peluqueria?</h2>
+          <h2>Quieres ver qué automatizaríamos en tu peluquería?</h2>
           <p>En 30 minutos revisamos tus canales, servicios, agenda y volumen de consultas. Sales con un mapa claro de lo que conviene automatizar primero.</p>
         </div>
-        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnostico</button>
+        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnóstico</button>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p>© <span id="year"></span> NOVAIX. Automatización e IA para operaciones, ventas y atención.</p>
       <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
     </div>
   </footer>
@@ -570,8 +571,11 @@
   </div>
 
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
-    <div class="cookie-actions"><button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button><button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button></div>
+    <p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+        <div class="cookie-actions">
+      <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
+      <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
+    </div>
   </div>
 
   <script>
@@ -624,7 +628,7 @@
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
 
-    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
       const tabs = widget.querySelectorAll('[data-wa-tab]');
       const panels = widget.querySelectorAll('[data-wa-panel]');
       tabs.forEach((tab) => {

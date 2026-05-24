@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Landing de NOVAIX para gimnasios: recepcion IA 24/7, reservas de clases, seguimiento de leads y automatizacion por WhatsApp, llamadas y email.">
-  <title>NOVAIX Gimnasios · Recepcion IA 24/7</title>
+  <meta name="description" content="Landing de NOVAIX para gimnasios: recepción IA 24/7, reservas de clases, seguimiento de leads y automatización por WhatsApp, llamadas y email.">
+  <title>NOVAIX Gimnasios · Recepción IA 24/7</title>
   <link rel="canonical" href="https://novaix.es/landing-gimnasios.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#090a0a">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NOVAIX Gimnasios · Recepcion IA 24/7">
-  <meta property="og:description" content="Automatiza atencion, reservas y seguimiento comercial para gimnasios con IA multicanal.">
+  <meta property="og:title" content="NOVAIX Gimnasios · Recepción IA 24/7">
+  <meta property="og:description" content="Automatiza atención, reservas y seguimiento comercial para gimnasios con IA multicanal.">
   <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -475,7 +475,6 @@
         linear-gradient(45deg, rgba(255,255,255,0.025) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.025) 50%, rgba(255,255,255,0.025) 75%, transparent 75%, transparent) 0 0 / 22px 22px,
         rgba(8, 14, 12, 0.72);
     }
-    .mobile-wa-preview { display: none; }
     .wa-label {
       justify-self: center;
       padding: 4px 9px;
@@ -904,6 +903,33 @@
       color: #d9dbd2;
     }
 
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(255,255,255,0.08), transparent 62%),
+        rgba(255,255,255,0.045);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     footer {
       padding: 34px 0;
       color: var(--muted);
@@ -989,7 +1015,7 @@
     }
     .cookie-banner.is-visible { display: flex; }
     .cookie-banner p { margin: 0; font-size: 0.9rem; }
-    .cookie-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+    .cookie-actions { display: flex; gap: 12px; flex: 0 0 auto; }
     .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
 
     .reveal {
@@ -1035,44 +1061,21 @@
       .nav-links .btn { width: 100%; }
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
-      .hero .ops-panel { display: none; }
       .hero-grid { gap: 30px; }
       .hero-copy-block {
         display: flex;
         flex-direction: column;
       }
       .hero-copy-block .eyebrow { align-self: flex-start; }
-      .hero-copy-block .mobile-wa-preview { order: 1; }
       .hero-copy-block .hero-copy { order: 2; }
       .hero-copy-block .hero-actions { order: 3; }
       .hero-copy-block .proof-row { order: 4; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
-      .mobile-wa-preview {
-        display: grid;
-        gap: 9px;
-        margin: 20px 0 18px;
-        padding: 10px;
-        border: 1px solid rgba(37,211,102,0.2);
-        border-radius: 8px;
-        background:
-          linear-gradient(135deg, rgba(7, 94, 84, 0.2), rgba(18, 140, 126, 0.08)),
-          rgba(5,6,6,0.66);
-      }
-      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
-      .mobile-wa-preview .wa-tabs { gap: 4px; }
-      .mobile-wa-preview .wa-tab {
-        min-height: 42px;
-        padding: 6px 5px;
-        font-size: 0.55rem;
-      }
-      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
-      .mobile-wa-preview .wa-bubble {
-        max-width: 94%;
-        font-size: 0.8rem;
-        padding: 8px 10px 7px;
-      }
+      .hero-copy-block .proof-row { display: none; }
+      .hero .ops-panel { margin-top: 0; }
+      .hero .ops-metric-grid { display: none; }
       .ops-panel { max-width: 100%; }
       .ops-head { flex-wrap: wrap; }
       .proof-row,
@@ -1092,6 +1095,9 @@
       .grid-3 { grid-template-columns: 1fr; }
       .section { padding: 58px 0; }
       .image-stack { min-height: 460px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner {
         align-items: stretch;
         flex-direction: column;
@@ -1127,12 +1133,12 @@
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
   <div class="nav-hover-zone" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Navegacion principal">
+  <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
       <span>Gimnasios</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="nav-links">
@@ -1142,7 +1148,7 @@
       <a href="#piloto">Piloto</a>
       <button class="btn btn-primary" type="button" data-calendly-open>
         <i class="fa-regular fa-calendar-check"></i>
-        Diagnostico
+        Diagnóstico
       </button>
     </div>
   </nav>
@@ -1151,57 +1157,19 @@
     <div class="container hero-grid">
       <div class="hero-copy-block reveal">
         <span class="eyebrow"><i class="fa-solid fa-dumbbell"></i> IA para gimnasios y boxes</span>
-        <h1>Recepcion IA 24/7 <span class="mobile-break">para gimnasios que no pueden perder leads.</span></h1>
-        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y email, reserva clases de prueba, reactiva indecisos y deriva a tu equipo solo lo que necesita trato humano. El cliente recibe respuesta inmediata y tu recepcion deja de vivir apagando fuegos.</p>
+        <h1>Recepción IA 24/7 <span class="mobile-break">para gimnasios que no pueden perder leads.</span></h1>
+        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y email, reserva clases de prueba, reactiva indecisos y deriva a tu equipo solo lo que necesita trato humano. El cliente recibe respuesta inmediata y tu recepción deja de vivir apagando fuegos.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" type="button" data-calendly-open>
             <i class="fa-solid fa-bolt"></i>
-            Ver diagnostico gratuito
+            Ver diagnóstico gratuito
           </button>
           <a class="btn btn-secondary" href="#impacto">
             <i class="fa-solid fa-chart-simple"></i>
             Calcular impacto
           </a>
         </div>
-        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
-          <div class="whatsapp-top">
-            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span>
-            <span>Online</span>
-          </div>
-          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-            <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="alta">Alta nueva</button>
-            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de clase</button>
-            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
-          </div>
-          <div class="wa-panel is-active" role="tabpanel" data-wa-panel="alta">
-            <div class="wa-thread">
-              <div class="wa-label">Alta nueva</div>
-              <div class="wa-bubble user"><strong>Cliente</strong>Hola, quiero apuntarme al gimnasio pero no se que plan elegir.<small>19:18</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo. Buscas fuerza, perdida de grasa, clases dirigidas o entrenar por libre?<small>19:18</small></div>
-              <div class="wa-bubble user"><strong>Cliente</strong>Quiero empezar con clases y entrenar 3 dias.<small>19:19</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te reservo una clase y una visita para ver el plan mensual que encaja contigo.<small>19:19</small></div>
-            </div>
-          </div>
-          <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
-            <div class="wa-thread">
-              <div class="wa-label">Reserva de clase</div>
-              <div class="wa-bubble user"><strong>Cliente</strong>Hay hueco para funcional esta semana?<small>11:04</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Tienes martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa comoda.<small>11:04</small></div>
-              <div class="wa-bubble user"><strong>Cliente</strong>Jueves me va bien.<small>11:05</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, que traer y recordatorio 24 h antes.<small>11:05</small></div>
-            </div>
-          </div>
-          <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
-            <div class="wa-thread">
-              <div class="wa-label">Consulta de precios</div>
-              <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta entrenar? Hay matricula?<small>16:31</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Los planes empiezan desde 49 euros/mes. Depende de clases, acceso y seguimiento.<small>16:31</small></div>
-              <div class="wa-bubble user"><strong>Cliente</strong>Prefiero que me expliquen las opciones.<small>16:32</small></div>
-              <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo hueco para una llamada de 10 min hoy 17:30 o manana 12:00.<small>16:32</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="proof-row" aria-label="Metricas clave">
+        <div class="proof-row" aria-label="Métricas clave">
           <div class="proof-item">
             <strong>&lt;60s</strong>
             <span>primera respuesta a nuevos leads</span>
@@ -1217,7 +1185,7 @@
         </div>
       </div>
 
-      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de la recepcion IA">
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de la recepción IA">
         <div class="ops-head">
           <strong>Gym Ops AI</strong>
           <span class="status-dot">Online</span>
@@ -1250,28 +1218,28 @@
             <div class="wa-panel is-active" role="tabpanel" data-wa-panel="alta">
               <div class="wa-thread">
                 <div class="wa-label">Alta nueva</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Hola, quiero apuntarme al gimnasio pero no se que plan elegir.<small>19:18</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo. Que objetivo tienes: fuerza, perdida de grasa, clases dirigidas o entrenar por libre?<small>19:18</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Quiero empezar con clases y entrenar 3 dias.<small>19:19</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te recomiendo probar una clase y ver el plan mensual. Puedo reservarte hoy 19:30 o manana 18:00.<small>19:19</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Hola, quiero apuntarme al gimnasio pero no sé qué plan elegir.<small>19:18</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo. Qué objetivo tienes: fuerza, pérdida de grasa, clases dirigidas o entrenar por libre?<small>19:18</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Quiero empezar con clases y entrenar 3 días.<small>19:19</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te recomiendo probar una clase y ver el plan mensual. Puedo reservarte hoy 19:30 o mañana 18:00.<small>19:19</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Reserva de clase</div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Hay hueco para funcional esta semana?<small>11:04</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Tienes martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa comoda.<small>11:04</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Sí. Tienes martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa cómoda.<small>11:04</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Jueves me va bien.<small>11:05</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, que traer y recordatorio 24 h antes.<small>11:05</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envío ubicación, qué traer y recordatorio 24 h antes.<small>11:05</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Consulta de precios</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta entrenar? Hay matricula?<small>16:31</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Cuánto cuesta entrenar? Hay matrícula?<small>16:31</small></div>
                 <div class="wa-bubble ai"><strong>NOVAIX</strong>Los planes empiezan desde 49 euros/mes. Depende de clases, acceso y seguimiento. Te puedo pasar opciones o reservar una visita.<small>16:31</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Prefiero que me expliquen las opciones.<small>16:32</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo hueco para una llamada de 10 min hoy 17:30 o manana 12:00.<small>16:32</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo hueco para una llamada de 10 min hoy 17:30 o mañana 12:00.<small>16:32</small></div>
               </div>
             </div>
           </div>
@@ -1288,33 +1256,33 @@
     <section class="section" id="sistema">
       <div class="container">
         <span class="section-kicker reveal">Sistema comercial y operativo</span>
-        <h2 class="reveal">No es un chatbot decorativo. Es una capa de recepcion, ventas y reservas conectada a tu gimnasio.</h2>
-        <p class="section-lead reveal">La aproximacion de Claude iba bien orientada: atacar el cuello de botella real de un gimnasio, la atencion constante. La mejora aqui es hacerla mas concreta, con flujos visibles, calculadora y una propuesta de piloto accionable.</p>
+        <h2 class="reveal">No es un chatbot decorativo. Es una capa de recepción, ventas y reservas conectada a tu gimnasio.</h2>
+        <p class="section-lead reveal">La aproximación de Claude iba bien orientada: atacar el cuello de botella real de un gimnasio, la atención constante. La mejora aquí es hacerla más concreta, con flujos visibles, calculadora y una propuesta de piloto accionable.</p>
         <div class="grid-3">
           <article class="feature-card reveal">
             <i class="fa-brands fa-whatsapp"></i>
-            <h3>Atencion multicanal inmediata</h3>
-            <p>Responde dudas de horarios, tarifas, ubicacion, permanencia y servicios por WhatsApp, llamada o email con tono de marca.</p>
+            <h3>Atención multicanal inmediata</h3>
+            <p>Responde dudas de horarios, tarifas, ubicación, permanencia y servicios por WhatsApp, llamada o email con tono de marca.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-regular fa-calendar-check"></i>
-            <h3>Reservas sin friccion</h3>
-            <p>Agenda clases de prueba, sesiones de valoracion o visitas al centro y envia recordatorios automaticos para reducir ausencias.</p>
+            <h3>Reservas sin fricción</h3>
+            <p>Agenda clases de prueba, sesiones de valoración o visitas al centro y envía recordatorios automáticos para reducir ausencias.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-filter-circle-dollar"></i>
             <h3>Lead scoring comercial</h3>
-            <p>Clasifica intencion, urgencia, zona, objetivo y presupuesto para que tu equipo priorice oportunidades reales.</p>
+            <p>Clasifica intención, urgencia, zona, objetivo y presupuesto para que tu equipo priorice oportunidades reales.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-rotate"></i>
-            <h3>Recuperacion de indecisos</h3>
-            <p>Activa secuencias de seguimiento para quien pregunto precio, no vino a la prueba o dejo una conversacion a medias.</p>
+            <h3>Recuperación de indecisos</h3>
+            <p>Activa secuencias de seguimiento para quien preguntó precio, no vino a la prueba o dejó una conversación a medias.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-user-shield"></i>
-            <h3>Derivacion humana clara</h3>
-            <p>Cuando hay baja, incidencia sensible o negociacion, la IA resume el caso y lo pasa al responsable correcto.</p>
+            <h3>Derivación humana clara</h3>
+            <p>Cuando hay baja, incidencia sensible o negociación, la IA resume el caso y lo pasa al responsable correcto.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-chart-line"></i>
@@ -1328,7 +1296,7 @@
     <section class="section section-alt" id="operativa">
       <div class="container split">
         <div class="reveal">
-          <span class="section-kicker">Como trabaja</span>
+          <span class="section-kicker">Cómo trabaja</span>
           <h2>Del primer mensaje a la clase reservada, sin perseguir al cliente.</h2>
           <p class="section-lead">El sistema no sustituye tu criterio comercial. Quita ruido, contesta lo repetitivo y prepara cada oportunidad para que llegue ordenada.</p>
           <div class="steps">
@@ -1343,21 +1311,21 @@
               <span>2</span>
               <div>
                 <strong>Resuelve o agenda</strong>
-                <p>Contesta preguntas frecuentes y propone huecos disponibles para prueba, visita o valoracion.</p>
+                <p>Contesta preguntas frecuentes y propone huecos disponibles para prueba, visita o valoración.</p>
               </div>
             </div>
             <div class="step">
               <span>3</span>
               <div>
                 <strong>Hace seguimiento</strong>
-                <p>Envia recordatorios, recupera no-shows y reactiva conversaciones sin saturar al usuario.</p>
+                <p>Envía recordatorios, recupera no-shows y reactiva conversaciones sin saturar al usuario.</p>
               </div>
             </div>
             <div class="step">
               <span>4</span>
               <div>
                 <strong>Entrega contexto al equipo</strong>
-                <p>Registra resumen, etiquetas y siguiente accion para recepcion, ventas o direccion.</p>
+                <p>Registra resumen, etiquetas y siguiente acción para recepción, ventas o dirección.</p>
               </div>
             </div>
           </div>
@@ -1366,7 +1334,7 @@
           <div class="floating-proof">
             <div>
               <strong>+31%</strong>
-              <span>mas citas atendidas fuera de horario</span>
+              <span>más citas atendidas fuera de horario</span>
             </div>
             <div>
               <strong>-22%</strong>
@@ -1383,9 +1351,9 @@
 
     <section class="section" id="impacto">
       <div class="container">
-        <span class="section-kicker reveal">Estimador rapido</span>
+        <span class="section-kicker reveal">Estimador rápido</span>
         <h2 class="reveal">Calcula el tiempo que tu equipo puede dejar de perder en mensajes repetidos.</h2>
-        <p class="section-lead reveal">Es una estimacion conservadora para orientar el diagnostico. En la llamada revisamos tus canales, horarios, equipo y conversion actual.</p>
+        <p class="section-lead reveal">Es una estimación conservadora para orientar el diagnóstico. En la llamada revisamos tus canales, horarios, equipo y conversión actual.</p>
         <div class="calculator reveal">
           <div class="calc-inputs">
             <div class="range-group">
@@ -1404,7 +1372,7 @@
             </div>
             <div class="range-group">
               <label class="range-label" for="recoveryRange">
-                Leads que se quedan sin seguimiento
+                Leads que sé quédan sin seguimiento
                 <output id="recoveryOutput">28%</output>
               </label>
               <input type="range" id="recoveryRange" min="5" max="60" value="28" step="1">
@@ -1419,11 +1387,11 @@
             <div class="mini-results">
               <div>
                 <strong id="leadRecovered">34</strong>
-                <span>leads que podrian recibir seguimiento automatico</span>
+                <span>leads que podrían recibir seguimiento automático</span>
               </div>
               <div>
                 <strong id="weeklySaved">3.5h</strong>
-                <span>menos carga semanal para recepcion y ventas</span>
+                <span>menos carga semanal para recepción y ventas</span>
               </div>
             </div>
             <button class="btn btn-primary" type="button" data-calendly-open>
@@ -1438,15 +1406,15 @@
     <section class="section section-alt" id="piloto">
       <div class="container">
         <span class="section-kicker reveal">Piloto NOVAIX</span>
-        <h2 class="reveal">Un piloto enfocado a conversion, no a tener otra herramienta mas.</h2>
+        <h2 class="reveal">Un piloto enfocado a conversión, no a tener otra herramienta más.</h2>
         <p class="section-lead reveal">Empezamos por un flujo medible: leads entrantes, reserva de prueba, recordatorio y seguimiento posterior. Si eso no mueve la aguja, no escalamos.</p>
         <div class="offer">
           <div class="offer-main reveal">
             <h3>Incluye</h3>
             <ul>
-              <li><i class="fa-solid fa-check"></i><span>Auditoria de canales actuales: WhatsApp, telefono, formularios, Instagram, email y CRM.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Auditoría de canales actuales: WhatsApp, teléfono, formularios, Instagram, email y CRM.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Mapa de conversaciones frecuentes con tono, objeciones y derivaciones humanas.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Automatizacion del flujo de clase de prueba: captacion, reserva, recordatorio y post-visita.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Automatización del flujo de clase de prueba: captación, reserva, recordatorio y post-visita.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Panel de seguimiento con volumen, respuestas, reservas, no-shows y oportunidades recuperadas.</span></li>
             </ul>
           </div>
@@ -1476,33 +1444,45 @@
         <div class="faq">
           <details class="reveal">
             <summary>La IA puede responder precios y promociones?</summary>
-            <p>Si, con reglas claras. Puede explicar planes, condiciones y promociones activas, y derivar a una persona cuando haya negociacion, baja, incidencia o caso sensible.</p>
+            <p>Sí, con reglas claras. Puede explicar planes, condiciones y promociones activas, y derivar a una persona cuando haya negociación, baja, incidencia o caso sensible.</p>
           </details>
           <details class="reveal">
             <summary>Sirve si ya usamos WhatsApp Business?</summary>
-            <p>Si. La idea es mantener el canal que el cliente ya usa y anadir automatizacion, seguimiento y registro para que no dependas de revisar conversaciones a mano.</p>
+            <p>Sí. La idea es mantener el canal que el cliente ya usa y añadir automatización, seguimiento y registro para que no dependas de revisar conversaciones a mano.</p>
           </details>
           <details class="reveal">
             <summary>Puede reservar clases en nuestra agenda?</summary>
             <p>Depende de la herramienta de agenda, pero normalmente se puede conectar mediante Calendly, Google Calendar, CRM, formularios o integraciones a medida.</p>
           </details>
           <details class="reveal">
-            <summary>Que pasa con datos personales y RGPD?</summary>
-            <p>El piloto se plantea con minimizacion de datos, permisos por canal, documentacion de proveedores y derivacion humana para informacion sensible.</p>
+            <summary>Qué pasa con datos personales y RGPD?</summary>
+            <p>El piloto se plantea con minimización de datos, permisos por canal, documentación de proveedores y derivación humana para información sensible.</p>
           </details>
         </div>
+      </div>
+    </section>
+
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="section-kicker">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas ver cómo cambia la automatización según el tipo de cliente, agenda y canal de entrada.</p>
+        </div>
+        <a class="btn btn-secondary" href="landing-negocios.html"><i class="fa-solid fa-layer-group"></i>Ver todos los negocios</a>
       </div>
     </section>
 
     <section class="cta-band" id="demo">
       <div class="container">
         <div class="reveal">
-          <h2>Quieres ver que automatizariamos en tu gimnasio?</h2>
+          <h2>Quieres ver qué automatizaríamos en tu gimnasio?</h2>
           <p>En 30 minutos revisamos tus canales, volumen de consultas, reservas y seguimiento comercial. Sales con un mapa claro de lo que merece la pena automatizar primero.</p>
         </div>
         <button class="btn btn-primary reveal" type="button" data-calendly-open>
           <i class="fa-regular fa-calendar-check"></i>
-          Agendar diagnostico
+          Agendar diagnóstico
         </button>
       </div>
     </section>
@@ -1510,7 +1490,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p>© <span id="year"></span> NOVAIX. Automatización e IA para operaciones, ventas y atención.</p>
       <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
     </div>
   </footer>
@@ -1525,7 +1505,7 @@
   </div>
 
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+    <p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
     <div class="cookie-actions">
       <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
       <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
@@ -1596,7 +1576,7 @@
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
 
-    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
       const tabs = widget.querySelectorAll('[data-wa-tab]');
       const panels = widget.querySelectorAll('[data-wa-panel]');
 

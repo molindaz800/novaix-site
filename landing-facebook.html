@@ -719,6 +719,32 @@
       font-size: 1.4rem;
     }
 
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(0,195,255,0.12), transparent 62%),
+        var(--panel);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     .calendly-inline-widget {
       min-width: 320px;
       height: min(690px, calc(100svh - 130px));
@@ -766,7 +792,7 @@
     .cookie-banner.show { display: flex; }
     .cookie-banner p { font-size: 0.92rem; font-weight: 600; }
     .cookie-banner a { color: var(--accent); }
-    .cookie-actions { display: flex; gap: 8px; }
+    .cookie-actions { display: flex; gap: 12px; }
     .cookie-actions .btn { min-height: 38px; padding: 8px 12px; border-radius: 11px; font-size: 0.9rem; }
 
     .reveal {
@@ -859,6 +885,9 @@
       .section { padding: 64px 0; }
       .section-title { font-size: 2.25rem; }
       .offer { padding: 24px 18px; border-radius: 22px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner {
         bottom: 12px;
         flex-direction: column;
@@ -872,16 +901,16 @@
   </style>
 </head>
 <body>
-  <header class="topbar" aria-label="Navegacion principal">
+  <header class="topbar" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
       <span>NOVAIX <small>Agentes de IA para negocios</small></span>
     </a>
     <nav class="nav-mini" aria-label="Secciones">
-      <a href="#automatiza">Que hace</a>
+      <a href="#automatiza">Qué hace</a>
       <a href="#seguridad">Seguridad</a>
       <a href="#faq">FAQ</a>
-      <button class="btn" type="button" data-calendly-open>Agendar diagnostico</button>
+      <button class="btn" type="button" data-calendly-open>Agendar diagnóstico</button>
     </nav>
   </header>
 
@@ -892,27 +921,27 @@
       </div>
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Diagnostico gratuito de 30 minutos</span>
+          <span class="eyebrow">Diagnóstico gratuito de 30 minutos</span>
           <h1 id="hero-title">Convierte <br class="mobile-break">consultas en <br class="mobile-break"><span>citas y ventas</span> con agentes de IA.</h1>
-          <p class="hero-copy">NOVAIX disena asistentes que responden por WhatsApp, web, llamadas y email, cualifican al cliente, organizan la agenda y registran la informacion en tu CRM o herramientas internas.</p>
+          <p class="hero-copy">NOVAIX diseña asistentes que responden por WhatsApp, web, llamadas y email, cualifican al cliente, organizan la agenda y registran la información en tu CRM o herramientas internas.</p>
           <div class="hero-actions">
-            <button class="btn" type="button" data-calendly-open>Agendar diagnostico</button>
+            <button class="btn" type="button" data-calendly-open>Agendar diagnóstico</button>
             <a class="btn secondary" href="https://demo.novaix.es" target="_blank" rel="noopener">Ver ejemplos reales</a>
           </div>
           <p class="hero-more">Quieres ver todos los servicios, planes y detalles? <a href="index.html">Ir a la web completa</a></p>
           <div class="trust-row" aria-label="Puntos clave">
             <div class="trust-item"><strong>Respuesta inmediata</strong><span>Menos clientes perdidos por tardar en contestar.</span></div>
             <div class="trust-item"><strong>Multicanal</strong><span>WhatsApp, web, llamadas, email, CRM y n8n.</span></div>
-            <div class="trust-item"><strong>RGPD y LOPD-GDD</strong><span>Procesos con seguridad y minimizacion de datos.</span></div>
+            <div class="trust-item"><strong>RGPD y LOPD-GDD</strong><span>Procesos con seguridad y minimización de datos.</span></div>
           </div>
         </div>
 
         <aside class="conversion-panel reveal" aria-label="Resumen de la cita">
           <div class="panel-kicker">Lo revisamos en la llamada</div>
           <div class="score">30<span>min</span></div>
-          <p class="hero-copy" style="font-size:1rem;">Te decimos que automatizar primero, que canales conectar y que coste tendria un primer despliegue realista.</p>
+          <p class="hero-copy" style="font-size:1rem;">Te decimos qué automatizar primero, qué canales conectar y qué coste tendría un primer despliegue realista.</p>
           <ul class="panel-list">
-            <li>Mapa de procesos repetitivos y puntos de perdida de clientes.</li>
+            <li>Mapa de procesos repetitivos y puntos de pérdida de clientes.</li>
             <li>Propuesta de agente: ventas, soporte, reservas o back-office.</li>
             <li>Roadmap inicial con integraciones: CRM, calendario, WhatsApp o n8n.</li>
           </ul>
@@ -922,13 +951,13 @@
 
     <section class="section compact" id="automatiza" aria-labelledby="automatiza-title">
       <div class="container">
-        <h2 class="section-title reveal" id="automatiza-title">Una landing para anuncios debe hacer una cosa: <span>convertir interes en accion.</span></h2>
-        <p class="section-lead reveal">La home explica toda la empresa. Esta pagina esta pensada para alguien que viene de un anuncio: entiende rapido el problema, ve la solucion y agenda una cita sin distracciones.</p>
+        <h2 class="section-title reveal" id="automatiza-title">Una landing para anuncios debe hacer una cosa: <span>convertir interés en acción.</span></h2>
+        <p class="section-lead reveal">La home explica toda la empresa. Esta página está pensada para alguien que viene de un anuncio: entiende rápido el problema, ve la solución y agenda una cita sin distracciones.</p>
         <div class="grid-3">
           <article class="card reveal">
             <span class="num">1</span>
             <h3>Responder y filtrar contactos</h3>
-            <p>El agente atiende preguntas frecuentes, detecta intencion, recoge datos utiles y separa oportunidades reales de consultas repetitivas.</p>
+            <p>El agente atiende preguntas frecuentes, detecta intención, recoge datos útiles y separa oportunidades reales de consultas repetitivas.</p>
           </article>
           <article class="card reveal">
             <span class="num">2</span>
@@ -938,7 +967,7 @@
           <article class="card reveal">
             <span class="num">3</span>
             <h3>Actualizar tus sistemas</h3>
-            <p>Conectamos CRM, hojas, calendarios, n8n, bases de datos o herramientas internas para que la informacion no se quede en el chat.</p>
+            <p>Conectamos CRM, hojas, calendarios, n8n, bases de datos o herramientas internas para que la información no sé quéde en el chat.</p>
           </article>
         </div>
       </div>
@@ -947,50 +976,50 @@
     <section class="section" aria-labelledby="casos-title">
       <div class="container split">
         <div class="sticky-note">
-          <h2 class="section-title reveal" id="casos-title">Casos donde la IA aporta retorno rapido.</h2>
-          <p class="section-lead reveal">No empezamos por "poner un chatbot". Empezamos por detectar donde pierdes tiempo, contactos o seguimiento comercial.</p>
+          <h2 class="section-title reveal" id="casos-title">Casos donde la IA aporta retorno rápido.</h2>
+          <p class="section-lead reveal">No empezamos por "poner un chatbot". Empezamos por detectar dónde pierdes tiempo, contactos o seguimiento comercial.</p>
         </div>
         <div class="use-list">
-          <div class="use-row reveal"><strong>Clinicas</strong><p>Reservas, cambios de cita, recordatorios, preguntas frecuentes y derivacion al equipo cuando hay un caso sensible.</p></div>
-          <div class="use-row reveal"><strong>Servicios profesionales</strong><p>Recepcion de leads, cualificacion inicial, agenda comercial y resumen automatico de cada solicitud.</p></div>
+          <div class="use-row reveal"><strong>Clínicas</strong><p>Reservas, cambios de cita, recordatorios, preguntas frecuentes y derivación al equipo cuando hay un caso sensible.</p></div>
+          <div class="use-row reveal"><strong>Servicios profesionales</strong><p>Recepción de leads, cualificación inicial, agenda comercial y resumen automático de cada solicitud.</p></div>
           <div class="use-row reveal"><strong>E-commerce</strong><p>Estado de pedidos, dudas de producto, incidencias repetitivas y oportunidades de venta asistida.</p></div>
-          <div class="use-row reveal"><strong>Restaurantes</strong><p>Reservas, horarios, carta, consultas habituales y reduccion de llamadas repetitivas.</p></div>
-          <div class="use-row reveal"><strong>Equipos internos</strong><p>Automatizacion de emails, clasificacion de tickets, seguimiento de tareas y avisos al equipo.</p></div>
+          <div class="use-row reveal"><strong>Restaurantes</strong><p>Reservas, horarios, carta, consultas habituales y reducción de llamadas repetitivas.</p></div>
+          <div class="use-row reveal"><strong>Equipos internos</strong><p>Automatización de emails, clasificación de tickets, seguimiento de tareas y avisos al equipo.</p></div>
         </div>
       </div>
     </section>
 
     <section class="section security" id="seguridad" aria-labelledby="seguridad-title">
       <div class="container">
-        <h2 class="section-title reveal" id="seguridad-title">IA util, pero con <span>seguridad y proteccion de datos</span> desde el principio.</h2>
-        <p class="section-lead reveal">Para NOVAIX no es un extra comercial. Antes de automatizar revisamos que datos entran, donde se guardan, que proveedores intervienen y que controles necesita el flujo.</p>
+        <h2 class="section-title reveal" id="seguridad-title">IA útil, pero con <span>seguridad y protección de datos</span> desde el principio.</h2>
+        <p class="section-lead reveal">Para NOVAIX no es un extra comercial. Antes de automatizar revisamos qué datos entran, dónde se guardan, qué proveedores intervienen y qué controles necesita el flujo.</p>
         <div class="security-band">
-          <div class="security-pill reveal"><strong>RGPD y LOPD-GDD</strong>Finalidad clara, minimizacion de datos, conservacion limitada y respeto de derechos del usuario.</div>
-          <div class="security-pill reveal"><strong>Control de proveedores</strong>Documentamos herramientas como Calendly, CRM, n8n, canales de mensajeria o modelos de IA.</div>
-          <div class="security-pill reveal"><strong>Accesos y trazabilidad</strong>Planteamos permisos, registros y separacion de informacion sensible cuando el proyecto lo requiere.</div>
+          <div class="security-pill reveal"><strong>RGPD y LOPD-GDD</strong>Finalidad clara, minimización de datos, conservación limitada y respeto de derechos del usuario.</div>
+          <div class="security-pill reveal"><strong>Control de proveedores</strong>Documentamos herramientas como Calendly, CRM, n8n, canales de mensajería o modelos de IA.</div>
+          <div class="security-pill reveal"><strong>Accesos y trazabilidad</strong>Planteamos permisos, registros y separación de información sensible cuando el proyecto lo requiere.</div>
         </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="proceso-title">
       <div class="container">
-        <h2 class="section-title reveal" id="proceso-title">Como seria empezar.</h2>
-        <p class="section-lead reveal">La primera llamada no es para venderte una herramienta cerrada. Es para entender si hay un caso claro y que primer agente tendria sentido.</p>
+        <h2 class="section-title reveal" id="proceso-title">Cómo sería empezar.</h2>
+        <p class="section-lead reveal">La primera llamada no es para venderte una herramienta cerrada. Es para entender si hay un caso claro y qué primer agente tendría sentido.</p>
         <div class="grid-3">
           <article class="card reveal">
             <span class="num">01</span>
-            <h3>Diagnostico</h3>
+            <h3>Diagnóstico</h3>
             <p>Revisamos canales, volumen, preguntas frecuentes, procesos repetitivos y objetivos comerciales.</p>
           </article>
           <article class="card reveal">
             <span class="num">02</span>
-            <h3>Diseno del flujo</h3>
-            <p>Definimos que hace el agente, cuando deriva a una persona, que datos recoge y que sistemas conecta.</p>
+            <h3>Diseño del flujo</h3>
+            <p>Definimos qué hace el agente, cuándo deriva a una persona, qué datos recoge y qué sistemas conecta.</p>
           </article>
           <article class="card reveal">
             <span class="num">03</span>
             <h3>Piloto medible</h3>
-            <p>Lanzamos una primera version, medimos resultados y ajustamos antes de ampliar a mas canales o tareas.</p>
+            <p>Lanzamos una primera versión, medimos resultados y ajustamos antes de ampliar a más canales o tareas.</p>
           </article>
         </div>
       </div>
@@ -1006,13 +1035,13 @@
           <div class="offer-box">
             <strong>Incluye en la llamada:</strong>
             <ul>
-              <li>Revision de canales actuales.</li>
+              <li>Revisión de canales actuales.</li>
               <li>Primer caso de uso recomendado.</li>
               <li>Integraciones necesarias.</li>
-              <li>Estimacion de esfuerzo y siguientes pasos.</li>
+              <li>Estimación de esfuerzo y siguientes pasos.</li>
             </ul>
-            <button class="btn" type="button" data-calendly-open style="width:100%;">Agendar diagnostico</button>
-            <p style="font-size:0.88rem;">Al reservar aceptas nuestra <a href="#legal" data-legal-open style="color:var(--accent);">Politica de Privacidad</a>.</p>
+            <button class="btn" type="button" data-calendly-open style="width:100%;">Agendar diagnóstico</button>
+            <p style="font-size:0.88rem;">Al reservar aceptas nuestra <a href="#legal" data-legal-open style="color:var(--accent);">Política de Privacidad</a>.</p>
           </div>
         </div>
       </div>
@@ -1024,7 +1053,7 @@
         <div class="faq">
           <details class="reveal" open>
             <summary>Necesito tener claro que agente quiero?</summary>
-            <p>No. Basta con que sepas donde pierdes mas tiempo o clientes: WhatsApp, llamadas, emails, reservas, tickets, CRM o tareas internas. En la llamada lo ordenamos.</p>
+            <p>No. Basta con que sepas dónde pierdes más tiempo o clientes: WhatsApp, llamadas, emails, reservas, tickets, CRM o tareas internas. En la llamada lo ordenamos.</p>
           </details>
           <details class="reveal">
             <summary>Esto sustituye a mi equipo?</summary>
@@ -1035,16 +1064,28 @@
             <p>Normalmente si. Trabajamos con web, WhatsApp, email, calendarios, CRMs, n8n, bases de datos y herramientas como Airtable, Notion o Google Sheets.</p>
           </details>
           <details class="reveal">
-            <summary>Que pasa con los datos de mis clientes?</summary>
-            <p>Tratamos el proyecto con enfoque RGPD y LOPD-GDD: finalidad clara, minimizacion, control de accesos y revision de proveedores. No usamos tus datos para entrenar modelos publicos sin autorizacion expresa.</p>
+            <summary>Qué pasa con los datos de mis clientes?</summary>
+            <p>Tratamos el proyecto con enfoque RGPD y LOPD-GDD: finalidad clara, minimización, control de accesos y revisión de proveedores. No usamos tus datos para entrenar modelos públicos sin autorización expresa.</p>
           </details>
           <details class="reveal">
             <summary>La llamada tiene coste?</summary>
-            <p>No. Es un diagnostico inicial para entender tu caso y decirte si vemos una oportunidad real de automatizacion.</p>
+            <p>No. Es un diagnóstico inicial para entender tu caso y decirte si vemos una oportunidad real de automatización.</p>
           </details>
         </div>
       </div>
     </section>
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="eyebrow">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas comparar flujos de IA en gimnasios, clínicas, peluquerías, talleres, inmobiliarias, belleza y fisioterapia.</p>
+        </div>
+        <a class="btn secondary" href="landing-negocios.html">Ver todos los negocios</a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -1060,7 +1101,7 @@
   </footer>
 
   <div class="mobile-sticky" aria-hidden="false">
-    <button class="btn" type="button" data-calendly-open>Agendar diagnostico gratuito</button>
+    <button class="btn" type="button" data-calendly-open>Agendar diagnóstico gratuito</button>
   </div>
 
   <div id="calendly-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="calendly-title">
@@ -1068,7 +1109,7 @@
       <div class="modal-head">
         <div>
           <strong id="calendly-title">Agenda con NOVAIX</strong>
-          <span>Diagnostico gratuito de 30 minutos</span>
+          <span>Diagnóstico gratuito de 30 minutos</span>
         </div>
         <button class="modal-close" type="button" aria-label="Cerrar calendario" data-close-modal>&times;</button>
       </div>
@@ -1086,23 +1127,23 @@
         <button class="modal-close" type="button" aria-label="Cerrar legal" data-close-modal>&times;</button>
       </div>
       <div class="legal-body">
-        <h2>Politica de Privacidad</h2>
+        <h2>Política de Privacidad</h2>
         <p><strong>Responsable:</strong> Daniel Molina (Nombre comercial: NOVAIX). Email: <a href="mailto:info@novaix.es">info@novaix.es</a>. Sitio web: <a href="https://novaix.es">https://novaix.es</a>.</p>
-        <p><strong>Datos tratados:</strong> nombre, email, empresa o proyecto, fecha y hora de cita y cualquier informacion que facilites voluntariamente al agendar o contactar.</p>
-        <p><strong>Finalidad:</strong> gestionar solicitudes, coordinar reuniones, responder consultas comerciales y preparar propuestas o demos de automatizacion e IA.</p>
-        <p><strong>Base legal:</strong> consentimiento del usuario y medidas precontractuales cuando solicitas informacion o una reunion.</p>
-        <p><strong>Herramientas externas:</strong> Calendly LLC como sistema de agenda. Puede implicar transferencias internacionales bajo Clausulas Contractuales Tipo. Politica: <a href="https://calendly.com/privacy" target="_blank" rel="noopener">calendly.com/privacy</a>.</p>
+        <p><strong>Datos tratados:</strong> nombre, email, empresa o proyecto, fecha y hora de cita y cualquier información que facilites voluntariamente al agendar o contactar.</p>
+        <p><strong>Finalidad:</strong> gestionar solicitudes, coordinar reuniones, responder consultas comerciales y preparar propuestas o demos de automatización e IA.</p>
+        <p><strong>Base legal:</strong> consentimiento del usuario y medidas precontractuales cuando solicitas información o una reunión.</p>
+        <p><strong>Herramientas externas:</strong> Calendly LLC como sistema de agenda. Puede implicar transferencias internacionales bajo Clausulas Contractuales Tipo. Política: <a href="https://calendly.com/privacy" target="_blank" rel="noopener">calendly.com/privacy</a>.</p>
         <p><strong>Derechos:</strong> acceso, rectificacion, supresion, oposicion, limitacion y portabilidad escribiendo a <a href="mailto:info@novaix.es">info@novaix.es</a>.</p>
         <h3>Aviso Legal</h3>
-        <p>NOVAIX informa sobre servicios de automatizacion e IA conversacional. Los contenidos, textos, imagenes y elementos graficos pertenecen a NOVAIX o se usan con licencia.</p>
+        <p>NOVAIX informa sobre servicios de automatización e IA conversacional. Los contenidos, textos, imágenes y elementos gráficos pertenecen a NOVAIX o se usan con licencia.</p>
         <h3>Cookies</h3>
-        <p>Usamos cookies tecnicas necesarias. Calendly se carga cuando solicitas expresamente abrir la agenda. Google Tag Manager y Meta Pixel se cargan tras tu consentimiento para medir la landing y mejorar campanas.</p>
+        <p>Usamos cookies técnicas necesarias. Calendly se carga cuando solicitas expresamente abrir la agenda. Google Tag Manager y Meta Pixel se cargan tras tu consentimiento para medir la landing y mejorar campañas.</p>
       </div>
     </div>
   </div>
 
   <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
-    <p>Usamos Calendly, analitica (GTM) y Meta Pixel para medir la landing y gestionar citas. <a href="#legal" data-legal-open>Ver politica</a>.</p>
+    <p>Usamos Calendly, analitica (GTM) y Meta Pixel para medir la landing y gestionar citas. <a href="#legal" data-legal-open>Ver política</a>.</p>
     <div class="cookie-actions">
       <button id="cookie-accept" class="btn" type="button">Aceptar</button>
       <button id="cookie-decline" class="btn secondary" type="button">Rechazar</button>
@@ -1170,7 +1211,7 @@
         if (!f._fbq) f._fbq = n;
         n.push = n;
         n.loaded = true;
-        n.version = '2.0';
+        n.versión = '2.0';
         n.queue = [];
         t = b.createElement(e);
         t.async = true;
@@ -1214,7 +1255,7 @@
     function openCalendly() {
       setCalendlyUrl();
       window.dataLayer.push({ event: 'novaix_landing_calendly_open' });
-      trackMetaPixel('Lead', { content_name: 'Agendar diagnostico' });
+      trackMetaPixel('Lead', { content_name: 'Agendar diagnóstico' });
       openModal(document.getElementById('calendly-modal'));
       loadCalendlyScript();
     }

@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Landing de NOVAIX para talleres: recepcion IA 24/7, citas, presupuestos iniciales, recordatorios y seguimiento de reparaciones.">
-  <title>NOVAIX Talleres · Recepcion IA 24/7</title>
+  <meta name="description" content="Landing de NOVAIX para talleres: recepción IA 24/7, citas, presupuestos iniciales, recordatorios y seguimiento de reparaciones.">
+  <title>NOVAIX Talleres · Recepción IA 24/7</title>
   <link rel="canonical" href="https://novaix.es/landing-talleres.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b0f12">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NOVAIX Talleres · Recepcion IA 24/7">
-  <meta property="og:description" content="Automatiza recepcion, citas, presupuestos iniciales y seguimiento comercial para talleres.">
+  <meta property="og:title" content="NOVAIX Talleres · Recepción IA 24/7">
+  <meta property="og:description" content="Automatiza recepción, citas, presupuestos iniciales y seguimiento comercial para talleres.">
   <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,8 +115,7 @@
     .ops-metric { min-height: 82px; padding: 11px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.05); }
     .ops-metric strong { display: block; font-size: 1.35rem; line-height: 1.1; color: var(--text); }
     .ops-metric span { display: block; margin-top: 5px; color: var(--muted); font-size: .76rem; line-height: 1.25; }
-    .whatsapp-screen, .mobile-wa-preview { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
-    .mobile-wa-preview { display: none; }
+    .whatsapp-screen { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
     .whatsapp-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 10px; border-radius: 8px; background: rgba(7,94,84,.42); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); color: #eafff4; font-size: .86rem; font-weight: 800; }
     .whatsapp-top span { display: inline-flex; align-items: center; gap: 6px; color: color-mix(in srgb, var(--primary) 75%, white); font-size: .76rem; text-transform: uppercase; letter-spacing: .07em; }
     .whatsapp-top span::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--primary); box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 80%, transparent); }
@@ -186,6 +185,33 @@
     .cta-band .container { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
     .cta-band h2 { margin-bottom: 8px; font-size: 2.25rem; line-height: 1.05; }
     .cta-band p { color: var(--muted); margin-bottom: 0; }
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(255,255,255,0.08), transparent 62%),
+        rgba(255,255,255,0.045);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     footer { padding: 26px 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
     .footer-inner { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
     footer p { margin: 0; }
@@ -197,7 +223,7 @@
     .cookie-banner { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 130; width: min(980px, calc(100% - 32px)); display: none; align-items: center; justify-content: space-between; gap: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: rgba(5,8,8,.94); box-shadow: 0 18px 60px rgba(0,0,0,.42); backdrop-filter: blur(18px); }
     .cookie-banner.is-visible { display: flex; }
     .cookie-banner p { margin: 0; color: #e7e2d8; }
-    .cookie-actions { display: flex; gap: 8px; }
+    .cookie-actions { display: flex; gap: 12px; }
     .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -217,23 +243,18 @@
       .nav-links .btn { width: 100%; }
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
-      .hero .ops-panel { display: none; }
       .hero-grid { gap: 30px; }
       .hero-copy-block { display: flex; flex-direction: column; }
       .hero-copy-block .eyebrow { align-self: flex-start; }
-      .hero-copy-block .mobile-wa-preview { order: 1; }
       .hero-copy-block .hero-copy { order: 2; }
       .hero-copy-block .hero-actions { order: 3; }
       .hero-copy-block .proof-row { order: 4; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
-      .mobile-wa-preview { display: grid; gap: 9px; margin: 20px 0 18px; padding: 10px; border-color: color-mix(in srgb, var(--primary) 24%, transparent); }
-      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
-      .mobile-wa-preview .wa-tabs { gap: 4px; }
-      .mobile-wa-preview .wa-tab { min-height: 42px; padding: 6px 5px; font-size: .55rem; }
-      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
-      .mobile-wa-preview .wa-bubble { max-width: 94%; font-size: .8rem; padding: 8px 10px 7px; }
+      .hero-copy-block .proof-row { display: none; }
+      .hero .ops-panel { margin-top: 0; }
+      .hero .ops-metric-grid { display: none; }
       .ops-head { flex-wrap: wrap; }
       .proof-row, .floating-proof, .mini-results { grid-template-columns: 1fr; }
       .ops-metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -245,6 +266,9 @@
       .grid-3 { grid-template-columns: 1fr; }
       .section { padding: 58px 0; }
       .image-stack { min-height: 460px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner { align-items: stretch; flex-direction: column; }
       .cookie-actions { width: 100%; }
       .cookie-actions .btn { flex: 1; }
@@ -268,18 +292,18 @@
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <div class="nav-hover-zone" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Navegacion principal">
+  <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
       <span>Talleres</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
       <a href="#sistema">Sistema</a>
       <a href="#operativa">Operativa</a>
       <a href="#impacto">Impacto</a>
       <a href="#piloto">Piloto</a>
-      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnostico</button>
+      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnóstico</button>
     </div>
   </nav>
 
@@ -287,55 +311,20 @@
     <div class="container hero-grid">
       <div class="hero-copy-block reveal">
         <span class="eyebrow"><i class="fa-solid fa-screwdriver-wrench"></i> IA para talleres mecanicos</span>
-        <h1>Recepcion IA 24/7 para talleres que no pueden perder reparaciones.</h1>
-        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y formularios, recoge sintomas del vehiculo, agenda diagnosis, recuerda revisiones y mantiene al cliente informado sin interrumpir al jefe de taller.</p>
+        <h1>Recepción IA 24/7 para talleres que no pueden perder reparaciones.</h1>
+        <p class="hero-copy">NOVAIX atiende WhatsApp, llamadas y formularios, recoge síntomas del vehículo, agenda diagnosis, recuerda revisiones y mantiene al cliente informado sin interrumpir al jefe de taller.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-bolt"></i>Ver diagnostico gratuito</button>
+          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-bolt"></i>Ver diagnóstico gratuito</button>
           <a class="btn btn-secondary" href="#impacto"><i class="fa-solid fa-chart-simple"></i>Calcular impacto</a>
         </div>
-        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
-          <div class="whatsapp-top"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span><span>Online</span></div>
-          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="averia">Nueva averia</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="revision">Revision e ITV</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="presupuesto">Presupuesto inicial</button>
-          </div>
-            <div class="wa-panel is-active" role="tabpanel" data-wa-panel="averia">
-              <div class="wa-thread">
-                <div class="wa-label">Nueva averia</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Hola, el coche hace ruido al frenar. Podeis verlo esta semana?<small>08:47</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Te hago unas preguntas para agendar diagnosis: modelo, matricula y desde cuando ocurre?<small>08:47</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Seat Leon, 2018. Desde ayer.<small>08:48</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tengo hueco manana 09:30 o jueves 16:00. La revision inicial dura aprox. 30 min.<small>08:48</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="revision" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Revision e ITV</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Necesito revision antes de pasar ITV.<small>12:10</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Dime kilometros, modelo y fecha limite de ITV para proponerte hueco.<small>12:10</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Tiene 92.000 km y la ITV vence el viernes.<small>12:11</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo reservar miercoles 08:30. Te envio checklist y recordatorio.<small>12:11</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="presupuesto" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Presupuesto inicial</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta cambiar pastillas de freno?<small>17:02</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Depende del modelo y eje. Te puedo dar rango orientativo y reservar revision para cerrar presupuesto.<small>17:02</small></div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Es un Golf 2019, delanteras.<small>17:03</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Recojo el dato. El equipo confirma precio final tras revisar referencia y disponibilidad de recambio.<small>17:03</small></div>
-              </div>
-            </div>
-        </div>
-        <div class="proof-row" aria-label="Metricas clave">
+        <div class="proof-row" aria-label="Métricas clave">
           <div class="proof-item"><strong>&lt;60s</strong><span>primera respuesta a conductores</span></div>
           <div class="proof-item"><strong>24/7</strong><span>averias, citas y recordatorios</span></div>
           <div class="proof-item"><strong>16h+</strong><span>tiempo administrativo recuperable al mes</span></div>
         </div>
       </div>
 
-      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepcion IA">
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepción IA">
         <div class="ops-head"><strong>Workshop Ops AI</strong><span class="status-dot">Online</span></div>
         <div class="ops-body">
           <div class="ops-metric-grid">
@@ -347,32 +336,32 @@
             <div class="whatsapp-top"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span><span>Online</span></div>
             <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
               <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="averia">Nueva averia</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="revision">Revision e ITV</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="revision">Revisión e ITV</button>
               <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="presupuesto">Presupuesto inicial</button>
             </div>
             <div class="wa-panel is-active" role="tabpanel" data-wa-panel="averia">
               <div class="wa-thread">
                 <div class="wa-label">Nueva averia</div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Hola, el coche hace ruido al frenar. Podeis verlo esta semana?<small>08:47</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Te hago unas preguntas para agendar diagnosis: modelo, matricula y desde cuando ocurre?<small>08:47</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Sí. Te hago unas preguntas para agendar diagnosis: modelo, matrícula y desde cuando ocurre?<small>08:47</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Seat Leon, 2018. Desde ayer.<small>08:48</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tengo hueco manana 09:30 o jueves 16:00. La revision inicial dura aprox. 30 min.<small>08:48</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tengo hueco mañana 09:30 o jueves 16:00. La revisión inicial dura aprox. 30 min.<small>08:48</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="revision" hidden>
               <div class="wa-thread">
-                <div class="wa-label">Revision e ITV</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Necesito revision antes de pasar ITV.<small>12:10</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Dime kilometros, modelo y fecha limite de ITV para proponerte hueco.<small>12:10</small></div>
+                <div class="wa-label">Revisión e ITV</div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Necesito revisión antes de pasar ITV.<small>12:10</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Dime kilómetros, modelo y fecha limite de ITV para proponerte hueco.<small>12:10</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Tiene 92.000 km y la ITV vence el viernes.<small>12:11</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo reservar miercoles 08:30. Te envio checklist y recordatorio.<small>12:11</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo reservar miércoles 08:30. Te envío checklist y recordatorio.<small>12:11</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="presupuesto" hidden>
               <div class="wa-thread">
                 <div class="wa-label">Presupuesto inicial</div>
-                <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta cambiar pastillas de freno?<small>17:02</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Depende del modelo y eje. Te puedo dar rango orientativo y reservar revision para cerrar presupuesto.<small>17:02</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Cuánto cuesta cambiar pastillas de freno?<small>17:02</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Depende del modelo y eje. Te puedo dar rango orientativo y reservar revisión para cerrar presupuesto.<small>17:02</small></div>
                 <div class="wa-bubble user"><strong>Cliente</strong>Es un Golf 2019, delanteras.<small>17:03</small></div>
                 <div class="wa-bubble ai"><strong>NOVAIX</strong>Recojo el dato. El equipo confirma precio final tras revisar referencia y disponibilidad de recambio.<small>17:03</small></div>
               </div>
@@ -388,28 +377,28 @@
     <section class="section" id="sistema">
       <div class="container">
         <span class="section-kicker reveal">Sistema comercial y operativo</span>
-        <h2 class="reveal">Una recepcion que filtra urgencias, agenda diagnosis y reduce llamadas repetidas.</h2>
-        <p class="section-lead reveal">En un taller, cada llamada interrumpe trabajo tecnico. La IA ordena la entrada y deja al equipo las decisiones mecanicas.</p>
+        <h2 class="reveal">Una recepción que filtra urgencias, agenda diagnosis y reduce llamadas repetidas.</h2>
+        <p class="section-lead reveal">En un taller, cada llamada interrumpe trabajo técnico. La IA ordena la entrada y deja al equipo las decisiones mecanicas.</p>
         <div class="grid-3">
           <article class="feature-card reveal">
             <i class="fa-brands fa-whatsapp"></i>
             <h3>Entrada multicanal</h3>
-            <p>Atiende WhatsApp, llamadas, formularios y email con datos minimos del vehiculo y motivo de visita.</p>
+            <p>Atiende WhatsApp, llamadas, formularios y email con datos mínimos del vehículo y motivo de visita.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-regular fa-calendar-check"></i>
             <h3>Citas de taller</h3>
-            <p>Agenda diagnosis, revision, ITV, mantenimiento o entrega segun disponibilidad y reglas del taller.</p>
+            <p>Agenda diagnosis, revisión, ITV, mantenimiento o entrega según disponibilidad y reglas del taller.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-car-burst"></i>
-            <h3>Cualificacion de averias</h3>
-            <p>Recoge sintomas, urgencia, modelo, matricula y kilometros sin diagnosticar ni prometer reparaciones.</p>
+            <h3>Cualificación de averias</h3>
+            <p>Recoge síntomas, urgencia, modelo, matrícula y kilómetros sin diagnosticar ni prometer reparaciones.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-boxes-stacked"></i>
             <h3>Recambios y presupuestos</h3>
-            <p>Identifica solicitudes de precio y deriva cuando hace falta referencia, stock o criterio tecnico.</p>
+            <p>Identifica solicitudes de precio y deriva cuando hace falta referencia, stock o criterio técnico.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-bell"></i>
@@ -428,15 +417,15 @@
     <section class="section section-alt" id="operativa">
       <div class="container split">
         <div class="reveal">
-          <span class="section-kicker">Como trabaja</span>
+          <span class="section-kicker">Cómo trabaja</span>
           <h2>Del aviso de averia a la cita de diagnosis, sin bloquear al taller.</h2>
-          <p class="section-lead">La IA recoge datos utiles y agenda el siguiente paso sin sustituir criterio mecanico.</p>
+          <p class="section-lead">La IA recoge datos útiles y agenda el siguiente paso sin sustituir criterio mecánico.</p>
           <div class="steps">
             <div class="step">
               <span>1</span>
               <div>
-                <strong>Identifica vehiculo</strong>
-                <p>Modelo, matricula, kilometros y disponibilidad del cliente.</p>
+                <strong>Identifica vehículo</strong>
+                <p>Modelo, matrícula, kilómetros y disponibilidad del cliente.</p>
               </div>
             </div>
             <div class="step">
@@ -450,23 +439,23 @@
               <span>3</span>
               <div>
                 <strong>Agenda hueco</strong>
-                <p>Propone diagnosis o revision segun capacidad, tiempos y urgencia.</p>
+                <p>Propone diagnosis o revisión según capacidad, tiempos y urgencia.</p>
               </div>
             </div>
             <div class="step">
               <span>4</span>
               <div>
-                <strong>Escala lo tecnico</strong>
+                <strong>Escala lo técnico</strong>
                 <p>Deriva presupuestos cerrados, averias complejas o decisiones de reparacion.</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="image-stack reveal" role="img" aria-label="Taller mecanico con vehiculo en reparacion">
+        <div class="image-stack reveal" role="img" aria-label="Taller mecánico con vehículo en reparacion">
           <div class="floating-proof">
             <div><strong>+26%</strong><span>solicitudes ordenadas fuera de horario</span></div>
             <div><strong>-18%</strong><span>llamadas repetidas</span></div>
-            <div><strong>1 vista</strong><span>citas, vehiculos y seguimiento</span></div>
+            <div><strong>1 vista</strong><span>citas, vehículos y seguimiento</span></div>
           </div>
         </div>
       </div>
@@ -474,15 +463,15 @@
 
     <section class="section" id="impacto">
       <div class="container">
-        <span class="section-kicker reveal">Estimador rapido</span>
+        <span class="section-kicker reveal">Estimador rápido</span>
         <h2 class="reveal">Cuantas horas pierde tu taller atendiendo entrada?</h2>
-        <p class="section-lead reveal">Estima el impacto de automatizar primera respuesta, datos del vehiculo, citas y recordatorios.</p>
+        <p class="section-lead reveal">Estima el impacto de automatizar primera respuesta, datos del vehículo, citas y recordatorios.</p>
         <div class="calculator reveal">
           <div class="impact-card">
             <div class="range-row"><label for="leadsRange">Solicitudes mensuales <strong id="leadsOutput">180</strong></label><input id="leadsRange" type="range" min="40" max="600" value="180"></div>
             <div class="range-row"><label for="minutesRange">Minutos medios por solicitud <strong><span id="minutesOutput">6</span> min</strong></label><input id="minutesRange" type="range" min="2" max="18" value="6"></div>
             <div class="range-row"><label for="recoveryRange">Entrada automatizable <strong id="recoveryOutput">68%</strong></label><input id="recoveryRange" type="range" min="25" max="90" value="68"></div>
-            <p class="calc-note">NOVAIX no diagnostica averias. Ordena la informacion, agenda y escala al equipo tecnico cuando corresponde.</p>
+            <p class="calc-note">NOVAIX no diagnostica averias. Ordena la información, agenda y escala al equipo técnico cuando corresponde.</p>
           </div>
           <div class="big-number">
             <span>Horas recuperables al mes</span>
@@ -500,13 +489,13 @@
       <div class="container">
         <span class="section-kicker reveal">Piloto NOVAIX</span>
         <h2 class="reveal">Un piloto para ordenar entrada, agenda y seguimiento del cliente.</h2>
-        <p class="section-lead reveal">Arrancamos con diagnosis, revision, ITV, presupuesto inicial, recordatorios y reactivacion.</p>
+        <p class="section-lead reveal">Arrancamos con diagnosis, revisión, ITV, presupuesto inicial, recordatorios y reactivación.</p>
         <div class="offer">
           <div class="pilot-card reveal"><ul>
-              <li><i class="fa-solid fa-check"></i><span>Auditoria de canales: telefono, WhatsApp, formularios, email y agenda.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Mapa de servicios, tiempos de taller, reglas de urgencia y datos minimos por vehiculo.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Auditoría de canales: teléfono, WhatsApp, formularios, email y agenda.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Mapa de servicios, tiempos de taller, reglas de urgencia y datos mínimos por vehículo.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Flujos de cita, diagnosis, presupuesto inicial, recordatorio y recogida.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Panel con citas, solicitudes, vehiculos, tiempos recuperados y derivaciones.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Panel con citas, solicitudes, vehículos, tiempos recuperados y derivaciones.</span></li>
           </ul></div>
           <div class="pilot-card reveal">
             <h3>Conectores habituales</h3>
@@ -527,37 +516,49 @@
         <h2 class="reveal">Preguntas normales antes de automatizar un taller.</h2>
           <details class="reveal">
             <summary>Puede diagnosticar averias?</summary>
-            <p>No. Recoge sintomas y datos utiles, pero el diagnostico lo hace el equipo tecnico.</p>
+            <p>No. Recoge síntomas y datos útiles, pero el diagnóstico lo hace el equipo técnico.</p>
           </details>
           <details class="reveal">
             <summary>Puede dar presupuestos?</summary>
-            <p>Puede dar rangos o condiciones aprobadas. El presupuesto cerrado se deriva si depende de recambio, referencia o revision.</p>
+            <p>Puede dar rangos o condiciones aprobadas. El presupuesto cerrado se deriva si depende de recambio, referencia o revisión.</p>
           </details>
           <details class="reveal">
             <summary>Sirve para llamadas?</summary>
-            <p>Si. Puede recoger llamadas y convertirlas en solicitud ordenada o cita.</p>
+            <p>Sí. Puede recoger llamadas y convertirlas en solicitud ordenada o cita.</p>
           </details>
           <details class="reveal">
             <summary>Puede recordar ITV y revisiones?</summary>
-            <p>Si. Activa recordatorios y seguimientos segun fechas o kilometraje si el dato esta disponible.</p>
+            <p>Sí. Activa recordatorios y seguimientos según fechas o kilometraje si el dato está disponible.</p>
           </details>
+      </div>
+    </section>
+
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="section-kicker">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas ver cómo cambia la automatización según el tipo de cliente, agenda y canal de entrada.</p>
+        </div>
+        <a class="btn btn-secondary" href="landing-negocios.html"><i class="fa-solid fa-layer-group"></i>Ver todos los negocios</a>
       </div>
     </section>
 
     <section class="cta-band">
       <div class="container">
         <div class="reveal">
-          <h2>Quieres ver que automatizariamos en tu taller?</h2>
-          <p>En 30 minutos revisamos tus canales, agenda, volumen de llamadas y procesos de diagnosis. Sales con un mapa claro de automatizacion viable.</p>
+          <h2>Quieres ver qué automatizaríamos en tu taller?</h2>
+          <p>En 30 minutos revisamos tus canales, agenda, volumen de llamadas y procesos de diagnosis. Sales con un mapa claro de automatización viable.</p>
         </div>
-        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnostico</button>
+        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnóstico</button>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p>© <span id="year"></span> NOVAIX. Automatización e IA para operaciones, ventas y atención.</p>
       <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
     </div>
   </footer>
@@ -570,8 +571,11 @@
   </div>
 
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
-    <div class="cookie-actions"><button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button><button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button></div>
+    <p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+        <div class="cookie-actions">
+      <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
+      <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
+    </div>
   </div>
 
   <script>
@@ -624,7 +628,7 @@
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
 
-    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
       const tabs = widget.querySelectorAll('[data-wa-tab]');
       const panels = widget.querySelectorAll('[data-wa-panel]');
       tabs.forEach((tab) => {

@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Landing de NOVAIX para inmobiliarias: recepcion IA 24/7, cualificacion de compradores, captacion de propietarios y visitas.">
-  <title>NOVAIX Inmobiliarias · Recepcion IA 24/7</title>
+  <meta name="description" content="Landing de NOVAIX para inmobiliarias: recepción IA 24/7, cualificación de compradores, captación de propietarios y visitas.">
+  <title>NOVAIX Inmobiliarias · Recepción IA 24/7</title>
   <link rel="canonical" href="https://novaix.es/landing-inmobiliarias.html">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#07100f">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="NOVAIX Inmobiliarias · Recepcion IA 24/7">
-  <meta property="og:description" content="Automatiza atencion, cualificacion, visitas y seguimiento para inmobiliarias.">
+  <meta property="og:title" content="NOVAIX Inmobiliarias · Recepción IA 24/7">
+  <meta property="og:description" content="Automatiza atención, cualificación, visitas y seguimiento para inmobiliarias.">
   <meta property="og:image" content="https://novaix.es/favicon-512x512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,8 +115,7 @@
     .ops-metric { min-height: 82px; padding: 11px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.05); }
     .ops-metric strong { display: block; font-size: 1.35rem; line-height: 1.1; color: var(--text); }
     .ops-metric span { display: block; margin-top: 5px; color: var(--muted); font-size: .76rem; line-height: 1.25; }
-    .whatsapp-screen, .mobile-wa-preview { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
-    .mobile-wa-preview { display: none; }
+    .whatsapp-screen { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(135deg, rgba(7,94,84,.18), color-mix(in srgb, var(--primary) 8%, transparent)), rgba(5,8,8,.66); }
     .whatsapp-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 10px; border-radius: 8px; background: rgba(7,94,84,.42); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); color: #eafff4; font-size: .86rem; font-weight: 800; }
     .whatsapp-top span { display: inline-flex; align-items: center; gap: 6px; color: color-mix(in srgb, var(--primary) 75%, white); font-size: .76rem; text-transform: uppercase; letter-spacing: .07em; }
     .whatsapp-top span::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--primary); box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 80%, transparent); }
@@ -186,6 +185,33 @@
     .cta-band .container { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
     .cta-band h2 { margin-bottom: 8px; font-size: 2.25rem; line-height: 1.05; }
     .cta-band p { color: var(--muted); margin-bottom: 0; }
+
+    .business-index { padding-top: 0; }
+    .business-index-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(255,255,255,0.08), transparent 62%),
+        rgba(255,255,255,0.045);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .business-index-panel h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+    .business-index-panel p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .business-index-panel .btn { white-space: nowrap; }
+
     footer { padding: 26px 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
     .footer-inner { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
     footer p { margin: 0; }
@@ -197,7 +223,7 @@
     .cookie-banner { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 130; width: min(980px, calc(100% - 32px)); display: none; align-items: center; justify-content: space-between; gap: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: rgba(5,8,8,.94); box-shadow: 0 18px 60px rgba(0,0,0,.42); backdrop-filter: blur(18px); }
     .cookie-banner.is-visible { display: flex; }
     .cookie-banner p { margin: 0; color: #e7e2d8; }
-    .cookie-actions { display: flex; gap: 8px; }
+    .cookie-actions { display: flex; gap: 12px; }
     .cookie-actions .btn { min-height: 40px; padding: 9px 12px; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -217,23 +243,18 @@
       .nav-links .btn { width: 100%; }
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
-      .hero .ops-panel { display: none; }
       .hero-grid { gap: 30px; }
       .hero-copy-block { display: flex; flex-direction: column; }
       .hero-copy-block .eyebrow { align-self: flex-start; }
-      .hero-copy-block .mobile-wa-preview { order: 1; }
       .hero-copy-block .hero-copy { order: 2; }
       .hero-copy-block .hero-actions { order: 3; }
       .hero-copy-block .proof-row { order: 4; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
-      .mobile-wa-preview { display: grid; gap: 9px; margin: 20px 0 18px; padding: 10px; border-color: color-mix(in srgb, var(--primary) 24%, transparent); }
-      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
-      .mobile-wa-preview .wa-tabs { gap: 4px; }
-      .mobile-wa-preview .wa-tab { min-height: 42px; padding: 6px 5px; font-size: .55rem; }
-      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
-      .mobile-wa-preview .wa-bubble { max-width: 94%; font-size: .8rem; padding: 8px 10px 7px; }
+      .hero-copy-block .proof-row { display: none; }
+      .hero .ops-panel { margin-top: 0; }
+      .hero .ops-metric-grid { display: none; }
       .ops-head { flex-wrap: wrap; }
       .proof-row, .floating-proof, .mini-results { grid-template-columns: 1fr; }
       .ops-metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -245,6 +266,9 @@
       .grid-3 { grid-template-columns: 1fr; }
       .section { padding: 58px 0; }
       .image-stack { min-height: 460px; }
+
+      .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner { align-items: stretch; flex-direction: column; }
       .cookie-actions { width: 100%; }
       .cookie-actions .btn { flex: 1; }
@@ -268,18 +292,18 @@
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
   <div class="nav-hover-zone" aria-hidden="true"></div>
-  <nav class="nav" aria-label="Navegacion principal">
+  <nav class="nav" aria-label="Navegación principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
       <span>Inmobiliarias</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
       <a href="#sistema">Sistema</a>
       <a href="#operativa">Operativa</a>
       <a href="#impacto">Impacto</a>
       <a href="#piloto">Piloto</a>
-      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnostico</button>
+      <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Diagnóstico</button>
     </div>
   </nav>
 
@@ -287,55 +311,20 @@
     <div class="container hero-grid">
       <div class="hero-copy-block reveal">
         <span class="eyebrow"><i class="fa-solid fa-house-chimney-window"></i> IA para inmobiliarias</span>
-        <h1>Recepcion IA 24/7 para inmobiliarias que no pueden perder compradores ni propietarios.</h1>
+        <h1>Recepción IA 24/7 para inmobiliarias que no pueden perder compradores ni propietarios.</h1>
         <p class="hero-copy">NOVAIX atiende portales, WhatsApp, llamadas y formularios, cualifica compradores, agenda visitas y detecta propietarios interesados en vender. Tu equipo recibe oportunidades ordenadas, no ruido.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-key"></i>Ver diagnostico gratuito</button>
+          <button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-key"></i>Ver diagnóstico gratuito</button>
           <a class="btn btn-secondary" href="#impacto"><i class="fa-solid fa-chart-simple"></i>Calcular impacto</a>
         </div>
-        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
-          <div class="whatsapp-top"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span><span>Online</span></div>
-          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
-              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="comprador">Lead comprador</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="propietario">Captacion propietario</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precio">Precio y financiacion</button>
-          </div>
-            <div class="wa-panel is-active" role="tabpanel" data-wa-panel="comprador">
-              <div class="wa-thread">
-                <div class="wa-label">Lead comprador</div>
-                <div class="wa-bubble user"><strong>Comprador</strong>Hola, me interesa el piso de 3 habitaciones en Centro. Sigue disponible?<small>20:14</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si, esta disponible. Para coordinar visita: buscas compra o alquiler y que disponibilidad tienes?<small>20:14</small></div>
-                <div class="wa-bubble user"><strong>Comprador</strong>Compra. Puedo manana tarde.<small>20:15</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Hay visita manana 18:30 o jueves 10:00. Te confirmo direccion exacta y asesor asignado.<small>20:15</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="propietario" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Captacion propietario</div>
-                <div class="wa-bubble user"><strong>Propietario</strong>Quiero saber cuanto podria valer mi piso.<small>11:22</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo a preparar una valoracion. Dime zona, metros, habitaciones y estado aproximado.<small>11:22</small></div>
-                <div class="wa-bubble user"><strong>Propietario</strong>Zona Norte, 92 m2, 3 habitaciones, reformado.<small>11:23</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Gracias. Te puedo reservar llamada de valoracion hoy 17:00 o manana 12:30 con un asesor.<small>11:23</small></div>
-              </div>
-            </div>
-            <div class="wa-panel" role="tabpanel" data-wa-panel="precio" hidden>
-              <div class="wa-thread">
-                <div class="wa-label">Precio y financiacion</div>
-                <div class="wa-bubble user"><strong>Comprador</strong>El precio es negociable? Y se puede financiar?<small>18:02</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Puedo recoger tu situacion y pasarlo al asesor. Tienes financiacion preaprobada o necesitas orientacion?<small>18:02</small></div>
-                <div class="wa-bubble user"><strong>Comprador</strong>Necesito orientacion.<small>18:03</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te agendo llamada de 10 min para revisar presupuesto, entrada y proximos pasos.<small>18:03</small></div>
-              </div>
-            </div>
-        </div>
-        <div class="proof-row" aria-label="Metricas clave">
+        <div class="proof-row" aria-label="Métricas clave">
           <div class="proof-item"><strong>&lt;60s</strong><span>respuesta a leads de portales</span></div>
-          <div class="proof-item"><strong>24/7</strong><span>visitas, dudas y captacion</span></div>
+          <div class="proof-item"><strong>24/7</strong><span>visitas, dudas y captación</span></div>
           <div class="proof-item"><strong>20h+</strong><span>seguimiento recuperable al mes</span></div>
         </div>
       </div>
 
-      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepcion IA">
+      <aside class="ops-panel reveal" aria-label="Panel de ejemplo de recepción IA">
         <div class="ops-head"><strong>Real Estate Flow AI</strong><span class="status-dot">Online</span></div>
         <div class="ops-body">
           <div class="ops-metric-grid">
@@ -347,32 +336,32 @@
             <div class="whatsapp-top"><span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span><span>Online</span></div>
             <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
               <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="comprador">Lead comprador</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="propietario">Captacion propietario</button>
-              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precio">Precio y financiacion</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="propietario">Captación propietario</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precio">Precio y financiación</button>
             </div>
             <div class="wa-panel is-active" role="tabpanel" data-wa-panel="comprador">
               <div class="wa-thread">
                 <div class="wa-label">Lead comprador</div>
                 <div class="wa-bubble user"><strong>Comprador</strong>Hola, me interesa el piso de 3 habitaciones en Centro. Sigue disponible?<small>20:14</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si, esta disponible. Para coordinar visita: buscas compra o alquiler y que disponibilidad tienes?<small>20:14</small></div>
-                <div class="wa-bubble user"><strong>Comprador</strong>Compra. Puedo manana tarde.<small>20:15</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Hay visita manana 18:30 o jueves 10:00. Te confirmo direccion exacta y asesor asignado.<small>20:15</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Sí, está disponible. Para coordinar visita: buscas compra o alquiler y qué disponibilidad tienes?<small>20:14</small></div>
+                <div class="wa-bubble user"><strong>Comprador</strong>Compra. Puedo mañana tarde.<small>20:15</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Hay visita mañana 18:30 o jueves 10:00. Te confirmo dirección exacta y asesor asignado.<small>20:15</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="propietario" hidden>
               <div class="wa-thread">
-                <div class="wa-label">Captacion propietario</div>
-                <div class="wa-bubble user"><strong>Propietario</strong>Quiero saber cuanto podria valer mi piso.<small>11:22</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo a preparar una valoracion. Dime zona, metros, habitaciones y estado aproximado.<small>11:22</small></div>
+                <div class="wa-label">Captación propietario</div>
+                <div class="wa-bubble user"><strong>Propietario</strong>Quiero saber cuánto podría valer mi piso.<small>11:22</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo a preparar una valoración. Dime zona, metros, habitaciones y estado aproximado.<small>11:22</small></div>
                 <div class="wa-bubble user"><strong>Propietario</strong>Zona Norte, 92 m2, 3 habitaciones, reformado.<small>11:23</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Gracias. Te puedo reservar llamada de valoracion hoy 17:00 o manana 12:30 con un asesor.<small>11:23</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Gracias. Te puedo reservar llamada de valoración hoy 17:00 o mañana 12:30 con un asesor.<small>11:23</small></div>
               </div>
             </div>
             <div class="wa-panel" role="tabpanel" data-wa-panel="precio" hidden>
               <div class="wa-thread">
-                <div class="wa-label">Precio y financiacion</div>
+                <div class="wa-label">Precio y financiación</div>
                 <div class="wa-bubble user"><strong>Comprador</strong>El precio es negociable? Y se puede financiar?<small>18:02</small></div>
-                <div class="wa-bubble ai"><strong>NOVAIX</strong>Puedo recoger tu situacion y pasarlo al asesor. Tienes financiacion preaprobada o necesitas orientacion?<small>18:02</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Puedo recoger tu situacion y pasarlo al asesor. Tienes financiación preaprobada o necesitas orientacion?<small>18:02</small></div>
                 <div class="wa-bubble user"><strong>Comprador</strong>Necesito orientacion.<small>18:03</small></div>
                 <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te agendo llamada de 10 min para revisar presupuesto, entrada y proximos pasos.<small>18:03</small></div>
               </div>
@@ -388,13 +377,13 @@
     <section class="section" id="sistema">
       <div class="container">
         <span class="section-kicker reveal">Sistema comercial y operativo</span>
-        <h2 class="reveal">Una recepcion que separa curiosos de oportunidades reales.</h2>
-        <p class="section-lead reveal">En inmobiliaria, responder rapido es importante, pero cualificar bien evita visitas perdidas y seguimiento sin foco.</p>
+        <h2 class="reveal">Una recepción que separa curiosos de oportunidades reales.</h2>
+        <p class="section-lead reveal">En inmobiliaria, responder rápido es importante, pero cualificar bien evita visitas perdidas y seguimiento sin foco.</p>
         <div class="grid-3">
           <article class="feature-card reveal">
             <i class="fa-brands fa-whatsapp"></i>
             <h3>Respuesta a portales y WhatsApp</h3>
-            <p>Contesta disponibilidad, ubicacion aproximada, condiciones, horarios y siguientes pasos.</p>
+            <p>Contesta disponibilidad, ubicación aproximada, condiciones, horarios y siguientes pasos.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-regular fa-calendar-check"></i>
@@ -403,17 +392,17 @@
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-filter-circle-dollar"></i>
-            <h3>Cualificacion comercial</h3>
-            <p>Recoge presupuesto, financiacion, urgencia, zona, motivo de compra o venta y disponibilidad.</p>
+            <h3>Cualificación comercial</h3>
+            <p>Recoge presupuesto, financiación, urgencia, zona, motivo de compra o venta y disponibilidad.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-house-user"></i>
-            <h3>Captacion de propietarios</h3>
+            <h3>Captación de propietarios</h3>
             <p>Detecta propietarios que quieren valorar, vender o alquilar y agenda llamada con el asesor.</p>
           </article>
           <article class="feature-card reveal">
             <i class="fa-solid fa-rotate"></i>
-            <h3>Seguimiento automatico</h3>
+            <h3>Seguimiento automático</h3>
             <p>Reactiva leads que preguntaron, no contestaron o no acudieron a visita.</p>
           </article>
           <article class="feature-card reveal">
@@ -428,8 +417,8 @@
     <section class="section section-alt" id="operativa">
       <div class="container split">
         <div class="reveal">
-          <span class="section-kicker">Como trabaja</span>
-          <h2>Del lead de portal a la visita o valoracion, sin perder contexto.</h2>
+          <span class="section-kicker">Cómo trabaja</span>
+          <h2>Del lead de portal a la visita o valoración, sin perder contexto.</h2>
           <p class="section-lead">La IA cualifica y agenda sin inventar condiciones ni sustituir al asesor.</p>
           <div class="steps">
             <div class="step">
@@ -442,22 +431,22 @@
             <div class="step">
               <span>2</span>
               <div>
-                <strong>Cualifica intencion</strong>
-                <p>Compra, alquiler, venta, presupuesto, financiacion, zona y urgencia.</p>
+                <strong>Cualifica intención</strong>
+                <p>Compra, alquiler, venta, presupuesto, financiación, zona y urgencia.</p>
               </div>
             </div>
             <div class="step">
               <span>3</span>
               <div>
                 <strong>Agenda siguiente paso</strong>
-                <p>Visita, llamada, valoracion o envio de informacion aprobada.</p>
+                <p>Visita, llamada, valoración o envío de información aprobada.</p>
               </div>
             </div>
             <div class="step">
               <span>4</span>
               <div>
                 <strong>Escala al asesor</strong>
-                <p>Negociacion, documentacion, oferta o decision comercial pasan al equipo.</p>
+                <p>Negociación, documentación, oferta o decision comercial pasan al equipo.</p>
               </div>
             </div>
           </div>
@@ -474,14 +463,14 @@
 
     <section class="section" id="impacto">
       <div class="container">
-        <span class="section-kicker reveal">Estimador rapido</span>
-        <h2 class="reveal">Cuanto seguimiento se queda sin atender?</h2>
-        <p class="section-lead reveal">Estima el impacto de automatizar primera respuesta, cualificacion, visitas y reactivacion.</p>
+        <span class="section-kicker reveal">Estimador rápido</span>
+        <h2 class="reveal">Cuánto seguimiento se queda sin atender?</h2>
+        <p class="section-lead reveal">Estima el impacto de automatizar primera respuesta, cualificación, visitas y reactivación.</p>
         <div class="calculator reveal">
           <div class="impact-card">
             <div class="range-row"><label for="leadsRange">Leads mensuales <strong id="leadsOutput">180</strong></label><input id="leadsRange" type="range" min="40" max="600" value="180"></div>
             <div class="range-row"><label for="minutesRange">Minutos medios por lead <strong><span id="minutesOutput">6</span> min</strong></label><input id="minutesRange" type="range" min="2" max="18" value="6"></div>
-            <div class="range-row"><label for="recoveryRange">Leads cualificables automaticamente <strong id="recoveryOutput">68%</strong></label><input id="recoveryRange" type="range" min="25" max="90" value="68"></div>
+            <div class="range-row"><label for="recoveryRange">Leads cualificables automáticamente <strong id="recoveryOutput">68%</strong></label><input id="recoveryRange" type="range" min="25" max="90" value="68"></div>
             <p class="calc-note">NOVAIX no negocia ni sustituye al asesor. Ordena, cualifica, agenda y deriva lo importante.</p>
           </div>
           <div class="big-number">
@@ -499,13 +488,13 @@
     <section class="section section-alt" id="piloto">
       <div class="container">
         <span class="section-kicker reveal">Piloto NOVAIX</span>
-        <h2 class="reveal">Un piloto para convertir mas leads en visitas y valoraciones.</h2>
+        <h2 class="reveal">Un piloto para convertir más leads en visitas y valoraciones.</h2>
         <p class="section-lead reveal">Empezamos por compradores, propietarios, visitas, recordatorios y seguimiento post-contacto.</p>
         <div class="offer">
           <div class="pilot-card reveal"><ul>
-              <li><i class="fa-solid fa-check"></i><span>Auditoria de portales, WhatsApp, telefono, formularios y CRM.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Mapa de inmuebles, reglas de disponibilidad, preguntas frecuentes y criterios de cualificacion.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Automatizacion de lead comprador, captacion propietario, visita y seguimiento.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Auditoría de portales, WhatsApp, teléfono, formularios y CRM.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Mapa de inmuebles, reglas de disponibilidad, preguntas frecuentes y criterios de cualificación.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Automatización de lead comprador, captación propietario, visita y seguimiento.</span></li>
               <li><i class="fa-solid fa-check"></i><span>Panel con leads, visitas, propietarios, conversiones y derivaciones.</span></li>
           </ul></div>
           <div class="pilot-card reveal">
@@ -527,37 +516,49 @@
         <h2 class="reveal">Preguntas normales antes de automatizar una inmobiliaria.</h2>
           <details class="reveal">
             <summary>Puede responder por cada inmueble?</summary>
-            <p>Si. Trabaja con informacion aprobada por inmueble y deriva cuando falta dato o hay negociacion.</p>
+            <p>Sí. Trabaja con información aprobada por inmueble y deriva cuando falta dato o hay negociación.</p>
           </details>
           <details class="reveal">
             <summary>Puede cualificar compradores?</summary>
-            <p>Si. Recoge presupuesto, financiacion, zona, urgencia y disponibilidad para priorizar.</p>
+            <p>Sí. Recoge presupuesto, financiación, zona, urgencia y disponibilidad para priorizar.</p>
           </details>
           <details class="reveal">
             <summary>Puede captar propietarios?</summary>
-            <p>Si. Detecta solicitudes de valoracion y agenda llamada con el asesor.</p>
+            <p>Sí. Detecta solicitudes de valoración y agenda llamada con el asesor.</p>
           </details>
           <details class="reveal">
             <summary>Puede negociar precios?</summary>
-            <p>No. Puede recoger la intencion y pasarla al asesor con contexto.</p>
+            <p>No. Puede recoger la intención y pasarla al asesor con contexto.</p>
           </details>
+      </div>
+    </section>
+
+
+    <section class="section business-index" aria-labelledby="business-index-title">
+      <div class="container business-index-panel reveal">
+        <div>
+          <span class="section-kicker">Otros negocios</span>
+          <h2 id="business-index-title">¿Quieres saber nuestra experiencia con otros negocios?</h2>
+          <p>Hemos agrupado las landings por sector para que puedas ver cómo cambia la automatización según el tipo de cliente, agenda y canal de entrada.</p>
+        </div>
+        <a class="btn btn-secondary" href="landing-negocios.html"><i class="fa-solid fa-layer-group"></i>Ver todos los negocios</a>
       </div>
     </section>
 
     <section class="cta-band">
       <div class="container">
         <div class="reveal">
-          <h2>Quieres ver que automatizariamos en tu inmobiliaria?</h2>
-          <p>En 30 minutos revisamos tus canales, portales, CRM y seguimiento. Sales con un mapa de automatizacion orientado a visitas y captacion.</p>
+          <h2>Quieres ver qué automatizaríamos en tu inmobiliaria?</h2>
+          <p>En 30 minutos revisamos tus canales, portales, CRM y seguimiento. Sales con un mapa de automatización orientado a visitas y captación.</p>
         </div>
-        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnostico</button>
+        <button class="btn btn-primary reveal" type="button" data-calendly-open><i class="fa-regular fa-calendar-check"></i>Agendar diagnóstico</button>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year"></span> NOVAIX. Automatizacion e IA para operaciones, ventas y atencion.</p>
+      <p>© <span id="year"></span> NOVAIX. Automatización e IA para operaciones, ventas y atención.</p>
       <p><a href="mailto:info@novaix.es">info@novaix.es</a> · <a href="index.html">Web principal</a></p>
     </div>
   </footer>
@@ -570,8 +571,11 @@
   </div>
 
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>Usamos cookies tecnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
-    <div class="cookie-actions"><button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button><button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button></div>
+    <p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda para gestionar la cita.</p>
+        <div class="cookie-actions">
+      <button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button>
+      <button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button>
+    </div>
   </div>
 
   <script>
@@ -624,7 +628,7 @@
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
 
-    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
       const tabs = widget.querySelectorAll('[data-wa-tab]');
       const panels = widget.querySelectorAll('[data-wa-panel]');
       tabs.forEach((tab) => {
