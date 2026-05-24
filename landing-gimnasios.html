@@ -380,32 +380,150 @@
       font-size: 0.76rem;
       line-height: 1.25;
     }
-    .conversation {
+    .whatsapp-screen {
       display: grid;
-      gap: 9px;
-      min-height: 260px;
+      gap: 10px;
       padding: 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(5,6,6,0.62);
+      background:
+        linear-gradient(135deg, rgba(7, 94, 84, 0.18), rgba(18, 140, 126, 0.06)),
+        rgba(5,6,6,0.68);
     }
-    .message {
-      max-width: 88%;
-      padding: 10px 12px;
+    .whatsapp-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      background: rgba(7,94,84,0.42);
+      border: 1px solid rgba(37,211,102,0.18);
+      color: #eafff0;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+    .whatsapp-top span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #bfffd2;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .whatsapp-top span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #25d366;
+      box-shadow: 0 0 12px rgba(37,211,102,0.8);
+    }
+    .wa-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+    }
+    .wa-tab {
+      min-height: 34px;
+      border: 0;
+      border-radius: 6px;
+      padding: 7px 8px;
+      background: transparent;
+      color: #cfe2d1;
+      font: inherit;
+      font-size: 0.7rem;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+    .wa-tab:hover,
+    .wa-tab:focus-visible {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      outline: none;
+    }
+    .wa-tab.is-active {
+      color: #eafff0;
+      background: rgba(37,211,102,0.18);
+      box-shadow: inset 0 0 0 1px rgba(37,211,102,0.28);
+    }
+    .wa-panel {
+      display: grid;
+      gap: 8px;
+    }
+    .wa-panel[hidden] {
+      display: none !important;
+    }
+    .wa-thread {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(45deg, rgba(255,255,255,0.025) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.025) 50%, rgba(255,255,255,0.025) 75%, transparent 75%, transparent) 0 0 / 22px 22px,
+        rgba(8, 14, 12, 0.72);
+    }
+    .mobile-wa-preview { display: none; }
+    .wa-label {
+      justify-self: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #d6dfd7;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .wa-bubble {
+      max-width: 88%;
+      padding: 9px 11px 7px;
+      border-radius: 8px;
+      font-size: 0.86rem;
       color: #ecefe6;
       overflow-wrap: anywhere;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     }
-    .message.client {
+    .wa-bubble strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.72);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .wa-bubble small {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.68rem;
+      text-align: right;
+    }
+    .wa-bubble.user {
       justify-self: start;
-      background: rgba(255,255,255,0.08);
+      background: #202c33;
       border: 1px solid rgba(255,255,255,0.08);
     }
-    .message.ai {
+    .wa-bubble.ai {
       justify-self: end;
-      background: rgba(202,255,58,0.14);
-      border: 1px solid rgba(202,255,58,0.24);
+      background: #075e54;
+      border: 1px solid rgba(37,211,102,0.22);
+    }
+    .wa-thread.is-secondary .wa-bubble {
+      font-size: 0.82rem;
+      padding: 8px 10px 7px;
     }
     .ops-footer {
       display: grid;
@@ -910,17 +1028,48 @@
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
       .hero .ops-panel { display: none; }
+      .hero-grid { gap: 30px; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
+      .mobile-wa-preview {
+        display: grid;
+        gap: 9px;
+        margin: 20px 0 18px;
+        padding: 10px;
+        border: 1px solid rgba(37,211,102,0.2);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(7, 94, 84, 0.2), rgba(18, 140, 126, 0.08)),
+          rgba(5,6,6,0.66);
+      }
+      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
+      .mobile-wa-preview .wa-tabs { gap: 4px; }
+      .mobile-wa-preview .wa-tab {
+        min-height: 42px;
+        padding: 6px 5px;
+        font-size: 0.55rem;
+      }
+      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
+      .mobile-wa-preview .wa-bubble {
+        max-width: 94%;
+        font-size: 0.8rem;
+        padding: 8px 10px 7px;
+      }
       .ops-panel { max-width: 100%; }
       .ops-head { flex-wrap: wrap; }
       .proof-row,
-      .ops-metric-grid,
       .floating-proof,
       .mini-results {
         grid-template-columns: 1fr;
       }
+      .ops-metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ops-metric { min-height: 74px; padding: 10px; }
+      .ops-metric strong { font-size: 1.15rem; }
+      .ops-metric span { font-size: 0.68rem; }
+      .whatsapp-screen { padding: 10px; }
+      .wa-thread { padding: 9px; }
+      .wa-bubble { max-width: 92%; font-size: 0.82rem; }
       .proof-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .proof-item:last-child { border-bottom: 0; }
       .grid-3 { grid-template-columns: 1fr; }
@@ -997,6 +1146,44 @@
             Calcular impacto
           </a>
         </div>
+        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
+          <div class="whatsapp-top">
+            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span>
+            <span>Online</span>
+          </div>
+          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
+            <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="alta">Alta nueva</button>
+            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de clase</button>
+            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
+          </div>
+          <div class="wa-panel is-active" role="tabpanel" data-wa-panel="alta">
+            <div class="wa-thread">
+              <div class="wa-label">Alta nueva</div>
+              <div class="wa-bubble user"><strong>Cliente</strong>Hola, quiero apuntarme al gimnasio pero no se que plan elegir.<small>19:18</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo. Buscas fuerza, perdida de grasa, clases dirigidas o entrenar por libre?<small>19:18</small></div>
+              <div class="wa-bubble user"><strong>Cliente</strong>Quiero empezar con clases y entrenar 3 dias.<small>19:19</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te reservo una clase y una visita para ver el plan mensual que encaja contigo.<small>19:19</small></div>
+            </div>
+          </div>
+          <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
+            <div class="wa-thread">
+              <div class="wa-label">Reserva de clase</div>
+              <div class="wa-bubble user"><strong>Cliente</strong>Hay hueco para funcional esta semana?<small>11:04</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Tienes martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa comoda.<small>11:04</small></div>
+              <div class="wa-bubble user"><strong>Cliente</strong>Jueves me va bien.<small>11:05</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, que traer y recordatorio 24 h antes.<small>11:05</small></div>
+            </div>
+          </div>
+          <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
+            <div class="wa-thread">
+              <div class="wa-label">Consulta de precios</div>
+              <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta entrenar? Hay matricula?<small>16:31</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Los planes empiezan desde 49 euros/mes. Depende de clases, acceso y seguimiento.<small>16:31</small></div>
+              <div class="wa-bubble user"><strong>Cliente</strong>Prefiero que me expliquen las opciones.<small>16:32</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo hueco para una llamada de 10 min hoy 17:30 o manana 12:00.<small>16:32</small></div>
+            </div>
+          </div>
+        </div>
         <div class="proof-row" aria-label="Metricas clave">
           <div class="proof-item">
             <strong>&lt;60s</strong>
@@ -1033,11 +1220,43 @@
               <span>consultas resueltas sin espera</span>
             </div>
           </div>
-          <div class="conversation" aria-label="Conversacion automatizada">
-            <div class="message client">Hola, quiero probar cross training. Teneis plaza esta semana?</div>
-            <div class="message ai">Si. Te puedo reservar martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa comoda.</div>
-            <div class="message client">Jueves me va bien. Cuanto cuesta despues?</div>
-            <div class="message ai">Perfecto, queda reservado. Tras la prueba, el plan base es desde 49 euros/mes. Te envio tambien ubicacion y recordatorio.</div>
+          <div class="whatsapp-screen" aria-label="Ejemplos de conversaciones de WhatsApp automatizadas">
+            <div class="whatsapp-top">
+              <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span>
+              <span>Online</span>
+            </div>
+            <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
+              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="alta">Alta nueva</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de clase</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
+            </div>
+            <div class="wa-panel is-active" role="tabpanel" data-wa-panel="alta">
+              <div class="wa-thread">
+                <div class="wa-label">Alta nueva</div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Hola, quiero apuntarme al gimnasio pero no se que plan elegir.<small>19:18</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te ayudo. Que objetivo tienes: fuerza, perdida de grasa, clases dirigidas o entrenar por libre?<small>19:18</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Quiero empezar con clases y entrenar 3 dias.<small>19:19</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Te recomiendo probar una clase y ver el plan mensual. Puedo reservarte hoy 19:30 o manana 18:00.<small>19:19</small></div>
+              </div>
+            </div>
+            <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
+              <div class="wa-thread">
+                <div class="wa-label">Reserva de clase</div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Hay hueco para funcional esta semana?<small>11:04</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Si. Tienes martes 19:30 o jueves 20:15. La clase dura 50 min y solo necesitas ropa comoda.<small>11:04</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Jueves me va bien.<small>11:05</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, que traer y recordatorio 24 h antes.<small>11:05</small></div>
+              </div>
+            </div>
+            <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
+              <div class="wa-thread">
+                <div class="wa-label">Consulta de precios</div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Cuanto cuesta entrenar? Hay matricula?<small>16:31</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Los planes empiezan desde 49 euros/mes. Depende de clases, acceso y seguimiento. Te puedo pasar opciones o reservar una visita.<small>16:31</small></div>
+                <div class="wa-bubble user"><strong>Cliente</strong>Prefiero que me expliquen las opciones.<small>16:32</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Genial. Tengo hueco para una llamada de 10 min hoy 17:30 o manana 12:00.<small>16:32</small></div>
+              </div>
+            </div>
           </div>
           <div class="ops-footer">
             <div class="pulse-line" aria-hidden="true"><span></span></div>
@@ -1359,6 +1578,29 @@
 
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
+
+    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+      const tabs = widget.querySelectorAll('[data-wa-tab]');
+      const panels = widget.querySelectorAll('[data-wa-panel]');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.waTab;
+
+          tabs.forEach((item) => {
+            const isActive = item === tab;
+            item.classList.toggle('is-active', isActive);
+            item.setAttribute('aria-selected', String(isActive));
+          });
+
+          panels.forEach((panel) => {
+            const isActive = panel.dataset.waPanel === target;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+          });
+        });
+      });
+    });
 
     function loadCalendly() {
       if (calendlyLoaded) return;

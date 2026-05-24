@@ -365,31 +365,145 @@
       font-size: 0.76rem;
       line-height: 1.25;
     }
-    .conversation {
+    .whatsapp-screen {
       display: grid;
-      gap: 9px;
-      min-height: 260px;
+      gap: 10px;
       padding: 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(4,10,9,0.64);
+      background:
+        linear-gradient(135deg, rgba(124,247,212,0.14), rgba(255,143,163,0.08)),
+        rgba(4,10,9,0.66);
     }
-    .message {
-      max-width: 88%;
-      padding: 10px 12px;
+    .whatsapp-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      background: rgba(7,94,84,0.38);
+      border: 1px solid rgba(124,247,212,0.2);
+      color: #eafff8;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+    .whatsapp-top span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #bfffee;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .whatsapp-top span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--mint);
+      box-shadow: 0 0 12px rgba(124,247,212,0.8);
+    }
+    .wa-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+    }
+    .wa-tab {
+      min-height: 34px;
+      border: 0;
+      border-radius: 6px;
+      padding: 7px 8px;
+      background: transparent;
+      color: #d3e7df;
+      font: inherit;
+      font-size: 0.7rem;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+    .wa-tab:hover,
+    .wa-tab:focus-visible {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      outline: none;
+    }
+    .wa-tab.is-active {
+      color: #f5fffb;
+      background: rgba(124,247,212,0.16);
+      box-shadow: inset 0 0 0 1px rgba(124,247,212,0.28);
+    }
+    .wa-panel {
+      display: grid;
+      gap: 8px;
+    }
+    .wa-panel[hidden] {
+      display: none !important;
+    }
+    .wa-thread {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(45deg, rgba(255,255,255,0.025) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.025) 50%, rgba(255,255,255,0.025) 75%, transparent 75%, transparent) 0 0 / 22px 22px,
+        rgba(8, 14, 12, 0.72);
+    }
+    .mobile-wa-preview { display: none; }
+    .wa-label {
+      justify-self: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #d9e5df;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .wa-bubble {
+      max-width: 88%;
+      padding: 9px 11px 7px;
+      border-radius: 8px;
+      font-size: 0.86rem;
       color: #f1eee7;
       overflow-wrap: anywhere;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     }
-    .message.client {
+    .wa-bubble strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.72);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .wa-bubble small {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.68rem;
+      text-align: right;
+    }
+    .wa-bubble.user {
       justify-self: start;
-      background: rgba(255,255,255,0.08);
+      background: #202c33;
       border: 1px solid rgba(255,255,255,0.08);
     }
-    .message.ai {
+    .wa-bubble.ai {
       justify-self: end;
-      background: rgba(124,247,212,0.14);
+      background: #08695f;
       border: 1px solid rgba(124,247,212,0.24);
     }
     .ops-footer {
@@ -881,16 +995,47 @@
       .brand span { display: none; }
       .hero { min-height: auto; padding-top: 112px; }
       .hero .ops-panel { display: none; }
+      .hero-grid { gap: 30px; }
       h1 { font-size: 2.62rem; line-height: 1.02; }
       .mobile-break { display: block; }
       .hero-copy { font-size: 1rem; }
+      .mobile-wa-preview {
+        display: grid;
+        gap: 9px;
+        margin: 20px 0 18px;
+        padding: 10px;
+        border: 1px solid rgba(124,247,212,0.2);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(124,247,212,0.15), rgba(255,143,163,0.08)),
+          rgba(4,10,9,0.66);
+      }
+      .mobile-wa-preview .whatsapp-top { padding: 8px 9px; }
+      .mobile-wa-preview .wa-tabs { gap: 4px; }
+      .mobile-wa-preview .wa-tab {
+        min-height: 42px;
+        padding: 6px 5px;
+        font-size: 0.55rem;
+      }
+      .mobile-wa-preview .wa-thread { padding: 8px; gap: 7px; }
+      .mobile-wa-preview .wa-bubble {
+        max-width: 94%;
+        font-size: 0.8rem;
+        padding: 8px 10px 7px;
+      }
       .ops-head { flex-wrap: wrap; }
       .proof-row,
-      .ops-metric-grid,
       .floating-proof,
       .mini-results {
         grid-template-columns: 1fr;
       }
+      .ops-metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ops-metric { min-height: 74px; padding: 10px; }
+      .ops-metric strong { font-size: 1.15rem; }
+      .ops-metric span { font-size: 0.68rem; }
+      .whatsapp-screen { padding: 10px; }
+      .wa-thread { padding: 9px; }
+      .wa-bubble { max-width: 92%; font-size: 0.82rem; }
       .proof-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .proof-item:last-child { border-bottom: 0; }
       .grid-3 { grid-template-columns: 1fr; }
@@ -967,6 +1112,44 @@
             Calcular impacto
           </a>
         </div>
+        <div class="mobile-wa-preview" aria-label="Ejemplos moviles de conversaciones de WhatsApp">
+          <div class="whatsapp-top">
+            <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span>
+            <span>Online</span>
+          </div>
+          <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
+            <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="valoracion">Valoracion inicial</button>
+            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de cita</button>
+            <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
+          </div>
+          <div class="wa-panel is-active" role="tabpanel" data-wa-panel="valoracion">
+            <div class="wa-thread">
+              <div class="wa-label">Valoracion inicial</div>
+              <div class="wa-bubble user"><strong>Paciente</strong>Hola, quiero informacion sobre limpieza facial y manchas. No se que necesito.<small>18:12</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo agendar una valoracion con el equipo. No hacemos diagnostico por chat. Que horario te encaja?<small>18:12</small></div>
+              <div class="wa-bubble user"><strong>Paciente</strong>Mejor por la tarde.<small>18:13</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Tienes miercoles 18:30 o viernes 11:00. La valoracion dura 20 min y te enviamos indicaciones.<small>18:13</small></div>
+            </div>
+          </div>
+          <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
+            <div class="wa-thread">
+              <div class="wa-label">Reserva de cita</div>
+              <div class="wa-bubble user"><strong>Paciente</strong>Queria reservar para higiene facial esta semana.<small>10:24</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco jueves 17:00 o viernes 12:30. Te confirmo sede y profesional antes de cerrar la cita.<small>10:24</small></div>
+              <div class="wa-bubble user"><strong>Paciente</strong>Jueves 17:00 me va bien.<small>10:25</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, preparacion y recordatorio 24 h antes.<small>10:25</small></div>
+            </div>
+          </div>
+          <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
+            <div class="wa-thread">
+              <div class="wa-label">Consulta de precios</div>
+              <div class="wa-bubble user"><strong>Paciente</strong>Cuanto cuesta un tratamiento facial? Hay promocion?<small>16:41</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Los precios dependen del protocolo. Puedo pasarte rangos autorizados o reservar valoracion para indicarte la opcion adecuada.<small>16:41</small></div>
+              <div class="wa-bubble user"><strong>Paciente</strong>Prefiero que me lo expliquen.<small>16:42</small></div>
+              <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo llamada de 10 min hoy 19:00 o manana 13:30 con recepcion.<small>16:42</small></div>
+            </div>
+          </div>
+        </div>
         <div class="proof-row" aria-label="Metricas clave">
           <div class="proof-item">
             <strong>&lt;60s</strong>
@@ -1003,11 +1186,43 @@
               <span>dudas resueltas sin espera</span>
             </div>
           </div>
-          <div class="conversation" aria-label="Conversacion automatizada">
-            <div class="message client">Hola, quiero informacion sobre limpieza facial y relleno. Teneis cita esta semana?</div>
-            <div class="message ai">Si. Para orientarte bien, te propongo una valoracion con el equipo. Hay hueco miercoles 18:30 o viernes 11:00.</div>
-            <div class="message client">Viernes me encaja. Cuanto dura?</div>
-            <div class="message ai">Queda pre-reservado. La valoracion dura 20 min. Te envio indicaciones, ubicacion y recordatorio 24 h antes.</div>
+          <div class="whatsapp-screen" aria-label="Ejemplos de conversaciones de WhatsApp automatizadas">
+            <div class="whatsapp-top">
+              <span><i class="fa-brands fa-whatsapp"></i> WhatsApp Business</span>
+              <span>Online</span>
+            </div>
+            <div class="wa-tabs" role="tablist" aria-label="Flujos de WhatsApp">
+              <button class="wa-tab is-active" type="button" role="tab" aria-selected="true" data-wa-tab="valoracion">Valoracion inicial</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="reserva">Reserva de cita</button>
+              <button class="wa-tab" type="button" role="tab" aria-selected="false" data-wa-tab="precios">Consulta de precios</button>
+            </div>
+            <div class="wa-panel is-active" role="tabpanel" data-wa-panel="valoracion">
+              <div class="wa-thread">
+                <div class="wa-label">Valoracion inicial</div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Hola, quiero informacion sobre limpieza facial y manchas. No se que necesito.<small>18:12</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Te puedo orientar de forma administrativa y agendar valoracion con el equipo. No hacemos diagnostico por chat. Que horario te encaja?<small>18:12</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Mejor por la tarde.<small>18:13</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Tienes miercoles 18:30 o viernes 11:00. La valoracion dura 20 min y te enviamos indicaciones y recordatorio.<small>18:13</small></div>
+              </div>
+            </div>
+            <div class="wa-panel" role="tabpanel" data-wa-panel="reserva" hidden>
+              <div class="wa-thread">
+                <div class="wa-label">Reserva de cita</div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Queria reservar para higiene facial esta semana.<small>10:24</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Claro. Hay hueco jueves 17:00 o viernes 12:30. Te confirmo sede y profesional antes de cerrar la cita.<small>10:24</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Jueves 17:00 me va bien.<small>10:25</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Reservado. Te envio ubicacion, preparacion y recordatorio 24 h antes. Si surge una duda clinica, la revisa el equipo.<small>10:25</small></div>
+              </div>
+            </div>
+            <div class="wa-panel" role="tabpanel" data-wa-panel="precios" hidden>
+              <div class="wa-thread">
+                <div class="wa-label">Consulta de precios</div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Cuanto cuesta un tratamiento facial? Hay promocion?<small>16:41</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Los precios dependen del protocolo. Puedo pasarte rangos autorizados o reservar valoracion para indicarte la opcion adecuada.<small>16:41</small></div>
+                <div class="wa-bubble user"><strong>Paciente</strong>Prefiero que me lo expliquen.<small>16:42</small></div>
+                <div class="wa-bubble ai"><strong>NOVAIX</strong>Perfecto. Tengo llamada de 10 min hoy 19:00 o manana 13:30 con recepcion. Te dejo la cita preconfirmada?<small>16:42</small></div>
+              </div>
+            </div>
           </div>
           <div class="ops-footer">
             <div class="pulse-line" aria-hidden="true"><span></span></div>
@@ -1329,6 +1544,29 @@
 
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
+
+    document.querySelectorAll('.whatsapp-screen, .mobile-wa-preview').forEach((widget) => {
+      const tabs = widget.querySelectorAll('[data-wa-tab]');
+      const panels = widget.querySelectorAll('[data-wa-panel]');
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.waTab;
+
+          tabs.forEach((item) => {
+            const isActive = item === tab;
+            item.classList.toggle('is-active', isActive);
+            item.setAttribute('aria-selected', String(isActive));
+          });
+
+          panels.forEach((panel) => {
+            const isActive = panel.dataset.waPanel === target;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+          });
+        });
+      });
+    });
 
     function loadCalendly() {
       if (calendlyLoaded) return;
