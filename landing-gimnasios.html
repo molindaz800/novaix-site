@@ -82,35 +82,57 @@
     }
     .skip-link:focus { transform: translateY(0); }
 
+    .nav-hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 38px;
+      z-index: 89;
+    }
+
     .nav {
       position: fixed;
-      top: 16px;
+      top: 12px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 90;
-      width: min(1120px, calc(100% - 32px));
-      min-height: 64px;
+      width: min(980px, calc(100% - 32px));
+      min-height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 10px 12px;
-      background: rgba(9,10,10,0.76);
+      gap: 14px;
+      padding: 7px 10px;
+      background: rgba(9,10,10,0.78);
       border: 1px solid var(--line);
       border-radius: 8px;
       backdrop-filter: blur(18px);
       box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      transition: opacity .24s ease, transform .24s ease, border-color .24s ease, background .24s ease;
+      will-change: transform, opacity;
+    }
+    .nav.nav--hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(calc(-100% - 24px));
+    }
+    .nav-hover-zone:hover + .nav,
+    .nav:focus-within {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%);
     }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       min-width: 0;
       font-weight: 800;
       letter-spacing: 0.04em;
     }
     .brand img {
-      width: 96px;
+      width: 58px;
       height: auto;
     }
     .brand span {
@@ -123,16 +145,16 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
     }
     .nav-links a {
-      min-height: 40px;
+      min-height: 36px;
       display: inline-flex;
       align-items: center;
-      padding: 8px 10px;
+      padding: 7px 9px;
       border-radius: 8px;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 700;
       transition: color .18s ease, background .18s ease;
     }
@@ -148,6 +170,10 @@
       background: rgba(255,255,255,0.04);
       color: var(--text);
       cursor: pointer;
+    }
+    .nav .btn {
+      min-height: 42px;
+      padding: 9px 14px;
     }
 
     .btn {
@@ -910,7 +936,7 @@
 
     @media (max-width: 520px) {
       :root { --container: calc(100% - 48px); }
-      .brand img { width: 82px; }
+      .brand img { width: 52px; }
       h1 { font-size: 2.02rem; }
       .hero-copy { font-size: 0.96rem; }
       .section h2,
@@ -934,6 +960,7 @@
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
+  <div class="nav-hover-zone" aria-hidden="true"></div>
   <nav class="nav" aria-label="Navegacion principal">
     <a class="brand" href="index.html" aria-label="Volver a NOVAIX">
       <img src="imagenes/fav_icon.jpg" alt="NOVAIX">
@@ -1271,6 +1298,7 @@
 
   <script>
     const nav = document.querySelector('.nav');
+    const navHoverZone = document.querySelector('.nav-hover-zone');
     const navToggle = document.querySelector('.nav-toggle');
     const year = document.getElementById('year');
     const modal = document.getElementById('calendly-modal');
@@ -1296,6 +1324,41 @@
         if (navToggle) navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       });
     });
+
+    let lastScrollY = window.scrollY;
+    let navScrollTicking = false;
+
+    function revealNav() {
+      nav.classList.remove('nav--hidden');
+    }
+
+    function updateNavVisibility() {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY + 8;
+      const scrollingUp = currentScrollY < lastScrollY - 6;
+      const menuOpen = nav.classList.contains('open');
+      const modalOpen = modal.classList.contains('open');
+
+      if (!menuOpen && !modalOpen && scrollingDown && currentScrollY > 120) {
+        nav.classList.add('nav--hidden');
+      }
+      if (scrollingUp || currentScrollY < 64 || menuOpen) {
+        revealNav();
+      }
+
+      lastScrollY = Math.max(currentScrollY, 0);
+      navScrollTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!navScrollTicking) {
+        window.requestAnimationFrame(updateNavVisibility);
+        navScrollTicking = true;
+      }
+    }, { passive: true });
+
+    navHoverZone?.addEventListener('mouseenter', revealNav);
+    nav?.addEventListener('mouseenter', revealNav);
 
     function loadCalendly() {
       if (calendlyLoaded) return;
