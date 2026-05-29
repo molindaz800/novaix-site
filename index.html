@@ -385,6 +385,42 @@
       font-size: 0.78rem;
       line-height: 1.28;
     }
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
+      transition: color .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .language-switcher:hover,
+    .language-switcher:focus-within {
+      color: var(--accent);
+      border-color: rgba(0,195,255,0.35);
+      background: rgba(0,195,255,0.08);
+    }
+    .language-switcher i { font-size: 0.9rem; }
+    .language-switcher select {
+      width: 44px;
+      border: 0;
+      outline: 0;
+      appearance: none;
+      color: inherit;
+      background: transparent;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+    .language-switcher select option {
+      color: #07101b;
+      background: #f5f7fb;
+    }
     .nav-home {
       width: 35px;
       height: 48px;
@@ -2813,6 +2849,7 @@
 	      .nav-links a,
 	      .nav-links button { width: 100%; min-height: 44px; justify-content: center; }
 	      .nav-links a:not(.cta) { padding: 10px 12px; }
+	      .nav-home { order: -2; }
 	      .nav-dropdown {
 	        width: 100%;
 	        display: block;
@@ -2841,6 +2878,16 @@
 	      .nav-dropdown.is-open .nav-dropdown__menu,
 	      .nav-dropdown:focus-within .nav-dropdown__menu {
 	        transform: none;
+	      }
+	      .language-switcher {
+	        order: -1;
+	        width: 100%;
+	        min-height: 44px;
+	        justify-content: center;
+	      }
+	      .language-switcher select {
+	        width: 48px;
+	        text-align: center;
 	      }
 	      .slide {
 	        grid-template-columns: 1fr;
@@ -3060,6 +3107,14 @@
 	        <a class="cl-effect-10" data-hover="Quienes somos" href="#quienes"><span>Quienes somos</span></a>
         <a class="cl-effect-10" data-hover="Contacto" href="#demo"><span>Contacto</span></a>
 	        <a class="cl-effect-10 legal-open" data-hover="Legal" href="#legal"><span>Legal</span></a>
+	        <label class="language-switcher" aria-label="Seleccionar idioma">
+	          <span class="visually-hidden">Seleccionar idioma</span>
+	          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+	          <select id="language-select" aria-label="Seleccionar idioma">
+	            <option value="es">ES</option>
+	            <option value="en">EN</option>
+	          </select>
+	        </label>
 	        <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span>Agendar cita</span></button>
       </div>
     </nav>
@@ -3820,6 +3875,7 @@
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script>
     (function () {
       function hasClass(el, className) {
@@ -3902,6 +3958,7 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const t = (text) => (window.novaixT ? window.novaixT(text) : text);
 
     // Reduce carga en movil: pausa video hero si no hay hover o se pide ahorro de datos.
     (() => {
@@ -4407,7 +4464,7 @@
     slides.forEach((_, i) => {
       const btn = document.createElement('button');
       btn.className = 'dot' + (i === 0 ? ' active' : '');
-      btn.setAttribute('aria-label', `Ir al slide ${i + 1}`);
+      btn.setAttribute('aria-label', t(`Ir al slide ${i + 1}`));
       btn.addEventListener('click', () => goTo(i));
       dotsContainer.appendChild(btn);
     });
@@ -4714,7 +4771,7 @@
         avatar.innerHTML = '<i class="fa-solid fa-robot"></i>';
         const bubble = document.createElement('div');
         bubble.className = 'bubble';
-        bubble.setAttribute('aria-label', 'La IA esta escribiendo');
+        bubble.setAttribute('aria-label', t('La IA esta escribiendo'));
         for (let i = 0; i < 3; i += 1) {
           const dot = document.createElement('span');
           dot.className = 'typing-dot';
@@ -4731,7 +4788,7 @@
         if (input) input.disabled = isBusy;
         if (sendBtn) sendBtn.disabled = isBusy;
         quickButtons.forEach(btn => { btn.disabled = isBusy; });
-        if (statusBar) statusBar.textContent = isBusy ? 'La IA esta pensando...' : 'Listo para responder';
+        if (statusBar) statusBar.textContent = isBusy ? t('La IA esta pensando...') : t('Listo para responder');
       }
 
       async function sendToN8n(text) {
@@ -4753,15 +4810,15 @@
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const data = await res.json();
           loading.remove();
-          addMessage(data.reply || 'No he recibido respuesta de la IA. Intenta de nuevo.', 'bot');
+          addMessage(data.reply || t('No he recibido respuesta de la IA. Intenta de nuevo.'), 'bot');
           setChatBusy(false);
           input?.focus();
         } catch (err) {
           console.error(err);
           loading.remove();
-          addMessage('No he podido conectar con el asistente. Revisa la URL del webhook en n8n.', 'bot');
+          addMessage(t('No he podido conectar con el asistente. Revisa la URL del webhook en n8n.'), 'bot');
           setChatBusy(false);
-          if (statusBar) statusBar.textContent = 'Error de conexion';
+          if (statusBar) statusBar.textContent = t('Error de conexion');
         }
       }
 
@@ -4926,8 +4983,8 @@
         finished.classList.remove('show');
         live.style.display = 'none';
         idle.style.display = 'grid';
-        txSub.textContent = 'Canal cifrado · Esperando seleccion';
-        txStatus.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading';
+        txSub.textContent = t('Canal cifrado · Esperando seleccion');
+        txStatus.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> ' + t('Loading');
         setAccent('0,195,255', '122,240,255');
         updateLinks(null);
         if (faceCanvas) {
@@ -4968,8 +5025,8 @@
 
         idle.style.display = 'none';
         live.style.display = 'grid';
-        txSub.textContent = `Canal cifrado · ${a.name} en linea`;
-        txStatus.innerHTML = '<i class="fa-solid fa-signal"></i> Transmitiendo';
+        txSub.textContent = `${t('Canal cifrado')} · ${a.name} ${t('en linea')}`;
+        txStatus.innerHTML = '<i class="fa-solid fa-signal"></i> ' + t('Transmitiendo');
 
         if (liveImg) liveImg.src = a.img || BLANK_IMG;
 
@@ -5007,13 +5064,13 @@
         }
 
         liveName.textContent = a.name;
-        liveRole.textContent = a.role;
+        liveRole.textContent = t(a.role);
         liveLines.innerHTML = '';
         liveLog.innerHTML = '';
 
-        liveLog.innerHTML = `<span class="ok">${stamp()} handshake: estableciendo canal…</span>`;
+        liveLog.innerHTML = `<span class="ok">${stamp()} ${t('handshake: estableciendo canal…')}</span>`;
         timers.push(setTimeout(() => {
-          liveLog.innerHTML += `<span class="ok">${stamp()} canal: cifrado activo</span>`;
+          liveLog.innerHTML += `<span class="ok">${stamp()} ${t('canal: cifrado activo')}</span>`;
         }, 900));
 
         const baseDelay = 1200;
@@ -5023,7 +5080,7 @@
           timers.push(setTimeout(() => {
             const row = document.createElement('div');
             row.className = 'nx-line';
-            row.innerHTML = `<i class="fa-solid fa-check"></i><div><b>Paquete ${idx + 1}:</b> ${b}</div>`;
+            row.innerHTML = `<i class="fa-solid fa-check"></i><div><b>${t('Paquete')} ${idx + 1}:</b> ${t(b)}</div>`;
             liveLines.appendChild(row);
           }, baseDelay + idx * stepDelay));
         });
@@ -5032,7 +5089,7 @@
           timers.push(setTimeout(() => {
             const span = document.createElement('span');
             span.className = l.kind || 'ok';
-            span.textContent = `${stamp()} ${l.t}`;
+            span.textContent = `${stamp()} ${t(l.t)}`;
             liveLog.appendChild(span);
             liveLog.scrollTop = liveLog.scrollHeight;
           }, baseDelay + 600 + idx * 1350));
@@ -5040,10 +5097,10 @@
 
         const endAt = 15000;
         timers.push(setTimeout(() => {
-          txStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i> Finalizada';
+          txStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + t('Finalizada');
           const endLine = document.createElement('span');
           endLine.className = 'ok';
-          endLine.textContent = `${stamp()} transmision: finalizada (OK)`;
+          endLine.textContent = `${stamp()} ${t('transmision: finalizada (OK)')}`;
           liveLog.appendChild(endLine);
           liveLog.scrollTop = liveLog.scrollHeight;
           finished.classList.add('show');
@@ -5052,6 +5109,17 @@
 
       replayBtn?.addEventListener('click', () => {
         if (selectedId) startTransmission(selectedId);
+      });
+
+      window.addEventListener('novaix:languagechange', () => {
+        if (!selectedId) {
+          txSub.textContent = t('Canal cifrado · Esperando seleccion');
+          return;
+        }
+        const activeAgent = AGENTS.find(x => x.id === selectedId);
+        if (!activeAgent) return;
+        txSub.textContent = `${t('Canal cifrado')} · ${activeAgent.name} ${t('en linea')}`;
+        liveRole.textContent = t(activeAgent.role);
       });
 
       function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
