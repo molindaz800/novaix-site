@@ -28,7 +28,7 @@
   E("Agendar cita", "Agendar cita", "Book a call");
   E("Seleccionar idioma", "Seleccionar idioma", "Select language");
   E("IA segura para ventas, soporte y operaciones", "IA segura para ventas, soporte y operaciones", "Secure AI for sales, support and operations");
-  E("Automatiza procesos clave con agentes de IA listos para generar clientes.", "Automatiza procesos clave con agentes de IA listos para generar clientes.", "Automate key processes with AI agents ready to generate customers.");
+  E("Automatiza procesos clave con agentes de IA listos para generar clientes", "Automatiza procesos clave con agentes de IA listos para generar clientes", "Automate key processes with AI agents ready to generate customers");
   E("Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimizacion de datos.", "Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimización de datos.", "We design multichannel assistants for WhatsApp, web and CRM that answer, qualify, book and escalate to your team. Real integrations with HubSpot, Zoho, Airtable, Notion and n8n, with GDPR/LOPD-GDD alignment and data minimization.");
   E("Ver servicios", "Ver servicios", "View services");
   E("Resultados promedio", "Resultados promedio", "Average results");
