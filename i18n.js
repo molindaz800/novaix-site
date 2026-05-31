@@ -4,7 +4,7 @@
   const entries = [];
   const E = (source, es, en) => entries.push({ source, es, en });
 
-  E("NOVAIX · Agentes IA, Automatizacion y Voz", "NOVAIX · Agentes IA, Automatización y Voz", "NOVAIX · AI Agents, Automation and Voice");
+  E("NOVAIX · Agentes de IA y Automatización para empresas", "NOVAIX · Agentes de IA y Automatización para empresas", "NOVAIX · AI Agents and Automation for Businesses");
   E("Agentes de IA y automatizacion para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.", "Agentes de IA y automatización para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.", "AI agents and automation for businesses: sales, support and multichannel operations with GDPR, LOPD-GDD, security and data encryption built in.");
   E("Saltar al contenido", "Saltar al contenido", "Skip to content");
   E("Navegacion principal", "Navegación principal", "Main navigation");

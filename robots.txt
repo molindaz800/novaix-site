@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /backup/
+Disallow: /android-app/
+Disallow: /index2.html
+Disallow: /Prueba.html
+
+Sitemap: https://novaix.es/sitemap.xml
