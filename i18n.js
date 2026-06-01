@@ -2,50 +2,56 @@
   const STORAGE_KEY = "novaix_language";
   const supportedLanguages = new Set(["es", "en"]);
   const entries = [];
-  const E = (source, es, en) => entries.push({ source, es, en });
+  let entryCounter = 0;
+  let externalCounter = 0;
+  const makeKey = (prefix, index) => `${prefix}.${String(index).padStart(3, "0")}`;
+  const E = (source, es, en, key) => {
+    entryCounter += 1;
+    entries.push({ key: key || makeKey("site", entryCounter), source, es, en });
+  };
 
-  E("NOVAIX · Agentes de IA y Automatización para empresas", "NOVAIX · Agentes de IA y Automatización para empresas", "NOVAIX · AI Agents and Automation for Businesses");
-  E("Agentes de IA y automatizacion para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.", "Agentes de IA y automatización para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.", "AI agents and automation for businesses: sales, support and multichannel operations with GDPR, LOPD-GDD, security and data encryption built in.");
-  E("Saltar al contenido", "Saltar al contenido", "Skip to content");
-  E("Navegacion principal", "Navegación principal", "Main navigation");
-  E("Abrir menu", "Abrir menú", "Open menu");
-  E("Ir al inicio", "Ir al inicio", "Go to home");
-  E("Beneficios", "Beneficios", "Benefits");
-  E("Seguridad", "Seguridad", "Security");
-  E("Ops Hub", "Ops Hub", "Ops Hub");
-  E("Servicios", "Servicios", "Services");
-  E("Casos", "Casos", "Cases");
-  E("Ejemplos", "Ejemplos", "Examples");
-  E("Tipos de ejemplos", "Tipos de ejemplos", "Example categories");
-  E("Casos por negocio", "Casos por negocio", "Use cases by business");
-  E("Landings sectoriales para gimnasios, clínicas, peluquerías y más.", "Landings sectoriales para gimnasios, clínicas, peluquerías y más.", "Sector landing pages for gyms, clinics, salons and more.");
-  E("Ejemplos en vídeo", "Ejemplos en vídeo", "Video examples");
-  E("Vídeos con casos reales, recorridos de producto y ejemplos de automatización.", "Vídeos con casos reales, recorridos de producto y ejemplos de automatización.", "Videos with real use cases, product walkthroughs and automation examples.");
-  E("Planes", "Planes", "Plans");
-  E("Quienes somos", "Quiénes somos", "About us");
-  E("Contacto", "Contacto", "Contact");
-  E("Legal", "Legal", "Legal");
-  E("Agendar cita", "Agendar cita", "Book a call");
-  E("Seleccionar idioma", "Seleccionar idioma", "Select language");
-  E("IA segura para ventas, soporte y operaciones", "IA segura para ventas, soporte y operaciones", "Secure AI for sales, support and operations");
-  E("Automatiza procesos clave con agentes de IA listos para generar clientes.", "Automatiza procesos clave con agentes de IA listos para generar clientes", "Automate key processes with AI agents ready to generate customers");
-  E("Automatiza procesos clave con agentes de IA listos para generar clientes", "Automatiza procesos clave con agentes de IA listos para generar clientes", "Automate key processes with AI agents ready to generate customers");
-  E("Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimizacion de datos.", "Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimización de datos.", "We design multichannel assistants for WhatsApp, web and CRM that answer, qualify, book and escalate to your team. Real integrations with HubSpot, Zoho, Airtable, Notion and n8n, with GDPR/LOPD-GDD alignment and data minimization.");
-  E("Ver servicios", "Ver servicios", "View services");
-  E("Resultados promedio", "Resultados promedio", "Average results");
-  E("Consultas resueltas sin agentes humanos.", "Consultas resueltas sin agentes humanos.", "Inquiries resolved without human agents.");
-  E("Back-office automatizado en clientes Pro.", "Back-office automatizado en clientes Pro.", "Back-office automated for Pro clients.");
-  E("2 semanas", "2 semanas", "2 weeks");
-  E("Tiempo medio de despliegue.", "Tiempo medio de despliegue.", "Average deployment time.");
-  E("Enfoque de seguridad y privacidad", "Enfoque de seguridad y privacidad", "Security and privacy approach");
-  E("Privacidad como ventaja competitiva:", "Privacidad como ventaja competitiva:", "Privacy as a competitive advantage:");
-  E("diseñamos agentes con enfoque RGPD y LOPD-GDD, minimizacion de datos y controles de seguridad desde el primer flujo.", "diseñamos agentes con enfoque RGPD y LOPD-GDD, minimización de datos y controles de seguridad desde el primer flujo.", "we design agents with a GDPR and LOPD-GDD approach, data minimization and security controls from the first workflow.");
-  E("RGPD + LOPD-GDD", "RGPD + LOPD-GDD", "GDPR + LOPD-GDD");
-  E("Cifrado en transito", "Cifrado en tránsito", "Encryption in transit");
-  E("Accesos por rol", "Accesos por rol", "Role-based access");
-  E("UE disponible", "UE disponible", "EU available");
-  E("Prueba social", "Prueba social", "Social proof");
-  E("Empresas que buscan automatizar confian en nuestro enfoque.", "Empresas que buscan automatizar confían en nuestro enfoque.", "Companies looking to automate trust our approach.");
+  E("NOVAIX · Agentes de IA y Automatización para empresas", "NOVAIX · Agentes de IA y Automatización para empresas", "NOVAIX · AI Agents and Automation for Businesses", "site.meta.title");
+  E("Agentes de IA y automatizacion para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.", "Agentes de IA y automatización para empresas: ventas, soporte y operaciones multicanal con enfoque RGPD, LOPD-GDD, seguridad y cifrado de datos.", "AI agents and automation for businesses: sales, support and multichannel operations with GDPR, LOPD-GDD, security and data encryption built in.", "site.meta.description");
+  E("Saltar al contenido", "Saltar al contenido", "Skip to content", "site.skip");
+  E("Navegacion principal", "Navegación principal", "Main navigation", "site.nav.label");
+  E("Abrir menu", "Abrir menú", "Open menu", "site.nav.open");
+  E("Ir al inicio", "Ir al inicio", "Go to home", "site.nav.home");
+  E("Beneficios", "Beneficios", "Benefits", "site.nav.benefits");
+  E("Seguridad", "Seguridad", "Security", "site.nav.security");
+  E("Ops Hub", "Ops Hub", "Ops Hub", "site.nav.ops");
+  E("Servicios", "Servicios", "Services", "site.nav.services");
+  E("Casos", "Casos", "Cases", "site.nav.cases");
+  E("Ejemplos", "Ejemplos", "Examples", "site.nav.examples");
+  E("Tipos de ejemplos", "Tipos de ejemplos", "Example categories", "site.nav.examples.menu");
+  E("Casos por negocio", "Casos por negocio", "Use cases by business", "site.nav.examples.business");
+  E("Landings sectoriales para gimnasios, clínicas, peluquerías y más.", "Landings sectoriales para gimnasios, clínicas, peluquerías y más.", "Sector landing pages for gyms, clinics, salons and more.", "site.nav.examples.businessDesc");
+  E("Ejemplos en vídeo", "Ejemplos en vídeo", "Video examples", "site.nav.examples.video");
+  E("Vídeos con casos reales, recorridos de producto y ejemplos de automatización.", "Vídeos con casos reales, recorridos de producto y ejemplos de automatización.", "Videos with real use cases, product walkthroughs and automation examples.", "site.nav.examples.videoDesc");
+  E("Planes", "Planes", "Plans", "site.nav.plans");
+  E("Quienes somos", "Quiénes somos", "About us", "site.nav.about");
+  E("Contacto", "Contacto", "Contact", "site.nav.contact");
+  E("Legal", "Legal", "Legal", "site.nav.legal");
+  E("Agendar cita", "Agendar cita", "Book a call", "site.cta.book");
+  E("Seleccionar idioma", "Seleccionar idioma", "Select language", "site.language.select");
+  E("IA segura para ventas, soporte y operaciones", "IA segura para ventas, soporte y operaciones", "Secure AI for sales, support and operations", "site.hero.eyebrow");
+  E("Automatiza procesos clave con agentes de IA listos para generar clientes.", "Automatiza procesos clave con agentes de IA listos para generar clientes", "Automate key processes with AI agents ready to generate customers", "site.hero.titleLegacy");
+  E("Automatiza procesos clave con agentes de IA listos para generar clientes", "Automatiza procesos clave con agentes de IA listos para generar clientes", "Automate key processes with AI agents ready to generate customers", "site.hero.title");
+  E("Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimizacion de datos.", "Diseñamos asistentes multicanal para WhatsApp, web y CRM que atienden, cualifican, reservan y escalan a tu equipo. Integraciones reales con HubSpot, Zoho, Airtable, Notion y n8n, con enfoque RGPD/LOPD-GDD y minimización de datos.", "We design multichannel assistants for WhatsApp, web and CRM that answer, qualify, book and escalate to your team. Real integrations with HubSpot, Zoho, Airtable, Notion and n8n, with GDPR/LOPD-GDD alignment and data minimization.", "site.hero.subtitle");
+  E("Ver servicios", "Ver servicios", "View services", "site.hero.servicesCta");
+  E("Resultados promedio", "Resultados promedio", "Average results", "site.hero.resultsLabel");
+  E("Consultas resueltas sin agentes humanos.", "Consultas resueltas sin agentes humanos.", "Inquiries resolved without human agents.", "site.hero.statResolved");
+  E("Back-office automatizado en clientes Pro.", "Back-office automatizado en clientes Pro.", "Back-office automated for Pro clients.", "site.hero.statBackOffice");
+  E("2 semanas", "2 semanas", "2 weeks", "site.hero.statWeeks");
+  E("Tiempo medio de despliegue.", "Tiempo medio de despliegue.", "Average deployment time.", "site.hero.statDeploy");
+  E("Enfoque de seguridad y privacidad", "Enfoque de seguridad y privacidad", "Security and privacy approach", "site.hero.securityLabel");
+  E("Privacidad como ventaja competitiva:", "Privacidad como ventaja competitiva:", "Privacy as a competitive advantage:", "site.hero.privacyLead");
+  E("diseñamos agentes con enfoque RGPD y LOPD-GDD, minimizacion de datos y controles de seguridad desde el primer flujo.", "diseñamos agentes con enfoque RGPD y LOPD-GDD, minimización de datos y controles de seguridad desde el primer flujo.", "we design agents with a GDPR and LOPD-GDD approach, data minimization and security controls from the first workflow.", "site.hero.privacyBody");
+  E("RGPD + LOPD-GDD", "RGPD + LOPD-GDD", "GDPR + LOPD-GDD", "site.hero.badgeGdpr");
+  E("Cifrado en transito", "Cifrado en tránsito", "Encryption in transit", "site.hero.badgeEncryption");
+  E("Accesos por rol", "Accesos por rol", "Role-based access", "site.hero.badgeAccess");
+  E("UE disponible", "UE disponible", "EU available", "site.hero.badgeEu");
+  E("Prueba social", "Prueba social", "Social proof", "site.hero.socialLabel");
+  E("Empresas que buscan automatizar confian en nuestro enfoque.", "Empresas que buscan automatizar confían en nuestro enfoque.", "Companies looking to automate trust our approach.", "site.hero.socialText");
   E("Salud", "Salud", "Healthcare");
   E("Retail", "Retail", "Retail");
   E("SaaS", "SaaS", "SaaS");
@@ -453,18 +459,22 @@
 
   const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
   const lookup = new Map();
+  const keyLookup = new Map();
   const indexEntry = (entry) => {
+    if (entry.key) keyLookup.set(entry.key, entry);
     [entry.source, entry.es, entry.en].forEach((value) => {
       const key = normalize(value);
       if (key) lookup.set(key, entry);
     });
   };
+  const nextExternalKey = () => makeKey("extra", ++externalCounter);
   const registerTranslations = (items = []) => {
     items.forEach((item) => {
       const entry = Array.isArray(item)
-        ? { source: item[0], es: item[2] || item[0], en: item[1] || item[0] }
-        : { source: item.source, es: item.es || item.source, en: item.en || item.source };
+        ? { source: item[0], es: item[2] || item[0], en: item[1] || item[0], key: item[3] }
+        : { source: item.source, es: item.es || item.source, en: item.en || item.source, key: item.key };
       if (!entry.source) return;
+      if (!entry.key) entry.key = nextExternalKey();
       entries.push(entry);
       indexEntry(entry);
     });
@@ -484,6 +494,11 @@
     return entry ? entry[lang] : value;
   }
 
+  function translateKey(key, lang = currentLanguage) {
+    const entry = keyLookup.get(key);
+    return entry ? entry[lang] : null;
+  }
+
   function preserveWhitespace(original, translated) {
     const start = original.match(/^\s*/)?.[0] || "";
     const end = original.match(/\s*$/)?.[0] || "";
@@ -499,8 +514,43 @@
     if (translated !== normalized) node.nodeValue = preserveWhitespace(original, translated);
   }
 
+  function setElementText(el, translated) {
+    const directTextNodes = Array.from(el.childNodes || []).filter((node) => node.nodeType === Node.TEXT_NODE);
+    const target = directTextNodes.find((node) => normalize(node.nodeValue));
+    if (target) {
+      target.nodeValue = preserveWhitespace(target.nodeValue || "", translated);
+      return true;
+    }
+    if (!el.children || el.children.length === 0) {
+      el.textContent = translated;
+      return true;
+    }
+    return false;
+  }
+
+  function translateKeyedElement(el, lang) {
+    if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;
+    let applied = false;
+    const textKey = el.getAttribute("data-i18n");
+    if (textKey) {
+      const translated = translateKey(textKey, lang);
+      if (translated !== null) applied = setElementText(el, translated) || applied;
+    }
+    Array.from(el.attributes || []).forEach((attr) => {
+      if (!attr.name.startsWith("data-i18n-attr-")) return;
+      const targetAttr = attr.name.slice("data-i18n-attr-".length);
+      const translated = translateKey(attr.value, lang);
+      if (translated !== null) {
+        el.setAttribute(targetAttr, translated);
+        applied = true;
+      }
+    });
+    return applied;
+  }
+
   function translateAttributes(el, lang) {
     if (!el || el.nodeType !== Node.ELEMENT_NODE) return;
+    translateKeyedElement(el, lang);
     translatableAttrs.forEach((attr) => {
       if (!el.hasAttribute(attr)) return;
       const original = el.getAttribute(attr);
@@ -540,7 +590,12 @@
 
   function translateHead(lang) {
     document.documentElement.lang = lang;
-    document.title = translateString(document.title, lang);
+    const title = document.querySelector("title");
+    if (title && title.hasAttribute("data-i18n")) {
+      translateKeyedElement(title, lang);
+    } else {
+      document.title = translateString(document.title, lang);
+    }
     document.querySelectorAll("meta[content]").forEach((meta) => translateAttributes(meta, lang));
   }
 
@@ -609,10 +664,12 @@
   }
 
   window.novaixT = translateString;
+  window.novaixTranslateKey = translateKey;
   window.novaixGetLanguage = () => currentLanguage;
   window.novaixSetLanguage = setLanguage;
   window.novaixTranslateNode = translateNode;
   window.novaixRegisterTranslations = registerTranslations;
+  window.novaixGetTranslations = () => entries.map((entry) => ({ ...entry }));
   if (Array.isArray(window.novaixExtraTranslations)) {
     registerTranslations(window.novaixExtraTranslations);
   }
