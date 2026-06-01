@@ -586,6 +586,7 @@
 
   <script src="landing-language.js"></script>
   <script src="i18n.js"></script>
+  <script src="landing-common.js"></script>
   <script>
     const nav = document.querySelector('.nav');
     const navHoverZone = document.querySelector('.nav-hover-zone');
@@ -635,26 +636,6 @@
     }, { passive: true });
     navHoverZone?.addEventListener('mouseenter', revealNav);
     nav?.addEventListener('mouseenter', revealNav);
-
-    document.querySelectorAll('.whatsapp-screen').forEach((widget) => {
-      const tabs = widget.querySelectorAll('[data-wa-tab]');
-      const panels = widget.querySelectorAll('[data-wa-panel]');
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-          const target = tab.dataset.waTab;
-          tabs.forEach((item) => {
-            const isActive = item === tab;
-            item.classList.toggle('is-active', isActive);
-            item.setAttribute('aria-selected', String(isActive));
-          });
-          panels.forEach((panel) => {
-            const isActive = panel.dataset.waPanel === target;
-            panel.classList.toggle('is-active', isActive);
-            panel.hidden = !isActive;
-          });
-        });
-      });
-    });
 
     function loadCalendly() {
       if (calendlyLoaded) return;

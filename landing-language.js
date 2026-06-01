@@ -1,6 +1,20 @@
 (() => {
   const translations = [];
-  const T = (source, en) => translations.push([source, en]);
+  const keyFor = (source) => {
+    let hash = 5381;
+    String(source || "").split("").forEach((char) => {
+      hash = ((hash << 5) + hash) ^ char.charCodeAt(0);
+    });
+    return `landing.${(hash >>> 0).toString(36)}`;
+  };
+  const T = (source, en, key) => {
+    translations.push({
+      key: key || keyFor(source),
+      source,
+      es: source,
+      en
+    });
+  };
 
   T(`Landing de NOVAIX para centros de belleza: reservas, bonos, tratamientos, recordatorios y seguimiento por WhatsApp.`, `NOVAIX landing page for beauty centers: bookings, gift vouchers, treatments, reminders and WhatsApp follow-up.`);
   T(`NOVAIX Centros de Belleza · Recepción IA 24/7`, `NOVAIX Beauty Centers · 24/7 AI Reception`);
