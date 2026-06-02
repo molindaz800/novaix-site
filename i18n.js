@@ -627,7 +627,21 @@
     select.value = currentLanguage;
     if (select.dataset.novaixLangBound === "true") return;
     select.dataset.novaixLangBound = "true";
-    select.addEventListener("change", () => setLanguage(select.value));
+    select.addEventListener("change", () => {
+      const nextLang = supportedLanguages.has(select.value) ? select.value : "es";
+      localStorage.setItem(STORAGE_KEY, nextLang);
+
+      const url = new URL(window.location.href);
+      const currentUrlLang = url.searchParams.get("lang");
+      url.searchParams.set("lang", nextLang);
+
+      if (currentUrlLang !== nextLang) {
+        window.location.assign(url.toString());
+        return;
+      }
+
+      setLanguage(nextLang);
+    });
   }
 
   function startObserver() {
