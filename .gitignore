@@ -11,3 +11,5 @@ imagenes/Logo empresa.jpeg
 imagenes/logo-empresa-planeta-cutout2.png
 generated/
 .atl/
+__pycache__/
+*.pyc
