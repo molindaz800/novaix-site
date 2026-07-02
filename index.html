@@ -3248,12 +3248,12 @@
               <div class="security-card">
                 <i class="fa-solid fa-file-contract"></i>
                 <strong>Encargados y proveedores</strong>
-                <span>Documentamos herramientas externas como Calendly, CRM, n8n o canales de mensajeria.</span>
+                <span>Documentamos herramientas externas como Calendly, CRM, n8n o canales de mensajería.</span>
               </div>
               <div class="security-card">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <strong>Guardrails de IA</strong>
-                <span>Limites de respuesta, escalado y revision humana para evitar usos fuera del alcance acordado.</span>
+                <span>Límites de respuesta, escalado y revisión humana para evitar usos fuera del alcance acordado.</span>
               </div>
             </div>
             <p class="security-footnote">Cada proyecto se ajusta al tratamiento real de datos: no prometemos una configuración unica, diseñamos el nivel de seguridad adecuado para tu negocio y sector.</p>
@@ -3312,7 +3312,7 @@
             <div class="nx-tx-head">
               <div class="nx-tx-title">
                 <h3>Transmisiones</h3>
-                <small id="nx-tx-sub">Canal cifrado · Esperando seleccion</small>
+                <small id="nx-tx-sub">Canal cifrado · Esperando selección</small>
               </div>
               <div class="nx-tx-chips">
                 <span class="nx-chip"><i class="fa-solid fa-lock"></i> Cifrado</span>
@@ -3325,7 +3325,7 @@
                 <div class="nx-spinner" aria-hidden="true"></div>
                 <div>
                   <div style="font-weight:1000;letter-spacing:.12em;text-transform:uppercase;color:#eaf2ff;">Loading…</div>
-                  <div style="margin-top:6px;">Selecciona un agente del sistema orbital para iniciar la transmision.</div>
+                  <div style="margin-top:6px;">Selecciona un agente del sistema orbital para iniciar la transmisión.</div>
                 </div>
               </div>
 
@@ -3693,7 +3693,7 @@
             </div>
           </div>
           <div class="quienes-content">
-            <h3>IA practica, cercana y con impacto real</h3>
+            <h3>IA práctica, cercana y con impacto real</h3>
             <p>En NOVAIX diseñamos agentes de IA que atienden emails, llamadas y chats, organizan citas, actualizan herramientas internas y ayudan a vender, responder y operar con menos friccion.</p>
             <p>Trabajamos cada proyecto desde la realidad del negocio: entendemos tus procesos, conectamos tus sistemas y acompañamos la puesta en marcha para que la tecnología se note en tiempo ahorrado, mejores respuestas y más oportunidades.</p>
             <div class="quienes-badges">
@@ -4437,7 +4437,7 @@
       });
     }
 
-    // Ambient glow (cursor spotlight en toda la pagina)
+    // Ambient glow (cursor spotlight en toda la página)
     if (finePointer.matches && !prefersReducedMotion.matches) {
       let glowRaf = 0;
       let lastX = 0;
@@ -4896,7 +4896,7 @@
 
       const AGENTS = [
         { id: 'SENTINEL', name: 'SENTINEL', role: 'Seguridad y RGPD', img: BLANK_IMG, video: 'videos/Sentinel.mp4', accent: '0,195,255', accent2: '122,240,255',
-          bullets: ['Control de acceso y roles.', 'Trazabilidad y auditoria.', 'Minimiza datos y aplica buenas prácticas.'],
+          bullets: ['Control de acceso y roles.', 'Trazabilidad y auditoría.', 'Minimiza datos y aplica buenas prácticas.'],
           log: [{ t: 'Validando permisos y politicas...', kind: 'ok' }, { t: 'Canal aislado por rol + tenant.', kind: 'ok' }, { t: 'Auditoria lista (eventos criticos).', kind: 'ok' }]
         },
         { id: 'PULSE', name: 'PULSE', role: 'Soporte omnicanal', img: BLANK_IMG, video: 'videos/Pulse.mp4', accent: '122,240,255', accent2: '0,195,255',
@@ -4985,7 +4985,7 @@
         finished.classList.remove('show');
         live.style.display = 'none';
         idle.style.display = 'grid';
-        txSub.textContent = t('Canal cifrado · Esperando seleccion');
+        txSub.textContent = t('Canal cifrado · Esperando selección');
         txStatus.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> ' + t('Loading');
         setAccent('0,195,255', '122,240,255');
         updateLinks(null);
@@ -5027,7 +5027,7 @@
 
         idle.style.display = 'none';
         live.style.display = 'grid';
-        txSub.textContent = `${t('Canal cifrado')} · ${a.name} ${t('en linea')}`;
+        txSub.textContent = `${t('Canal cifrado')} · ${a.name} ${t('en línea')}`;
         txStatus.innerHTML = '<i class="fa-solid fa-signal"></i> ' + t('Transmitiendo');
 
         if (liveImg) liveImg.src = a.img || BLANK_IMG;
@@ -5102,7 +5102,7 @@
           txStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + t('Finalizada');
           const endLine = document.createElement('span');
           endLine.className = 'ok';
-          endLine.textContent = `${stamp()} ${t('transmision: finalizada (OK)')}`;
+          endLine.textContent = `${stamp()} ${t('transmisión: finalizada (OK)')}`;
           liveLog.appendChild(endLine);
           liveLog.scrollTop = liveLog.scrollHeight;
           finished.classList.add('show');
@@ -5115,12 +5115,12 @@
 
       window.addEventListener('novaix:languagechange', () => {
         if (!selectedId) {
-          txSub.textContent = t('Canal cifrado · Esperando seleccion');
+          txSub.textContent = t('Canal cifrado · Esperando selección');
           return;
         }
         const activeAgent = AGENTS.find(x => x.id === selectedId);
         if (!activeAgent) return;
-        txSub.textContent = `${t('Canal cifrado')} · ${activeAgent.name} ${t('en linea')}`;
+        txSub.textContent = `${t('Canal cifrado')} · ${activeAgent.name} ${t('en línea')}`;
         liveRole.textContent = t(activeAgent.role);
       });
 

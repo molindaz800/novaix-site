@@ -9,3 +9,5 @@ index2.html
 videos/novaix[0-9]*.mp4
 imagenes/Logo empresa.jpeg
 imagenes/logo-empresa-planeta-cutout2.png
+generated/
+.atl/

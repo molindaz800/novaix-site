@@ -51,7 +51,7 @@
   T(`Atención inmediata`, `Immediate attention`);
   T(`Responde disponibilidad, precios orientativos, ubicación, bonos y preparación por WhatsApp o Instagram.`, `Answers availability, indicative prices, location, vouchers and preparation by WhatsApp or Instagram.`);
   T(`Reservas por tratamiento`, `Treatment-based bookings`);
-  T(`Agenda manicura, cejas, facial, masaje, depilacion o packs según duración y profesional.`, `Books manicures, brows, facials, massage, waxing or packages by duration and professional.`);
+  T(`Agenda manicura, cejas, facial, masaje, depilación o packs según duración y profesional.`, `Books manicures, brows, facials, massage, waxing or packages by duration and professional.`);
   T(`Bonos y packs`, `Vouchers and packages`);
   T(`Detecta compras de bonos regalo, packs y promociones aprobadas por el centro.`, `Detects purchases of gift vouchers, packages and center-approved promotions.`);
   T(`Recordatorios`, `Reminders`);
@@ -278,11 +278,11 @@
   T(`nombre, email, empresa o proyecto, fecha y hora de cita y cualquier información que facilites voluntariamente al agendar o contactar.`, `name, email, company or project, appointment date and time, and any information you voluntarily provide when booking or contacting us.`);
   T(`gestionar solicitudes, coordinar reuniones, responder consultas comerciales y preparar propuestas o demos de automatización e IA.`, `manage requests, coordinate meetings, answer commercial inquiries and prepare automation and AI proposals or demos.`);
   T(`consentimiento del usuario y medidas precontractuales cuando solicitas información o una reunión.`, `user consent and pre-contractual measures when you request information or a meeting.`);
-  T(`Calendly LLC como sistema de agenda. Puede implicar transferencias internacionales bajo Clausulas Contractuales Tipo. Política:`, `Calendly LLC as a scheduling system. It may involve international transfers under Standard Contractual Clauses. Policy:`);
-  T(`acceso, rectificacion, supresion, oposicion, limitacion y portabilidad escribiendo a`, `access, rectification, deletion, objection, restriction and portability by writing to`);
+  T(`Calendly LLC como sistema de agenda. Puede implicar transferencias internacionales bajo Cláusulas Contractuales Tipo. Política:`, `Calendly LLC as a scheduling system. It may involve international transfers under Standard Contractual Clauses. Policy:`);
+  T(`acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a`, `access, rectification, deletion, objection, restriction and portability by writing to`);
   T(`NOVAIX informa sobre servicios de automatización e IA conversacional. Los contenidos, textos, imágenes y elementos gráficos pertenecen a NOVAIX o se usan con licencia.`, `NOVAIX provides information about automation and conversational AI services. Content, texts, images and graphic elements belong to NOVAIX or are used under license.`);
   T(`Usamos cookies técnicas necesarias. Calendly se carga cuando solicitas expresamente abrir la agenda. Google Tag Manager y Meta Pixel se cargan tras tu consentimiento para medir la landing y mejorar campañas.`, `We use necessary technical cookies. Calendly loads when you expressly request to open the calendar. Google Tag Manager and Meta Pixel load after your consent to measure the landing and improve campaigns.`);
-  T(`Usamos Calendly, analitica (GTM) y Meta Pixel para medir la landing y gestionar citas.`, `We use Calendly, analytics (GTM) and Meta Pixel to measure the landing and manage appointments.`);
+  T(`Usamos Calendly, analítica (GTM) y Meta Pixel para medir la landing y gestionar citas.`, `We use Calendly, analytics (GTM) and Meta Pixel to measure the landing and manage appointments.`);
   T(`Ver política`, `View policy`);
 
   T(`Landing de NOVAIX para fisioterapia: recepción IA 24/7, primeras visitas, cambios de cita, recordatorios y derivación profesional.`, `NOVAIX landing page for physiotherapy: 24/7 AI reception, first visits, appointment changes, reminders and professional escalation.`);
@@ -430,7 +430,7 @@
   T(`Panel de seguimiento con volumen, respuestas, reservas, no-shows y oportunidades recuperadas.`, `Tracking dashboard with volume, replies, bookings, no-shows and recovered opportunities.`);
   T(`Google Calendar o agenda interna`, `Google Calendar or internal schedule`);
   T(`CRM, hojas de calculo o formulario web`, `CRM, spreadsheets or web form`);
-  T(`Email, llamadas y analitica`, `Email, calls and analytics`);
+  T(`Email, llamadas y analítica`, `Email, calls and analytics`);
   T(`Preguntas normales antes de automatizar un gimnasio`, `Common questions before automating a gym`);
   T(`La IA puede responder precios y promociones?`, `Can AI answer prices and promotions?`);
   T(`Sí, con reglas claras. Puede explicar planes, condiciones y promociones activas, y derivar a una persona cuando haya negociación, baja, incidencia o caso sensible.`, `Yes, with clear rules. It can explain plans, conditions and active promotions, and route to a person when there is negotiation, cancellation, incident or sensitive case.`);
