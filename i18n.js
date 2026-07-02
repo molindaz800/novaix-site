@@ -648,7 +648,31 @@
     window.dispatchEvent(new CustomEvent("novaix:languagechange", { detail: { lang } }));
   }
 
+  function pathLanguage() {
+    return window.location.pathname === "/en" || window.location.pathname.startsWith("/en/") ? "en" : "es";
+  }
+
+  function localizedUrl(lang) {
+    const url = new URL(window.location.href);
+    const isEnglishPath = url.pathname === "/en" || url.pathname.startsWith("/en/");
+    url.searchParams.delete("lang");
+    if (lang === "en") {
+      if (!isEnglishPath) {
+        const normalized = url.pathname === "/" || url.pathname === "" ? "/index.html" : url.pathname;
+        url.pathname = `/en${normalized}`.replace(/\/index\.html$/, "/");
+      }
+      return url.toString();
+    }
+    if (isEnglishPath) {
+      url.pathname = url.pathname.replace(/^\/en(?=\/|$)/, "") || "/";
+      url.pathname = url.pathname.replace(/\/index\.html$/, "/");
+    }
+    return url.toString();
+  }
+
   function getInitialLanguage() {
+    const urlLang = pathLanguage();
+    if (urlLang === "en") return "en";
     const params = new URLSearchParams(window.location.search);
     const fromUrl = params.get("lang");
     if (supportedLanguages.has(fromUrl)) return fromUrl;
@@ -666,16 +690,11 @@
     select.addEventListener("change", () => {
       const nextLang = supportedLanguages.has(select.value) ? select.value : "es";
       localStorage.setItem(STORAGE_KEY, nextLang);
-
-      const url = new URL(window.location.href);
-      const currentUrlLang = url.searchParams.get("lang");
-      url.searchParams.set("lang", nextLang);
-
-      if (currentUrlLang !== nextLang) {
-        window.location.assign(url.toString());
+      const targetUrl = localizedUrl(nextLang);
+      if (targetUrl !== window.location.href) {
+        window.location.assign(targetUrl);
         return;
       }
-
       setLanguage(nextLang);
     });
   }
@@ -706,7 +725,20 @@
     });
   }
 
+  function redirectLegacyLanguageParam() {
+    const params = new URLSearchParams(window.location.search);
+    const requestedLang = params.get("lang");
+    if (!supportedLanguages.has(requestedLang)) return false;
+    const targetUrl = localizedUrl(requestedLang);
+    if (targetUrl !== window.location.href) {
+      window.location.replace(targetUrl);
+      return true;
+    }
+    return false;
+  }
+
   function init() {
+    if (redirectLegacyLanguageParam()) return;
     currentLanguage = getInitialLanguage();
     bindSelector();
     setLanguage(currentLanguage, { skipStorage: true });

@@ -3,72 +3,142 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://novaix.es/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-facebook.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-facebook.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-facebook.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-facebook.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-facebook.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-facebook.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-negocios.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-negocios.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-negocios.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-negocios.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-negocios.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-negocios.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-gimnasios.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-gimnasios.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-gimnasios.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-gimnasios.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-gimnasios.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-gimnasios.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-clinicas-esteticas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-clinicas-esteticas.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-clinicas-esteticas.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-clinicas-esteticas.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-clinicas-esteticas.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-clinicas-esteticas.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-peluquerias.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-peluquerias.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-peluquerias.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-peluquerias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-peluquerias.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-peluquerias.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-talleres.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-talleres.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-talleres.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-talleres.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-talleres.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-talleres.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-inmobiliarias.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-inmobiliarias.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-inmobiliarias.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-inmobiliarias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-inmobiliarias.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-inmobiliarias.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-centros-belleza.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-centros-belleza.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-centros-belleza.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-centros-belleza.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-centros-belleza.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-centros-belleza.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://novaix.es/landing-fisioterapia.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-fisioterapia.html?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/landing-fisioterapia.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-fisioterapia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-fisioterapia.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-fisioterapia.html" />
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-facebook.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-facebook.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-facebook.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-facebook.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-negocios.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-negocios.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-negocios.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-negocios.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-gimnasios.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-gimnasios.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-gimnasios.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-gimnasios.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-clinicas-esteticas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-clinicas-esteticas.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-clinicas-esteticas.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-clinicas-esteticas.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-peluquerias.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-peluquerias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-peluquerias.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-peluquerias.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-talleres.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-talleres.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-talleres.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-talleres.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-inmobiliarias.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-inmobiliarias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-inmobiliarias.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-inmobiliarias.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-centros-belleza.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-centros-belleza.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-centros-belleza.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-centros-belleza.html" />
+    <lastmod>2026-07-02</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/en/landing-fisioterapia.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-fisioterapia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-fisioterapia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-fisioterapia.html" />
+    <lastmod>2026-07-02</lastmod>
   </url>
 </urlset>

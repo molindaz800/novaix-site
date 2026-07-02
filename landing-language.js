@@ -802,8 +802,9 @@
     }
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get("lang");
+    const pathLang = window.location.pathname === "/en" || window.location.pathname.startsWith("/en/") ? "en" : "es";
     const storedLang = localStorage.getItem("novaix_language");
-    const lang = ["es", "en"].includes(urlLang) ? urlLang : (["es", "en"].includes(storedLang) ? storedLang : "es");
+    const lang = pathLang === "en" ? "en" : (["es", "en"].includes(urlLang) ? urlLang : (["es", "en"].includes(storedLang) ? storedLang : "es"));
     label.querySelector("select").value = lang;
   }
 
