@@ -4896,43 +4896,43 @@
       }
 
       const AGENTS = [
-        { id: 'SENTINEL', name: 'SENTINEL', role: 'Seguridad y RGPD', img: BLANK_IMG, video: 'videos/Sentinel.mp4', accent: '0,195,255', accent2: '122,240,255',
+        { id: 'SENTINEL', name: 'SENTINEL', role: 'Seguridad y RGPD', img: BLANK_IMG, video: '../videos/Sentinel.mp4', accent: '0,195,255', accent2: '122,240,255',
           bullets: ['Control de acceso y roles.', 'Trazabilidad y auditoría.', 'Minimiza datos y aplica buenas prácticas.'],
           log: [{ t: 'Validando permisos y politicas...', kind: 'ok' }, { t: 'Canal aislado por rol + tenant.', kind: 'ok' }, { t: 'Auditoria lista (eventos criticos).', kind: 'ok' }]
         },
-        { id: 'PULSE', name: 'PULSE', role: 'Soporte omnicanal', img: BLANK_IMG, video: 'videos/Pulse.mp4', accent: '122,240,255', accent2: '0,195,255',
+        { id: 'PULSE', name: 'PULSE', role: 'Soporte omnicanal', img: BLANK_IMG, video: '../videos/Pulse.mp4', accent: '122,240,255', accent2: '0,195,255',
           bullets: ['Filtra y califica consultas.', 'Escala a humano con historial.', 'Registra datos en CRM.'],
           log: [{ t: 'Ruteando consultas por intencion...', kind: 'ok' }, { t: 'Contexto + historial anexado.', kind: 'ok' }, { t: 'Registro en CRM sincronizado.', kind: 'ok' }]
         },
-        { id: 'CHRONOS', name: 'CHRONOS', role: 'Agenda y citas', img: BLANK_IMG, video: 'videos/Chronos.mp4', accent: '64,255,210', accent2: '0,195,255',
+        { id: 'CHRONOS', name: 'CHRONOS', role: 'Agenda y citas', img: BLANK_IMG, video: '../videos/Chronos.mp4', accent: '64,255,210', accent2: '0,195,255',
           bullets: ['Reprogramacion inteligente.', 'Sincroniza calendarios.', 'Evita ausencias con avisos.'],
           log: [{ t: 'Slot-check en tiempo real...', kind: 'ok' }, { t: 'Confirmacion enviada al cliente.', kind: 'ok' }, { t: 'Recordatorio + reprogramacion activa.', kind: 'ok' }]
         },
-        { id: 'SYNAPSE', name: 'SYNAPSE', role: 'CRM y operaciones', img: BLANK_IMG, video: 'videos/Synapse.mp4', accent: '160,120,255', accent2: '122,240,255',
+        { id: 'SYNAPSE', name: 'SYNAPSE', role: 'CRM y operaciones', img: BLANK_IMG, video: '../videos/Synapse.mp4', accent: '160,120,255', accent2: '122,240,255',
           bullets: ['Actualiza contactos y tareas.', 'Gestiona estados y etiquetas.', 'Organiza historial con notas claras.'],
           log: [{ t: 'Actualizando pipeline y etiquetas...', kind: 'ok' }, { t: 'Normalizacion de campos aplicada.', kind: 'ok' }, { t: 'Back-office alineado con n8n.', kind: 'ok' }]
         },
-        { id: 'AURA', name: 'AURA', role: 'Reseñas y reputación', img: BLANK_IMG, video: 'videos/Aura.mp4', accent: '255,120,210', accent2: '122,240,255',
+        { id: 'AURA', name: 'AURA', role: 'Reseñas y reputación', img: BLANK_IMG, video: '../videos/Aura.mp4', accent: '255,120,210', accent2: '122,240,255',
           bullets: ['Solicita y gestiona reseñas.', 'Detecta incidencias.', 'Mejora valoraciones con seguimiento.'],
           log: [{ t: 'Detectando sentimiento y urgencia...', kind: 'ok' }, { t: 'Plantillas de respuesta por tono de marca.', kind: 'ok' }, { t: 'Flujo de recuperación activado.', kind: 'ok' }]
         },
-        { id: 'FORGE', name: 'FORGE', role: 'Leads y ventas', img: BLANK_IMG, video: 'videos/Forge.mp4', accent: '255,181,62', accent2: '0,195,255',
+        { id: 'FORGE', name: 'FORGE', role: 'Leads y ventas', img: BLANK_IMG, video: '../videos/Forge.mp4', accent: '255,181,62', accent2: '0,195,255',
           bullets: ['Cualificación automática con scoring.', 'Seguimiento de prospectos.', 'Resumen listo para CRM.'],
           log: [{ t: 'Scoring aplicado (fit + intención).', kind: 'ok' }, { t: 'Lead enriquecido y priorizado.', kind: 'ok' }, { t: 'Resumen comercial generado.', kind: 'ok' }]
         },
-        { id: 'SPARK', name: 'SPARK', role: 'Contenido y redes', img: BLANK_IMG, video: 'videos/Spark.mp4', accent: '255,90,90', accent2: '255,181,62',
+        { id: 'SPARK', name: 'SPARK', role: 'Contenido y redes', img: BLANK_IMG, video: '../videos/Spark.mp4', accent: '255,90,90', accent2: '255,181,62',
           bullets: ['Genera copys y piezas reutilizables.', 'Publica en horario óptimo.', 'Reusa formatos según canal.'],
           log: [{ t: 'Calendarización detectada...', kind: 'ok' }, { t: 'Creatividades adaptadas a canal.', kind: 'ok' }, { t: 'Publicación programada.', kind: 'ok' }]
         },
-        { id: 'ORACLE', name: 'ORACLE', role: 'Informes y KPIs', img: BLANK_IMG, video: 'videos/Oracle.mp4', accent: '0,255,170', accent2: '122,240,255',
+        { id: 'ORACLE', name: 'ORACLE', role: 'Informes y KPIs', img: BLANK_IMG, video: '../videos/Oracle.mp4', accent: '0,255,170', accent2: '122,240,255',
           bullets: ['Reporte semanal automático.', 'Alertas por caídas.', 'Recomendaciones accionables.'],
           log: [{ t: 'KPIs agregados (semana actual).', kind: 'ok' }, { t: 'Anomalías detectadas.', kind: 'warn' }, { t: 'Recomendación priorizada.', kind: 'ok' }]
         },
-        { id: 'LEDGER', name: 'LEDGER', role: 'Cobros y pagos', img: BLANK_IMG, video: 'videos/Ledger.mp4', accent: '100,200,255', accent2: '0,195,255',
+        { id: 'LEDGER', name: 'LEDGER', role: 'Cobros y pagos', img: BLANK_IMG, video: '../videos/Ledger.mp4', accent: '100,200,255', accent2: '0,195,255',
           bullets: ['Recordatorios automáticos.', 'Enlaces de pago rápidos.', 'Seguimiento por estado.'],
           log: [{ t: 'Enlace de pago generado.', kind: 'ok' }, { t: 'Recordatorio programado.', kind: 'ok' }, { t: 'Estado conciliado en back-office.', kind: 'ok' }]
         },
-        { id: 'PRIME', name: 'PRIME', role: 'Director de Operaciones IA', img: BLANK_IMG, video: 'videos/Prime.mp4', leader: true, accent: '255,181,62', accent2: '0,195,255',
+        { id: 'PRIME', name: 'PRIME', role: 'Director de Operaciones IA', img: BLANK_IMG, video: '../videos/Prime.mp4', leader: true, accent: '255,181,62', accent2: '0,195,255',
           bullets: ['Integra canales y herramientas clave.', 'Orquesta procesos end-to-end con reglas.', 'Sincroniza CRM y calendarios en vivo.', 'Supervisa ejecución con reporting.'],
           log: [{ t: 'Orquestación activada (canales + n8n)...', kind: 'ok' }, { t: 'Enrutado inteligente por prioridad.', kind: 'ok' }, { t: 'Observabilidad + reporting listo.', kind: 'ok' }]
         }

@@ -136,6 +136,15 @@ def rewrite_css_urls_for_en(value: str) -> str:
     return re.sub(r"url\((['\"]?)([^)'\"]+)\1\)", repl, value)
 
 
+def rewrite_script_assets_for_en(value: str) -> str:
+    """Rewrite root asset paths embedded in JavaScript string literals."""
+    return re.sub(
+        r"(?P<quote>['\"])(?P<path>(?:videos|imagenes|og)/[^'\"]+)(?P=quote)",
+        lambda match: f"{match.group('quote')}../{match.group('path')}{match.group('quote')}",
+        value,
+    )
+
+
 def page_slug(page: str) -> str:
     return "" if page == "index.html" else page
 
@@ -222,6 +231,8 @@ class EnglishRenderer(HTMLParser):
         raw = self.raw_tag()
         if raw == "style":
             self.out.append(rewrite_css_urls_for_en(data))
+        elif raw == "script":
+            self.out.append(rewrite_script_assets_for_en(data))
         elif raw:
             self.out.append(data)
         else:
