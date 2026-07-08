@@ -695,6 +695,10 @@
         window.location.assign(targetUrl);
         return;
       }
+      if (pathLanguage() === nextLang && currentLanguage !== nextLang) {
+        window.location.reload();
+        return;
+      }
       setLanguage(nextLang);
     });
   }
@@ -740,6 +744,10 @@
   function init() {
     if (redirectLegacyLanguageParam()) return;
     currentLanguage = getInitialLanguage();
+    if (pathLanguage() !== currentLanguage) {
+      window.location.replace(localizedUrl(currentLanguage));
+      return;
+    }
     bindSelector();
     setLanguage(currentLanguage, { skipStorage: true });
     startObserver();
