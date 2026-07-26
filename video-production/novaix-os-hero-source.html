@@ -588,6 +588,64 @@
     .impact.hero-background .node-comms { left: 145px; }
     .impact.hero-background .node-operations { right: 55px; }
     .impact.hero-background .node-integrations { right: 44px; }
+    .scene-content.cinematic-v6::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.25), transparent 18%, transparent 82%, rgba(0,0,0,0.28)),
+        repeating-linear-gradient(0deg, transparent 0 5px, rgba(109, 224, 255, 0.018) 5px 6px);
+      box-shadow: inset 0 0 150px rgba(0,0,0,0.48);
+      z-index: 20;
+    }
+    .boot.cinematic-v6 {
+      background:
+        radial-gradient(ellipse at 50% 72%, rgba(25, 145, 239, 0.22), transparent 32%),
+        radial-gradient(ellipse at 52% 58%, rgba(255, 112, 31, 0.12), transparent 20%),
+        linear-gradient(180deg, rgba(2, 8, 15, 0.08), rgba(2, 7, 13, 0.62));
+    }
+    .boot.cinematic-v6::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 56%;
+      width: 820px;
+      height: 330px;
+      transform: translate(-50%, -50%);
+      border-top: 1px solid rgba(75, 218, 255, 0.25);
+      border-bottom: 1px solid rgba(255, 130, 41, 0.18);
+      background: linear-gradient(90deg, transparent, rgba(9, 47, 78, 0.18), transparent);
+      box-shadow: 0 0 90px rgba(31, 166, 242, 0.09);
+    }
+    .boot.cinematic-v6 .brand-logo {
+      filter: drop-shadow(0 0 24px rgba(39, 196, 255, 0.36));
+    }
+    .impact.cinematic-v6 {
+      background:
+        radial-gradient(circle at 69% 52%, rgba(21, 144, 232, 0.29), transparent 27%),
+        radial-gradient(circle at 79% 53%, rgba(255, 101, 24, 0.14), transparent 26%),
+        linear-gradient(115deg, rgba(2, 8, 15, 0.42), transparent 55%);
+    }
+    .impact.cinematic-v6 .impact-stage {
+      filter: drop-shadow(0 28px 80px rgba(0, 0, 0, 0.28));
+    }
+    .impact.cinematic-v6 .impact-hud {
+      filter: drop-shadow(0 0 12px rgba(47, 207, 255, 0.24));
+    }
+    .outro.cinematic-v6 {
+      background:
+        radial-gradient(ellipse at 50% 46%, rgba(28, 155, 239, 0.2), transparent 29%),
+        radial-gradient(ellipse at 55% 51%, rgba(255, 112, 31, 0.1), transparent 24%),
+        linear-gradient(180deg, rgba(2, 8, 15, 0.18), rgba(2, 7, 13, 0.65));
+    }
+    .outro.cinematic-v6 .outro-card {
+      background: linear-gradient(90deg, transparent, rgba(5, 28, 47, 0.3), transparent);
+      box-shadow: 0 28px 100px rgba(0,0,0,0.24);
+    }
+    .outro.cinematic-v6 .outro-logo {
+      filter: drop-shadow(0 0 22px rgba(37, 194, 255, 0.3));
+    }
   </style>
 </head>
 <body>
@@ -704,10 +762,12 @@
     const scene = params.get("scene") || "boot";
     const active = params.get("active");
     const mode = params.get("mode");
+    const style = params.get("style");
     const selectedScene = document.querySelector(`[data-scene="${scene}"]`);
     selectedScene?.classList.add("is-active");
     if (scene === "impact" && active) selectedScene?.querySelector(".impact")?.classList.add(`active-${active}`);
     if (scene === "impact" && mode === "background") selectedScene?.querySelector(".impact")?.classList.add("hero-background");
+    if (style === "v6") selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
   </script>
 </body>
 </html>
