@@ -4596,6 +4596,11 @@
         document.getElementById('cookie-banner')?.classList.add('show');
         return;
       }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'schedule_cta_click',
+        cta_text: e?.currentTarget?.innerText?.trim() || 'Book a call'
+      });
       loadCalendlyScript();
       lastFocused = document.activeElement;
       calModal?.classList.add('open');
@@ -4812,6 +4817,14 @@
           });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const data = await res.json();
+          if (
+            localStorage.getItem('novaix_calendly_consent') === 'accepted'
+            && sessionStorage.getItem('novaix_chat_started_tracked') !== '1'
+          ) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'novaix_chat_started' });
+            sessionStorage.setItem('novaix_chat_started_tracked', '1');
+          }
           loading.remove();
           addMessage(data.reply || t('No he recibido respuesta de la IA. Intenta de nuevo.'), 'bot');
           setChatBusy(false);
