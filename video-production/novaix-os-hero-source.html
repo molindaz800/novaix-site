@@ -704,6 +704,121 @@
     .space-v8 .outro.cinematic-v6 {
       background: linear-gradient(180deg, rgba(0, 5, 14, 0.04), rgba(0, 5, 14, 0.3));
     }
+    .boot-v9-layout { display: none; }
+    .space-v9 .boot > div:not(.boot-v9-layout) { display: none; }
+    .space-v9 .boot-v9-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 100px 118px;
+      text-align: left;
+      z-index: 2;
+    }
+    .boot-v9-copy { position: relative; z-index: 4; width: 760px; }
+    .boot-v9-eyebrow {
+      color: #65e7ff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+    .boot-v9-logo {
+      width: 610px;
+      margin: 28px 0 34px;
+      filter: drop-shadow(0 0 24px rgba(45, 199, 255, 0.3));
+    }
+    .boot-v9-copy h1 {
+      width: 720px;
+      margin: 0;
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    .boot-v9-copy p {
+      margin: 22px 0 0;
+      color: #b9d0e5;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+    .boot-v9-tags { display: flex; gap: 10px; margin-top: 34px; }
+    .boot-v9-tags span {
+      padding: 10px 14px;
+      border: 1px solid rgba(103, 221, 255, 0.2);
+      background: rgba(3, 14, 28, 0.58);
+      color: #d9efff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+    .boot-v9-visual {
+      position: relative;
+      justify-self: center;
+      width: 590px;
+      height: 590px;
+      display: grid;
+      place-items: center;
+    }
+    .boot-v9-visual::before,
+    .boot-v9-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(77, 213, 255, 0.25);
+    }
+    .boot-v9-visual::before {
+      inset: 0;
+      background: repeating-conic-gradient(from 8deg, rgba(95, 224, 255, 0.36) 0 0.8deg, transparent 0.8deg 9deg);
+      mask: radial-gradient(circle, transparent 70%, #000 70.5% 72%, transparent 72.5%);
+    }
+    .boot-v9-visual::after {
+      inset: 72px;
+      border-color: rgba(255, 157, 77, 0.23);
+      box-shadow: 0 0 80px rgba(20, 150, 235, 0.18);
+    }
+    .boot-v9-core {
+      width: 310px;
+      height: 310px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-align: center;
+      background:
+        radial-gradient(circle at 31% 27%, #adf8ff 0%, #25baff 12%, #146ee5 30%, transparent 52%),
+        radial-gradient(circle at 72% 70%, #ffc078 0%, #ff7621 14%, #55172e 36%, #030a17 69%);
+      box-shadow: 0 0 75px rgba(42, 196, 255, 0.55), 35px 20px 120px rgba(255, 106, 30, 0.2), inset -35px -40px 70px rgba(0,0,0,0.48);
+    }
+    .boot-v9-core strong { display: block; font-size: 28px; letter-spacing: 5px; }
+    .boot-v9-core span { display: block; margin-top: 12px; color: #d7f7ff; font-size: 11px; letter-spacing: 3px; }
+    .boot-v9-axis {
+      position: absolute;
+      width: 520px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(75, 217, 255, 0.75), transparent);
+      transform: rotate(-24deg);
+      box-shadow: 0 0 12px rgba(67, 211, 255, 0.35);
+    }
+    .space-v9 .boot.cinematic-v6::before { display: none; }
+    .scene.space-v9::before {
+      inset: 0;
+      width: auto;
+      height: auto;
+      border: 0;
+      border-radius: 0;
+      transform: none;
+      box-shadow: none;
+    }
+    .space-v9.intro-pre .boot-v9-copy h1,
+    .space-v9.intro-pre .boot-v9-copy p,
+    .space-v9.intro-pre .boot-v9-tags {
+      opacity: 0.12;
+    }
+    .space-v9.intro-pre .boot-v9-visual {
+      opacity: 0.38;
+      transform: scale(0.92);
+    }
   </style>
 </head>
 <body>
@@ -714,6 +829,19 @@
         <div class="boot-kicker">LIQUID INTELLIGENCE</div>
         <div class="boot-line"></div>
         <div class="boot-status">INICIANDO ENTORNO OPERATIVO</div>
+      </div>
+      <div class="boot-v9-layout">
+        <div class="boot-v9-copy">
+          <div class="boot-v9-eyebrow">PRESENTAMOS</div>
+          <img class="boot-v9-logo" src="novaix-os-logo.png" alt="NOVAIX OS">
+          <h1>El sistema operativo digital de tu empresa</h1>
+          <p>Procesos, datos e inteligencia trabajando como un solo sistema.</p>
+          <div class="boot-v9-tags"><span>CLIENTES</span><span>OPERACIONES</span><span>COMUNICACIONES</span><span>HERRAMIENTAS</span></div>
+        </div>
+        <div class="boot-v9-visual">
+          <div class="boot-v9-axis"></div>
+          <div class="boot-v9-core"><div><strong>NOVAIX OS</strong><span>NÚCLEO DIGITAL</span></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -821,6 +949,7 @@
     const active = params.get("active");
     const mode = params.get("mode");
     const style = params.get("style");
+    const phase = params.get("phase");
     const selectedScene = document.querySelector(`[data-scene="${scene}"]`);
     selectedScene?.classList.add("is-active");
     if (scene === "impact" && active) selectedScene?.querySelector(".impact")?.classList.add(`active-${active}`);
@@ -832,6 +961,11 @@
     }
     if (style === "v8") {
       selectedScene?.classList.add("space-v8");
+      selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
+    }
+    if (style === "v9") {
+      selectedScene?.classList.add("space-v8", "space-v9");
+      if (phase === "pre") selectedScene?.classList.add("intro-pre");
       selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
     }
   </script>
