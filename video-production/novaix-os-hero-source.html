@@ -556,6 +556,38 @@
       border-left-color: #64e8ff;
       color: #c9f7ff;
     }
+    .impact.hero-background .impact-top,
+    .impact.hero-background .impact-copy,
+    .impact.hero-background .impact-footer {
+      display: none;
+    }
+    .impact.hero-background {
+      background:
+        linear-gradient(90deg, rgba(2, 7, 13, 0.82) 0%, rgba(2, 7, 13, 0.48) 38%, transparent 64%),
+        radial-gradient(circle at 70% 52%, rgba(21, 144, 232, 0.22), transparent 31%),
+        radial-gradient(circle at 88% 50%, rgba(255, 110, 24, 0.1), transparent 26%);
+    }
+    .impact.hero-background .impact-stage {
+      right: 0;
+      top: 72px;
+    }
+    .impact.hero-background .impact-node {
+      width: 218px;
+      min-height: 82px;
+      padding: 17px 20px;
+      background: linear-gradient(145deg, rgba(10, 23, 37, 0.88), rgba(4, 9, 16, 0.82));
+      backdrop-filter: blur(10px);
+    }
+    .impact.hero-background .impact-node b {
+      margin-bottom: 7px;
+      font-size: 9px;
+    }
+    .impact.hero-background .impact-node strong { font-size: 18px; }
+    .impact.hero-background .impact-node span { display: none; }
+    .impact.hero-background .node-clients { left: 170px; }
+    .impact.hero-background .node-comms { left: 145px; }
+    .impact.hero-background .node-operations { right: 55px; }
+    .impact.hero-background .node-integrations { right: 44px; }
   </style>
 </head>
 <body>
@@ -671,9 +703,11 @@
     const params = new URLSearchParams(location.search);
     const scene = params.get("scene") || "boot";
     const active = params.get("active");
+    const mode = params.get("mode");
     const selectedScene = document.querySelector(`[data-scene="${scene}"]`);
     selectedScene?.classList.add("is-active");
     if (scene === "impact" && active) selectedScene?.querySelector(".impact")?.classList.add(`active-${active}`);
+    if (scene === "impact" && mode === "background") selectedScene?.querySelector(".impact")?.classList.add("hero-background");
   </script>
 </body>
 </html>
