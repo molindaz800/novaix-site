@@ -677,6 +677,33 @@
         radial-gradient(ellipse at 50% 47%, rgba(17, 139, 230, 0.17), transparent 29%),
         linear-gradient(180deg, rgba(0, 5, 14, 0.08), rgba(0, 5, 14, 0.4));
     }
+    .scene.space-v8 {
+      background: #030b17;
+    }
+    .scene.space-v8::before {
+      background:
+        linear-gradient(180deg, rgba(1, 7, 16, 0.08), rgba(1, 6, 14, 0.3)),
+        url("novaix-os-space-bg-v8.png") center / cover no-repeat;
+      opacity: 1;
+      filter: saturate(0.82) brightness(0.74) contrast(1.08);
+    }
+    .scene.space-v8::after {
+      background:
+        radial-gradient(circle at 52% 48%, transparent 0 34%, rgba(0, 4, 12, 0.18) 72%, rgba(0, 3, 10, 0.44) 100%),
+        repeating-linear-gradient(0deg, transparent 0 6px, rgba(116, 220, 255, 0.01) 6px 7px);
+      mask-image: none;
+    }
+    .space-v8 .boot.cinematic-v6 {
+      background: linear-gradient(180deg, rgba(0, 5, 14, 0.05), rgba(0, 5, 14, 0.26));
+    }
+    .space-v8 .impact.cinematic-v6 {
+      background:
+        radial-gradient(circle at 69% 52%, rgba(13, 126, 225, 0.17), transparent 28%),
+        linear-gradient(90deg, rgba(0, 5, 14, 0.2), transparent 54%, rgba(0, 5, 14, 0.08));
+    }
+    .space-v8 .outro.cinematic-v6 {
+      background: linear-gradient(180deg, rgba(0, 5, 14, 0.04), rgba(0, 5, 14, 0.3));
+    }
   </style>
 </head>
 <body>
@@ -801,6 +828,10 @@
     if (style === "v6") selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
     if (style === "v7") {
       selectedScene?.classList.add("space-v7");
+      selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
+    }
+    if (style === "v8") {
+      selectedScene?.classList.add("space-v8");
       selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
     }
   </script>
