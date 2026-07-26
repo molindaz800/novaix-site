@@ -819,6 +819,175 @@
       opacity: 0.38;
       transform: scale(0.92);
     }
+    .flow-concept {
+      padding: 60px 76px;
+      background:
+        radial-gradient(circle at 50% 56%, rgba(24, 150, 240, 0.2), transparent 27%),
+        linear-gradient(90deg, rgba(0, 5, 14, 0.18), transparent 48%, rgba(0, 5, 14, 0.16));
+    }
+    .flow-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      border-bottom: 1px solid rgba(91, 220, 255, 0.17);
+    }
+    .flow-logo { width: 255px; }
+    .flow-step {
+      color: #bceeff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+    .flow-heading {
+      position: absolute;
+      left: 76px;
+      top: 170px;
+      width: 720px;
+      z-index: 4;
+    }
+    .flow-heading span {
+      color: #54ddff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+    .flow-heading h1 {
+      margin: 18px 0 0;
+      font-size: 48px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    .flow-heading h1 em { color: #40d7ff; font-style: normal; }
+    .flow-map {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      top: 390px;
+      height: 560px;
+    }
+    .flow-column {
+      position: absolute;
+      top: 18px;
+      width: 300px;
+      display: grid;
+      gap: 18px;
+    }
+    .flow-column.inputs { left: 0; }
+    .flow-column.outputs { right: 0; }
+    .flow-column-title {
+      margin-bottom: 4px;
+      color: #86a9c1;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+    .flow-node {
+      position: relative;
+      min-height: 78px;
+      padding: 17px 20px 15px 66px;
+      border: 1px solid rgba(91, 216, 255, 0.24);
+      background: linear-gradient(135deg, rgba(7, 24, 41, 0.92), rgba(3, 11, 22, 0.86));
+      box-shadow: 0 15px 40px rgba(0,0,0,0.24);
+    }
+    .flow-node::before {
+      content: attr(data-code);
+      position: absolute;
+      left: 17px;
+      top: 18px;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(76, 215, 255, 0.36);
+      color: #71e8ff;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .flow-node strong { display: block; font-size: 18px; }
+    .flow-node small { display: block; margin-top: 6px; color: #95aec3; font-size: 12px; }
+    .flow-column.outputs .flow-node {
+      border-color: rgba(255, 145, 63, 0.25);
+    }
+    .flow-column.outputs .flow-node::before {
+      border-color: rgba(255, 151, 79, 0.38);
+      color: #ffae70;
+    }
+    .flow-core-wrap {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      width: 500px;
+      height: 500px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+    }
+    .flow-core-wrap::before,
+    .flow-core-wrap::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(75, 215, 255, 0.25);
+    }
+    .flow-core-wrap::before {
+      inset: 0;
+      background: repeating-conic-gradient(from 0deg, rgba(94, 224, 255, 0.38) 0 0.7deg, transparent 0.7deg 8deg);
+      mask: radial-gradient(circle, transparent 72%, #000 72.5% 74%, transparent 74.5%);
+    }
+    .flow-core-wrap::after {
+      inset: 65px;
+      border-color: rgba(255, 147, 67, 0.23);
+    }
+    .flow-core {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-align: center;
+      background:
+        radial-gradient(circle at 30% 27%, #a9f6ff 0%, #24b8ff 12%, #126ce3 29%, transparent 51%),
+        radial-gradient(circle at 72% 70%, #ffc27c 0%, #ff7622 14%, #54162d 35%, #030a16 68%);
+      box-shadow: 0 0 70px rgba(43, 197, 255, 0.58), 35px 20px 120px rgba(255, 105, 30, 0.18), inset -35px -40px 70px rgba(0,0,0,0.46);
+      z-index: 3;
+    }
+    .flow-core strong { display: block; font-size: 28px; letter-spacing: 4px; }
+    .flow-core span { display: block; margin-top: 11px; color: #d9f8ff; font-size: 11px; letter-spacing: 3px; }
+    .flow-core b {
+      display: block;
+      margin-top: 20px;
+      color: #70e8ff;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+    .flow-link {
+      position: absolute;
+      height: 1px;
+      z-index: 1;
+      background: linear-gradient(90deg, transparent, rgba(75, 219, 255, 0.9), transparent);
+      box-shadow: 0 0 12px rgba(60, 210, 255, 0.42);
+      transform-origin: left center;
+    }
+    .flow-link.in-1 { left: 282px; top: 115px; width: 520px; transform: rotate(18deg); }
+    .flow-link.in-2 { left: 282px; top: 211px; width: 485px; transform: rotate(7deg); }
+    .flow-link.in-3 { left: 282px; top: 307px; width: 485px; transform: rotate(-7deg); }
+    .flow-link.in-4 { left: 282px; top: 403px; width: 520px; transform: rotate(-18deg); }
+    .flow-link.out-1 { left: 992px; top: 275px; width: 500px; transform: rotate(-19deg); background: linear-gradient(90deg, transparent, rgba(255, 145, 63, 0.9), transparent); }
+    .flow-link.out-2 { left: 992px; top: 275px; width: 455px; transform: rotate(-7deg); background: linear-gradient(90deg, transparent, rgba(255, 145, 63, 0.9), transparent); }
+    .flow-link.out-3 { left: 992px; top: 275px; width: 455px; transform: rotate(7deg); background: linear-gradient(90deg, transparent, rgba(255, 145, 63, 0.9), transparent); }
+    .flow-link.out-4 { left: 992px; top: 275px; width: 500px; transform: rotate(19deg); background: linear-gradient(90deg, transparent, rgba(255, 145, 63, 0.9), transparent); }
+    .flow-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      color: #b8d1e3;
+      font-size: 13px;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -932,6 +1101,39 @@
     </div>
   </section>
 
+  <section class="scene" data-scene="flow">
+    <div class="scene-content flow-concept">
+      <header class="flow-top">
+        <img class="flow-logo" src="novaix-os-logo.png" alt="NOVAIX OS">
+        <div class="flow-step">DE INFORMACIÓN DISPERSA A OPERACIÓN CONECTADA</div>
+      </header>
+      <div class="flow-heading">
+        <span>ASÍ FUNCIONA NOVAIX OS</span>
+        <h1>Todo entra en un único núcleo.<br><em>Todo vuelve convertido en acción.</em></h1>
+      </div>
+      <div class="flow-map">
+        <div class="flow-column inputs">
+          <div class="flow-column-title">CANALES DE ENTRADA</div>
+          <div class="flow-node" data-code="WA"><strong>WhatsApp</strong><small>Conversaciones y solicitudes</small></div>
+          <div class="flow-node" data-code="EM"><strong>Correo</strong><small>Mensajes y documentación</small></div>
+          <div class="flow-node" data-code="TL"><strong>Llamadas</strong><small>Atención y seguimiento</small></div>
+          <div class="flow-node" data-code="FR"><strong>Formularios y redes</strong><small>Leads, datos y contexto</small></div>
+        </div>
+        <div class="flow-link in-1"></div><div class="flow-link in-2"></div><div class="flow-link in-3"></div><div class="flow-link in-4"></div>
+        <div class="flow-core-wrap"><div class="flow-core"><div><strong>NOVAIX OS</strong><span>NÚCLEO OPERATIVO</span><b>UNIFICA · ENTIENDE · ACTIVA</b></div></div></div>
+        <div class="flow-link out-1"></div><div class="flow-link out-2"></div><div class="flow-link out-3"></div><div class="flow-link out-4"></div>
+        <div class="flow-column outputs">
+          <div class="flow-column-title">ÁREAS ACTIVADAS</div>
+          <div class="flow-node" data-code="CL"><strong>Clientes</strong><small>Contexto y seguimiento</small></div>
+          <div class="flow-node" data-code="OP"><strong>Operaciones</strong><small>Procesos y prioridades</small></div>
+          <div class="flow-node" data-code="CM"><strong>Comunicaciones</strong><small>Canales coordinados</small></div>
+          <div class="flow-node" data-code="HR"><strong>Herramientas</strong><small>Datos, APIs y automatización</small></div>
+        </div>
+        <div class="flow-caption">UNA SOLA OPERATIVA · INFORMACIÓN CONECTADA · DECISIONES CON CONTEXTO</div>
+      </div>
+    </div>
+  </section>
+
   <section class="scene outro" data-scene="outro">
     <div class="scene-content outro">
       <div class="outro-card">
@@ -966,6 +1168,10 @@
     if (style === "v9") {
       selectedScene?.classList.add("space-v8", "space-v9");
       if (phase === "pre") selectedScene?.classList.add("intro-pre");
+      selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
+    }
+    if (scene === "flow") {
+      selectedScene?.classList.add("space-v8");
       selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
     }
   </script>
