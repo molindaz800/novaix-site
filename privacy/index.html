@@ -4,153 +4,531 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Politica de Privacidad | NOVAIX</title>
-  <meta name="description" content="Politica de privacidad de NOVAIX y condiciones del tratamiento de datos personales.">
-  <link rel="canonical" href="https://novaix.es/privacy">
+  <meta name="description" content="Politica de privacidad de NOVAIX: responsable, finalidades, seguridad, conservacion y derechos de los usuarios.">
+  <link rel="canonical" href="https://novaix.es/privacy/">
   <link rel="icon" href="/favicon.ico">
   <style>
     :root {
       color-scheme: dark;
-      --background: #080b10;
-      --surface: #111720;
-      --border: #283241;
-      --text: #f4f7fb;
-      --muted: #b7c0cc;
-      --accent: #56d6e7;
+      --page: #070a0f;
+      --surface: #0e141d;
+      --surface-raised: #141c27;
+      --border: #283546;
+      --border-strong: #3a4a5f;
+      --text: #f5f7fa;
+      --muted: #aeb8c5;
+      --subtle: #788595;
+      --cyan: #58d8e7;
+      --orange: #ff9d36;
+      --success: #70d6a3;
+      --max-width: 1180px;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      background: var(--background);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
+    html {
+      scroll-behavior: smooth;
     }
 
-    header,
-    main,
-    footer {
-      width: min(820px, calc(100% - 40px));
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: #9aeaf2;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 10, 15, 0.96);
+    }
+
+    .header-inner,
+    .page-shell,
+    .site-footer-inner {
+      width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
     }
 
-    header {
+    .header-inner {
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    header a,
-    footer a,
-    main a {
-      color: var(--accent);
+      gap: 24px;
     }
 
     .brand {
-      color: var(--text);
-      font-size: 18px;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
     }
 
-    main {
-      padding: 56px 0 64px;
+    .brand img {
+      display: block;
+      width: 156px;
+      height: auto;
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(32px, 7vw, 48px);
-      line-height: 1.1;
-    }
-
-    h2 {
-      margin: 40px 0 12px;
-      font-size: 22px;
-    }
-
-    p,
-    li {
+    .header-link {
       color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
     }
 
-    .updated {
-      margin: 0 0 36px;
-      color: var(--muted);
+    .header-link:hover {
+      color: var(--text);
     }
 
-    .summary {
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
+    .document-header {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
       background: var(--surface);
     }
 
-    footer {
-      padding: 24px 0 40px;
-      border-top: 1px solid var(--border);
+    .document-header-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .document-intro {
+      max-width: 760px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .document-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 30px;
+      color: var(--subtle);
+      font-size: 14px;
+    }
+
+    .document-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-mark {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    .page-shell {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+      padding: 56px 0 80px;
+    }
+
+    .document-nav {
+      position: sticky;
+      top: 24px;
+      padding-right: 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .document-nav strong {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .document-nav a {
+      display: block;
+      padding: 6px 0;
       color: var(--muted);
       font-size: 14px;
+      text-decoration: none;
+    }
+
+    .document-nav a:hover {
+      color: var(--text);
+    }
+
+    .legal-document {
+      min-width: 0;
+    }
+
+    .controller {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
+      gap: 24px;
+      padding: 26px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-raised);
+    }
+
+    .controller h2 {
+      margin-top: 0;
+    }
+
+    .controller-data {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .controller-data li + li {
+      margin-top: 8px;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .check {
+      display: inline-grid;
+      flex: 0 0 24px;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border: 1px solid #36674f;
+      border-radius: 50%;
+      color: var(--success);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 24px;
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 25px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    p + p {
+      margin-top: 14px;
+    }
+
+    .rights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .right {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contact-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--orange);
+      background: var(--surface);
+    }
+
+    .contact-action span {
+      color: var(--muted);
+    }
+
+    .contact-action a {
+      flex: 0 0 auto;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .site-footer-inner {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--subtle);
+      font-size: 14px;
+    }
+
+    .site-footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .page-shell {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .document-nav {
+        position: static;
+        padding: 0 0 24px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        columns: 2;
+      }
+
+      .document-nav strong {
+        column-span: all;
+      }
+
+      .controller {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner,
+      .document-header-inner,
+      .page-shell,
+      .site-footer-inner {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .brand img {
+        width: 132px;
+      }
+
+      .document-header {
+        padding: 48px 0 40px;
+      }
+
+      .document-intro {
+        font-size: 16px;
+      }
+
+      .page-shell {
+        padding: 36px 0 56px;
+      }
+
+      .document-nav {
+        columns: 1;
+      }
+
+      .controller {
+        padding: 20px;
+      }
+
+      .rights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-action,
+      .site-footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-footer-inner {
+        justify-content: center;
+        padding: 24px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="/">NOVAIX</a>
-    <a href="/">Volver a novaix.es</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="NOVAIX, pagina principal">
+        <img src="/imagenes/texto.webp" alt="NOVAIX">
+      </a>
+      <a class="header-link" href="/">Volver a novaix.es</a>
+    </div>
   </header>
 
-  <main>
-    <h1>Politica de Privacidad</h1>
-    <p class="updated">Ultima actualizacion: 26 de julio de 2026</p>
-
-    <div class="summary">
-      <strong>Responsable del tratamiento</strong>
-      <p>
-        Daniel Molina Maquieira, nombre comercial NOVAIX.<br>
-        Contacto: <a href="mailto:info@novaix.es">info@novaix.es</a><br>
-        Sitio web: <a href="https://novaix.es">https://novaix.es</a>
-      </p>
+  <div class="document-header">
+    <div class="document-header-inner">
+      <p class="eyebrow">Transparencia y proteccion de datos</p>
+      <h1>Politica de Privacidad</h1>
+      <p class="document-intro">Explicamos de forma clara que datos tratamos, para que los utilizamos y como protegemos los derechos de las personas que confian en NOVAIX.</p>
+      <div class="document-meta">
+        <span><i class="meta-mark" aria-hidden="true"></i> Documento vigente</span>
+        <span>Ultima actualizacion: 26 de julio de 2026</span>
+        <span>Marco: RGPD y LOPD-GDD</span>
+      </div>
     </div>
+  </div>
 
-    <h2>Datos que recogemos</h2>
-    <p>Podemos recoger nombre y apellidos, correo electronico, empresa o proyecto, fecha y hora de una cita y la informacion que el usuario incluya voluntariamente en formularios, mensajes o solicitudes de reunion. No solicitamos datos especialmente protegidos.</p>
+  <main class="page-shell">
+    <nav class="document-nav" aria-label="Contenido de la politica">
+      <strong>Contenido</strong>
+      <a href="#responsable">Responsable</a>
+      <a href="#datos">Datos tratados</a>
+      <a href="#finalidades">Finalidades</a>
+      <a href="#base-juridica">Base juridica</a>
+      <a href="#proveedores">Proveedores</a>
+      <a href="#transferencias">Transferencias</a>
+      <a href="#conservacion">Conservacion</a>
+      <a href="#derechos">Derechos</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#ia">IA y datos</a>
+      <a href="#cambios">Actualizaciones</a>
+    </nav>
 
-    <h2>Finalidad del tratamiento</h2>
-    <p>Tratamos los datos para gestionar solicitudes de contacto y reuniones, responder consultas comerciales, coordinar servicios, prestar soporte y operar integraciones autorizadas por el usuario, incluidas las relacionadas con redes profesionales y herramientas empresariales.</p>
+    <article class="legal-document">
+      <section class="controller" id="responsable">
+        <div>
+          <h2>Responsable del tratamiento</h2>
+          <ul class="controller-data">
+            <li><strong>Daniel Molina Maquieira</strong></li>
+            <li>Nombre comercial: NOVAIX</li>
+            <li><a href="mailto:info@novaix.es">info@novaix.es</a></li>
+            <li><a href="https://novaix.es">https://novaix.es</a></li>
+          </ul>
+        </div>
+        <div class="trust-list" aria-label="Compromisos de privacidad">
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Minimizacion de datos</div>
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Acceso limitado</div>
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Proveedores revisados</div>
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Derechos garantizados</div>
+        </div>
+      </section>
 
-    <h2>Base juridica</h2>
-    <p>La base juridica es el consentimiento del usuario, la aplicacion de medidas precontractuales solicitadas y, cuando exista una relacion contractual, la ejecucion del contrato.</p>
+      <section id="datos">
+        <h2>Datos que tratamos</h2>
+        <p>Podemos recoger nombre y apellidos, correo electronico, empresa o proyecto, fecha y hora de una cita y la informacion que el usuario incluya voluntariamente en formularios, mensajes o solicitudes de reunion.</p>
+        <p>No solicitamos datos especialmente protegidos. Pedimos exclusivamente la informacion necesaria para atender cada solicitud o prestar el servicio acordado.</p>
+      </section>
 
-    <h2>Herramientas externas y destinatarios</h2>
-    <p>Utilizamos proveedores tecnologicos necesarios para prestar el servicio, como sistemas de agenda, correo, alojamiento, automatizacion, CRM e integraciones autorizadas. Estos proveedores actuan como encargados del tratamiento cuando corresponde. No cedemos datos a terceros salvo obligacion legal.</p>
+      <section id="finalidades">
+        <h2>Finalidades del tratamiento</h2>
+        <p>Tratamos los datos para gestionar solicitudes de contacto y reuniones, responder consultas comerciales, coordinar servicios, prestar soporte y operar integraciones autorizadas por el usuario, incluidas las relacionadas con redes profesionales y herramientas empresariales.</p>
+      </section>
 
-    <h2>Transferencias internacionales</h2>
-    <p>Algunos proveedores pueden tratar datos fuera del Espacio Economico Europeo. Cuando ocurre, se aplican mecanismos reconocidos por la normativa, como decisiones de adecuacion o Clausulas Contractuales Tipo.</p>
+      <section id="base-juridica">
+        <h2>Base juridica</h2>
+        <p>La base juridica es el consentimiento del usuario, la aplicacion de medidas precontractuales solicitadas y, cuando exista una relacion contractual, la ejecucion del contrato. Cuando una norma lo exige, el tratamiento tambien puede basarse en el cumplimiento de una obligacion legal.</p>
+      </section>
 
-    <h2>Conservacion</h2>
-    <p>Conservamos los datos mientras sean necesarios para la finalidad indicada, exista una relacion comercial o contractual, o deban mantenerse para cumplir obligaciones legales. Despues se eliminan o bloquean de forma segura.</p>
+      <section id="proveedores">
+        <h2>Proveedores y destinatarios</h2>
+        <p>Utilizamos proveedores tecnologicos necesarios para prestar el servicio, como sistemas de agenda, correo, alojamiento, automatizacion, CRM e integraciones expresamente autorizadas. Estos proveedores actuan como encargados del tratamiento cuando corresponde.</p>
+        <p>No vendemos datos personales ni los cedemos a terceros con fines publicitarios. Solo se comunican cuando resulta necesario para prestar el servicio o existe una obligacion legal.</p>
+      </section>
 
-    <h2>Derechos</h2>
-    <p>El usuario puede solicitar acceso, rectificacion, supresion, oposicion, limitacion y portabilidad escribiendo a <a href="mailto:info@novaix.es">info@novaix.es</a>. Tambien puede presentar una reclamacion ante la Agencia Espanola de Proteccion de Datos.</p>
+      <section id="transferencias">
+        <h2>Transferencias internacionales</h2>
+        <p>Algunos proveedores pueden tratar datos fuera del Espacio Economico Europeo. Cuando ocurre, aplicamos mecanismos reconocidos por la normativa, como decisiones de adecuacion o Clausulas Contractuales Tipo aprobadas por la Comision Europea.</p>
+      </section>
 
-    <h2>Seguridad</h2>
-    <p>Aplicamos medidas tecnicas y organizativas proporcionales al riesgo, entre ellas minimizacion de datos, control de accesos, revision de proveedores, cifrado en transito cuando el servicio lo permite y registro de eventos relevantes.</p>
+      <section id="conservacion">
+        <h2>Plazos de conservacion</h2>
+        <p>Conservamos los datos mientras sean necesarios para la finalidad indicada, exista una relacion comercial o contractual, o deban mantenerse para cumplir obligaciones legales. Despues se eliminan o bloquean de forma segura durante los plazos legalmente exigibles.</p>
+      </section>
 
-    <h2>Inteligencia artificial y datos del cliente</h2>
-    <p>Los datos facilitados para analizar solicitudes, preparar demostraciones, configurar agentes o ejecutar integraciones se utilizan unicamente para la finalidad acordada. No se emplean para entrenar modelos publicos sin autorizacion expresa.</p>
+      <section id="derechos">
+        <h2>Derechos de las personas</h2>
+        <p>Puedes ejercer gratuitamente los derechos reconocidos por la normativa de proteccion de datos:</p>
+        <div class="rights" aria-label="Derechos de proteccion de datos">
+          <div class="right">Acceso</div>
+          <div class="right">Rectificacion</div>
+          <div class="right">Supresion</div>
+          <div class="right">Oposicion</div>
+          <div class="right">Limitacion</div>
+          <div class="right">Portabilidad</div>
+        </div>
+        <p>Tambien puedes presentar una reclamacion ante la Agencia Espanola de Proteccion de Datos si consideras que el tratamiento no se ajusta a la normativa.</p>
+        <div class="contact-action">
+          <span>Para ejercer tus derechos, indica tu solicitud y los datos necesarios para identificarte.</span>
+          <a href="mailto:info@novaix.es">info@novaix.es</a>
+        </div>
+      </section>
 
-    <h2>Cambios en esta politica</h2>
-    <p>Podemos actualizar esta politica para reflejar cambios legales, tecnicos o de servicio. La version vigente estara disponible permanentemente en esta pagina.</p>
+      <section id="seguridad">
+        <h2>Seguridad de la informacion</h2>
+        <p>Aplicamos medidas tecnicas y organizativas proporcionales al riesgo, entre ellas minimizacion de datos, control de accesos, revision de proveedores, cifrado en transito cuando el servicio lo permite, separacion de credenciales y registro de eventos relevantes.</p>
+      </section>
+
+      <section id="ia">
+        <h2>Inteligencia artificial y datos del cliente</h2>
+        <p>Los datos facilitados para analizar solicitudes, preparar demostraciones, configurar agentes o ejecutar integraciones se utilizan unicamente para la finalidad acordada. No se emplean para entrenar modelos publicos sin autorizacion expresa.</p>
+      </section>
+
+      <section id="cambios">
+        <h2>Actualizaciones de esta politica</h2>
+        <p>Podemos actualizar esta politica para reflejar cambios legales, tecnicos o de servicio. La version vigente estara disponible permanentemente en esta pagina, junto con la fecha de su ultima actualizacion.</p>
+      </section>
+    </article>
   </main>
 
-  <footer>
-    © 2026 NOVAIX. Todos los derechos reservados.
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>© 2026 NOVAIX. Todos los derechos reservados.</span>
+      <a href="/">novaix.es</a>
+    </div>
   </footer>
 </body>
 </html>
