@@ -145,4 +145,40 @@
     <loc>https://novaix.es/privacy/</loc>
     <lastmod>2026-07-26</lastmod>
   </url>
+  <url>
+    <loc>https://novaix.es/landing-transporte.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-transporte.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-transporte.html" />
+    <lastmod>2026-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/landing-clinicas-dentales.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-clinicas-dentales.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-clinicas-dentales.html" />
+    <lastmod>2026-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/landing-veterinarias.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-veterinarias.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-veterinarias.html" />
+    <lastmod>2026-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/landing-asesorias-gestorias.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-asesorias-gestorias.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-asesorias-gestorias.html" />
+    <lastmod>2026-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/landing-academias.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-academias.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-academias.html" />
+    <lastmod>2026-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://novaix.es/landing-reformas-servicios.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/landing-reformas-servicios.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/landing-reformas-servicios.html" />
+    <lastmod>2026-07-26</lastmod>
+  </url>
 </urlset>
