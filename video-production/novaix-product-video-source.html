@@ -180,6 +180,114 @@
     .activity-item:nth-child(2) .activity-dot { background: #ff953f; box-shadow: 0 0 12px #ff953f; }
     .activity-item strong { display: block; font-size: 11px; }
     .activity-item span { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; }
+    .app-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 48px 20px 14px;
+      border-bottom: 1px solid rgba(88,215,255,.12);
+    }
+    .icon-button {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(96,215,255,.18);
+      background: rgba(8,25,42,.7);
+      color: #c9efff;
+    }
+    .icon-button svg { width: 16px; height: 16px; }
+    .app-toolbar-title { flex: 1; }
+    .app-toolbar-title strong { display: block; font-size: 13px; }
+    .app-toolbar-title span { display: block; margin-top: 3px; color: var(--muted); font-size: 9px; }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 15px 18px 10px;
+      padding: 11px 12px;
+      border: 1px solid rgba(86,212,255,.14);
+      background: rgba(4,15,28,.72);
+      color: #7890a4;
+      font-size: 10px;
+    }
+    .search-box svg { width: 14px; }
+    .channel-tabs { display: flex; gap: 7px; padding: 0 18px 12px; }
+    .channel-tab { padding: 7px 9px; border: 1px solid rgba(255,255,255,.08); color: #91a8bb; font-size: 8px; }
+    .channel-tab.active { border-color: rgba(66,216,255,.34); background: rgba(36,173,230,.12); color: #d8f8ff; }
+    .conversation-list { padding: 0 14px 76px; }
+    .conversation {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 13px 6px;
+      border-bottom: 1px solid rgba(255,255,255,.055);
+    }
+    .channel-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(39,186,235,.13);
+      color: #61e3ff;
+    }
+    .channel-icon.orange { background: rgba(255,126,45,.13); color: #ff9e56; }
+    .channel-icon svg { width: 16px; height: 16px; }
+    .conversation strong { display: block; font-size: 10px; }
+    .conversation span { display: block; max-width: 220px; margin-top: 4px; color: #8da4b8; font-size: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .conversation time { color: #6f879b; font-size: 7px; }
+    .unread { display: inline-grid; place-items: center; width: 16px; height: 16px; margin-top: 5px; border-radius: 50%; background: #35ccec; color: #02101a; font-size: 7px; font-weight: 800; }
+    .bottom-nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 66px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid rgba(87,214,255,.13);
+      background: rgba(3,10,20,.96);
+    }
+    .nav-action { display: grid; place-items: center; align-content: center; gap: 4px; color: #71899e; font-size: 7px; }
+    .nav-action.active { color: #4bdfff; }
+    .nav-action svg { width: 16px; height: 16px; }
+    .customer-header { padding: 18px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .customer-name { display: flex; align-items: center; gap: 12px; }
+    .avatar { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(145deg,#1a9ed3,#1353ae); font-size: 13px; font-weight: 800; }
+    .customer-name strong { display: block; font-size: 13px; }
+    .customer-name span { display: block; margin-top: 4px; color: #59e5b5; font-size: 8px; }
+    .customer-actions { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 14px; }
+    .customer-action { display: grid; place-items: center; gap: 5px; padding: 10px 4px; border: 1px solid rgba(80,211,255,.14); color: #a9c4d8; font-size: 7px; }
+    .customer-action svg { width: 15px; color: #54dfff; }
+    .timeline { padding: 14px 18px 78px; }
+    .timeline-title { color: #8ba3b7; font-size: 8px; font-weight: 700; letter-spacing: 2px; }
+    .timeline-event { position: relative; margin-left: 9px; padding: 13px 0 13px 22px; border-left: 1px solid rgba(80,213,255,.18); }
+    .timeline-event::before { content: ""; position: absolute; left: -4px; top: 18px; width: 7px; height: 7px; border-radius: 50%; background: #45ddff; box-shadow: 0 0 9px #45ddff; }
+    .timeline-event.orange::before { background: #ff913d; box-shadow: 0 0 9px #ff913d; }
+    .timeline-event strong { display: block; font-size: 9px; }
+    .timeline-event span { display: block; margin-top: 4px; color: #859caf; font-size: 8px; line-height: 1.35; }
+    .timeline-event time { display: block; margin-top: 4px; color: #597084; font-size: 7px; }
+    .liquid-panel {
+      margin: 14px 16px;
+      padding: 17px;
+      border: 1px solid rgba(94,222,255,.28);
+      background: linear-gradient(145deg, rgba(18,47,81,.95), rgba(12,15,48,.94));
+      box-shadow: 0 20px 50px rgba(0,0,0,.32), inset 0 0 35px rgba(66,208,255,.05);
+    }
+    .liquid-panel-head { display: flex; align-items: center; gap: 9px; }
+    .liquid-mini { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 35% 30%,#87f2ff,#345dff 42%,#231341 75%); box-shadow: 0 0 16px rgba(74,218,255,.5); }
+    .liquid-mini svg { width: 14px; }
+    .liquid-panel-head strong { display: block; font-size: 10px; }
+    .liquid-panel-head span { display: block; margin-top: 3px; color: #7ce8ff; font-size: 7px; letter-spacing: 1px; }
+    .liquid-panel h4 { margin: 15px 0 0; font-size: 15px; line-height: 1.3; }
+    .liquid-panel p { margin: 8px 0 0; color: #a8c2d8; font-size: 9px; line-height: 1.45; }
+    .confidence { display: flex; justify-content: space-between; margin-top: 13px; color: #8ca8bd; font-size: 7px; }
+    .confidence b { color: #5ae7ba; }
+    .liquid-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .liquid-button { padding: 10px; border: 1px solid rgba(255,255,255,.1); color: #a8bfd2; text-align: center; font-size: 8px; }
+    .liquid-button.primary { border-color: #4bdfff; background: rgba(49,199,238,.15); color: #e6fbff; }
     .product-copy h2 { margin: 20px 0 0; font-size: 64px; line-height: 1.1; letter-spacing: 0; }
     .product-copy h2 span { color: var(--cyan); }
     .product-copy p { width: 700px; margin: 25px 0 0; color: #b7cce0; font-size: 21px; line-height: 1.55; }
@@ -263,6 +371,13 @@
     .close h2 { margin: 34px 0 0; font-size: 44px; font-weight: 500; letter-spacing: 0; }
     .close h2 span { color: var(--cyan); }
     .close p { margin: 20px 0 0; color: #9eb6ca; font-size: 17px; letter-spacing: 3px; }
+    .real-demo-copy .demo-sequence { display: grid; gap: 12px; width: 720px; margin-top: 30px; }
+    .demo-row { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 14px; padding: 15px 17px; border: 1px solid rgba(80,211,255,.14); background: rgba(4,17,32,.68); }
+    .demo-row-icon { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(75,217,255,.24); color: #54dfff; }
+    .demo-row-icon svg { width: 18px; }
+    .demo-row strong { display: block; font-size: 14px; }
+    .demo-row span { display: block; margin-top: 5px; color: #8fa7bb; font-size: 11px; }
+    .demo-state { color: #5ae6b6; font-size: 9px; font-weight: 700; letter-spacing: 1px; }
   </style>
 </head>
 <body>
@@ -314,49 +429,123 @@
     <div class="frame product-layout">
       <div class="phone">
         <div class="screen">
-          <div class="mobile-head"><div class="mobile-brand">CLIENTE / 0248</div><small>Historial operativo unificado</small></div>
-          <div class="health"><div class="health-row"><strong>Prioridad comercial</strong><b>ALTA</b></div><div class="health-line"></div></div>
-          <div class="mobile-activity">
-            <div class="activity-item"><i class="activity-dot"></i><div><strong>Mensaje recibido</strong><span>WhatsApp · hace 4 min</span></div></div>
-            <div class="activity-item"><i class="activity-dot"></i><div><strong>Oportunidad detectada</strong><span>Liquid recomienda seguimiento</span></div></div>
-            <div class="activity-item"><i class="activity-dot"></i><div><strong>Tarea creada</strong><span>Asignada al equipo comercial</span></div></div>
-            <div class="activity-item"><i class="activity-dot"></i><div><strong>Contexto disponible</strong><span>Correo, llamadas y documentos</span></div></div>
+          <div class="app-toolbar">
+            <button class="icon-button"><i data-lucide="chevron-left"></i></button>
+            <div class="app-toolbar-title"><strong>María López</strong><span>Cliente · Oportunidad activa</span></div>
+            <button class="icon-button"><i data-lucide="more-horizontal"></i></button>
           </div>
+          <div class="customer-header">
+            <div class="customer-name"><div class="avatar">ML</div><div><strong>María López</strong><span>● Activa ahora</span></div></div>
+            <div class="customer-actions">
+              <div class="customer-action"><i data-lucide="message-circle"></i>Mensaje</div>
+              <div class="customer-action"><i data-lucide="phone"></i>Llamar</div>
+              <div class="customer-action"><i data-lucide="calendar-plus"></i>Tarea</div>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="timeline-title">ACTIVIDAD RECIENTE</div>
+            <div class="timeline-event"><strong>WhatsApp recibido</strong><span>Solicita información sobre el servicio de mantenimiento.</span><time>Hace 4 min</time></div>
+            <div class="timeline-event orange"><strong>Oportunidad actualizada</strong><span>Prioridad alta · Valor estimado 2.400 €</span><time>Hace 8 min</time></div>
+            <div class="timeline-event"><strong>Correo abierto</strong><span>Propuesta comercial · versión 2</span><time>Ayer, 17:42</time></div>
+          </div>
+          <nav class="bottom-nav">
+            <div class="nav-action"><i data-lucide="layout-dashboard"></i>Inicio</div>
+            <div class="nav-action active"><i data-lucide="users"></i>Clientes</div>
+            <div class="nav-action"><i data-lucide="inbox"></i>Bandeja</div>
+            <div class="nav-action"><i data-lucide="workflow"></i>Procesos</div>
+          </nav>
         </div>
       </div>
-      <div class="product-copy">
-        <div class="eyebrow">CONTEXTO ANTES DE ACTUAR</div>
-        <h2>Cada señal conectada.<br><span>Cada decisión informada.</span></h2>
-        <p>El historial, los mensajes y las acciones dejan de estar dispersos. NOVAIX OS convierte cada interacción en continuidad operativa.</p>
+      <div class="product-copy real-demo-copy">
+        <div class="eyebrow">FICHA OPERATIVA UNIFICADA</div>
+        <h2>El contexto completo.<br><span>Antes de responder.</span></h2>
+        <p>Conversaciones, oportunidades, documentos y próximas acciones dentro de una ficha diseñada para trabajar.</p>
+        <div class="demo-sequence">
+          <div class="demo-row"><div class="demo-row-icon"><i data-lucide="messages-square"></i></div><div><strong>Conversaciones conectadas</strong><span>WhatsApp, correo y llamadas en una cronología.</span></div><div class="demo-state">EN TIEMPO REAL</div></div>
+          <div class="demo-row"><div class="demo-row-icon"><i data-lucide="circle-dollar-sign"></i></div><div><strong>Oportunidad visible</strong><span>Valor, estado, prioridad y responsable.</span></div><div class="demo-state">ACTUALIZADA</div></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="scene" data-scene="features">
-    <div class="frame features">
-      <div class="features-head"><div class="eyebrow">CAPACIDADES NOVAIX OS</div><h2>Menos fragmentación. <span>Más control.</span></h2></div>
-      <div class="feature-grid">
-        <article class="feature"><div class="feature-index">01 · UNIFICA</div><h3>Información conectada</h3><p>Clientes, mensajes, documentos y actividad dentro del mismo contexto.</p><div class="feature-graphic bars"><i></i><i></i><i></i><i></i></div></article>
-        <article class="feature"><div class="feature-index">02 · AUTOMATIZA</div><h3>Procesos en movimiento</h3><p>Tareas, avisos y seguimientos ejecutados cuando el negocio los necesita.</p><div class="feature-graphic bars"><i></i><i></i><i></i><i></i></div></article>
-        <article class="feature"><div class="feature-index">03 · PRIORIZA</div><h3>Decisiones con contexto</h3><p>El sistema identifica señales y ordena lo que requiere atención primero.</p><div class="feature-graphic bars"><i></i><i></i><i></i><i></i></div></article>
-        <article class="feature"><div class="feature-index">04 · INTEGRA</div><h3>Herramientas coordinadas</h3><p>CRM, ERP, facturación, pagos, reservas y plataformas externas.</p><div class="feature-graphic bars"><i></i><i></i><i></i><i></i></div></article>
+    <div class="frame product-layout">
+      <div class="phone">
+        <div class="screen">
+          <div class="app-toolbar">
+            <button class="icon-button"><i data-lucide="menu"></i></button>
+            <div class="app-toolbar-title"><strong>Bandeja unificada</strong><span>18 pendientes · 4 prioritarios</span></div>
+            <button class="icon-button"><i data-lucide="sliders-horizontal"></i></button>
+          </div>
+          <div class="search-box"><i data-lucide="search"></i>Buscar cliente o conversación</div>
+          <div class="channel-tabs"><div class="channel-tab active">Todos</div><div class="channel-tab">WhatsApp</div><div class="channel-tab">Email</div><div class="channel-tab">Web</div></div>
+          <div class="conversation-list">
+            <div class="conversation"><div class="channel-icon"><i data-lucide="message-circle"></i></div><div><strong>María López</strong><span>Necesito confirmar la fecha del servicio...</span></div><div><time>10:42</time><i class="unread">2</i></div></div>
+            <div class="conversation"><div class="channel-icon orange"><i data-lucide="mail"></i></div><div><strong>Taller Norte</strong><span>Adjuntamos la documentación solicitada.</span></div><div><time>10:31</time></div></div>
+            <div class="conversation"><div class="channel-icon"><i data-lucide="globe"></i></div><div><strong>Clínica Salvia</strong><span>Nueva solicitud desde el formulario web.</span></div><div><time>09:58</time><i class="unread">1</i></div></div>
+            <div class="conversation"><div class="channel-icon orange"><i data-lucide="phone"></i></div><div><strong>Transportes Azul</strong><span>Llamada perdida · requiere devolución.</span></div><div><time>09:44</time></div></div>
+          </div>
+          <nav class="bottom-nav">
+            <div class="nav-action"><i data-lucide="layout-dashboard"></i>Inicio</div>
+            <div class="nav-action"><i data-lucide="users"></i>Clientes</div>
+            <div class="nav-action active"><i data-lucide="inbox"></i>Bandeja</div>
+            <div class="nav-action"><i data-lucide="workflow"></i>Procesos</div>
+          </nav>
+        </div>
+      </div>
+      <div class="product-copy real-demo-copy">
+        <div class="eyebrow">BANDEJA MULTICANAL</div>
+        <h2>Todos los canales.<br><span>Una sola conversación.</span></h2>
+        <p>WhatsApp, correo, formularios y llamadas dejan de funcionar como islas. El equipo recibe cada mensaje con contexto y prioridad.</p>
+        <div class="demo-sequence">
+          <div class="demo-row"><div class="demo-row-icon"><i data-lucide="merge"></i></div><div><strong>Identidad unificada</strong><span>El sistema reconoce al cliente entre canales.</span></div><div class="demo-state">CONECTADA</div></div>
+          <div class="demo-row"><div class="demo-row-icon"><i data-lucide="route"></i></div><div><strong>Asignación automática</strong><span>Cada solicitud llega al equipo adecuado.</span></div><div class="demo-state">ENRUTADA</div></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="scene" data-scene="liquid">
-    <div class="frame liquid">
-      <div>
-        <div class="eyebrow">DENTRO DE NOVAIX OS</div>
-        <h2>NOVAIX <span>LIQUID</span></h2>
-        <p>El motor inteligente que interpreta lo que sucede, relaciona la información y activa la siguiente mejor acción.</p>
-        <div class="liquid-list">
-          <div class="liquid-item"><strong>Comprende el contexto</strong><span>INTERPRETA</span></div>
-          <div class="liquid-item"><strong>Detecta prioridades</strong><span>PRIORIZA</span></div>
-          <div class="liquid-item"><strong>Coordina procesos</strong><span>ACTIVA</span></div>
+    <div class="frame product-layout">
+      <div class="phone">
+        <div class="screen">
+          <div class="app-toolbar">
+            <button class="icon-button"><i data-lucide="chevron-left"></i></button>
+            <div class="app-toolbar-title"><strong>María López</strong><span>Oportunidad · Prioridad alta</span></div>
+            <button class="icon-button"><i data-lucide="more-horizontal"></i></button>
+          </div>
+          <div class="customer-header">
+            <div class="customer-name"><div class="avatar">ML</div><div><strong>María López</strong><span>● Contexto actualizado</span></div></div>
+          </div>
+          <div class="liquid-panel">
+            <div class="liquid-panel-head"><div class="liquid-mini"><i data-lucide="sparkles"></i></div><div><strong>NOVAIX Liquid</strong><span>RECOMENDACIÓN OPERATIVA</span></div></div>
+            <h4>Contactar hoy antes de las 13:00</h4>
+            <p>La clienta abrió la propuesta, respondió por WhatsApp y tiene disponibilidad confirmada para esta semana.</p>
+            <div class="confidence"><span>Confianza de la recomendación</span><b>92%</b></div>
+            <div class="liquid-buttons"><div class="liquid-button">Descartar</div><div class="liquid-button primary">Crear seguimiento</div></div>
+          </div>
+          <div class="timeline">
+            <div class="timeline-title">SEÑALES UTILIZADAS</div>
+            <div class="timeline-event"><strong>Propuesta abierta</strong><span>Documento consultado 3 veces</span><time>Hoy, 09:18</time></div>
+            <div class="timeline-event orange"><strong>Respuesta positiva</strong><span>WhatsApp · interés confirmado</span><time>Hoy, 10:42</time></div>
+          </div>
+          <nav class="bottom-nav">
+            <div class="nav-action"><i data-lucide="layout-dashboard"></i>Inicio</div>
+            <div class="nav-action active"><i data-lucide="sparkles"></i>Liquid</div>
+            <div class="nav-action"><i data-lucide="inbox"></i>Bandeja</div>
+            <div class="nav-action"><i data-lucide="workflow"></i>Procesos</div>
+          </nav>
         </div>
       </div>
-      <div class="liquid-orb-wrap"><div class="liquid-orb"><div><strong>NOVAIX LIQUID</strong><span>MOTOR INTELIGENTE</span><div class="liquid-wave"></div></div></div></div>
+      <div class="product-copy real-demo-copy">
+        <div class="eyebrow">NOVAIX LIQUID · DENTRO DE LA APLICACIÓN</div>
+        <h2>De la información.<br><span>A la siguiente acción.</span></h2>
+        <p>Liquid interpreta señales reales del negocio, explica su recomendación y permite al equipo decidir antes de ejecutar.</p>
+        <div class="demo-sequence">
+          <div class="demo-row"><div class="demo-row-icon"><i data-lucide="scan-search"></i></div><div><strong>Analiza señales</strong><span>Actividad, historial, prioridad y disponibilidad.</span></div><div class="demo-state">92% CONFIANZA</div></div>
+          <div class="demo-row"><div class="demo-row-icon"><i data-lucide="mouse-pointer-click"></i></div><div><strong>Propone una acción</strong><span>El usuario conserva siempre el control.</span></div><div class="demo-state">LISTA</div></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -370,9 +559,11 @@
     </div>
   </section>
 
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script>
     const scene = new URLSearchParams(location.search).get("scene") || "cover";
     document.querySelector(`[data-scene="${scene}"]`)?.classList.add("active");
+    window.lucide?.createIcons();
   </script>
 </body>
 </html>
