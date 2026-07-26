@@ -313,6 +313,70 @@
       width: 1310px;
       height: 930px;
     }
+    .impact-hud {
+      position: absolute;
+      left: 57%;
+      top: 51%;
+      width: 530px;
+      height: 530px;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(114, 226, 255, 0.13);
+      border-radius: 50%;
+      background:
+        repeating-conic-gradient(from 4deg, rgba(103, 225, 255, 0.42) 0deg 0.7deg, transparent 0.7deg 8deg);
+      mask: radial-gradient(circle, transparent 68%, #000 68.5% 71%, transparent 71.5%);
+      opacity: 0.76;
+      z-index: 2;
+    }
+    .impact-hud::before {
+      content: "";
+      position: absolute;
+      inset: 38px;
+      border: 1px dashed rgba(73, 210, 255, 0.28);
+      border-radius: 50%;
+    }
+    .impact-hud::after {
+      content: "";
+      position: absolute;
+      inset: 92px;
+      border: 1px solid rgba(255, 137, 54, 0.2);
+      border-radius: 50%;
+      box-shadow: 0 0 46px rgba(48, 194, 255, 0.08);
+    }
+    .core-index {
+      position: absolute;
+      left: calc(57% - 260px);
+      top: calc(51% - 288px);
+      color: rgba(179, 237, 255, 0.66);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      z-index: 5;
+    }
+    .core-index.right {
+      left: calc(57% + 152px);
+      top: calc(51% + 265px);
+      color: rgba(255, 178, 113, 0.7);
+    }
+    .system-readout {
+      position: absolute;
+      left: calc(57% + 208px);
+      top: calc(51% - 44px);
+      width: 152px;
+      padding-left: 18px;
+      border-left: 1px solid rgba(88, 220, 255, 0.45);
+      color: rgba(190, 231, 240, 0.7);
+      font-size: 10px;
+      line-height: 1.8;
+      letter-spacing: 2px;
+      z-index: 5;
+    }
+    .system-readout strong {
+      display: block;
+      color: #eefcff;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
     .impact-stage::before,
     .impact-stage::after {
       content: "";
@@ -359,6 +423,15 @@
       border: 1px solid rgba(117, 226, 255, 0.34);
       border-radius: 50%;
       box-shadow: inset 0 0 30px rgba(76, 205, 255, 0.08);
+    }
+    .impact-core::before {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 50%;
+      background: linear-gradient(112deg, transparent 43%, rgba(255,255,255,0.12) 49%, transparent 55%);
+      box-shadow: inset 0 0 35px rgba(75, 218, 255, 0.1);
     }
     .impact-core strong { display: block; font-size: 31px; letter-spacing: 5px; }
     .impact-core span { display: block; margin-top: 14px; color: #ccf8ff; font-size: 13px; letter-spacing: 4px; }
@@ -475,6 +548,14 @@
       box-shadow: 0 0 10px #fff, 0 0 24px #42f0bd;
     }
     .impact.active-all .core-pulse { width: 118px; }
+    .impact.active-all .impact-hud {
+      opacity: 1;
+      filter: drop-shadow(0 0 10px rgba(47, 207, 255, 0.3));
+    }
+    .impact.active-all .system-readout {
+      border-left-color: #64e8ff;
+      color: #c9f7ff;
+    }
   </style>
 </head>
 <body>
@@ -551,6 +632,10 @@
       </div>
 
       <div class="impact-stage">
+        <div class="impact-hud"></div>
+        <div class="core-index">SYS / 01.04</div>
+        <div class="core-index right">SYNC / 100%</div>
+        <div class="system-readout"><strong>CORE ONLINE</strong>DATA FLOW<br>4 MODULES<br>0 LATENCY</div>
         <div class="impact-line line-one"></div>
         <div class="impact-line line-two"></div>
         <div class="impact-line line-three"></div>
