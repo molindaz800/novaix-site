@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NOVAIX OS Hero Video Source</title>
+  <style>
+    :root {
+      --bg: #05070c;
+      --panel: rgba(11, 17, 27, 0.88);
+      --line: rgba(120, 224, 255, 0.22);
+      --cyan: #38d9ff;
+      --blue: #168cff;
+      --orange: #ff8a30;
+      --text: #f5f9ff;
+      --muted: #9aabc0;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .scene {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(18, 116, 180, 0.18), transparent 33%),
+        linear-gradient(135deg, #03060b 0%, #07101a 48%, #04070c 100%);
+    }
+
+    .scene::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("novaix-os-bg.png") center / cover no-repeat;
+      opacity: 0.2;
+      filter: saturate(0.78) contrast(1.12);
+    }
+
+    .scene::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(56, 217, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 217, 255, 0.028) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 85%, transparent);
+    }
+
+    .scene-content { position: relative; z-index: 2; width: 100%; height: 100%; }
+    .scene:not(.is-active) { display: none; }
+
+    .boot {
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .boot::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(56, 217, 255, 0.28);
+      border-radius: 50%;
+      box-shadow:
+        0 0 90px rgba(22, 140, 255, 0.15),
+        inset 0 0 70px rgba(56, 217, 255, 0.06);
+    }
+
+    .brand-logo { width: 720px; height: auto; filter: drop-shadow(0 20px 55px rgba(0, 180, 255, 0.24)); }
+    .boot-kicker { margin-top: 36px; color: var(--cyan); font-size: 18px; font-weight: 700; letter-spacing: 7px; }
+    .boot-line { width: 390px; height: 2px; margin: 30px auto 0; background: linear-gradient(90deg, transparent, var(--cyan), var(--orange), transparent); }
+    .boot-status { margin-top: 20px; color: var(--muted); font-size: 20px; letter-spacing: 2px; }
+
+    .os-shell {
+      padding: 54px 62px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    .sidebar, .topbar, .module-card, .activity-panel {
+      background: linear-gradient(180deg, rgba(15, 24, 37, 0.94), rgba(7, 12, 20, 0.93));
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255,255,255,0.035);
+    }
+
+    .sidebar {
+      height: 972px;
+      border-radius: 10px;
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-logo { width: 205px; margin: 0 auto 46px; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 58px;
+      padding: 0 16px;
+      margin-bottom: 8px;
+      color: #a8b8ca;
+      border-left: 2px solid transparent;
+      font-size: 17px;
+    }
+    .nav-item.active {
+      color: #fff;
+      border-left-color: var(--cyan);
+      background: linear-gradient(90deg, rgba(56,217,255,0.12), transparent);
+    }
+    .nav-icon { width: 25px; color: var(--cyan); font-weight: 700; text-align: center; }
+    .sidebar-status { margin-top: auto; padding: 18px; border: 1px solid rgba(58, 231, 174, 0.2); background: rgba(20, 92, 69, 0.12); }
+    .status-dot { display: inline-block; width: 9px; height: 9px; margin-right: 8px; border-radius: 50%; background: #36e6a5; box-shadow: 0 0 16px #36e6a5; }
+    .sidebar-status strong { font-size: 14px; letter-spacing: 1px; }
+    .sidebar-status span { display: block; margin-top: 7px; color: var(--muted); font-size: 13px; }
+
+    .workspace { min-width: 0; }
+    .topbar {
+      height: 116px;
+      border-radius: 10px;
+      padding: 0 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar h1 { margin: 0 0 9px; font-size: 29px; letter-spacing: 0; }
+    .topbar p { margin: 0; color: var(--muted); font-size: 16px; }
+    .top-status { padding: 12px 18px; border: 1px solid rgba(56,217,255,0.2); color: var(--cyan); font-size: 14px; letter-spacing: 1px; }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(380px, 0.75fr);
+      gap: 26px;
+      margin-top: 26px;
+    }
+
+    .core-panel {
+      position: relative;
+      height: 830px;
+      border: 1px solid var(--line);
+      background: radial-gradient(circle at 50% 47%, rgba(21, 134, 205, 0.18), rgba(5, 9, 15, 0.94) 50%);
+      overflow: hidden;
+    }
+
+    .core-panel::before, .core-panel::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      border: 1px solid rgba(56,217,255,0.18);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .core-panel::before { width: 610px; height: 610px; }
+    .core-panel::after { width: 410px; height: 410px; border-color: rgba(255,138,48,0.18); }
+
+    .core {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: 230px;
+      height: 230px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 35% 28%, #7cf0ff, #1389ff 24%, #0a2b52 58%, #04101e 74%);
+      box-shadow: 0 0 90px rgba(31, 164, 255, 0.5), inset -25px -30px 60px rgba(0,0,0,0.48);
+      z-index: 2;
+    }
+    .core strong { display: block; font-size: 23px; letter-spacing: 3px; }
+    .core span { display: block; margin-top: 10px; font-size: 13px; color: #d7f7ff; letter-spacing: 2px; }
+
+    .module-card {
+      position: absolute;
+      width: 250px;
+      min-height: 122px;
+      padding: 20px;
+      z-index: 3;
+      border-radius: 8px;
+    }
+    .module-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      top: 50%;
+    }
+    .module-card.left::after { left: 100%; }
+    .module-card.right::after { right: 100%; transform: rotate(180deg); }
+    .module-card h3 { margin: 0 0 11px; font-size: 19px; }
+    .module-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .module-label { display: block; margin-bottom: 8px; color: var(--cyan); font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+    .customers { left: 56px; top: 120px; }
+    .operations { right: 56px; top: 120px; }
+    .communications { left: 56px; bottom: 115px; }
+    .integrations { right: 56px; bottom: 115px; }
+
+    .activity-panel {
+      height: 830px;
+      padding: 26px;
+      border-radius: 10px;
+    }
+    .activity-title { margin: 0 0 9px; font-size: 19px; }
+    .activity-sub { margin: 0 0 30px; color: var(--muted); font-size: 14px; }
+    .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .metric { padding: 18px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.025); }
+    .metric strong { display: block; color: var(--cyan); font-size: 24px; }
+    .metric span { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
+    .timeline { margin-top: 34px; }
+    .event { position: relative; padding: 0 0 28px 32px; border-left: 1px solid rgba(56,217,255,0.18); }
+    .event::before { content: ""; position: absolute; left: -5px; top: 3px; width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+    .event strong { display: block; font-size: 14px; }
+    .event span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .command {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255,138,48,0.22);
+      background: rgba(255,138,48,0.05);
+      color: #f5d9c2;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .outro {
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .outro-card { position: relative; width: 1120px; padding: 100px 70px; border-top: 1px solid rgba(56,217,255,0.24); border-bottom: 1px solid rgba(255,138,48,0.22); }
+    .outro-logo { width: 780px; margin: 0 auto; }
+    .outro h2 { margin: 48px 0 0; font-size: 48px; font-weight: 500; letter-spacing: 0; }
+    .outro p { margin: 22px 0 0; color: var(--muted); font-size: 21px; letter-spacing: 1px; }
+    .outro-mark { margin-top: 44px; color: var(--cyan); font-size: 14px; font-weight: 700; letter-spacing: 5px; }
+  </style>
+</head>
+<body>
+  <section class="scene boot" data-scene="boot">
+    <div class="scene-content boot">
+      <div>
+        <img class="brand-logo" src="novaix-os-logo.png" alt="NOVAIX OS">
+        <div class="boot-kicker">LIQUID INTELLIGENCE</div>
+        <div class="boot-line"></div>
+        <div class="boot-status">INICIANDO ENTORNO OPERATIVO</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" data-scene="dashboard">
+    <div class="scene-content os-shell">
+      <aside class="sidebar">
+        <img class="sidebar-logo" src="novaix-os-logo.png" alt="NOVAIX OS">
+        <div class="nav-item active"><span class="nav-icon">01</span> Centro operativo</div>
+        <div class="nav-item"><span class="nav-icon">02</span> Clientes</div>
+        <div class="nav-item"><span class="nav-icon">03</span> Operaciones</div>
+        <div class="nav-item"><span class="nav-icon">04</span> Comunicaciones</div>
+        <div class="nav-item"><span class="nav-icon">05</span> Integraciones</div>
+        <div class="sidebar-status"><strong><span class="status-dot"></span>SISTEMA DISPONIBLE</strong><span>Procesos y conexiones supervisados</span></div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div><h1>Centro operativo</h1><p>Procesos, información y herramientas en un único entorno.</p></div>
+          <div class="top-status">NOVAIX OS · ACTIVO</div>
+        </header>
+
+        <div class="dashboard">
+          <section class="core-panel">
+            <div class="core"><div><strong>NOVAIX OS</strong><span>NÚCLEO OPERATIVO</span></div></div>
+            <article class="module-card left customers"><span class="module-label">MÓDULO 01</span><h3>Clientes</h3><p>Información, seguimiento y contexto unificados.</p></article>
+            <article class="module-card right operations"><span class="module-label">MÓDULO 02</span><h3>Operaciones</h3><p>Tareas, prioridades y procesos conectados.</p></article>
+            <article class="module-card left communications"><span class="module-label">MÓDULO 03</span><h3>Comunicaciones</h3><p>Email, mensajería y atención coordinada.</p></article>
+            <article class="module-card right integrations"><span class="module-label">MÓDULO 04</span><h3>Integraciones</h3><p>Aplicaciones, datos y automatización en flujo.</p></article>
+          </section>
+
+          <aside class="activity-panel">
+            <h2 class="activity-title">Actividad del sistema</h2>
+            <p class="activity-sub">Visibilidad operativa en tiempo real</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>12</strong><span>Procesos conectados</span></div>
+              <div class="metric"><strong>4</strong><span>Módulos activos</span></div>
+              <div class="metric"><strong>24/7</strong><span>Supervisión</span></div>
+              <div class="metric"><strong>1</strong><span>Entorno unificado</span></div>
+            </div>
+            <div class="timeline">
+              <div class="event"><strong>Información sincronizada</strong><span>Los módulos comparten el contexto necesario.</span></div>
+              <div class="event"><strong>Prioridades actualizadas</strong><span>El equipo recibe las siguientes acciones.</span></div>
+              <div class="event"><strong>Integraciones operativas</strong><span>Herramientas conectadas y supervisadas.</span></div>
+            </div>
+            <div class="command">NOVAIX OS organiza la operativa. Tu equipo mantiene el control y toma las decisiones.</div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="scene outro" data-scene="outro">
+    <div class="scene-content outro">
+      <div class="outro-card">
+        <img class="outro-logo" src="novaix-os-logo.png" alt="NOVAIX OS">
+        <h2>El sistema operativo digital de tu empresa</h2>
+        <p>Procesos, datos, herramientas e inteligencia trabajando como un único sistema.</p>
+        <div class="outro-mark">DESARROLLADO POR NOVAIX</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const scene = new URLSearchParams(location.search).get("scene") || "boot";
+    document.querySelector(`[data-scene="${scene}"]`)?.classList.add("is-active");
+  </script>
+</body>
+</html>
