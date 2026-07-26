@@ -245,6 +245,189 @@
     .outro h2 { margin: 48px 0 0; font-size: 48px; font-weight: 500; letter-spacing: 0; }
     .outro p { margin: 22px 0 0; color: var(--muted); font-size: 21px; letter-spacing: 1px; }
     .outro-mark { margin-top: 44px; color: var(--cyan); font-size: 14px; font-weight: 700; letter-spacing: 5px; }
+
+    .impact {
+      padding: 58px 74px;
+      background:
+        radial-gradient(circle at 48% 52%, rgba(21, 144, 232, 0.24), transparent 29%),
+        radial-gradient(circle at 78% 50%, rgba(255, 110, 24, 0.12), transparent 28%);
+    }
+    .impact-top {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(88, 215, 255, 0.18);
+    }
+    .impact-logo { width: 286px; }
+    .impact-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #c8f7ff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+    .impact-status::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #42f0bd;
+      box-shadow: 0 0 18px #42f0bd;
+    }
+    .impact-copy {
+      position: absolute;
+      left: 84px;
+      top: 202px;
+      width: 520px;
+      z-index: 6;
+    }
+    .impact-kicker {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--cyan);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 5px;
+    }
+    .impact-copy h1 {
+      margin: 0;
+      font-size: 67px;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .impact-copy h1 span { color: var(--cyan); }
+    .impact-copy p {
+      width: 450px;
+      margin: 27px 0 0;
+      color: #afbdd0;
+      font-size: 20px;
+      line-height: 1.55;
+    }
+    .impact-stage {
+      position: absolute;
+      right: 0;
+      top: 88px;
+      width: 1310px;
+      height: 930px;
+    }
+    .impact-stage::before,
+    .impact-stage::after {
+      content: "";
+      position: absolute;
+      left: 57%;
+      top: 51%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-10deg);
+    }
+    .impact-stage::before {
+      width: 890px;
+      height: 620px;
+      border: 1px solid rgba(58, 207, 255, 0.25);
+      box-shadow: 0 0 90px rgba(17, 119, 210, 0.12);
+    }
+    .impact-stage::after {
+      width: 690px;
+      height: 470px;
+      border: 1px solid rgba(255, 126, 38, 0.23);
+    }
+    .impact-core {
+      position: absolute;
+      left: 57%;
+      top: 51%;
+      width: 350px;
+      height: 350px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 32% 28%, #9af5ff 0%, #23b8ff 11%, #126ae4 28%, #061a39 61%, #020813 75%);
+      box-shadow:
+        0 0 55px rgba(51, 202, 255, 0.75),
+        0 0 150px rgba(21, 117, 229, 0.4),
+        inset -40px -45px 80px rgba(0,0,0,0.54);
+      z-index: 4;
+    }
+    .impact-core::after {
+      content: "";
+      position: absolute;
+      inset: -28px;
+      border: 1px solid rgba(117, 226, 255, 0.34);
+      border-radius: 50%;
+      box-shadow: inset 0 0 30px rgba(76, 205, 255, 0.08);
+    }
+    .impact-core strong { display: block; font-size: 31px; letter-spacing: 5px; }
+    .impact-core span { display: block; margin-top: 14px; color: #ccf8ff; font-size: 13px; letter-spacing: 4px; }
+    .impact-core .core-pulse {
+      width: 74px;
+      height: 3px;
+      margin: 22px auto 0;
+      background: linear-gradient(90deg, transparent, #fff, transparent);
+      box-shadow: 0 0 12px #8beeff;
+    }
+    .impact-node {
+      position: absolute;
+      z-index: 5;
+      width: 270px;
+      min-height: 126px;
+      padding: 22px 24px;
+      border: 1px solid rgba(82, 213, 255, 0.28);
+      background: linear-gradient(145deg, rgba(15, 28, 43, 0.96), rgba(5, 10, 18, 0.95));
+      box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+    }
+    .impact-node::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 58px;
+      height: 2px;
+      background: var(--cyan);
+      box-shadow: 0 0 16px var(--cyan);
+    }
+    .impact-node.orange { border-color: rgba(255, 135, 50, 0.3); }
+    .impact-node.orange::before { background: var(--orange); box-shadow: 0 0 16px var(--orange); }
+    .impact-node strong { display: block; font-size: 23px; }
+    .impact-node span { display: block; margin-top: 11px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .impact-node b { display: block; margin-bottom: 8px; color: var(--cyan); font-size: 11px; letter-spacing: 3px; }
+    .impact-node.orange b { color: #ffb071; }
+    .node-clients { left: 116px; top: 170px; }
+    .node-operations { right: 30px; top: 188px; }
+    .node-comms { left: 78px; bottom: 125px; }
+    .node-integrations { right: 14px; bottom: 110px; }
+    .impact-line {
+      position: absolute;
+      z-index: 3;
+      height: 1px;
+      transform-origin: left center;
+      background: linear-gradient(90deg, rgba(56,217,255,0.12), rgba(56,217,255,0.92), rgba(56,217,255,0.1));
+      box-shadow: 0 0 12px rgba(56,217,255,0.45);
+    }
+    .line-one { left: 382px; top: 294px; width: 370px; transform: rotate(24deg); }
+    .line-two { left: 782px; top: 442px; width: 340px; transform: rotate(-30deg); }
+    .line-three { left: 345px; top: 727px; width: 410px; transform: rotate(-22deg); }
+    .line-four { left: 780px; top: 587px; width: 385px; transform: rotate(27deg); background: linear-gradient(90deg, rgba(255,138,48,0.1), rgba(255,138,48,0.9), rgba(255,138,48,0.1)); }
+    .impact-footer {
+      position: absolute;
+      left: 84px;
+      bottom: 72px;
+      display: flex;
+      gap: 11px;
+      z-index: 7;
+    }
+    .impact-footer span {
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(6, 12, 20, 0.72);
+      color: #b9c5d5;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
   </style>
 </head>
 <body>
@@ -304,6 +487,40 @@
           </aside>
         </div>
       </main>
+    </div>
+  </section>
+
+  <section class="scene" data-scene="impact">
+    <div class="scene-content impact">
+      <header class="impact-top">
+        <img class="impact-logo" src="novaix-os-logo.png" alt="NOVAIX OS">
+        <div class="impact-status">ENTORNO OPERATIVO CONECTADO</div>
+      </header>
+
+      <div class="impact-copy">
+        <span class="impact-kicker">SOFTWARE EMPRESARIAL</span>
+        <h1>Todo tu negocio.<br><span>Un solo sistema.</span></h1>
+        <p>Procesos, equipos y herramientas conectados alrededor de una operativa común.</p>
+      </div>
+
+      <div class="impact-stage">
+        <div class="impact-line line-one"></div>
+        <div class="impact-line line-two"></div>
+        <div class="impact-line line-three"></div>
+        <div class="impact-line line-four"></div>
+        <div class="impact-core"><div><strong>NOVAIX OS</strong><span>NÚCLEO DIGITAL</span><div class="core-pulse"></div></div></div>
+        <article class="impact-node node-clients"><b>01 · CONECTADO</b><strong>Clientes</strong><span>Información y seguimiento.</span></article>
+        <article class="impact-node orange node-operations"><b>02 · EN FLUJO</b><strong>Operaciones</strong><span>Procesos y prioridades.</span></article>
+        <article class="impact-node node-comms"><b>03 · UNIFICADO</b><strong>Comunicaciones</strong><span>Canales y contexto.</span></article>
+        <article class="impact-node orange node-integrations"><b>04 · INTEGRADO</b><strong>Herramientas</strong><span>Datos, APIs y automatización.</span></article>
+      </div>
+
+      <div class="impact-footer">
+        <span>SOFTWARE A MEDIDA</span>
+        <span>INTEGRACIONES</span>
+        <span>AUTOMATIZACIÓN</span>
+        <span>IA APLICADA</span>
+      </div>
     </div>
   </section>
 
