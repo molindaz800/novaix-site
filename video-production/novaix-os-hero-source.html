@@ -646,6 +646,37 @@
     .outro.cinematic-v6 .outro-logo {
       filter: drop-shadow(0 0 22px rgba(37, 194, 255, 0.3));
     }
+    .scene.space-v7 {
+      background: #020710;
+    }
+    .scene.space-v7::before {
+      background:
+        linear-gradient(180deg, rgba(1, 7, 16, 0.12), rgba(1, 6, 14, 0.44)),
+        url("novaix-os-space-bg-v7.png") center / cover no-repeat;
+      opacity: 1;
+      filter: saturate(0.86) brightness(0.72) contrast(1.12);
+    }
+    .scene.space-v7::after {
+      background:
+        radial-gradient(circle at 52% 48%, transparent 0 34%, rgba(0, 4, 12, 0.24) 70%, rgba(0, 3, 10, 0.58) 100%),
+        repeating-linear-gradient(0deg, transparent 0 6px, rgba(116, 220, 255, 0.012) 6px 7px);
+      mask-image: none;
+    }
+    .space-v7 .boot.cinematic-v6 {
+      background:
+        radial-gradient(ellipse at 50% 64%, rgba(18, 137, 238, 0.2), transparent 28%),
+        linear-gradient(180deg, rgba(0, 5, 14, 0.08), rgba(0, 5, 14, 0.35));
+    }
+    .space-v7 .impact.cinematic-v6 {
+      background:
+        radial-gradient(circle at 69% 52%, rgba(13, 126, 225, 0.22), transparent 28%),
+        linear-gradient(90deg, rgba(0, 5, 14, 0.32), transparent 54%, rgba(0, 5, 14, 0.12));
+    }
+    .space-v7 .outro.cinematic-v6 {
+      background:
+        radial-gradient(ellipse at 50% 47%, rgba(17, 139, 230, 0.17), transparent 29%),
+        linear-gradient(180deg, rgba(0, 5, 14, 0.08), rgba(0, 5, 14, 0.4));
+    }
   </style>
 </head>
 <body>
@@ -768,6 +799,10 @@
     if (scene === "impact" && active) selectedScene?.querySelector(".impact")?.classList.add(`active-${active}`);
     if (scene === "impact" && mode === "background") selectedScene?.querySelector(".impact")?.classList.add("hero-background");
     if (style === "v6") selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
+    if (style === "v7") {
+      selectedScene?.classList.add("space-v7");
+      selectedScene?.querySelector(".scene-content")?.classList.add("cinematic-v6");
+    }
   </script>
 </body>
 </html>
