@@ -378,6 +378,9 @@
       border: 1px solid rgba(82, 213, 255, 0.28);
       background: linear-gradient(145deg, rgba(15, 28, 43, 0.96), rgba(5, 10, 18, 0.95));
       box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+      opacity: 0.52;
+      transform: scale(0.96);
+      filter: saturate(0.7);
     }
     .impact-node::before {
       content: "";
@@ -406,6 +409,7 @@
       transform-origin: left center;
       background: linear-gradient(90deg, rgba(56,217,255,0.12), rgba(56,217,255,0.92), rgba(56,217,255,0.1));
       box-shadow: 0 0 12px rgba(56,217,255,0.45);
+      opacity: 0.2;
     }
     .line-one { left: 382px; top: 294px; width: 370px; transform: rotate(24deg); }
     .line-two { left: 782px; top: 442px; width: 340px; transform: rotate(-30deg); }
@@ -428,6 +432,49 @@
       font-weight: 700;
       letter-spacing: 1.5px;
     }
+    .impact.active-clients .node-clients,
+    .impact.active-operations .node-operations,
+    .impact.active-comms .node-comms,
+    .impact.active-tools .node-integrations,
+    .impact.active-all .impact-node {
+      opacity: 1;
+      transform: scale(1.08);
+      filter: saturate(1.2);
+      box-shadow: 0 26px 80px rgba(22, 155, 240, 0.3), inset 0 0 28px rgba(56, 217, 255, 0.04);
+    }
+    .impact.active-operations .node-operations,
+    .impact.active-tools .node-integrations {
+      box-shadow: 0 26px 80px rgba(255, 112, 30, 0.25), inset 0 0 28px rgba(255, 138, 48, 0.04);
+    }
+    .impact.active-clients .line-one,
+    .impact.active-operations .line-two,
+    .impact.active-comms .line-three,
+    .impact.active-tools .line-four,
+    .impact.active-all .impact-line {
+      opacity: 1;
+      height: 2px;
+    }
+    .impact.active-clients .impact-core,
+    .impact.active-comms .impact-core {
+      box-shadow: 0 0 80px rgba(51, 202, 255, 0.9), 0 0 190px rgba(21, 117, 229, 0.52), inset -40px -45px 80px rgba(0,0,0,0.54);
+    }
+    .impact.active-operations .impact-core,
+    .impact.active-tools .impact-core {
+      background: radial-gradient(circle at 32% 28%, #fff0d8 0%, #ff9c45 11%, #f05a1d 28%, #301225 61%, #080711 75%);
+      box-shadow: 0 0 80px rgba(255, 126, 38, 0.82), 0 0 190px rgba(223, 65, 15, 0.4), inset -40px -45px 80px rgba(0,0,0,0.54);
+    }
+    .impact.active-all .impact-core {
+      background:
+        radial-gradient(circle at 30% 28%, #aaf8ff 0%, #23b8ff 12%, #126ae4 30%, transparent 51%),
+        radial-gradient(circle at 72% 70%, #ffbe70 0%, #ff741f 14%, #5e1730 34%, #040914 68%);
+      box-shadow: 0 0 95px rgba(50, 201, 255, 0.7), 45px 20px 150px rgba(255, 105, 30, 0.28), inset -40px -45px 80px rgba(0,0,0,0.5);
+    }
+    .impact.active-all .impact-status { color: #fff; }
+    .impact.active-all .impact-status::before {
+      background: #fff;
+      box-shadow: 0 0 10px #fff, 0 0 24px #42f0bd;
+    }
+    .impact.active-all .core-pulse { width: 118px; }
   </style>
 </head>
 <body>
@@ -536,8 +583,12 @@
   </section>
 
   <script>
-    const scene = new URLSearchParams(location.search).get("scene") || "boot";
-    document.querySelector(`[data-scene="${scene}"]`)?.classList.add("is-active");
+    const params = new URLSearchParams(location.search);
+    const scene = params.get("scene") || "boot";
+    const active = params.get("active");
+    const selectedScene = document.querySelector(`[data-scene="${scene}"]`);
+    selectedScene?.classList.add("is-active");
+    if (scene === "impact" && active) selectedScene?.querySelector(".impact")?.classList.add(`active-${active}`);
   </script>
 </body>
 </html>
