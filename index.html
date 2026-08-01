@@ -638,6 +638,110 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* Presentacion real de NOVAIX: avance vertical + reproduccion ampliada */
+    .hero-video {
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none;
+    }
+    .hero-video::before,
+    .hero-video::after { display: none; }
+    .hero-video-preview {
+      position: relative;
+      z-index: 2;
+      width: min(76%, 330px);
+      padding: 0;
+      border: 0;
+      border-radius: 30px;
+      overflow: hidden;
+      color: #fff;
+      background: #050a12;
+      box-shadow: 0 28px 80px rgba(0,0,0,.72), 0 0 0 1px rgba(122,240,255,.2);
+      cursor: pointer;
+      aspect-ratio: 480 / 848;
+    }
+    .hero-video-preview video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: normal;
+      border-radius: 30px;
+      filter: brightness(.72) saturate(.9);
+    }
+    .hero-video-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2,7,13,.06) 34%, rgba(2,7,13,.88) 100%);
+      pointer-events: none;
+    }
+    .hero-video-copy {
+      position: absolute;
+      z-index: 2;
+      inset: auto 20px 22px;
+      display: grid;
+      justify-items: center;
+      gap: 9px;
+      text-align: center;
+    }
+    .hero-video-play {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #051018;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      box-shadow: 0 0 0 8px rgba(255,255,255,.1), 0 14px 38px rgba(0,195,255,.4);
+      font-size: 1.25rem;
+    }
+    .hero-video-copy strong { font-size: 1.08rem; line-height: 1.25; }
+    .hero-video-copy small { color: rgba(255,255,255,.78); font-size: .85rem; }
+    .hero-video-preview:hover .hero-video-play { transform: scale(1.06); }
+    .hero-video-preview:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+
+    .video-dialog {
+      width: min(94vw, 520px);
+      max-height: 94vh;
+      padding: 0;
+      border: 1px solid rgba(122,240,255,.28);
+      border-radius: 24px;
+      overflow: visible;
+      background: #03070d;
+      box-shadow: 0 40px 140px rgba(0,0,0,.9), 0 0 60px rgba(0,195,255,.16);
+    }
+    .video-dialog::backdrop { background: rgba(0,4,10,.86); backdrop-filter: blur(9px); }
+    .video-dialog video {
+      display: block;
+      width: 100%;
+      max-height: 90vh;
+      border-radius: 23px;
+      background: #000;
+    }
+    .video-dialog-close {
+      position: absolute;
+      z-index: 3;
+      top: -14px;
+      right: -14px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      color: #fff;
+      background: #0b111b;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5);
+      cursor: pointer;
+    }
+
     /* Sustituido por texto.webp en el montaje del hero */
     .hero-watermark { display: none; }
 
@@ -2771,10 +2875,11 @@
 	        width: min(100%, 520px);
 	        max-width: 100%;
 	        margin: 2px auto 0;
-	        aspect-ratio: 16 / 9;
+	        min-height: 0;
+	        aspect-ratio: auto;
 	        transform: none;
 	      }
-	      .hero-video video { object-fit: cover; }
+	      .hero-video-preview { width: min(72vw, 310px); }
 	      .hero-video::before { opacity: 0.34; animation-duration: 18s; }
 	      .hero-video::after { opacity: 0.58; }
 	      .hero-galaxy__canvas { opacity: 0.52; }
@@ -3173,11 +3278,23 @@
           </div>
         </div>
       </div>
-      <div class="hero-video" aria-label="Demo en video de NOVAIX">
-        <video src="videos/novaix.mp4" poster="imagenes/fondo.webp" width="960" height="540" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="hero-video" aria-label="Presentación en vídeo de NOVAIX">
+        <button class="hero-video-preview" id="hero-video-open" type="button" aria-haspopup="dialog" aria-controls="novaix-video-dialog" aria-label="Reproducir: descubre NOVAIX en un minuto">
+          <video src="videos/novaix-presentacion.mp4" width="480" height="848" autoplay muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>
+          <span class="hero-video-copy">
+            <span class="hero-video-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+            <strong>Descubre NOVAIX en 1 minuto</strong>
+            <small>Conoce cómo transformamos procesos con software e IA</small>
+          </span>
+        </button>
       </div>
     </div>
   </header>
+
+  <dialog class="video-dialog" id="novaix-video-dialog" aria-label="Presentación de NOVAIX">
+    <button class="video-dialog-close" id="hero-video-close" type="button" aria-label="Cerrar vídeo"><i class="fa-solid fa-xmark"></i></button>
+    <video id="novaix-presentation-video" src="videos/novaix-presentacion.mp4" width="480" height="848" controls playsinline preload="metadata"></video>
+  </dialog>
 
   <main>
     <section id="beneficios" aria-labelledby="beneficios-title">
@@ -3964,20 +4081,31 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     const t = (text) => (window.novaixT ? window.novaixT(text) : text);
 
-    // Reduce carga en movil: pausa video hero si no hay hover o se pide ahorro de datos.
+    // Presentacion de NOVAIX: el avance no reproduce sonido; el video completo se abre a peticion.
     (() => {
-      const heroVideo = document.querySelector('.hero-video video');
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const saveData = Boolean(navigator.connection && navigator.connection.saveData);
-      const isMobile = window.matchMedia('(max-width: 980px)').matches;
-      if (heroVideo && (prefersReducedMotion.matches || saveData)) {
-        heroVideo.pause();
-        heroVideo.removeAttribute('autoplay');
-      }
-      if (heroVideo && isMobile) {
-        heroVideo.controls = true;
-        heroVideo.play().catch(() => {});
-      }
+      const openButton = document.getElementById('hero-video-open');
+      const closeButton = document.getElementById('hero-video-close');
+      const dialog = document.getElementById('novaix-video-dialog');
+      const video = document.getElementById('novaix-presentation-video');
+      if (!openButton || !closeButton || !dialog || !video) return;
+
+      const closeVideo = () => {
+        video.pause();
+        dialog.close();
+        openButton.focus();
+      };
+      openButton.addEventListener('click', () => {
+        dialog.showModal();
+        video.play().catch(() => {});
+      });
+      closeButton.addEventListener('click', closeVideo);
+      dialog.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeVideo();
+      });
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) closeVideo();
+      });
     })();
 
     // Galaxia animada (solo en el hero) + parallax suave
