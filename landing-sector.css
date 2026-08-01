@@ -188,6 +188,12 @@
       color: var(--muted);
     }
     .business-index-panel .btn { white-space: nowrap; }
+    .business-index-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
 
     footer { padding: 26px 0; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
     .footer-inner { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
@@ -245,6 +251,7 @@
       .image-stack { min-height: 460px; }
 
       .business-index-panel { grid-template-columns: 1fr; }
+      .business-index-actions { justify-content: flex-start; }
       .business-index-panel .btn { width: 100%; white-space: normal; }
       .cookie-banner { align-items: stretch; flex-direction: column; }
       .cookie-actions { width: 100%; }
