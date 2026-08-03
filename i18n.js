@@ -10,7 +10,7 @@
     entries.push({ key: key || makeKey("site", entryCounter), source, es, en });
   };
 
-  E("NOVAIX · Software a medida y transformación digital", "NOVAIX · Software a medida y transformación digital", "NOVAIX · Custom software and digital transformation", "site.meta.title");
+  E("NOVAIX | Software a medida, agentes IA y automatización", "NOVAIX | Software a medida, agentes IA y automatización", "NOVAIX | Custom software, AI agents and automation", "site.meta.title");
   E("NOVAIX desarrolla software a medida para digitalizar procesos, conectar herramientas e incorporar automatizacion e IA donde aportan valor real.", "NOVAIX desarrolla software a medida para digitalizar procesos, conectar herramientas e incorporar automatización e IA donde aportan valor real.", "NOVAIX develops custom software to digitize processes, connect business tools and apply automation and AI where they deliver real value.", "site.meta.description");
   E("Saltar al contenido", "Saltar al contenido", "Skip to content", "site.skip");
   E("Navegacion principal", "Navegación principal", "Main navigation", "site.nav.label");
