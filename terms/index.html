@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Términos de uso y contratación | NOVAIX</title>
+  <meta name="description" content="Términos de uso del sitio y marco general para los servicios B2B de software, automatización e IA de NOVAIX.">
+  <link rel="canonical" href="https://novaix.es/terms/">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #070a0f;
+      --surface: #0e141d;
+      --surface-raised: #141c27;
+      --border: #283546;
+      --border-strong: #3a4a5f;
+      --text: #f5f7fa;
+      --muted: #aeb8c5;
+      --subtle: #788595;
+      --cyan: #58d8e7;
+      --orange: #ff9d36;
+      --success: #70d6a3;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: #9aeaf2;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 10, 15, 0.96);
+    }
+
+    .header-inner,
+    .page-shell,
+    .site-footer-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: 156px;
+      height: auto;
+    }
+
+    .header-link {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .header-link:hover {
+      color: var(--text);
+    }
+
+    .document-header {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .document-header-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .document-intro {
+      max-width: 760px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .document-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 30px;
+      color: var(--subtle);
+      font-size: 14px;
+    }
+
+    .document-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-mark {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    .page-shell {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+      padding: 56px 0 80px;
+    }
+
+    .document-nav {
+      position: sticky;
+      top: 24px;
+      padding-right: 24px;
+      border-right: 1px solid var(--border);
+    }
+
+    .document-nav strong {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .document-nav a {
+      display: block;
+      padding: 6px 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .document-nav a:hover {
+      color: var(--text);
+    }
+
+    .legal-document {
+      min-width: 0;
+    }
+
+    .controller {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.55fr);
+      gap: 24px;
+      padding: 26px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface-raised);
+    }
+
+    .controller h2 {
+      margin-top: 0;
+    }
+
+    .controller-data {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .controller-data li + li {
+      margin-top: 8px;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .check {
+      display: inline-grid;
+      flex: 0 0 24px;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border: 1px solid #36674f;
+      border-radius: 50%;
+      color: var(--success);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 24px;
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 25px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    p + p {
+      margin-top: 14px;
+    }
+
+    .rights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .right {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contact-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--orange);
+      background: var(--surface);
+    }
+
+    .contact-action span {
+      color: var(--muted);
+    }
+
+    .contact-action a {
+      flex: 0 0 auto;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .site-footer-inner {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--subtle);
+      font-size: 14px;
+    }
+
+    .site-footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    @media (max-width: 860px) {
+      .page-shell {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .document-nav {
+        position: static;
+        padding: 0 0 24px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        columns: 2;
+      }
+
+      .document-nav strong {
+        column-span: all;
+      }
+
+      .controller {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner,
+      .document-header-inner,
+      .page-shell,
+      .site-footer-inner {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .brand img {
+        width: 132px;
+      }
+
+      .document-header {
+        padding: 48px 0 40px;
+      }
+
+      .document-intro {
+        font-size: 16px;
+      }
+
+      .page-shell {
+        padding: 36px 0 56px;
+      }
+
+      .document-nav {
+        columns: 1;
+      }
+
+      .controller {
+        padding: 20px;
+      }
+
+      .rights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-action,
+      .site-footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-footer-inner {
+        justify-content: center;
+        padding: 24px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="NOVAIX, página principal">
+        <img src="/imagenes/texto.webp" alt="NOVAIX">
+      </a>
+      <a class="header-link" href="/">Volver a novaix.es</a>
+    </div>
+  </header>
+
+  <div class="document-header">
+    <div class="document-header-inner">
+      <p class="eyebrow">Marco de uso profesional</p>
+      <h1>Términos de uso y contratación</h1>
+      <p class="document-intro">Estas condiciones explican el uso del sitio público y el marco general de los servicios profesionales de NOVAIX.</p>
+      <div class="document-meta">
+        <span><i class="meta-mark" aria-hidden="true"></i> Documento vigente</span>
+        <span>Última actualización: 8 de septiembre de 2026</span>
+        <span>Contacto: <a href="mailto:info@novaix.es">info@novaix.es</a></span>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-shell">
+    <nav class="document-nav" aria-label="Contenido de los términos de uso">
+      <strong>Contenido</strong>
+
+      <a href="#identidad">Identificación y alcance</a>
+      <a href="#objeto">Objeto y ámbito B2B</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#uso">Acceso y uso</a>
+      <a href="#obligaciones">Obligaciones</a>
+      <a href="#propiedad">Propiedad intelectual</a>
+      <a href="#terceros">APIs y terceros</a>
+      <a href="#disponibilidad">Disponibilidad</a>
+      <a href="#responsabilidad">Responsabilidad</a>
+      <a href="#suspension">Suspensión</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#vigencia">Cambios y ley aplicable</a>
+    </nav>
+
+    <article class="legal-document">
+
+      <section class="controller" id="identidad">
+        <div>
+          <h2>Identificación y alcance</h2>
+          <ul class="controller-data">
+            <li><strong>Daniel Molina Maquieira</strong></li>
+            <li>Nombre comercial: NOVAIX</li>
+            <li><a href="mailto:info@novaix.es">info@novaix.es</a></li>
+            <li><a href="https://novaix.es">https://novaix.es</a></li>
+          </ul>
+        </div>
+        <div class="trust-list" aria-label="Principios de uso">
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Uso profesional</div>
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Alcance por contrato</div>
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Control humano</div>
+          <div class="trust-item"><span class="check" aria-hidden="true">✓</span> Uso responsable</div>
+        </div>
+      </section>
+
+      <section id="objeto">
+        <h2>Objeto y ámbito B2B</h2>
+        <p>Estas condiciones regulan el acceso y uso del sitio público de NOVAIX y sirven como marco general para los servicios profesionales de software a medida, digitalización, automatización, integraciones, agentes de IA y soporte.</p>
+        <p>El sitio tiene una finalidad principalmente profesional y empresarial. La prestación concreta para cada cliente se define en una propuesta, pedido, contrato o documento de alcance. En caso de contradicción, prevalece el documento contractual específico.</p>
+      </section>
+
+      <section id="servicios">
+        <h2>Servicios y condiciones comerciales</h2>
+        <p>NOVAIX puede analizar procesos, desarrollar software, conectar herramientas, configurar automatizaciones, preparar agentes, realizar demostraciones y prestar soporte. La disponibilidad de una función depende de la viabilidad técnica, los permisos y las herramientas del cliente.</p>
+        <p>Los precios, volúmenes, niveles de servicio, plazos, canales, integraciones, límites de uso y condiciones de soporte son orientativos en la web y dependen del contrato o propuesta aceptada. La información pública no constituye por sí sola una oferta irrevocable ni garantiza una funcionalidad concreta.</p>
+      </section>
+
+      <section id="uso">
+        <h2>Acceso y uso permitido</h2>
+        <p>El usuario debe utilizar la web de forma lícita, diligente y compatible con estas condiciones. Las demos, formularios, agenda y canales deben utilizarse para consultas reales y relacionadas con los servicios de NOVAIX.</p>
+        <p>No se garantiza que toda la web esté disponible en todo momento ni que el contenido sea adecuado para una decisión profesional sin validación adicional.</p>
+      </section>
+
+      <section id="obligaciones">
+        <h2>Usos prohibidos y obligaciones del cliente</h2>
+        <p>Está prohibido introducir malware, intentar acceder sin autorización, interferir en la disponibilidad, extraer contenido de forma abusiva, suplantar identidades, utilizar la web para fraude o enviar datos que no sea necesario tratar.</p>
+        <p>El cliente debe aportar información lícita y suficiente, disponer de permisos sobre sus cuentas y datos, validar los flujos antes de ponerlos en producción y mantener bajo su control las decisiones que requieran criterio profesional.</p>
+      </section>
+
+      <section id="propiedad">
+        <h2>Propiedad intelectual</h2>
+        <p>Los textos, marcas, diseños, código, imágenes, vídeos y demás contenidos del sitio pertenecen a NOVAIX o se utilizan con licencia. El acceso no transmite derechos de propiedad ni permite reproducir, redistribuir o transformar los contenidos fuera de lo permitido por la ley o por una autorización escrita.</p>
+        <p>La titularidad y las licencias sobre desarrollos, configuraciones, documentación y datos de un proyecto se determinan en el contrato correspondiente.</p>
+      </section>
+
+      <section id="terceros">
+        <h2>APIs, integraciones y servicios de terceros</h2>
+        <p>Las soluciones pueden depender de Calendly, servicios de automatización, Google Tag Manager, recursos web, CRMs, APIs, canales de mensajería u otras herramientas autorizadas. Cada tercero puede tener sus propias condiciones, límites, precios, disponibilidad y políticas de privacidad.</p>
+        <p>NOVAIX no controla los cambios, interrupciones o decisiones de proveedores externos. Una integración solo se activa cuando existe autorización y alcance técnico suficiente.</p>
+      </section>
+
+      <section id="disponibilidad">
+        <h2>Disponibilidad y mantenimiento</h2>
+        <p>Podemos actualizar, corregir, suspender temporalmente o retirar partes de la web y de las demos por seguridad, mantenimiento, cambios de proveedor o evolución del servicio. Los mantenimientos, ventanas de soporte y objetivos de disponibilidad aplicables a un cliente se fijan en su contrato.</p>
+      </section>
+
+      <section id="responsabilidad">
+        <h2>Limitación de responsabilidad</h2>
+        <p>El contenido público se ofrece con finalidad informativa. NOVAIX no garantiza resultados comerciales, ahorros, conversiones o decisiones automáticas concretas, porque dependen del contexto, datos, volumen, configuración y supervisión de cada cliente.</p>
+        <p>El cliente debe revisar las respuestas y automatizaciones antes de usarlas en ámbitos clínicos, legales, financieros, laborales o cualquier otro que requiera criterio profesional. La responsabilidad aplicable a un proyecto se regula por el contrato, sin excluir los límites que no puedan excluirse legalmente.</p>
+      </section>
+
+      <section id="suspension">
+        <h2>Suspensión o resolución</h2>
+        <p>NOVAIX podrá limitar o suspender el acceso cuando exista un riesgo de seguridad, uso ilícito, impago, incumplimiento contractual o dependencia de un tercero no disponible. Cuando corresponda, se informará al cliente y se aplicarán las reglas de transición, exportación o eliminación previstas en el contrato.</p>
+      </section>
+
+      <section id="privacidad">
+        <h2>Privacidad</h2>
+        <p>El tratamiento de datos personales se rige por la <a href="/privacy/">Política de Privacidad</a>. Para solicitar la eliminación de datos, consulta el procedimiento de <a href="/data-deletion/">eliminación de datos</a>. En proyectos B2B, el reparto entre responsable y encargado depende del flujo y de las instrucciones documentadas.</p>
+      </section>
+
+      <section id="vigencia">
+        <h2>Cambios, ley aplicable y contacto</h2>
+        <p>Podemos actualizar estas condiciones para reflejar cambios legales, técnicos o de servicio. La versión vigente estará disponible en esta página. Si una cláusula resulta inválida, las restantes conservarán su efecto.</p>
+        <p>Salvo que un contrato disponga otra cosa, estas condiciones se interpretan conforme al derecho español y cualquier controversia se someterá a los juzgados y tribunales que resulten competentes conforme a la normativa aplicable.</p>
+        <p>Para consultas sobre estas condiciones: <a href="mailto:info@novaix.es">info@novaix.es</a>.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>© 2026 NOVAIX. Todos los derechos reservados.</span>
+      <span><a href="/privacy/">Privacidad</a> · <a href="/terms/">Términos</a> · <a href="/data-deletion/">Eliminación de datos</a> · <a href="/">novaix.es</a></span>
+    </div>
+  </footer>
+</body>
+</html>
