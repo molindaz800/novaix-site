@@ -2405,8 +2405,28 @@
       background: linear-gradient(180deg, rgba(122,240,255,1), rgba(0,195,255,1));
     }
     .legal-modal .calendly-frame {
-      height: min(820px, 92vh);
+      box-sizing: border-box;
+      width: min(720px, calc(100vw - 32px));
+      height: auto;
+      max-height: calc(100vh - 32px);
       overflow: auto;
+    }
+
+    .legal-modal .legal-columns {
+      column-count: 1;
+      column-gap: 0;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 700px) {
+      .legal-modal .calendly-frame {
+        width: calc(100vw - 24px);
+        max-height: calc(100vh - 24px);
+        padding: 54px 16px 20px !important;
+        border-radius: 14px;
+      }
+      .legal-modal .legal-columns { column-count: 1; column-gap: 0; }
     }
 
     /* Legal modal: efecto "3D Slit" (Codrops ModalWindowEffects) */
