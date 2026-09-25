@@ -49,8 +49,9 @@
 .studio-hero-copy { padding: 18px 0; }
 .home-studio .studio-hero-copy { z-index: 3; }
 .home-studio .studio-hero .title {
-  color: #edf6fc; font-size: clamp(2.5rem, 4.4vw, 4.5rem); line-height: 1.04;
-  font-weight: 700; letter-spacing: -.04em; max-width: 680px;
+  color: #edf6fc; font-family: 'Oxanium', 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 4.4vw, 4.5rem); line-height: 1.05;
+  font-weight: 800; letter-spacing: -.025em; max-width: 680px;
   margin: 0 0 22px; background: none; animation: none; text-wrap: balance;
 }
 .home-studio .studio-hero .subtitle { max-width: 550px; font-size: 1.12rem; line-height: 1.65; }
@@ -180,7 +181,7 @@
   .studio-identity { order: -1; width: min(114%, 470px); margin: -12px 0 -14px; aspect-ratio: 960 / 610; }
   .studio-wordmark { width: 58%; top: 52%; left: 28%; }
   .studio-hero-copy { padding: 0; width: 100%; }
-  .home-studio .studio-hero .title { font-size: clamp(2.15rem, 8.6vw, 3.1rem); letter-spacing: -.035em; margin-bottom: 16px; text-wrap: initial; }
+  .home-studio .studio-hero .title { font-size: clamp(2.15rem, 8.6vw, 3.1rem); letter-spacing: -.025em; margin-bottom: 16px; text-wrap: initial; }
   .home-studio .studio-hero .subtitle { font-size: 1rem; line-height: 1.6; }
   .home-studio .studio-hero .hero-actions { margin-top: 20px; flex-direction: column; align-items: stretch; gap: 10px; }
   .studio-text-link { justify-content: center; }
