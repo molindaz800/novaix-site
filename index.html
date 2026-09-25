@@ -3211,26 +3211,26 @@
       .reveal { transition: none; opacity: 1; transform: none; filter: none; }
     }
   </style>
+  <link rel="stylesheet" href="home-studio.css?v=20260925-planet">
 </head>
-<body>
+<body class="home-studio">
   <a class="skip-link" href="#contenido" data-i18n="site.skip">Saltar al contenido</a>
   <div class="bg-ambient" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <header id="top">
     <nav class="nav" aria-label="Navegación principal" data-i18n-attr-aria-label="site.nav.label">
+      <a class="studio-brand" href="#top" aria-label="NOVAIX">
+        <img src="imagenes/texto.webp" width="1116" height="192" alt="NOVAIX">
+      </a>
       <button class="nav-toggle" type="button" aria-label="Abrir menú" data-i18n-attr-aria-label="site.nav.open" aria-expanded="false" aria-controls="nav-links" data-inline-toggle="true" onclick="(function(btn,evt){evt.preventDefault();evt.stopPropagation();const nav=btn.closest('.nav');const open=nav.classList.toggle('nav--open');btn.setAttribute('aria-expanded', open ? 'true' : 'false');})(this,event)" ontouchstart="(function(btn,evt){evt.preventDefault();evt.stopPropagation();const nav=btn.closest('.nav');const open=nav.classList.toggle('nav--open');btn.setAttribute('aria-expanded', open ? 'true' : 'false');})(this,event)">
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
       <div class="nav-links" id="nav-links">
-        <a class="nav-home cl-effect-10" href="#top" aria-label="Ir al inicio" data-i18n-attr-aria-label="site.nav.home"><i class="fa-solid fa-house"></i></a>
-        <a class="cl-effect-10" data-hover="Beneficios" data-i18n-attr-data-hover="site.nav.benefits" href="#beneficios"><span data-i18n="site.nav.benefits">Beneficios</span></a>
-	        <a class="cl-effect-10" data-hover="Seguridad" data-i18n-attr-data-hover="site.nav.security" href="#seguridad"><span data-i18n="site.nav.security">Seguridad</span></a>
-	        <a class="cl-effect-10" data-hover="Ops Hub" data-i18n-attr-data-hover="site.nav.ops" href="#ops-hub"><span data-i18n="site.nav.ops">Ops Hub</span></a>
-	        <a class="cl-effect-10" data-hover="Servicios" data-i18n-attr-data-hover="site.nav.services" href="#servicios"><span data-i18n="site.nav.services">Servicios</span></a>
-	        <a class="cl-effect-10" data-hover="Casos" data-i18n-attr-data-hover="site.nav.cases" href="#casos"><span data-i18n="site.nav.cases">Casos</span></a>
-	        <div class="nav-dropdown">
-	          <span class="nav-dropdown__trigger"><span data-i18n="site.nav.examples">Ejemplos</span></span>
+        <a href="#soluciones"><span data-i18n="studio.001">Soluciones</span></a>
+        <a href="#proceso"><span data-i18n="studio.002">Cómo trabajamos</span></a>
+        <div class="nav-dropdown">
+	          <a href="landing-negocios.html" class="nav-dropdown__trigger"><span data-i18n="site.nav.examples">Ejemplos</span></a>
 	          <div class="nav-dropdown__menu" role="menu" aria-label="Tipos de ejemplos" data-i18n-attr-aria-label="site.nav.examples.menu">
 	            <a href="landing-negocios.html" role="menuitem">
 	              <strong data-i18n="site.nav.examples.business"><i class="fa-solid fa-layer-group"></i> Casos por negocio</strong>
@@ -3242,11 +3242,9 @@
 	            </a>
 	          </div>
 	        </div>
-	        <a class="cl-effect-10" data-hover="Planes" data-i18n-attr-data-hover="site.nav.plans" href="#planes"><span data-i18n="site.nav.plans">Planes</span></a>
-	        <a class="cl-effect-10" data-hover="Quiénes somos" data-i18n-attr-data-hover="site.nav.about" href="#quienes"><span data-i18n="site.nav.about">Quiénes somos</span></a>
-        <a class="cl-effect-10" data-hover="Contacto" data-i18n-attr-data-hover="site.nav.contact" href="#demo"><span data-i18n="site.nav.contact">Contacto</span></a>
-	        <a class="cl-effect-10 legal-open" data-hover="Legal" data-i18n-attr-data-hover="site.nav.legal" href="#legal"><span data-i18n="site.nav.legal">Legal</span></a>
-	        <label class="language-switcher" aria-label="Seleccionar idioma" data-i18n-attr-aria-label="site.language.select">
+        <a href="#quienes"><span data-i18n="studio.003">Equipo</span></a>
+        <a href="#planes"><span data-i18n="site.nav.plans">Planes</span></a>
+        <label class="language-switcher" aria-label="Seleccionar idioma" data-i18n-attr-aria-label="site.language.select">
 	          <span class="visually-hidden" data-i18n="site.language.select">Seleccionar idioma</span>
 	          <i class="fa-solid fa-globe" aria-hidden="true"></i>
 	          <select id="language-select" aria-label="Seleccionar idioma" data-i18n-attr-aria-label="site.language.select">
@@ -3254,63 +3252,23 @@
 	            <option value="en">EN</option>
 	          </select>
 	        </label>
-	        <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span data-i18n="site.cta.book">Agendar cita</span></button>
+        <button class="cta" type="button" data-calendly-open aria-haspopup="dialog"><span data-i18n="studio.004">Hablemos</span></button>
       </div>
     </nav>
 
-    <div class="hero-galaxy" aria-hidden="true">
-      <canvas id="hero-galaxy-canvas" class="hero-galaxy__canvas"></canvas>
-      <div class="hero-galaxy__planet-wrap">
-        <img class="hero-galaxy__planet" src="imagenes/logo-empresa-planeta-cutout.webp" alt="" width="960" height="581" decoding="async" loading="lazy">
-      </div>
-      <div class="hero-galaxy__text-wrap">
-        <img class="hero-galaxy__text" src="imagenes/texto.webp" alt="" width="1116" height="192" decoding="async" loading="lazy">
-      </div>
-    </div>
-
-    <div class="container hero" id="contenido">
-      <div>
-        <span class="eyebrow" data-i18n="site.hero.eyebrow"><i class="fa-solid fa-code"></i> Software a medida · Digitalización · IA aplicada</span>
-        <h1 class="title title-animated" data-i18n="site.hero.title">Creamos el software que tu empresa necesita para avanzar</h1>
-        <p class="subtitle" data-i18n="site.hero.subtitle">En NOVAIX diseñamos y desarrollamos soluciones de software a medida para digitalizar procesos, conectar herramientas y mejorar la forma en que tu empresa trabaja. Incorporamos automatización e IA cuando aportan valor real, desde el análisis hasta la puesta en marcha.</p>
+    <div class="container hero studio-hero" id="contenido">
+      <div class="studio-hero-copy">
+        <h1 class="title"><span data-i18n="studio.005">Tu forma de trabajar, convertida en software</span></h1>
+        <p class="subtitle"><span data-i18n="studio.006">Creamos herramientas que conectan tus procesos, tus datos y tu equipo</span></p>
         <div class="hero-actions">
-          <button class="cta stroke cl-effect-20" type="button" data-calendly-open aria-haspopup="dialog"><span data-i18n="site.cta.book">Agendar cita</span></button>
-          <a class="ghost cl-effect-10" data-hover="Ver servicios" data-i18n-attr-data-hover="site.hero.servicesCta" href="#servicios"><span data-i18n="site.hero.servicesCta">Ver servicios</span></a>
+          <button class="cta" type="button" data-calendly-open aria-haspopup="dialog"><span data-i18n="studio.007">Hablemos de tu proyecto</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          <a class="studio-text-link" href="#proceso"><span data-i18n="studio.008">Ver cómo lo hacemos</span> <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
         </div>
-        <div class="hero-cards" aria-label="Capacidades de NOVAIX" data-i18n-attr-aria-label="site.hero.resultsLabel">
-          <div class="mini-card"><strong data-i18n="site.hero.statCustom">Software a medida</strong><small data-i18n="site.hero.statResolved">Diseñado alrededor de tus procesos.</small></div>
-          <div class="mini-card"><strong data-i18n="site.hero.statIntegrations">Integraciones reales</strong><small data-i18n="site.hero.statBackOffice">Conectamos herramientas, datos y equipos.</small></div>
-          <div class="mini-card"><strong data-i18n="site.hero.statEndToEnd">De principio a fin</strong><small data-i18n="site.hero.statDeploy">Análisis, desarrollo, implantación y mejora.</small></div>
-        </div>
-        <div class="security-strip" aria-label="Enfoque de seguridad y privacidad" data-i18n-attr-aria-label="site.hero.securityLabel">
-          <p><strong data-i18n="site.hero.privacyLead">Tecnología preparada para empresas:</strong> <span data-i18n="site.hero.privacyBody">desarrollamos soluciones con enfoque RGPD y LOPD-GDD, minimización de datos y controles de seguridad desde el diseño.</span></p>
-          <div class="security-badges">
-            <span data-i18n="site.hero.badgeGdpr"><i class="fa-solid fa-shield-halved"></i> RGPD + LOPD-GDD</span>
-            <span data-i18n="site.hero.badgeEncryption"><i class="fa-solid fa-lock"></i> Cifrado en tránsito</span>
-            <span data-i18n="site.hero.badgeAccess"><i class="fa-solid fa-user-lock"></i> Accesos por rol</span>
-            <span data-i18n="site.hero.badgeEu"><i class="fa-solid fa-server"></i> UE disponible</span>
-          </div>
-        </div>
-        <div class="trust-strip" aria-label="Prueba social" data-i18n-attr-aria-label="site.hero.socialLabel">
-          <p data-i18n="site.hero.socialText">Soluciones para empresas que quieren digitalizarse, automatizar y crecer.</p>
-          <div class="trust-badges">
-            <span>Salud</span>
-            <span>Legal</span>
-            <span>Retail</span>
-            <span>SaaS</span>
-            <span>Logística</span>
-          </div>
-        </div>
+        <p class="studio-principle"><span data-i18n="studio.009">Software que se adapta a tu negocio, no al revés</span></p>
       </div>
-      <div class="hero-video" aria-label="Presentación en vídeo de NOVAIX">
-        <button class="hero-video-preview" id="hero-video-open" type="button" aria-haspopup="dialog" aria-controls="novaix-video-dialog" aria-label="Reproducir: descubre NOVAIX en un minuto">
-          <video src="videos/novaix-presentacion.mp4" width="480" height="848" autoplay muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>
-          <span class="hero-video-copy">
-            <span class="hero-video-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
-            <strong>Descubre NOVAIX en 1 minuto</strong>
-            <small>Conoce cómo transformamos procesos con software e IA</small>
-          </span>
-        </button>
+      <div class="studio-identity" role="img" aria-label="NOVAIX">
+        <img class="studio-planet" src="imagenes/planeta-studio-hd.webp" width="1611" height="976" alt="" fetchpriority="high" decoding="async">
+        <img class="studio-wordmark" src="imagenes/texto.webp" width="1116" height="192" alt="" decoding="async">
       </div>
     </div>
   </header>
@@ -3321,6 +3279,19 @@
   </dialog>
 
   <main>
+<section class="studio-demo container" aria-labelledby="studio-demo-title"><div class="studio-demo-heading"><h2 id="studio-demo-title"><span data-i18n="studio.010">Del proceso al software</span></h2><p><span data-i18n="studio.011">Ejemplo ilustrativo · Datos de demostración</span></p></div><div class="studio-workbench"><div class="studio-request-list"><h3><span data-i18n="studio.012">Explora una solución</span></h3><div role="tablist" aria-label="Ejemplos de soluciones" data-i18n-attr-aria-label="studio.demo.tabs"><button class="studio-request" id="studio-tab-0" role="tab" aria-selected="true" aria-controls="studio-panel-0" tabindex="0"><i class="fa-solid fa-code" aria-hidden="true"></i><span><strong data-i18n="studio.013">ERP a medida</strong><small data-i18n="studio.014">Software a medida</small></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button class="studio-request" id="studio-tab-1" role="tab" aria-selected="false" aria-controls="studio-panel-1" tabindex="-1"><i class="fa-solid fa-link" aria-hidden="true"></i><span><strong data-i18n="studio.015">Conexión con CRM</strong><small data-i18n="studio.016">Integraciones</small></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button class="studio-request" id="studio-tab-2" role="tab" aria-selected="false" aria-controls="studio-panel-2" tabindex="-1"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span><strong data-i18n="studio.017">Gestión documental</strong><small data-i18n="studio.018">Automatización e IA</small></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button></div><p class="studio-demo-note"><span data-i18n="studio.019">Tres ejemplos. Cada proyecto empieza por entender tu operativa.</span></p></div><div class="studio-demo-panel" role="tabpanel" id="studio-panel-0" aria-labelledby="studio-tab-0" tabindex="0"><div class="studio-request-detail"><p class="studio-ref">NX-DEMO / 01</p><h3><span data-i18n="studio.020">ERP a medida</span></h3><dl><div><dt><span data-i18n="studio.021">Proyecto</span></dt><dd><span data-i18n="studio.022">Empresa de ejemplo</span></dd></div><div><dt><span data-i18n="studio.023">Qué queremos resolver</span></dt><dd><span data-i18n="studio.024">Unificar pedidos, stock y facturación en una herramienta adaptada al equipo.</span></dd></div></dl><div class="studio-human"><i class="fa-regular fa-user" aria-hidden="true"></i><div><strong data-i18n="studio.025">El equipo mantiene el control</strong><p data-i18n="studio.026">La tecnología apoya las decisiones, no sustituye tu criterio.</p></div></div></div><div class="studio-activity"><h3><span data-i18n="studio.027">Así se conecta el proceso</span></h3><ol><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrow-right-to-bracket"></i></span><div><strong data-i18n="studio.028">Solicitud recibida</strong><p data-i18n="studio.029">El formulario recoge las necesidades del negocio.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span><div><strong data-i18n="studio.030">Revisión del equipo</strong><p data-i18n="studio.031">Una persona valida el alcance antes de continuar.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-check"></i></span><div><strong data-i18n="studio.032">Siguiente paso</strong><p data-i18n="studio.033">Se prepara una conversación para definir la solución.</p></div></li></ol></div></div><div class="studio-demo-panel" role="tabpanel" id="studio-panel-1" aria-labelledby="studio-tab-1" tabindex="0" hidden><div class="studio-request-detail"><p class="studio-ref">NX-DEMO / 02</p><h3><span data-i18n="studio.034">Conexión con CRM</span></h3><dl><div><dt><span data-i18n="studio.035">Proyecto</span></dt><dd><span data-i18n="studio.036">Empresa de ejemplo</span></dd></div><div><dt><span data-i18n="studio.037">Qué queremos resolver</span></dt><dd><span data-i18n="studio.038">Conectar los formularios de la web con el CRM y las herramientas de trabajo.</span></dd></div></dl><div class="studio-human"><i class="fa-regular fa-user" aria-hidden="true"></i><div><strong data-i18n="studio.039">El equipo mantiene el control</strong><p data-i18n="studio.040">La tecnología apoya las decisiones, no sustituye tu criterio.</p></div></div></div><div class="studio-activity"><h3><span data-i18n="studio.041">Así se conecta el proceso</span></h3><ol><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrow-right-to-bracket"></i></span><div><strong data-i18n="studio.042">Contacto recibido</strong><p data-i18n="studio.043">Los datos entran desde el formulario web.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span><div><strong data-i18n="studio.044">CRM actualizado</strong><p data-i18n="studio.045">La información se organiza en un solo lugar.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-check"></i></span><div><strong data-i18n="studio.046">Aviso al equipo</strong><p data-i18n="studio.047">El equipo puede revisar y dar seguimiento.</p></div></li></ol></div></div><div class="studio-demo-panel" role="tabpanel" id="studio-panel-2" aria-labelledby="studio-tab-2" tabindex="0" hidden><div class="studio-request-detail"><p class="studio-ref">NX-DEMO / 03</p><h3><span data-i18n="studio.048">Gestión documental</span></h3><dl><div><dt><span data-i18n="studio.049">Proyecto</span></dt><dd><span data-i18n="studio.050">Empresa de ejemplo</span></dd></div><div><dt><span data-i18n="studio.051">Qué queremos resolver</span></dt><dd><span data-i18n="studio.052">Extraer información de documentos y preparar una revisión antes de guardarla.</span></dd></div></dl><div class="studio-human"><i class="fa-regular fa-user" aria-hidden="true"></i><div><strong data-i18n="studio.053">El equipo mantiene el control</strong><p data-i18n="studio.054">La tecnología apoya las decisiones, no sustituye tu criterio.</p></div></div></div><div class="studio-activity"><h3><span data-i18n="studio.055">Así se conecta el proceso</span></h3><ol><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrow-right-to-bracket"></i></span><div><strong data-i18n="studio.056">Documento recibido</strong><p data-i18n="studio.057">Se identifica la información necesaria.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span><div><strong data-i18n="studio.058">Datos preparados</strong><p data-i18n="studio.059">La automatización estructura una propuesta.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-check"></i></span><div><strong data-i18n="studio.060">Validación humana</strong><p data-i18n="studio.061">Una persona comprueba el resultado.</p></div></li></ol></div></div></div></section>
+<section id="soluciones" class="studio-solutions"><div class="container"><h2><span data-i18n="studio.062">Lo que tu negocio necesita, sin piezas de más</span></h2><div class="studio-solution-rows"><a href="#servicios"><h3 data-i18n="studio.063">Construir</h3><p data-i18n="studio.064">Software diseñado alrededor de tus procesos</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="#integraciones"><h3 data-i18n="studio.065">Conectar</h3><p data-i18n="studio.066">Tus herramientas, datos y equipos trabajando juntos</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="#ops-hub"><h3 data-i18n="studio.067">Evolucionar</h3><p data-i18n="studio.068">Automatización e IA donde aportan valor</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>
+<section id="proceso" class="studio-process"><div class="container studio-process-layout"><div><h2><span data-i18n="studio.069">Del primer mapa a la puesta en marcha</span></h2><ol class="studio-process-steps"><li><h3 data-i18n="studio.070">Entender</h3><p data-i18n="studio.071">Tu negocio y tus objetivos</p></li><li><h3 data-i18n="studio.072">Diseñar</h3><p data-i18n="studio.073">La solución y su alcance</p></li><li><h3 data-i18n="studio.074">Construir</h3><p data-i18n="studio.075">Desarrollo e integración</p></li><li><h3 data-i18n="studio.076">Acompañar</h3><p data-i18n="studio.077">Implantación y evolución</p></li></ol><p class="studio-process-note"><span data-i18n="studio.078">Proyectos a medida y planes de automatización según el alcance.</span></p><a class="studio-text-link" href="#planes"><span data-i18n="studio.079">Explorar planes y proyectos</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>      <div class="hero-video" aria-label="Presentación en vídeo de NOVAIX">
+        <button class="hero-video-preview" id="hero-video-open" type="button" aria-haspopup="dialog" aria-controls="novaix-video-dialog" aria-label="Reproducir: descubre NOVAIX en un minuto">
+          <video src="videos/novaix-presentacion.mp4" width="480" height="848" autoplay muted loop playsinline preload="metadata" tabindex="-1" aria-hidden="true"></video>
+          <span class="hero-video-copy">
+            <span class="hero-video-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+            <strong>Descubre NOVAIX en 1 minuto</strong>
+            <small>Conoce cómo transformamos procesos con software e IA</small>
+          </span>
+        </button>
+      </div>
+</div></section>
     <section id="beneficios" aria-labelledby="beneficios-title">
       <div class="container">
         <h2 class="section-title" id="beneficios-title">Beneficios directos</h2>
@@ -3997,6 +3968,7 @@
     <div class="container">
       <p>© <span id="year"></span> NOVAIX. Todos los derechos reservados.</p>
       <div class="footer-links">
+<a href="#beneficios">Beneficios</a><a href="#seguridad">Seguridad</a><a href="#ops-hub">Ops Hub</a><a href="#casos">Casos</a><a class="legal-open" href="#legal">Legal</a>
         <a href="/privacy/">Política de Privacidad</a>
         <a href="/terms/">Términos</a>
         <a href="/data-deletion/">Eliminación de datos</a>
@@ -4004,7 +3976,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20260801-1"></script>
+  <script src="i18n.js?v=20260925"></script>
   <script>
     (function () {
       function hasClass(el, className) {
@@ -5939,5 +5911,6 @@
     heroArea.appendChild(orbitTrack);
     heroArea.appendChild(orbiter);
   </script>
+  <script src="home-studio.js?v=20260925" defer></script>
 </body>
 </html>
