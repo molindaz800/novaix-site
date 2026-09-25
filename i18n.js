@@ -11,6 +11,20 @@
   };
 
 
+
+  E("En espera", "En espera", "Ready", "ops.media.ready");
+  E("Selecciona un agente", "Selecciona un agente", "Select an agent", "ops.media.select");
+  // Ops Hub media states.
+  E("Cargando vídeo…", "Cargando vídeo…", "Loading video…", "ops.media.0");
+  E("Preparando reproducción…", "Preparando reproducción…", "Buffering video…", "ops.media.1");
+  E("Vídeo en pausa", "Vídeo en pausa", "Video paused", "ops.media.2");
+  E("No se pudo cargar el vídeo", "No se pudo cargar el vídeo", "Video could not be loaded", "ops.media.3");
+  E("Pulsa reproducir para ver el vídeo", "Pulsa reproducir para ver el vídeo", "Press play to watch the video", "ops.media.4");
+  E("Reintentar vídeo", "Reintentar vídeo", "Retry video", "ops.media.5");
+  E("Pausar vídeo", "Pausar vídeo", "Pause video", "ops.media.6");
+  E("Reproducir vídeo", "Reproducir vídeo", "Play video", "ops.media.7");
+  E("Vídeo del agente", "Vídeo del agente", "Agent video", "ops.media.8");
+
   // Local homepage redesign: stable translation keys, shared by the static English renderer.
   E("Soluciones", "Soluciones", "Solutions", "studio.001");
   E("Cómo trabajamos", "Cómo trabajamos", "Our process", "studio.002");
