@@ -84,13 +84,41 @@ test('blocked autoplay offers accessible play action',async()=>{
  f.player.setActive(true);f.player.select('a.mp4','a.webp');await Promise.resolve();
  assert.match(f.status.textContent,/Pulsa reproducir/);assert.equal(f.control.hidden,false);
 });
-test('buffering transitions to playback without reloading',()=>{
+test('buffering transitions to playback without reloading',async()=>{
  const f=fixture();f.player.setActive(true);f.player.select('a.mp4','a.webp');const loads=f.video.loads;
- f.listeners.waiting();assert.equal(f.status.textContent,'Preparando reproducción…');assert.equal(f.video['aria-busy'],'true');
+ f.video.readyState=2;f.listeners.waiting();await new Promise(r=>setTimeout(r,280));assert.equal(f.status.textContent,'Preparando reproducción…');assert.equal(f.video['aria-busy'],'true');
  f.listeners.playing();assert.equal(f.status.textContent,'');assert.equal(f.video['aria-busy'],'false');assert.equal(f.video.loads,loads);
 });
 test('a failed speculative request is retried on explicit selection',()=>{
  const f=fixture();f.player.prepare('a.mp4','a.webp',true);const a=f.ctx.all.find(v=>v.src==='a.mp4');
  a.error={code:2};f.player.setActive(true);f.player.select('a.mp4','a.webp');
  assert.equal(f.video,a);assert.equal(a.loads,2);assert.equal(a.error,null);
+});
+test('pause action remains stable through loading and loop buffering',()=>{
+ const f=fixture();f.player.setActive(true);f.player.select('a.mp4','a.webp');
+ assert.equal(f.control.textContent,'Pausar vídeo');
+ for(let i=0;i<3;i++){
+  f.listeners.playing();f.listeners.waiting();
+  assert.equal(f.video.paused,false);assert.equal(f.control.textContent,'Pausar vídeo');
+ }
+});
+test('clicking during buffering pauses rather than issuing another play',()=>{
+ const f=fixture();f.player.setActive(true);f.player.select('a.mp4','a.webp');f.listeners.playing();f.listeners.waiting();
+ const plays=f.video.plays;f.control.click();assert.equal(f.video.paused,true);assert.equal(f.video.plays,plays);
+ assert.equal(f.control.textContent,'Reproducir vídeo');f.listeners.waiting();assert.equal(f.control.textContent,'Reproducir vídeo');
+});
+test('loading resumes stable pause action after a genuine visibility pause',()=>{
+ const f=fixture();f.player.setActive(true);f.player.select('a.mp4','a.webp');f.listeners.playing();
+ f.player.setActive(false);assert.equal(f.control.textContent,'Reproducir vídeo');
+ f.player.setActive(true);assert.equal(f.control.textContent,'Pausar vídeo');
+});
+test('brief loop waiting does not flash buffering text',async()=>{
+ const f=fixture();f.player.setActive(true);f.player.select('a.mp4','a.webp');f.listeners.playing();
+ f.video.readyState=2;f.listeners.waiting();f.video.readyState=4;f.listeners.playing();
+ await new Promise(r=>setTimeout(r,280));assert.equal(f.status.textContent,'');assert.equal(f.control.textContent,'Pausar vídeo');
+});
+test('pending buffering UI cannot overwrite a manual pause',async()=>{
+ const f=fixture();f.player.setActive(true);f.player.select('a.mp4','a.webp');f.listeners.playing();
+ f.video.readyState=2;f.listeners.waiting();f.control.click();
+ await new Promise(r=>setTimeout(r,280));assert.equal(f.status.textContent,'Vídeo en pausa');assert.equal(f.control.textContent,'Reproducir vídeo');
 });

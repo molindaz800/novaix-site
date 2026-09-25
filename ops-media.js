@@ -5,18 +5,29 @@
     const template = video.cloneNode(false);
     const pool = new Map();
     let source = '', active = false, manualPause = false, epoch = 0, state = 'idle';
-    let intentTimer = null, prepared = '';
+    let intentTimer = null, prepared = '', bufferingTimer = null;
     const labels = {
       idle: '', loading: 'Cargando vídeo…', buffering: 'Preparando reproducción…',
       playing: '', paused: 'Vídeo en pausa', error: 'No se pudo cargar el vídeo',
       blocked: 'Pulsa reproducir para ver el vídeo'
     };
+    function clearBufferDelay() {
+      if (bufferingTimer !== null) clearTimeout(bufferingTimer);
+      bufferingTimer = null;
+    }
+    function wantsPlayback() {
+      return Boolean(source && active && !manualPause &&
+        state !== 'idle' && state !== 'error' && state !== 'blocked');
+    }
     function render(next) {
+      if (next !== 'buffering') clearBufferDelay();
       state = next;
-      status.textContent = translate(labels[state]);
+      const statusLabel = translate(labels[state]);
+      if (status.textContent !== statusLabel) status.textContent = statusLabel;
       control.hidden = state === 'idle';
-      control.textContent = translate(state === 'error' ? 'Reintentar vídeo' :
-        state === 'playing' ? 'Pausar vídeo' : 'Reproducir vídeo');
+      const actionLabel = translate(state === 'error' ? 'Reintentar vídeo' :
+        wantsPlayback() ? 'Pausar vídeo' : 'Reproducir vídeo');
+      if (control.textContent !== actionLabel) control.textContent = actionLabel;
       video.setAttribute('aria-busy', String(state === 'loading' || state === 'buffering'));
     }
     function release(src) {
@@ -52,7 +63,13 @@
           render('playing');
         });
         entry.addEventListener('waiting', () => {
-          if (entry === video && source && active && !manualPause) render('buffering');
+          if (entry !== video || !wantsPlayback()) return;
+          clearBufferDelay();
+          // Loop seeks briefly emit waiting; do not flash a pause/loading UI each lap.
+          bufferingTimer = setTimeout(() => {
+            bufferingTimer = null;
+            if (entry === video && wantsPlayback() && entry.readyState < 3) render('buffering');
+          }, 250);
         });
         entry.addEventListener('error', () => {
           if (entry === video && source && entry.error) render('error');
@@ -64,6 +81,7 @@
     }
     function play() {
       if (!source || !active || manualPause) return;
+      if (state === 'paused' || state === 'blocked' || state === 'error') render('loading');
       const attempt = epoch, target = video;
       const promise = target.play();
       if (promise) promise.catch(error => {
@@ -94,7 +112,7 @@
       // Never play a speculative or retained element.
     }
     control.addEventListener('click', () => {
-      if (state === 'playing') {
+      if (wantsPlayback()) {
         manualPause = true; video.pause(); render('paused');
       } else {
         manualPause = false;
