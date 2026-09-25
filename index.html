@@ -1855,6 +1855,7 @@
     .nx-media-feedback button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .nx-effects-paused *, .nx-effects-paused::before, .nx-effects-paused::after,
     .nx-effects-paused *::before, .nx-effects-paused *::after { animation-play-state: paused !important; }
+    .nx-node:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
     .nx-card-video {
       position: absolute;
       inset: 0;
@@ -3982,7 +3983,7 @@
   </footer>
 
   <script src="i18n.js?v=20260925-ops"></script>
-  <script src="ops-media.js?v=20260925"></script>
+  <script src="ops-media.js?v=20260925-switch"></script>
   <script>
     (function () {
       function hasClass(el, className) {
@@ -5289,6 +5290,22 @@
             node.style.left = `${x}px`;
             node.style.top = `${y}px`;
             node.setAttribute('data-agent', id);
+            node.setAttribute('role', 'button');
+            node.setAttribute('tabindex', '0');
+            node.setAttribute('aria-label', a.name);
+            const prepareVideo = (immediate = false) => {
+              if (!document.hidden) mediaPlayer.prepare(a.video, a.video.replace(/\.mp4$/, '.webp'), immediate);
+            };
+            node.addEventListener('pointerenter', (event) => {
+              if (event.pointerType !== 'touch') prepareVideo();
+            });
+            node.addEventListener('pointerleave', () => mediaPlayer.cancelPrepare());
+            node.addEventListener('focus', () => prepareVideo());
+            node.addEventListener('blur', () => mediaPlayer.cancelPrepare());
+            node.addEventListener('pointerdown', () => prepareVideo(true));
+            node.addEventListener('keydown', (event) => {
+              if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); node.click(); }
+            });
 
             node.style.setProperty('--node-accent', a.accent);
             node.style.setProperty('--node-accent2', a.accent2 || a.accent);
