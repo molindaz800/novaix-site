@@ -244,6 +244,8 @@ function render(niche) {
   <link rel="stylesheet" href="landing-sector.css">
   <style>:root{--bg:#0b0f12}body{--primary:${niche.primary};--secondary:${niche.secondary};--accent:#ff6f52;--hero-image:url("${niche.image}")}</style>
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
+  <link rel="stylesheet" href="ui-controls.css?v=20260928">
+  <script src="ui-dialogs.js?v=20260928" defer></script>
 </head>
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
@@ -260,7 +262,7 @@ function render(niche) {
         <h1>${niche.h1}</h1>
         <p class="hero-copy">${niche.lead}</p>
         <div class="hero-actions"><button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-bolt"></i>Solicitar diagnóstico</button><a class="btn btn-secondary" href="#sistema"><i class="fa-solid fa-arrow-down"></i>Ver automatizaciones</a></div>
-        <div class="proof-row" aria-label="Indicadores de referencia">${niche.metrics.map(([value, label]) => `<div class="proof-item"><strong>${value}</strong><span>${label}</span></div>`).join("")}</div>
+        <div class="proof-row" aria-label="Indicadores de referencia">${niche.metrics.map(([value, label]) => `<div class="proof-item"><strong>${esc(value)}</strong><span>${label}</span></div>`).join("")}</div>
       </div>
       <aside class="ops-panel reveal" aria-label="Flujo de automatización para ${niche.name.toLowerCase()}">
         <div class="ops-head"><strong>NOVAIX Operations</strong><span class="status-dot">Preparado</span></div>
@@ -283,7 +285,7 @@ function render(niche) {
   <div class="modal" id="calendly-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Agenda con NOVAIX"><div class="modal-frame"><button class="modal-close" type="button" aria-label="Cerrar agenda"><i class="fa-solid fa-xmark"></i></button><div class="calendly-inline-widget" data-url="https://calendly.com/novaix-assist/30min?primary_color=${niche.primary.slice(1)}&text_color=fbf8f2&background_color=0b0f12"></div></div></div>
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies"><p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda.</p><div class="cookie-actions"><button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button><button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button></div></div>
   <script src="landing-language.js"></script>
-  <script src="i18n.js"></script>
+  <script src="i18n.js?v=20260929-audit"></script>
   <script src="landing-common.js"></script>
   <script src="landing-niche.js"></script>
 </body>

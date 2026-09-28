@@ -24,6 +24,9 @@
   <link rel="stylesheet" href="landing-sector.css">
   <style>:root{--bg:#0b0f12}body{--primary:#a78bfa;--secondary:#22d3ee;--accent:#ff6f52;--hero-image:url("imagenes/landing-gimnasios-detail.webp")}</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://novaix.es/#business","name":"NOVAIX","url":"https://novaix.es/","email":"info@novaix.es","areaServed":{"@type":"AdministrativeArea","name":"Comunidad de Madrid"},"serviceType":"Automatización e inteligencia artificial para academias y formación"},{"@type":"Service","name":"IA para academias y centros de formación","provider":{"@id":"https://novaix.es/#business"},"areaServed":"España","url":"https://novaix.es/landing-academias.html","description":"Automatización para academias: información de cursos, captación de alumnos, matrículas, clases de prueba, recordatorios y soporte administrativo."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Puede recomendar un nivel?","acceptedAnswer":{"@type":"Answer","text":"Puede recopilar información y aplicar reglas aprobadas; la evaluación académica final sigue en el centro."}},{"@type":"Question","name":"¿Funciona para varias sedes?","acceptedAnswer":{"@type":"Answer","text":"Sí. Puede separar cursos, horarios, calendarios y equipos por sede."}},{"@type":"Question","name":"¿Puede atender en varios idiomas?","acceptedAnswer":{"@type":"Answer","text":"Sí, siempre que el contenido y las reglas estén revisados en cada idioma."}}]}]}</script>
+  <link rel="stylesheet" href="ui-controls.css?v=20260928">
+  <script src="ui-dialogs.js?v=20260928" defer></script>
+  <link rel="alternate" hreflang="en" href="https://novaix.es/en/landing-academias.html">
 </head>
 <body>
   <a href="#contenido" class="skip-link">Saltar al contenido</a>
@@ -40,7 +43,7 @@
         <h1>Convierte consultas sobre cursos en matrículas organizadas</h1>
         <p class="hero-copy">Responde horarios, niveles y modalidades, cualifica a cada alumno y agenda pruebas o entrevistas sin dejar conversaciones sin atender.</p>
         <div class="hero-actions"><button class="btn btn-primary" type="button" data-calendly-open><i class="fa-solid fa-bolt"></i>Solicitar diagnóstico</button><a class="btn btn-secondary" href="#sistema"><i class="fa-solid fa-arrow-down"></i>Ver automatizaciones</a></div>
-        <div class="proof-row" aria-label="Indicadores de referencia"><div class="proof-item"><strong>24/7</strong><span>información de cursos</span></div><div class="proof-item"><strong><60s</strong><span>respuesta a interesados</span></div><div class="proof-item"><strong>1 vista</strong><span>leads y matrículas</span></div></div>
+        <div class="proof-row" aria-label="Indicadores de referencia"><div class="proof-item"><strong>24/7</strong><span>información de cursos</span></div><div class="proof-item"><strong>&lt;60s</strong><span>respuesta a interesados</span></div><div class="proof-item"><strong>1 vista</strong><span>leads y matrículas</span></div></div>
       </div>
       <aside class="ops-panel reveal" aria-label="Flujo de automatización para academias y formación">
         <div class="ops-head"><strong>NOVAIX Operations</strong><span class="status-dot">Preparado</span></div>
@@ -76,8 +79,8 @@
   <div class="modal" id="calendly-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Agenda con NOVAIX"><div class="modal-frame"><button class="modal-close" type="button" aria-label="Cerrar agenda"><i class="fa-solid fa-xmark"></i></button><div class="calendly-inline-widget" data-url="https://calendly.com/novaix-assist/30min?primary_color=a78bfa&text_color=fbf8f2&background_color=0b0f12"></div></div></div>
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies"><p>Usamos cookies técnicas. Calendly se carga solo cuando abres la agenda.</p><div class="cookie-actions"><button class="btn btn-secondary" type="button" id="cookie-decline">Cerrar</button><button class="btn btn-primary" type="button" id="cookie-accept">Entendido</button></div></div>
   <script src="landing-language.js"></script>
-  <script src="i18n.js"></script>
-  <script src="landing-common.js?v=20260801-1"></script>
+  <script src="i18n.js?v=20260929-audit"></script>
+  <script src="landing-common.js"></script>
   <script src="landing-niche.js"></script>
 </body>
 </html>

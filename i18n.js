@@ -648,6 +648,23 @@
   E("Necesito conectar las herramientas y los datos de mi empresa.", "Necesito conectar las herramientas y los datos de mi empresa.", "I need to connect my company's tools and data.", "studio.existing.chat.integrationPrompt");
   E("Quiero saber dónde tendría sentido aplicar automatización o IA.", "Quiero saber dónde tendría sentido aplicar automatización o IA.", "I want to know where it would make sense to apply automation or AI.", "studio.existing.chat.aiPrompt");
 
+  E("Tu mensaje", "Tu mensaje", "Your message", "audit.20260928.0");
+  E("Restaurar chat", "Restaurar chat", "Restore chat size", "audit.20260928.1");
+  E("Antes de implementar, acordamos qué medir y con qué punto de partida. Después comparamos los resultados del proceso.", "Antes de implementar, acordamos qué medir y con qué punto de partida. Después comparamos los resultados del proceso.", "Before implementation, we agree on what to measure and establish a baseline. We then compare the process results.", "audit.20260928.2");
+  E("Tiempo", "Tiempo", "Time", "audit.20260928.3");
+  E("Horas dedicadas a tareas repetitivas", "Horas dedicadas a tareas repetitivas", "Hours spent on repetitive tasks", "audit.20260928.4");
+  E("Calidad", "Calidad", "Quality", "audit.20260928.5");
+  E("Respuestas revisadas y correcciones necesarias", "Respuestas revisadas y correcciones necesarias", "Responses reviewed and corrections needed", "audit.20260928.6");
+  E("Atención", "Atención", "Support", "audit.20260928.7");
+  E("Consultas resueltas y derivadas al equipo", "Consultas resueltas y derivadas al equipo", "Enquiries resolved and referred to the team", "audit.20260928.8");
+  E("Operativa", "Operativa", "Operations", "audit.20260928.9");
+  E("Pasos manuales y tiempos de cada proceso", "Pasos manuales y tiempos de cada proceso", "Manual steps and time spent on each process", "audit.20260928.10");
+  E("Escenarios de aplicación", "Escenarios de aplicación", "Application scenarios", "audit.20260928.11");
+  E("Ejemplos ilustrativos, no resultados de clientes. El alcance y los objetivos se definen para cada negocio.", "Ejemplos ilustrativos, no resultados de clientes. El alcance y los objetivos se definen para cada negocio.", "Illustrative examples, not client results. Scope and objectives are defined for each business.", "audit.20260928.12");
+  E("Una agenda conectada con confirmaciones y recordatorios permite al equipo seguir las citas y detectar ausencias.", "Una agenda conectada con confirmaciones y recordatorios permite al equipo seguir las citas y detectar ausencias.", "A connected calendar with confirmations and reminders helps the team track appointments and identify no-shows.", "audit.20260928.13");
+  E("La recogida inicial de información organiza las consultas antes de que un profesional valore cada caso.", "La recogida inicial de información organiza las consultas antes de que un profesional valore cada caso.", "Initial information gathering organises enquiries before a professional reviews each case.", "audit.20260928.14");
+  E("Las consultas de pedidos se conectan con su estado; las incidencias que requieren criterio se derivan al equipo.", "Las consultas de pedidos se conectan con su estado; las incidencias que requieren criterio se derivan al equipo.", "Order enquiries are linked to their status; issues requiring judgement are referred to the team.", "audit.20260928.15");
+
   const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
   const lookup = new Map();
   const keyLookup = new Map();
@@ -790,6 +807,11 @@
     document.querySelectorAll("meta[content]").forEach((meta) => translateAttributes(meta, lang));
   }
 
+  const languageStorage = {
+    getItem(key) { try { return localStorage.getItem(key); } catch { return null; } },
+    setItem(key, value) { try { localStorage.setItem(key, value); } catch { /* Storage is optional. */ } }
+  };
+
   function setLanguage(lang, options = {}) {
     if (!supportedLanguages.has(lang)) lang = "es";
     currentLanguage = lang;
@@ -798,7 +820,7 @@
     translateNode(document.body, lang);
     const select = document.getElementById("language-select");
     if (select && select.value !== lang) select.value = lang;
-    if (!options.skipStorage) localStorage.setItem(STORAGE_KEY, lang);
+    if (!options.skipStorage) languageStorage.setItem(STORAGE_KEY, lang);
     isApplying = false;
     window.dispatchEvent(new CustomEvent("novaix:languagechange", { detail: { lang } }));
   }
@@ -831,7 +853,7 @@
     const params = new URLSearchParams(window.location.search);
     const fromUrl = params.get("lang");
     if (supportedLanguages.has(fromUrl)) return fromUrl;
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = languageStorage.getItem(STORAGE_KEY);
     if (supportedLanguages.has(stored)) return stored;
     return (navigator.language || "").toLowerCase().startsWith("en") ? "en" : "es";
   }
@@ -844,7 +866,7 @@
     select.dataset.novaixLangBound = "true";
     select.addEventListener("change", () => {
       const nextLang = supportedLanguages.has(select.value) ? select.value : "es";
-      localStorage.setItem(STORAGE_KEY, nextLang);
+      languageStorage.setItem(STORAGE_KEY, nextLang);
       const targetUrl = localizedUrl(nextLang);
       if (targetUrl !== window.location.href) {
         window.location.assign(targetUrl);
@@ -888,9 +910,19 @@
     const params = new URLSearchParams(window.location.search);
     const requestedLang = params.get("lang");
     if (!supportedLanguages.has(requestedLang)) return false;
+    languageStorage.setItem(STORAGE_KEY, requestedLang);
+    // Apply the explicit choice on this load too, even if storage is unavailable.
+    currentLanguage = requestedLang;
     const targetUrl = localizedUrl(requestedLang);
     if (targetUrl !== window.location.href) {
-      window.location.replace(targetUrl);
+      if (pathLanguage() === requestedLang) {
+        window.history.replaceState(null, "", targetUrl);
+        bindSelector();
+        setLanguage(requestedLang, { skipStorage: true });
+        startObserver();
+      } else {
+        window.location.replace(targetUrl);
+      }
       return true;
     }
     return false;

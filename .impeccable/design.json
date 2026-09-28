@@ -1,0 +1,523 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T00:00:00+02:00",
+  "title": "Design System: NOVAIX — Homepage",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Studio Cyan",
+        "tonalRamp": [
+          "oklch(15.000% 0.136913 217.636)",
+          "oklch(26.429% 0.136913 217.636)",
+          "oklch(37.857% 0.136913 217.636)",
+          "oklch(49.286% 0.136913 217.636)",
+          "oklch(60.714% 0.136913 217.636)",
+          "oklch(72.143% 0.136913 217.636)",
+          "oklch(83.571% 0.136913 217.636)",
+          "oklch(95.000% 0.136913 217.636)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Ice Cyan",
+        "tonalRamp": [
+          "oklch(15.000% 0.104237 211.685)",
+          "oklch(26.429% 0.104237 211.685)",
+          "oklch(37.857% 0.104237 211.685)",
+          "oklch(49.286% 0.104237 211.685)",
+          "oklch(60.714% 0.104237 211.685)",
+          "oklch(72.143% 0.104237 211.685)",
+          "oklch(83.571% 0.104237 211.685)",
+          "oklch(95.000% 0.104237 211.685)"
+        ]
+      },
+      "accent-2": {
+        "role": "primary",
+        "displayName": "Inherited Pale Cyan",
+        "tonalRamp": [
+          "oklch(15.000% 0.108481 206.387)",
+          "oklch(26.429% 0.108481 206.387)",
+          "oklch(37.857% 0.108481 206.387)",
+          "oklch(49.286% 0.108481 206.387)",
+          "oklch(60.714% 0.108481 206.387)",
+          "oklch(72.143% 0.108481 206.387)",
+          "oklch(83.571% 0.108481 206.387)",
+          "oklch(95.000% 0.108481 206.387)"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Deep Navy",
+        "tonalRamp": [
+          "oklch(15.000% 0.022668 242.990)",
+          "oklch(26.429% 0.022668 242.990)",
+          "oklch(37.857% 0.022668 242.990)",
+          "oklch(49.286% 0.022668 242.990)",
+          "oklch(60.714% 0.022668 242.990)",
+          "oklch(72.143% 0.022668 242.990)",
+          "oklch(83.571% 0.022668 242.990)",
+          "oklch(95.000% 0.022668 242.990)"
+        ]
+      },
+      "bg-2": {
+        "role": "neutral",
+        "displayName": "Midnight Ground",
+        "tonalRamp": [
+          "oklch(15.000% 0.022037 246.543)",
+          "oklch(26.429% 0.022037 246.543)",
+          "oklch(37.857% 0.022037 246.543)",
+          "oklch(49.286% 0.022037 246.543)",
+          "oklch(60.714% 0.022037 246.543)",
+          "oklch(72.143% 0.022037 246.543)",
+          "oklch(83.571% 0.022037 246.543)",
+          "oklch(95.000% 0.022037 246.543)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Layered Navy Panel",
+        "tonalRamp": [
+          "oklch(15.000% 0.029348 243.508)",
+          "oklch(26.429% 0.029348 243.508)",
+          "oklch(37.857% 0.029348 243.508)",
+          "oklch(49.286% 0.029348 243.508)",
+          "oklch(60.714% 0.029348 243.508)",
+          "oklch(72.143% 0.029348 243.508)",
+          "oklch(83.571% 0.029348 243.508)",
+          "oklch(95.000% 0.029348 243.508)"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Raised Navy Panel",
+        "tonalRamp": [
+          "oklch(15.000% 0.035734 249.581)",
+          "oklch(26.429% 0.035734 249.581)",
+          "oklch(37.857% 0.035734 249.581)",
+          "oklch(49.286% 0.035734 249.581)",
+          "oklch(60.714% 0.035734 249.581)",
+          "oklch(72.143% 0.035734 249.581)",
+          "oklch(83.571% 0.035734 249.581)",
+          "oklch(95.000% 0.035734 249.581)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Cool White",
+        "tonalRamp": [
+          "oklch(15.000% 0.005740 264.533)",
+          "oklch(26.429% 0.005740 264.533)",
+          "oklch(37.857% 0.005740 264.533)",
+          "oklch(49.286% 0.005740 264.533)",
+          "oklch(60.714% 0.005740 264.533)",
+          "oklch(72.143% 0.005740 264.533)",
+          "oklch(83.571% 0.005740 264.533)",
+          "oklch(95.000% 0.005740 264.533)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Mist Blue",
+        "tonalRamp": [
+          "oklch(15.000% 0.030351 240.264)",
+          "oklch(26.429% 0.030351 240.264)",
+          "oklch(37.857% 0.030351 240.264)",
+          "oklch(49.286% 0.030351 240.264)",
+          "oklch(60.714% 0.030351 240.264)",
+          "oklch(72.143% 0.030351 240.264)",
+          "oklch(83.571% 0.030351 240.264)",
+          "oklch(95.000% 0.030351 240.264)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Slate Boundary",
+        "tonalRamp": [
+          "oklch(15.000% 0.040655 236.023)",
+          "oklch(26.429% 0.040655 236.023)",
+          "oklch(37.857% 0.040655 236.023)",
+          "oklch(49.286% 0.040655 236.023)",
+          "oklch(60.714% 0.040655 236.023)",
+          "oklch(72.143% 0.040655 236.023)",
+          "oklch(83.571% 0.040655 236.023)",
+          "oklch(95.000% 0.040655 236.023)"
+        ]
+      },
+      "title": {
+        "role": "neutral",
+        "displayName": "Hero Ice White",
+        "tonalRamp": [
+          "oklch(15.000% 0.012514 236.622)",
+          "oklch(26.429% 0.012514 236.622)",
+          "oklch(37.857% 0.012514 236.622)",
+          "oklch(49.286% 0.012514 236.622)",
+          "oklch(60.714% 0.012514 236.622)",
+          "oklch(72.143% 0.012514 236.622)",
+          "oklch(83.571% 0.012514 236.622)",
+          "oklch(95.000% 0.012514 236.622)"
+        ]
+      },
+      "action-ink": {
+        "role": "neutral",
+        "displayName": "Dark Action Ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.030711 232.219)",
+          "oklch(26.429% 0.030711 232.219)",
+          "oklch(37.857% 0.030711 232.219)",
+          "oklch(49.286% 0.030711 232.219)",
+          "oklch(60.714% 0.030711 232.219)",
+          "oklch(72.143% 0.030711 232.219)",
+          "oklch(83.571% 0.030711 232.219)",
+          "oklch(95.000% 0.030711 232.219)"
+        ]
+      },
+      "link": {
+        "role": "neutral",
+        "displayName": "Pale Link",
+        "tonalRamp": [
+          "oklch(15.000% 0.022485 233.353)",
+          "oklch(26.429% 0.022485 233.353)",
+          "oklch(37.857% 0.022485 233.353)",
+          "oklch(49.286% 0.022485 233.353)",
+          "oklch(60.714% 0.022485 233.353)",
+          "oklch(72.143% 0.022485 233.353)",
+          "oklch(83.571% 0.022485 233.353)",
+          "oklch(95.000% 0.022485 233.353)"
+        ]
+      },
+      "nav": {
+        "role": "neutral",
+        "displayName": "Translucent Navigation",
+        "tonalRamp": [
+          "oklch(15.000% 0.028312 241.143 / 0.96078)",
+          "oklch(26.429% 0.028312 241.143 / 0.96078)",
+          "oklch(37.857% 0.028312 241.143 / 0.96078)",
+          "oklch(49.286% 0.028312 241.143 / 0.96078)",
+          "oklch(60.714% 0.028312 241.143 / 0.96078)",
+          "oklch(72.143% 0.028312 241.143 / 0.96078)",
+          "oklch(83.571% 0.028312 241.143 / 0.96078)",
+          "oklch(95.000% 0.028312 241.143 / 0.96078)"
+        ]
+      },
+      "workbench": {
+        "role": "neutral",
+        "displayName": "Workbench Ground",
+        "tonalRamp": [
+          "oklch(15.000% 0.029553 237.933)",
+          "oklch(26.429% 0.029553 237.933)",
+          "oklch(37.857% 0.029553 237.933)",
+          "oklch(49.286% 0.029553 237.933)",
+          "oklch(60.714% 0.029553 237.933)",
+          "oklch(72.143% 0.029553 237.933)",
+          "oklch(83.571% 0.029553 237.933)",
+          "oklch(95.000% 0.029553 237.933)"
+        ]
+      },
+      "workbench-heading": {
+        "role": "neutral",
+        "displayName": "Workbench Header",
+        "tonalRamp": [
+          "oklch(15.000% 0.034187 238.534)",
+          "oklch(26.429% 0.034187 238.534)",
+          "oklch(37.857% 0.034187 238.534)",
+          "oklch(49.286% 0.034187 238.534)",
+          "oklch(60.714% 0.034187 238.534)",
+          "oklch(72.143% 0.034187 238.534)",
+          "oklch(83.571% 0.034187 238.534)",
+          "oklch(95.000% 0.034187 238.534)"
+        ]
+      },
+      "process": {
+        "role": "neutral",
+        "displayName": "Process Band",
+        "tonalRamp": [
+          "oklch(15.000% 0.033533 239.837)",
+          "oklch(26.429% 0.033533 239.837)",
+          "oklch(37.857% 0.033533 239.837)",
+          "oklch(49.286% 0.033533 239.837)",
+          "oklch(60.714% 0.033533 239.837)",
+          "oklch(72.143% 0.033533 239.837)",
+          "oklch(83.571% 0.033533 239.837)",
+          "oklch(95.000% 0.033533 239.837)"
+        ]
+      },
+      "tab-text": {
+        "role": "neutral",
+        "displayName": "Example Text",
+        "tonalRamp": [
+          "oklch(15.000% 0.029620 233.638)",
+          "oklch(26.429% 0.029620 233.638)",
+          "oklch(37.857% 0.029620 233.638)",
+          "oklch(49.286% 0.029620 233.638)",
+          "oklch(60.714% 0.029620 233.638)",
+          "oklch(72.143% 0.029620 233.638)",
+          "oklch(83.571% 0.029620 233.638)",
+          "oklch(95.000% 0.029620 233.638)"
+        ]
+      },
+      "tab-selected": {
+        "role": "neutral",
+        "displayName": "Selected Example",
+        "tonalRamp": [
+          "oklch(15.000% 0.061158 232.335)",
+          "oklch(26.429% 0.061158 232.335)",
+          "oklch(37.857% 0.061158 232.335)",
+          "oklch(49.286% 0.061158 232.335)",
+          "oklch(60.714% 0.061158 232.335)",
+          "oklch(72.143% 0.061158 232.335)",
+          "oklch(83.571% 0.061158 232.335)",
+          "oklch(95.000% 0.061158 232.335)"
+        ]
+      },
+      "tab-selected-text": {
+        "role": "neutral",
+        "displayName": "Selected Example Text",
+        "tonalRamp": [
+          "oklch(15.000% 0.017178 219.648)",
+          "oklch(26.429% 0.017178 219.648)",
+          "oklch(37.857% 0.017178 219.648)",
+          "oklch(49.286% 0.017178 219.648)",
+          "oklch(60.714% 0.017178 219.648)",
+          "oklch(72.143% 0.017178 219.648)",
+          "oklch(83.571% 0.017178 219.648)",
+          "oklch(95.000% 0.017178 219.648)"
+        ]
+      },
+      "tab-hover": {
+        "role": "neutral",
+        "displayName": "Example Hover",
+        "tonalRamp": [
+          "oklch(15.000% 0.047833 232.446)",
+          "oklch(26.429% 0.047833 232.446)",
+          "oklch(37.857% 0.047833 232.446)",
+          "oklch(49.286% 0.047833 232.446)",
+          "oklch(60.714% 0.047833 232.446)",
+          "oklch(72.143% 0.047833 232.446)",
+          "oklch(83.571% 0.047833 232.446)",
+          "oklch(95.000% 0.047833 232.446)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Homepage hero H1 only: approved Oxanium 800, line-height 1.05 and tracking -.025em."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "New solutions and process headings, not all lower section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Example-detail heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Inherited body family and rhythm; no explicit base font-size."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero supporting paragraph."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Example selector title; smaller on mobile."
+      }
+    },
+    "shadows": [
+      {
+        "name": "navigation",
+        "value": "0 12px 32px #0005",
+        "purpose": "Fixed local navigation surface; backdrop-filter blur(16px)."
+      },
+      {
+        "name": "wordmark",
+        "value": "drop-shadow(0 6px 14px #000)",
+        "purpose": "CSS filter on the unchanged original blue/orange wordmark, not a box shadow."
+      },
+      {
+        "name": "glow",
+        "value": "none",
+        "purpose": "Homepage body override; not a global ban on inherited literal effects."
+      },
+      {
+        "name": "field-group",
+        "value": "inset 0 0 0 1px rgba(255,255,255,0.02)",
+        "purpose": "Preserved chat input-group inner boundary."
+      },
+      {
+        "name": "chat-send",
+        "value": "0 8px 24px rgba(0,195,255,0.32)",
+        "purpose": "Preserved chat send button, not the new primary CTA."
+      }
+    ],
+    "motion": [
+      {
+        "name": "primary-fill",
+        "value": "background .2s ease",
+        "purpose": "Local CTA hover; no lift or glow."
+      },
+      {
+        "name": "nav-transition",
+        "value": "opacity .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease",
+        "purpose": "Inherited navigation state transition."
+      },
+      {
+        "name": "quick-reply",
+        "value": "border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease",
+        "purpose": "Preserved chat-chip transition."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition: none !important; scroll-behavior: auto !important",
+        "purpose": "Homepage elements and pseudo-elements under prefers-reduced-motion: reduce; not an audit of legacy JS loops."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop-nav-compact-max (min-width: 901px)",
+        "value": "1150px"
+      },
+      {
+        "name": "desktop-nav-compact-min",
+        "value": "901px"
+      },
+      {
+        "name": "mobile-menu-and-workbench-stack-max",
+        "value": "900px"
+      },
+      {
+        "name": "mobile-planet-first-max",
+        "value": "600px"
+      },
+      {
+        "name": "inherited-desktop-nav-max (min-width: 901px)",
+        "value": "1280px"
+      },
+      {
+        "name": "inherited-single-column-actions-and-chat-max",
+        "value": "640px"
+      },
+      {
+        "name": "inherited-narrow-mobile-max",
+        "value": "420px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary contact action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Local flat cyan CTA; visual-only sample, with no scheduling handler. Icon-free label specimen.",
+      "html": "<button type=\"button\" class=\"ds-primary\">Hablemos de tu proyecto</button>",
+      "css": ".ds-primary { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 46px; padding: 11px 18px; border: 1px solid transparent; border-radius: 7px; background: var(--accent, #09c8ed); color: #03141d; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; font-weight: 700; box-shadow: none; cursor: pointer; transition: background .2s ease; } .ds-primary:hover { background: #7ae7fc; transform: none; box-shadow: none; } .ds-primary:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-primary:active { transform: translateY(1px) scale(0.99); filter: brightness(0.96); } .ds-primary:hover:active { transform: none; } @media (prefers-reduced-motion: reduce) { .ds-primary { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Underlined process link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "New homepage secondary action; label-only specimen linking within the panel rather than opening external services.",
+      "html": "<a class=\"ds-text-link\" href=\"#ds-process\">Ver cómo lo hacemos</a>",
+      "css": ".ds-text-link { display: inline-flex; gap: 12px; align-items: center; min-height: 44px; color: #e3f4fe; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; font-weight: 500; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: #3e768c; } .ds-text-link:hover { color: var(--accent, #09c8ed); } .ds-text-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; }"
+    },
+    {
+      "name": "Preserved plain ghost action",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Existing lower-page/cookie secondary primitive; plain variant has no custom hover change. No cookie handler is attached.",
+      "html": "<button type=\"button\" class=\"ds-ghost\">Rechazar</button>",
+      "css": ".ds-ghost { border: 1px solid var(--border, #233c4b); padding: 10px 14px; border-radius: 12px; color: var(--text, #f5f7fb); background: rgba(255,255,255,0.02); transition: transform .18s ease, border-color .18s ease, color .18s ease; cursor: pointer; } .ds-ghost:hover { background: rgba(255,255,255,0.02); } .ds-ghost:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-ghost:active { transform: translateY(1px) scale(0.99); } @media (prefers-reduced-motion: reduce) { .ds-ghost { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Navigation link group",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Static desktop link-group specimen inside the observed nav surface; not the complete navbar. Original planet icon and blue/orange wordmark must remain in the actual navbar; no substitute identity is introduced.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Muestra de enlaces\"><a class=\"ds-nav-link\" href=\"#ds-solutions\">Soluciones</a><a class=\"ds-nav-link\" href=\"#ds-process\">Cómo trabajamos</a><a class=\"ds-nav-link\" href=\"#ds-team\">Equipo</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 8px; height: 72px; padding: 10px 20px; border: 1px solid var(--border, #233c4b); border-radius: 12px; background: #081620f5; box-shadow: 0 12px 32px #0005; backdrop-filter: blur(16px); font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; line-height: 1.6; transition: opacity .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease; } .ds-nav-link { padding: 10px 9px; font-size: .88rem; color: var(--muted, #b4c8d7); text-decoration: none; border: 1px solid transparent; border-radius: 10px; } .ds-nav-link:hover { color: var(--accent, #09c8ed); } .ds-nav-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-nav { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Preserved chat text field",
+      "kind": "input",
+      "refersTo": "chat-input",
+      "description": "Non-submitting chat field specimen with explicit visible keyboard focus; the live form is labelled.",
+      "html": "<div class=\"ds-field-group\"><input class=\"ds-chat-input\" type=\"text\" aria-label=\"Mensaje de ejemplo\" placeholder=\"Escribe tu mensaje...\"></div>",
+      "css": ".ds-field-group { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 5px; border-radius: 18px; border: 1px solid rgba(0,195,255,0.24); background: rgba(255,255,255,0.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02); } .ds-chat-input { min-width: 0; background: transparent; border: none; border-radius: 14px; padding: 10px 12px; color: var(--text, #f5f7fb); outline: none; caret-color: var(--accent, #09c8ed); } .ds-chat-input::placeholder { color: var(--muted, #b4c8d7); } .ds-chat-input:hover { background: transparent; } .ds-chat-input:focus-visible { outline: 2px solid var(--accent, #09c8ed); outline-offset: -2px; } @media (max-width: 640px) { .ds-field-group { padding: 4px; border-radius: 16px; } .ds-chat-input { padding: 9px 10px; font-size: 16px; } }"
+    },
+    {
+      "name": "Preserved chat quick reply",
+      "kind": "chip",
+      "refersTo": "quick-reply",
+      "description": "Existing chat chip appearance only; no sendQuick handler, data submission or external service. Browser-default button family is retained as in the source.",
+      "html": "<button type=\"button\" class=\"ds-chip\">Crear software</button>",
+      "css": ".ds-chip { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); border-radius: 999px; color: var(--text, #f5f7fb); padding: 8px 11px; cursor: pointer; text-align: left; flex: 0 0 auto; max-width: 245px; font-size: .86rem; line-height: 1.25; white-space: normal; transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease; } .ds-chip:hover { border-color: rgba(0,195,255,0.6); color: var(--accent, #09c8ed); background: rgba(0,195,255,0.08); transform: translateY(-1px); } .ds-chip:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-chip:disabled { opacity: .58; cursor: not-allowed; transform: none; } @media (max-width: 640px) { .ds-chip { max-width: 185px; min-height: 44px; padding: 7px 10px; font-size: .78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } } @media (prefers-reduced-motion: reduce) { .ds-chip { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Preserved case surface",
+      "kind": "card",
+      "refersTo": "case-card",
+      "description": "Existing lower-page case-card styling. Neutral specimen label intentionally avoids repeating unvalidated numerical claims; static, not clickable.",
+      "html": "<article class=\"ds-case\"><strong class=\"ds-case-title\">Muestra de superficie</strong><p class=\"ds-case-copy\">Contenido ilustrativo, no un resultado verificado.</p></article>",
+      "css": ".ds-case { display: grid; gap: 8px; padding: 18px; border: 1px solid var(--border, #233c4b); border-radius: 14px; background: var(--panel, #0c1a25); box-shadow: var(--glow, none); font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; color: var(--text, #f5f7fb); } .ds-case-title { color: var(--accent, #09c8ed); } .ds-case-copy { margin: 0; color: var(--muted, #b4c8d7); }"
+    },
+    {
+      "name": "Illustrative workbench frame",
+      "kind": "custom",
+      "refersTo": "workbench",
+      "description": "Observed demo frame/header/detail vocabulary; abbreviated static content, clearly disclosed, not a working application.",
+      "html": "<section class=\"ds-workbench\" aria-label=\"Ejemplo ilustrativo\"><header class=\"ds-workbench-head\"><h2 class=\"ds-workbench-title\">Del proceso al software</h2><p class=\"ds-workbench-disclosure\">Ejemplo ilustrativo · Datos de demostración</p></header><div class=\"ds-detail\"><p class=\"ds-reference\">NX-DEMO / 01</p><h3 class=\"ds-detail-title\">ERP a medida</h3><p class=\"ds-detail-copy\">Empresa de ejemplo</p></div></section>",
+      "css": ".ds-workbench { padding: 0; border: 1px solid var(--border, #233c4b); border-radius: 12px; overflow: hidden; background: #091923; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; color: var(--text, #f5f7fb); line-height: 1.6; } .ds-workbench-head { padding: 18px 24px; display: flex; align-items: baseline; gap: 24px; border-bottom: 1px solid var(--border, #233c4b); background: #0b1e2a; } .ds-workbench-title { margin: 0; font-size: 1rem; font-weight: 600; color: #78e5fb; } .ds-workbench-disclosure { margin: 0; color: #b4c8d7; font-size: .81rem; } .ds-detail { padding: 24px 28px; } .ds-reference { margin: 0 0 10px; color: #9fb8c9; font-size: .76rem; font-variant-numeric: tabular-nums; } .ds-detail-title { margin: 0 0 18px; font-size: 1.2rem; } .ds-detail-copy { margin: 0; color: #d5e7f1; font-size: .86rem; line-height: 1.6; } @media (max-width: 600px) { .ds-workbench-head { display: block; padding: 18px; } .ds-workbench-disclosure { font-size: .75rem; margin-top: 5px; } .ds-detail { padding: 22px; } }"
+    },
+    {
+      "name": "Example selection states",
+      "kind": "custom",
+      "refersTo": "example-tab",
+      "description": "Selected and unselected example-tab visuals; labels copied from the homepage. No tab switching controller is included. The website retains click, Left/Right, Home/End and roving tabindex behavior.",
+      "html": "<div class=\"ds-tab-samples\" aria-label=\"Estados visuales de ejemplos\"><button type=\"button\" class=\"ds-tab ds-tab-selected\"><span class=\"ds-tab-label\">ERP a medida</span><small class=\"ds-tab-subtitle\">Software a medida</small></button><button type=\"button\" class=\"ds-tab\"><span class=\"ds-tab-label\">Conexión con CRM</span><small class=\"ds-tab-subtitle\">Integraciones</small></button></div>",
+      "css": ".ds-tab-samples { display: grid; gap: 8px; } .ds-tab { width: 100%; min-height: 65px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: #c6dce9; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; text-align: left; padding: 12px; cursor: pointer; } .ds-tab-label { display: block; font-size: .92rem; font-weight: 500; } .ds-tab-subtitle { display: block; color: #a2c1d3; margin-top: 3px; font-size: .78rem; } .ds-tab-selected { background: #0b3b50; border-color: #23758b; color: #ebfaff; } .ds-tab:hover { background: #123343; } .ds-tab:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; }"
+    },
+    {
+      "name": "Preserved chat send control",
+      "kind": "button",
+      "refersTo": "chat-send",
+      "description": "Existing gradient send primitive, not the new flat contact CTA. Inert type=button specimen, never submits a message; no custom hover fill in source.",
+      "html": "<button type=\"button\" class=\"ds-send\">Enviar</button>",
+      "css": ".ds-send { min-height: 44px; background: linear-gradient(145deg, var(--accent, #09c8ed), var(--accent-2, #7af0ff)); color: #041320; font-weight: 800; border: none; border-radius: 14px; padding: 10px 15px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,195,255,0.32); } .ds-send:hover { background: linear-gradient(145deg, var(--accent, #09c8ed), var(--accent-2, #7af0ff)); } .ds-send:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-send:disabled { opacity: .58; cursor: not-allowed; transform: none; } @media (max-width: 640px) { .ds-send { min-height: 44px; padding: 8px 12px; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Identity-Preserving Dark Software Studio",
+    "overview": "This records the approved, previously published homepage identity and the local audit corrections of 2026-09-29. Its sources are home-base.css, home-studio.css, ui-controls.css and the homepage controllers. The user approved committing and publishing this correction batch on 2026-09-29. Subsequent Shape proposals are separate planning artifacts, not part of this release. It is not a mandate to redesign sector landings.\n\nDark navy surfaces, cyan actions and the original planet with its blue/orange wordmark express NOVAIX as a software and integrations company. AI remains conditional on business value. This is documentation of existing code, not a redesign or new QA claim.",
+    "keyCharacteristics": [
+      "Approved HD planet and blue/orange wordmark, prominent on mobile.",
+      "Dark tonal surfaces, Oxanium 800 hero H1, Space Grotesk body and flat primary actions.",
+      "Clearly illustrative example tabs coexist with retained lower-page functionality."
+    ],
+    "rules": [
+      {
+        "name": "The Original Identity Rule",
+        "body": "Keep the exact planet and blue/orange wordmark prominent; neither a generic text logo nor a cyan recoloring substitutes for them.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scoped Depth Rule",
+        "body": "Flat new homepage actions and panels do not authorize stripping effects from retained lower modules or other landing pages.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** preserve the exact original planet and blue/orange wordmark, with the planet before the copy on small mobile screens.",
+      "**Do** use actual scoped dark tokens and final cascade values for this homepage.",
+      "**Do** keep software and integrations first, with AI conditional on business value.",
+      "**Do** preserve example disclosures, keyboard behavior and existing lower functionality."
+    ],
+    "donts": [
+      "**Don't** interpret local selection or documentation as production approval or permission to publish.",
+      "**Don't** impose this homepage composition on sector landings or other pages.",
+      "**Don't** replace the dark identity with the rejected light concept or generic/generated identity assets.",
+      "**Don't** promote illustrative examples, tonal ramps or preserved numerical claims into verified production facts."
+    ]
+  }
+}

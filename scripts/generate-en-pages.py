@@ -4,7 +4,6 @@ from __future__ import annotations
 import html
 import json
 import re
-import shutil
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -21,6 +20,12 @@ PAGES = [
     "landing-inmobiliarias.html",
     "landing-centros-belleza.html",
     "landing-fisioterapia.html",
+    "landing-academias.html",
+    "landing-asesorias-gestorias.html",
+    "landing-clinicas-dentales.html",
+    "landing-reformas-servicios.html",
+    "landing-transporte.html",
+    "landing-veterinarias.html",
 ]
 TRANSLATABLE_ATTRS = {
     "aria-label",
@@ -32,7 +37,7 @@ TRANSLATABLE_ATTRS = {
     "title",
     "content",
 }
-URL_ATTRS = {"href", "src", "poster", "action"}
+URL_ATTRS = {"href", "src", "poster", "action", "data-src"}
 VOID_TAGS = {
     "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta",
     "param", "source", "track", "wbr",
@@ -75,6 +80,7 @@ def parse_i18n_entries() -> dict[str, str]:
         if key and en:
             entries[key] = en
 
+    entries.update(json.loads((ROOT / "translations/niche-en.json").read_text(encoding="utf-8")))
     return entries
 
 
@@ -115,10 +121,10 @@ def rewrite_url_for_en(value: str) -> str:
         return value
     base, query, hash_part = split_url(value)
     if not base:
-        return value
+        return f"./{query}{hash_part}" if value.startswith("/") else value
     if base.startswith("/"):
         base = base.lstrip("/")
-    if base == "index.html":
+    if base in ("", "index.html"):
         return f"./{query}{hash_part}"
     if base.endswith(".html"):
         return f"{base}{query}{hash_part}"
@@ -159,12 +165,36 @@ def en_url(page: str) -> str:
     return f"{BASE_URL}/en/{slug}"
 
 
+def write_if_changed(path: Path, content: str) -> None:
+    if not path.exists() or path.read_text(encoding="utf-8") != content:
+        path.write_text(content, encoding="utf-8")
+
+
+def translate_schema(value, key=""):
+    if isinstance(value, dict):
+        return {k: translate_schema(v, k) for k, v in value.items()}
+    if isinstance(value, list):
+        return [translate_schema(v, key) for v in value]
+    if not isinstance(value, str):
+        return value
+    if key == "inLanguage":
+        return "en"
+    if key in {"name", "description", "text", "serviceType"}:
+        return translate_text(value)
+    if key == "url":
+        for page in PAGES:
+            if value == es_url(page):
+                return en_url(page)
+    return value
+
+
 class EnglishRenderer(HTMLParser):
     def __init__(self, page: str):
         super().__init__(convert_charrefs=False)
         self.page = page
         self.out: list[str] = []
         self.raw_stack: list[str] = []
+        self.json_ld = False
 
     def raw_tag(self) -> str | None:
         return self.raw_stack[-1] if self.raw_stack else None
@@ -217,6 +247,8 @@ class EnglishRenderer(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag.lower() in RAW_TAGS:
             self.raw_stack.append(tag.lower())
+        if tag.lower() == "script":
+            self.json_ld = dict(attrs).get("type") == "application/ld+json"
         self.out.append(f"<{tag}{self.render_attrs(tag, attrs)}>")
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -232,7 +264,10 @@ class EnglishRenderer(HTMLParser):
         if raw == "style":
             self.out.append(rewrite_css_urls_for_en(data))
         elif raw == "script":
-            self.out.append(rewrite_script_assets_for_en(data))
+            if self.json_ld:
+                self.out.append(json.dumps(translate_schema(json.loads(data)), ensure_ascii=False))
+            else:
+                self.out.append(rewrite_script_assets_for_en(data))
         elif raw:
             self.out.append(data)
         else:
@@ -254,7 +289,7 @@ def set_or_insert_link(head: str, rel: str, href: str, hreflang: str | None = No
         replacement = f'<link rel="{rel}" href="{href}">'
     if pattern.search(head):
         return pattern.sub(replacement, head, count=1)
-    return head + "\n  " + replacement
+    return head.replace("</head>", "  " + replacement + "\n</head>")
 
 
 def update_head_seo(source: str, page: str, lang: str) -> str:
@@ -281,9 +316,14 @@ def generate_page(page: str) -> None:
     parser.feed(source)
     output = "".join(parser.out)
     output = re.sub(r"\?lang=en", "", output)
+    # The legal documents are currently Spanish-only; do not imply EN versions.
+    def mark_legal_links(match):
+        return re.sub(r'(href="(?:\.\./|/)(?:privacy|terms|data-deletion)/"[^>]*>)([^<]+)(</a>)',
+                      lambda m: m[1] + m[2] + (" (ES)" if not m[2].endswith(" (ES)") else "") + m[3], match[0])
+    output = re.sub(r"<footer[\s\S]*?</footer>", mark_legal_links, output)
     out_path = ROOT / "en" / ("index.html" if page == "index.html" else page)
     out_path.parent.mkdir(exist_ok=True)
-    out_path.write_text(output, encoding="utf-8")
+    write_if_changed(out_path, output)
 
 
 def update_spanish_pages() -> None:
@@ -291,30 +331,33 @@ def update_spanish_pages() -> None:
         path = ROOT / page
         source = path.read_text(encoding="utf-8")
         updated = update_head_seo(source, page, "es")
-        path.write_text(updated, encoding="utf-8")
+        write_if_changed(path, updated)
 
 
 def generate_sitemap() -> None:
-    today = "2026-07-02"
-    rows = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-    ]
-    for lang, url_fn in (("es", es_url), ("en", en_url)):
+    # Preserve independently maintained pages (privacy, terms, data deletion).
+    # Omit lastmod rather than inventing a timestamp each time this build runs.
+    path = ROOT / "sitemap.xml"
+    existing = path.read_text(encoding="utf-8") if path.exists() else ""
+    generated_urls = {fn(page) for fn in (es_url, en_url) for page in PAGES}
+    preserved = []
+    for block in re.findall(r"  <url>[\s\S]*?</url>", existing):
+        loc = re.search(r"<loc>(.*?)</loc>", block)
+        if loc and loc[1] not in generated_urls:
+            preserved.append(block)
+    rows = ['<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+            '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for url_fn in (es_url, en_url):
         for page in PAGES:
-            loc = url_fn(page)
-            rows.extend([
-                "  <url>",
-                f"    <loc>{loc}</loc>",
-                f"    <xhtml:link rel=\"alternate\" hreflang=\"es\" href=\"{es_url(page)}\" />",
-                f"    <xhtml:link rel=\"alternate\" hreflang=\"en\" href=\"{en_url(page)}\" />",
-                f"    <xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"{es_url(page)}\" />",
-                f"    <lastmod>{today}</lastmod>",
-                "  </url>",
-            ])
+            rows.extend(["  <url>", f"    <loc>{url_fn(page)}</loc>",
+                f'    <xhtml:link rel="alternate" hreflang="es" href="{es_url(page)}" />',
+                f'    <xhtml:link rel="alternate" hreflang="en" href="{en_url(page)}" />',
+                f'    <xhtml:link rel="alternate" hreflang="x-default" href="{es_url(page)}" />',
+                "  </url>"])
+    rows.extend(preserved)
     rows.append("</urlset>")
-    (ROOT / "sitemap.xml").write_text("\n".join(rows) + "\n", encoding="utf-8")
+    write_if_changed(path, "\n".join(rows) + "\n")
 
 
 def copy_support_files() -> None:
@@ -323,9 +366,10 @@ def copy_support_files() -> None:
 
 
 def main() -> None:
+    actual = {p.name for p in ROOT.glob("landing-*.html")} | {"index.html"}
+    if actual != set(PAGES):
+        raise ValueError(f"Update PAGES before building: {actual.symmetric_difference(PAGES)}")
     update_spanish_pages()
-    if (ROOT / "en").exists():
-        shutil.rmtree(ROOT / "en")
     copy_support_files()
     for page in PAGES:
         generate_page(page)

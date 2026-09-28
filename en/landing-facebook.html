@@ -908,6 +908,8 @@
       footer { padding-bottom: 96px; }
     }
   </style>
+  <link rel="stylesheet" href="../ui-controls.css?v=20260928">
+  <script src="../ui-dialogs.js?v=20260928" defer></script>
 </head>
 <body>
   <header class="topbar" aria-label="Main navigation">
@@ -1050,7 +1052,7 @@
               <li>Effort estimate and next steps.</li>
             </ul>
             <button class="btn" type="button" data-calendly-open style="width:100%;">Book diagnosis</button>
-            <p style="font-size:0.88rem;">By booking, you accept our <a href="/privacy/" style="color:var(--accent);">Privacy Policy</a>.</p>
+            <p style="font-size:0.88rem;">By booking, you accept our <a href="../privacy/" style="color:var(--accent);">Privacy Policy</a>.</p>
           </div>
         </div>
       </div>
@@ -1101,12 +1103,12 @@
     <div class="container footer-inner">
       <p>NOVAIX · AI agents for sales, support and operations.</p>
       <div class="footer-links">
-        <a href="/en/">Main website</a>
+        <a href="./">Main website</a>
         <a href="https://demo.novaix.es" target="_blank" rel="noopener">Examples</a>
         <a href="#legal" data-legal-open>Legal summary</a>
-        <a href="/privacy/">Privacy (ES)</a>
-        <a href="/terms/">Terms (ES)</a>
-        <a href="/data-deletion/">Data deletion (ES)</a>
+        <a href="../privacy/">Privacy (ES)</a>
+        <a href="../terms/">Terms (ES)</a>
+        <a href="../data-deletion/">Data deletion (ES)</a>
         <a href="mailto:info@novaix.es">info@novaix.es</a>
       </div>
     </div>
@@ -1139,19 +1141,19 @@
         <button class="modal-close" type="button" aria-label="Close legal" data-close-modal>&times;</button>
       </div>
       <div class="legal-body">
-        <p>This panel is a summary. The complete and current information is available in the public <a href="/privacy/">Privacy</a>, <a href="/terms/">Terms</a> and <a href="/data-deletion/">Data deletion</a> pages.</p>
+        <p>This panel summarizes the key information. The complete, up-to-date version is available on the public pages for <a href="../privacy/">Privacy</a>, <a href="../terms/">Terms</a> and <a href="../data-deletion/">Data deletion</a>.</p>
         <h3>Controller</h3>
         <p>Daniel Molina Maquieira, trading as NOVAIX. Contact: <a href="mailto:info@novaix.es">info@novaix.es</a>.</p>
         <h3>Services and data</h3>
         <p>Calendly loads when the calendar is opened. Google Tag Manager and Meta Pixel load after consent. The chat may send the message, session, source and URL to NOVAIX's n8n service.</p>
         <h3>Rights and cookies</h3>
-        <p>You can request access, rectification, deletion, objection, restriction and portability by email. See the <a href="/privacy/#cookies">cookies section</a> and the <a href="/data-deletion/">data deletion</a> procedure.</p>
+        <p>You can request access, rectification, deletion, objection, restriction and portability by email. See the <a href="../privacy/#cookies">cookies section</a> and the procedure for <a href="../data-deletion/">data deletion</a>.</p>
       </div>
     </div>
   </div>
 
   <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
-    <p>We use Calendly, analytics (GTM) and Meta Pixel to measure the landing and manage appointments. <a href="/privacy/#cookies">View cookie policy</a>.</p>
+    <p>We use Calendly, analytics (GTM) and Meta Pixel to measure the landing and manage appointments. <a href="../privacy/#cookies">View cookie policy</a>.</p>
     <div class="cookie-actions">
       <button id="cookie-accept" class="btn" type="button">Accept</button>
       <button id="cookie-decline" class="btn secondary" type="button">Reject</button>
@@ -1159,7 +1161,7 @@
   </div>
 
   <script src="../landing-language.js"></script>
-  <script src="../i18n.js"></script>
+  <script src="../i18n.js?v=20260929-audit"></script>
   <script src="../landing-common.js?v=20260801-1"></script>
   <script>
     const CALENDLY_BASE_URL = 'https://calendly.com/novaix-assist/30min';
