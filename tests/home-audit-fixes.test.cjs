@@ -58,3 +58,60 @@ test('current design sidecar follows the approved font roles', () => {
   assert.doesNotMatch(JSON.stringify(design.components), /Space Grotesk/);
   assert.match(design.narrative.keyCharacteristics.join(' '), /Instrument Sans 500/);
 });
+
+test('team section remains visible even when it exceeds the viewport', () => {
+  for (const selector of ['.quienes-left', '.quienes-content']) {
+    const rules = css.match(new RegExp(`${selector.replace('.', '\\.') }\\s*\\{([^}]+)\\}`))?.[1] || '';
+    assert.ok(rules, `${selector} styles exist`);
+    assert.doesNotMatch(rules, /opacity:\s*0(?:;|\s)/);
+  }
+  assert.doesNotMatch(read('home-core.js'), /qObs|quienes\.classList\.add\('visible'\)/);
+});
+
+test('Ops Hub does not render an empty image behind its videos', () => {
+  for (const html of [read('index.html'), read('en/index.html')]) {
+    assert.doesNotMatch(html, /<img[^>]*src=""/);
+    assert.doesNotMatch(html, /id="nx-live-img"/);
+  }
+  assert.doesNotMatch(read('home-core.js'), /BLANK_IMG|liveImg/);
+});
+
+test('security controls use divided rows instead of nested cards', () => {
+  const controlRules = css.match(/\.security-card\s*\{([^}]+)\}/)?.[1] || '';
+  assert.match(controlRules, /border-top:\s*1px/);
+  assert.doesNotMatch(controlRules, /border-radius:|background:|box-shadow:/);
+  assert.match(css, /\.security-card i\s*\{[^}]*grid-row:\s*1\s*\/\s*span 2/);
+});
+
+test('typing dots only exist during an actual pending chat reply', () => {
+  const js = read('home-core.js');
+  assert.match(js, /function addLoadingMessage\(\)/);
+  assert.match(js, /const loading = addLoadingMessage\(\);\s*try\s*\{/);
+  assert.equal((js.match(/loading\.remove\(\)/g) || []).length, 2);
+});
+
+test('FAQ tracks shrink below 360px instead of clipping narrow screens', () => {
+  assert.match(css, /\.faq\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*360px\),\s*1fr\)\)/);
+});
+
+test('mobile menu uses one stateful bilingual label handler', () => {
+  for (const html of [read('index.html'), read('en/index.html')]) {
+    const button = html.match(/<button class="nav-toggle"[^>]*>/)?.[0] || '';
+    assert.match(button, /aria-expanded="false"/);
+    assert.doesNotMatch(button, /data-inline-toggle|onclick=|ontouchstart=|data-i18n-attr-aria-label/);
+  }
+  const js = read('home-core.js');
+  assert.match(js, /navToggle\.addEventListener\('click'/);
+  assert.match(js, /const labelKey = open \? 'site\.nav\.close' : 'site\.nav\.open'/);
+  assert.match(read('i18n.js'), /E\("Cerrar menú", "Cerrar menú", "Close menu", "site\.nav\.close"\)/);
+});
+
+test('active Ops Hub transmission stays within its panel on narrow screens', () => {
+  for (const selector of ['.nx-tx', '.nx-tx-body', '#nx-live', '.nx-stream', '.nx-lines']) {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const rules = css.match(new RegExp(`${escaped}\\s*\\{([^}]+)\\}`))?.[1] || '';
+    assert.match(rules, /grid-template-columns:\s*minmax\(0,\s*1fr\)/, `${selector} must allow its grid track to shrink`);
+  }
+  assert.match(css, /\.nx-tx-card\s*\{[^}]*min-width:\s*0/);
+  assert.match(css, /\.nx-lines\s*\{[^}]*overflow-wrap:\s*anywhere/);
+});

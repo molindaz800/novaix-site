@@ -992,29 +992,24 @@
     .security-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      column-gap: 24px;
       position: relative;
       z-index: 1;
     }
     .security-card {
       display: grid;
-      gap: 8px;
-      min-height: 150px;
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.025);
+      grid-template-columns: 28px minmax(0, 1fr);
+      column-gap: 12px;
+      row-gap: 6px;
+      align-content: start;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
     .security-card i {
-      width: 38px;
-      height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      color: #041320;
-      background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      box-shadow: 0 14px 36px rgba(0,195,255,0.20);
+      grid-row: 1 / span 2;
+      color: var(--accent);
+      font-size: 1.1rem;
+      line-height: 1.2;
     }
     .security-card strong { color: var(--text); line-height: 1.15; }
     .security-card span { color: var(--muted); font-size: 0.92rem; }
@@ -1660,6 +1655,7 @@
       height: var(--nx-stage-H);
       min-height: var(--nx-stage-minH);
       display: grid;
+      grid-template-columns: minmax(0, 1fr);
       grid-template-rows: auto 1fr;
       gap: 14px;
       overflow: hidden;
@@ -1696,7 +1692,7 @@
       background: rgba(var(--nx-agent-accent),0.09);
     }
 
-    .nx-tx-body { position: relative; display: grid; gap: 12px; }
+    .nx-tx-body { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 12px; }
     .nx-wave {
       display: grid;
       grid-template-columns: repeat(10, 1fr);
@@ -1728,9 +1724,10 @@
       50% { transform: scaleY(1); }
     }
 
-    #nx-live { display: none; gap: 12px; }
+    #nx-live { display: none; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 12px; }
     .nx-tx-card {
       position: relative;
+      min-width: 0;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(8,12,18,0.7);
@@ -1801,7 +1798,6 @@
       background: linear-gradient(120deg, rgba(255,255,255,0.12), rgba(0,0,0,0.6));
       opacity: 0.5;
     }
-    .nx-avatar img,
     .nx-avatar video {
       width: 100%;
       height: 100%;
@@ -1812,7 +1808,6 @@
     }
     .nx-avatar video { opacity: 0; }
     .nx-avatar.is-video video { opacity: 1; }
-    .nx-avatar.is-video img { opacity: 0; }
 
     .nx-curtain {
       position: absolute;
@@ -1834,6 +1829,8 @@
     .nx-tx-meta div { color: var(--muted); font-weight: var(--weight-medium, 500); margin-top: 4px; }
 
     .nx-stream {
+      min-width: 0;
+      grid-template-columns: minmax(0, 1fr);
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(7,11,18,0.78);
@@ -1841,7 +1838,7 @@
       display: grid;
       gap: 12px;
     }
-    .nx-lines { display: grid; gap: 8px; }
+    .nx-lines { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; overflow-wrap: anywhere; gap: 8px; }
     .nx-line { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
     .nx-line i { color: rgba(var(--nx-agent-accent),1); margin-top: 3px; }
     .nx-line b { color: var(--text); }
@@ -1962,9 +1959,6 @@
       align-content: end;
       gap: 14px;
       padding: clamp(18px, 3vw, 24px);
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity .9s ease, transform .9s ease;
       overflow: hidden;
     }
     .quienes-left::before {
@@ -2139,12 +2133,7 @@
       background: rgba(5,10,18,0.82);
       border-left: 1px solid var(--border);
       padding: clamp(20px, 3vw, 26px);
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity .9s ease, transform .9s ease;
     }
-    .quienes.visible .quienes-left { opacity: 1; transform: translateX(0); }
-    .quienes.visible .quienes-content { opacity: 1; transform: translateX(0); }
     .quienes-badges { display: flex; flex-wrap: wrap; align-items: center; align-content: flex-start; gap: 8px; margin: 0; }
     .q-badge { display: inline-flex; align-items: center; justify-content: center; max-width: 100%; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); color: var(--accent); font-weight: var(--weight-medium, 500); font-size: 0.9rem; line-height: 1.4; text-align: center; }
     .quienes-text { display: grid; align-content: start; gap: 16px; }
@@ -2152,7 +2141,7 @@
 
     /* FAQ */
     .faq-wrap { display: grid; gap: 16px; max-width: 1100px; margin: 0 auto; }
-    .faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 14px; }
+    .faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 14px; }
     details { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15)); border: 1px solid rgba(0,195,255,0.18); border-radius: 14px; padding: 14px 16px; transition: border-color .35s ease, background .35s ease, transform .28s ease; }
     details:hover { transform: translateY(-2px); border-color: rgba(0,195,255,0.4); }
     details[open] { border-color: rgba(0,195,255,0.5); background: rgba(255,255,255,0.04); }

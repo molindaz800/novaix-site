@@ -200,6 +200,7 @@
   E("Saltar al contenido", "Saltar al contenido", "Skip to content", "site.skip");
   E("Navegacion principal", "Navegación principal", "Main navigation", "site.nav.label");
   E("Abrir menu", "Abrir menú", "Open menu", "site.nav.open");
+  E("Cerrar menú", "Cerrar menú", "Close menu", "site.nav.close");
   E("Ir al inicio", "Ir al inicio", "Go to home", "site.nav.home");
   E("Beneficios", "Beneficios", "Benefits", "site.nav.benefits");
   E("Seguridad", "Seguridad", "Security", "site.nav.security");

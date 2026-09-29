@@ -150,6 +150,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const setNavOpen = (open) => {
         nav.classList.toggle('nav--open', open);
         navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        const labelKey = open ? 'site.nav.close' : 'site.nav.open';
+        navToggle.setAttribute('aria-label', window.novaixTranslateKey?.(labelKey) || (open ? 'Cerrar menú' : 'Abrir menú'));
         if (navLinks) {
           navLinks.style.maxHeight = open ? '80vh' : '';
           navLinks.style.opacity = open ? '1' : '';
@@ -159,13 +161,11 @@ document.getElementById('year').textContent = new Date().getFullYear();
         requestNavUpdate();
       };
 
-      if (!navToggle.hasAttribute('data-inline-toggle')) {
-        navToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setNavOpen(!nav.classList.contains('nav--open'));
-        });
-      }
+      navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setNavOpen(!nav.classList.contains('nav--open'));
+      });
 
       navLinks?.querySelectorAll('a, button').forEach(link => link.addEventListener('click', () => setNavOpen(false)));
       document.addEventListener('click', (e) => {
@@ -405,20 +405,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLegal(); });
     if (window.location.hash === '#legal') openLegal();
 
-    // Animacion "Quienes somos"
-    const quienes = document.querySelector('.quienes');
-    if (quienes) {
-      const qObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            quienes.classList.add('visible');
-            qObs.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
-      qObs.observe(quienes);
-    }
-
     // Scroll suave personalizado a demo (mas lento)
     document.querySelectorAll('a[href="#demo"]:not([data-calendly-open])').forEach(link => {
       link.addEventListener('click', (e) => {
@@ -610,7 +596,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const txStatus = document.getElementById('nx-tx-status');
       const idle = document.getElementById('nx-idle');
       const live = document.getElementById('nx-live');
-      const liveImg = document.getElementById('nx-live-img');
       const cardVideo = document.getElementById('nx-card-video');
       const liveAvatar = document.getElementById('nx-avatar-box');
       const liveCurtain = document.getElementById('nx-curtain');
@@ -640,7 +625,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const linkCanvas = document.getElementById('nx-links');
       const lctx = linkCanvas.getContext('2d');
 
-      const BLANK_IMG = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 
       let selectedId = null;
       let timers = [];
@@ -661,43 +645,43 @@ document.getElementById('year').textContent = new Date().getFullYear();
       }
 
       const AGENTS = [
-        { id: 'SENTINEL', name: 'SENTINEL', role: 'Seguridad y RGPD', img: BLANK_IMG, video: '/videos/ops/Sentinel.mp4', accent: '0,195,255', accent2: '122,240,255',
+        { id: 'SENTINEL', name: 'SENTINEL', role: 'Seguridad y RGPD', video: '/videos/ops/Sentinel.mp4', accent: '0,195,255', accent2: '122,240,255',
           bullets: ['Control de acceso y roles.', 'Trazabilidad y auditoría.', 'Minimiza datos y aplica buenas prácticas.'],
           log: [{ t: 'Validando permisos y politicas...', kind: 'ok' }, { t: 'Canal aislado por rol + tenant.', kind: 'ok' }, { t: 'Auditoria lista (eventos criticos).', kind: 'ok' }]
         },
-        { id: 'PULSE', name: 'PULSE', role: 'Soporte omnicanal', img: BLANK_IMG, video: '/videos/ops/Pulse.mp4', accent: '122,240,255', accent2: '0,195,255',
+        { id: 'PULSE', name: 'PULSE', role: 'Soporte omnicanal', video: '/videos/ops/Pulse.mp4', accent: '122,240,255', accent2: '0,195,255',
           bullets: ['Filtra y califica consultas.', 'Escala a humano con historial.', 'Registra datos en CRM.'],
           log: [{ t: 'Ruteando consultas por intencion...', kind: 'ok' }, { t: 'Contexto + historial anexado.', kind: 'ok' }, { t: 'Registro en CRM sincronizado.', kind: 'ok' }]
         },
-        { id: 'CHRONOS', name: 'CHRONOS', role: 'Agenda y citas', img: BLANK_IMG, video: '/videos/ops/Chronos.mp4', accent: '64,255,210', accent2: '0,195,255',
+        { id: 'CHRONOS', name: 'CHRONOS', role: 'Agenda y citas', video: '/videos/ops/Chronos.mp4', accent: '64,255,210', accent2: '0,195,255',
           bullets: ['Reprogramacion inteligente.', 'Sincroniza calendarios.', 'Evita ausencias con avisos.'],
           log: [{ t: 'Slot-check en tiempo real...', kind: 'ok' }, { t: 'Confirmacion enviada al cliente.', kind: 'ok' }, { t: 'Recordatorio + reprogramacion activa.', kind: 'ok' }]
         },
-        { id: 'SYNAPSE', name: 'SYNAPSE', role: 'CRM y operaciones', img: BLANK_IMG, video: '/videos/ops/Synapse.mp4', accent: '160,120,255', accent2: '122,240,255',
+        { id: 'SYNAPSE', name: 'SYNAPSE', role: 'CRM y operaciones', video: '/videos/ops/Synapse.mp4', accent: '160,120,255', accent2: '122,240,255',
           bullets: ['Actualiza contactos y tareas.', 'Gestiona estados y etiquetas.', 'Organiza historial con notas claras.'],
           log: [{ t: 'Actualizando pipeline y etiquetas...', kind: 'ok' }, { t: 'Normalizacion de campos aplicada.', kind: 'ok' }, { t: 'Back-office alineado con n8n.', kind: 'ok' }]
         },
-        { id: 'AURA', name: 'AURA', role: 'Reseñas y reputación', img: BLANK_IMG, video: '/videos/ops/Aura.mp4', accent: '255,120,210', accent2: '122,240,255',
+        { id: 'AURA', name: 'AURA', role: 'Reseñas y reputación', video: '/videos/ops/Aura.mp4', accent: '255,120,210', accent2: '122,240,255',
           bullets: ['Solicita y gestiona reseñas.', 'Detecta incidencias.', 'Mejora valoraciones con seguimiento.'],
           log: [{ t: 'Detectando sentimiento y urgencia...', kind: 'ok' }, { t: 'Plantillas de respuesta por tono de marca.', kind: 'ok' }, { t: 'Flujo de recuperación activado.', kind: 'ok' }]
         },
-        { id: 'FORGE', name: 'FORGE', role: 'Leads y ventas', img: BLANK_IMG, video: '/videos/ops/Forge.mp4', accent: '255,181,62', accent2: '0,195,255',
+        { id: 'FORGE', name: 'FORGE', role: 'Leads y ventas', video: '/videos/ops/Forge.mp4', accent: '255,181,62', accent2: '0,195,255',
           bullets: ['Cualificación automática con scoring.', 'Seguimiento de prospectos.', 'Resumen listo para CRM.'],
           log: [{ t: 'Scoring aplicado (fit + intención).', kind: 'ok' }, { t: 'Lead enriquecido y priorizado.', kind: 'ok' }, { t: 'Resumen comercial generado.', kind: 'ok' }]
         },
-        { id: 'SPARK', name: 'SPARK', role: 'Contenido y redes', img: BLANK_IMG, video: '/videos/ops/Spark.mp4', accent: '255,90,90', accent2: '255,181,62',
+        { id: 'SPARK', name: 'SPARK', role: 'Contenido y redes', video: '/videos/ops/Spark.mp4', accent: '255,90,90', accent2: '255,181,62',
           bullets: ['Genera copys y piezas reutilizables.', 'Publica en horario óptimo.', 'Reusa formatos según canal.'],
           log: [{ t: 'Calendarización detectada...', kind: 'ok' }, { t: 'Creatividades adaptadas a canal.', kind: 'ok' }, { t: 'Publicación programada.', kind: 'ok' }]
         },
-        { id: 'ORACLE', name: 'ORACLE', role: 'Informes y KPIs', img: BLANK_IMG, video: '/videos/ops/Oracle.mp4', accent: '0,255,170', accent2: '122,240,255',
+        { id: 'ORACLE', name: 'ORACLE', role: 'Informes y KPIs', video: '/videos/ops/Oracle.mp4', accent: '0,255,170', accent2: '122,240,255',
           bullets: ['Reporte semanal automático.', 'Alertas por caídas.', 'Recomendaciones accionables.'],
           log: [{ t: 'KPIs agregados (semana actual).', kind: 'ok' }, { t: 'Anomalías detectadas.', kind: 'warn' }, { t: 'Recomendación priorizada.', kind: 'ok' }]
         },
-        { id: 'LEDGER', name: 'LEDGER', role: 'Cobros y pagos', img: BLANK_IMG, video: '/videos/ops/Ledger.mp4', accent: '100,200,255', accent2: '0,195,255',
+        { id: 'LEDGER', name: 'LEDGER', role: 'Cobros y pagos', video: '/videos/ops/Ledger.mp4', accent: '100,200,255', accent2: '0,195,255',
           bullets: ['Recordatorios automáticos.', 'Enlaces de pago rápidos.', 'Seguimiento por estado.'],
           log: [{ t: 'Enlace de pago generado.', kind: 'ok' }, { t: 'Recordatorio programado.', kind: 'ok' }, { t: 'Estado conciliado en back-office.', kind: 'ok' }]
         },
-        { id: 'PRIME', name: 'PRIME', role: 'Director de Operaciones IA', img: BLANK_IMG, video: '/videos/ops/Prime.mp4', leader: true, accent: '255,181,62', accent2: '0,195,255',
+        { id: 'PRIME', name: 'PRIME', role: 'Director de Operaciones IA', video: '/videos/ops/Prime.mp4', leader: true, accent: '255,181,62', accent2: '0,195,255',
           bullets: ['Integra canales y herramientas clave.', 'Orquesta procesos end-to-end con reglas.', 'Sincroniza CRM y calendarios en vivo.', 'Supervisa ejecución con reporting.'],
           log: [{ t: 'Orquestación activada (canales + n8n)...', kind: 'ok' }, { t: 'Enrutado inteligente por prioridad.', kind: 'ok' }, { t: 'Observabilidad + reporting listo.', kind: 'ok' }]
         }
@@ -764,7 +748,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
         liveCard?.classList.remove('is-video');
         if (liveVeil) liveVeil.style.opacity = '0';
         liveCurtain?.classList.remove('play');
-        if (liveImg) liveImg.src = BLANK_IMG;
       }
 
       function stamp() {
@@ -790,7 +773,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
         txSub.textContent = `${t('Canal cifrado')} · ${a.name} ${t('en línea')}`;
         txStatus.innerHTML = '<i class="fa-solid fa-signal"></i> ' + t('Transmitiendo');
 
-        if (liveImg) liveImg.src = a.img || BLANK_IMG;
 
         if (a.video) {
           mediaPlayer.select(a.video, a.video.replace(/\.mp4$/, '.webp'));

@@ -15,6 +15,36 @@
         "value": "instrument sans",
         "createdAt": "2026-09-29T09:48:34.931Z",
         "reason": "User confirmed Instrument Sans500 as licensed-free display fallback in the attached typography brief; no Neue Montreal license found."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-09-29T13:32:58.298Z",
+        "reason": "Agent: verified seven homepage findings are false positives; atlas details are underlined links without a box, process has a 44px inner container gutter, carousel slide has 24px padding, and team children have 18-26px padding."
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-09-29T13:48:55.119Z",
+        "reason": "Agent: inspected rendered homepage; security controls were flattened to divided rows, Ops Hub transmission is a purposeful functional panel, and chat input border is required for operability. Detector reports line 0 from DOM nesting rather than visible cards."
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-09-29T13:48:55.149Z",
+        "reason": "Agent: typing-dot is created only while an actual chat fetch is pending and removed in both success and error paths; motion communicates a real temporary state."
       }
     ]
   }
