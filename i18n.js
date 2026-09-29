@@ -389,7 +389,6 @@
   E("Inicio rapido · Pequenos negocios", "Inicio rápido · Pequeños negocios", "Fast start · Small businesses");
   E("Desde", "Desde", "From");
   E("/mes · SIN IVA", "/mes · SIN IVA", "/month · VAT excluded");
-  E("Oferta temporal", "Oferta temporal", "Limited-time offer");
   E("Chatbot esencial para arrancar con IA.", "Chatbot esencial para arrancar con IA.", "Essential chatbot to get started with AI.");
   E("Chatbot IA 24/7 para web, WhatsApp o Instagram (1 canal)", "Chatbot IA 24/7 para web, WhatsApp o Instagram (1 canal)", "24/7 AI chatbot for web, WhatsApp or Instagram (1 channel)");
   E("Respuestas inteligentes a FAQs básicas (horarios, precios, servicios)", "Respuestas inteligentes a FAQs básicas (horarios, precios, servicios)", "Smart answers to basic FAQs (hours, prices, services)");

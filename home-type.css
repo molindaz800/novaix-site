@@ -197,7 +197,7 @@
   line-height: 1.5;
   letter-spacing: 0;
 }
-.home-studio :is(.atlas-kicker, .founders-kicker, .nx-chip, .offer-pill) {
+.home-studio :is(.atlas-kicker, .founders-kicker, .nx-chip) {
   font-family: var(--font-body);
   font-size: var(--type-label);
   font-weight: var(--weight-medium);

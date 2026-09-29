@@ -31,6 +31,24 @@ test('integrations are a static accessible list without duplicated nodes', () =>
   assert.doesNotMatch(read('home-core.js'), /integration-item--clone/);
 });
 
+test('service icons sit beside headings without generic icon tiles', () => {
+  for (const html of [read('index.html'), read('en/index.html')]) {
+    assert.equal((html.match(/class="service-icon fa-solid/g) || []).length, 6);
+    assert.doesNotMatch(html, /class="icon-badge"/);
+  }
+  assert.match(css, /\.service-icon\s*\{[^}]*grid-column:\s*1;[^}]*grid-row:\s*1/);
+  assert.match(css, /\.slide h3\s*\{[^}]*grid-column:\s*2;[^}]*grid-row:\s*1/);
+});
+
+test('pricing is current and has no temporary-offer messaging in either language', () => {
+  for (const html of [read('index.html'), read('en/index.html')]) {
+    const plans = html.match(/<section id="planes"[\s\S]*?<\/section>/)?.[0] || '';
+    assert.deepEqual([...plans.matchAll(/<div class="price-main"><small>[^<]+<\/small><strong>(\d+)€<\/strong>/g)].map(match => match[1]), ['299', '499', '999']);
+    assert.doesNotMatch(plans, /oferta temporal|limited-time offer|offer-pill|price-meta/i);
+  }
+  assert.doesNotMatch(read('i18n.js'), /Oferta temporal|Limited-time offer/);
+});
+
 test('current design sidecar follows the approved font roles', () => {
   const design = JSON.parse(read('.impeccable/design.json'));
   const earth = design.components.find(component => component.name === 'Connected Earth heading');
