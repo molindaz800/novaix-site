@@ -330,17 +330,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
       });
     }
 
-    // Integraciones scroll duplicado
-    const integrationsTrack = document.getElementById('integrations-track');
-    if (integrationsTrack) {
-      Array.from(integrationsTrack.children).forEach(item => {
-        const clone = item.cloneNode(true);
-        clone.classList.add('integration-item--clone');
-        clone.setAttribute('aria-hidden', 'true');
-        integrationsTrack.appendChild(clone);
-      });
-    }
-
     // help text animacion on-visible
     const helpText = document.querySelector('.help-text');
     if (helpText) {

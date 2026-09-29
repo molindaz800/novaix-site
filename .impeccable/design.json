@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-29T00:00:00+02:00",
+  "generatedAt": "2026-09-29T10:56:45+00:00",
   "title": "Design System: NOVAIX — Homepage",
   "extensions": {
     "colorMeta": {
@@ -188,44 +188,16 @@
       },
       "nav": {
         "role": "neutral",
-        "displayName": "Translucent Navigation",
+        "displayName": "Flat Translucent Masthead",
         "tonalRamp": [
-          "oklch(15.000% 0.028312 241.143 / 0.96078)",
-          "oklch(26.429% 0.028312 241.143 / 0.96078)",
-          "oklch(37.857% 0.028312 241.143 / 0.96078)",
-          "oklch(49.286% 0.028312 241.143 / 0.96078)",
-          "oklch(60.714% 0.028312 241.143 / 0.96078)",
-          "oklch(72.143% 0.028312 241.143 / 0.96078)",
-          "oklch(83.571% 0.028312 241.143 / 0.96078)",
-          "oklch(95.000% 0.028312 241.143 / 0.96078)"
-        ]
-      },
-      "workbench": {
-        "role": "neutral",
-        "displayName": "Workbench Ground",
-        "tonalRamp": [
-          "oklch(15.000% 0.029553 237.933)",
-          "oklch(26.429% 0.029553 237.933)",
-          "oklch(37.857% 0.029553 237.933)",
-          "oklch(49.286% 0.029553 237.933)",
-          "oklch(60.714% 0.029553 237.933)",
-          "oklch(72.143% 0.029553 237.933)",
-          "oklch(83.571% 0.029553 237.933)",
-          "oklch(95.000% 0.029553 237.933)"
-        ]
-      },
-      "workbench-heading": {
-        "role": "neutral",
-        "displayName": "Workbench Header",
-        "tonalRamp": [
-          "oklch(15.000% 0.034187 238.534)",
-          "oklch(26.429% 0.034187 238.534)",
-          "oklch(37.857% 0.034187 238.534)",
-          "oklch(49.286% 0.034187 238.534)",
-          "oklch(60.714% 0.034187 238.534)",
-          "oklch(72.143% 0.034187 238.534)",
-          "oklch(83.571% 0.034187 238.534)",
-          "oklch(95.000% 0.034187 238.534)"
+          "oklch(15.000% 0.022037 246.543 / 0.96078)",
+          "oklch(26.429% 0.022037 246.543 / 0.96078)",
+          "oklch(37.857% 0.022037 246.543 / 0.96078)",
+          "oklch(49.286% 0.022037 246.543 / 0.96078)",
+          "oklch(60.714% 0.022037 246.543 / 0.96078)",
+          "oklch(72.143% 0.022037 246.543 / 0.96078)",
+          "oklch(83.571% 0.022037 246.543 / 0.96078)",
+          "oklch(95.000% 0.022037 246.543 / 0.96078)"
         ]
       },
       "process": {
@@ -242,94 +214,356 @@
           "oklch(95.000% 0.033533 239.837)"
         ]
       },
-      "tab-text": {
+      "hero-lead": {
         "role": "neutral",
-        "displayName": "Example Text",
+        "displayName": "Pale Blue Hero Lead",
         "tonalRamp": [
-          "oklch(15.000% 0.029620 233.638)",
-          "oklch(26.429% 0.029620 233.638)",
-          "oklch(37.857% 0.029620 233.638)",
-          "oklch(49.286% 0.029620 233.638)",
-          "oklch(60.714% 0.029620 233.638)",
-          "oklch(72.143% 0.029620 233.638)",
-          "oklch(83.571% 0.029620 233.638)",
-          "oklch(95.000% 0.029620 233.638)"
+          "oklch(15.000% 0.038503 239.669)",
+          "oklch(26.429% 0.038503 239.669)",
+          "oklch(37.857% 0.038503 239.669)",
+          "oklch(49.286% 0.038503 239.669)",
+          "oklch(60.714% 0.038503 239.669)",
+          "oklch(72.143% 0.038503 239.669)",
+          "oklch(83.571% 0.038503 239.669)",
+          "oklch(95.000% 0.038503 239.669)"
         ]
       },
-      "tab-selected": {
+      "filter-text": {
         "role": "neutral",
-        "displayName": "Selected Example",
+        "displayName": "Quiet Category Text",
         "tonalRamp": [
-          "oklch(15.000% 0.061158 232.335)",
-          "oklch(26.429% 0.061158 232.335)",
-          "oklch(37.857% 0.061158 232.335)",
-          "oklch(49.286% 0.061158 232.335)",
-          "oklch(60.714% 0.061158 232.335)",
-          "oklch(72.143% 0.061158 232.335)",
-          "oklch(83.571% 0.061158 232.335)",
-          "oklch(95.000% 0.061158 232.335)"
+          "oklch(15.000% 0.019435 235.744)",
+          "oklch(26.429% 0.019435 235.744)",
+          "oklch(37.857% 0.019435 235.744)",
+          "oklch(49.286% 0.019435 235.744)",
+          "oklch(60.714% 0.019435 235.744)",
+          "oklch(72.143% 0.019435 235.744)",
+          "oklch(83.571% 0.019435 235.744)",
+          "oklch(95.000% 0.019435 235.744)"
         ]
       },
-      "tab-selected-text": {
-        "role": "neutral",
-        "displayName": "Selected Example Text",
+      "filter-selected": {
+        "role": "primary",
+        "displayName": "Selected Category Cyan",
         "tonalRamp": [
-          "oklch(15.000% 0.017178 219.648)",
-          "oklch(26.429% 0.017178 219.648)",
-          "oklch(37.857% 0.017178 219.648)",
-          "oklch(49.286% 0.017178 219.648)",
-          "oklch(60.714% 0.017178 219.648)",
-          "oklch(72.143% 0.017178 219.648)",
-          "oklch(83.571% 0.017178 219.648)",
-          "oklch(95.000% 0.017178 219.648)"
+          "oklch(15.000% 0.124501 212.834)",
+          "oklch(26.429% 0.124501 212.834)",
+          "oklch(37.857% 0.124501 212.834)",
+          "oklch(49.286% 0.124501 212.834)",
+          "oklch(60.714% 0.124501 212.834)",
+          "oklch(72.143% 0.124501 212.834)",
+          "oklch(83.571% 0.124501 212.834)",
+          "oklch(95.000% 0.124501 212.834)"
         ]
       },
-      "tab-hover": {
-        "role": "neutral",
-        "displayName": "Example Hover",
+      "connector": {
+        "role": "primary",
+        "displayName": "Directional Wire Cyan",
         "tonalRamp": [
-          "oklch(15.000% 0.047833 232.446)",
-          "oklch(26.429% 0.047833 232.446)",
-          "oklch(37.857% 0.047833 232.446)",
-          "oklch(49.286% 0.047833 232.446)",
-          "oklch(60.714% 0.047833 232.446)",
-          "oklch(72.143% 0.047833 232.446)",
-          "oklch(83.571% 0.047833 232.446)",
-          "oklch(95.000% 0.047833 232.446)"
+          "oklch(15.000% 0.131008 212.666)",
+          "oklch(26.429% 0.131008 212.666)",
+          "oklch(37.857% 0.131008 212.666)",
+          "oklch(49.286% 0.131008 212.666)",
+          "oklch(60.714% 0.131008 212.666)",
+          "oklch(72.143% 0.131008 212.666)",
+          "oklch(83.571% 0.131008 212.666)",
+          "oklch(95.000% 0.131008 212.666)"
         ]
+      },
+      "connector-output": {
+        "role": "secondary",
+        "displayName": "Integration Output Amber",
+        "tonalRamp": [
+          "oklch(15.000% 0.135573 64.705)",
+          "oklch(26.429% 0.135573 64.705)",
+          "oklch(37.857% 0.135573 64.705)",
+          "oklch(49.286% 0.135573 64.705)",
+          "oklch(60.714% 0.135573 64.705)",
+          "oklch(72.143% 0.135573 64.705)",
+          "oklch(83.571% 0.135573 64.705)",
+          "oklch(95.000% 0.135573 64.705)"
+        ]
+      },
+      "flow-center": {
+        "role": "neutral",
+        "displayName": "Connection Hub Navy",
+        "tonalRamp": [
+          "oklch(15.000% 0.032957 241.338)",
+          "oklch(26.429% 0.032957 241.338)",
+          "oklch(37.857% 0.032957 241.338)",
+          "oklch(49.286% 0.032957 241.338)",
+          "oklch(60.714% 0.032957 241.338)",
+          "oklch(72.143% 0.032957 241.338)",
+          "oklch(83.571% 0.032957 241.338)",
+          "oklch(95.000% 0.032957 241.338)"
+        ]
+      },
+      "flow-border": {
+        "role": "neutral",
+        "displayName": "Connection Hub Edge",
+        "tonalRamp": [
+          "oklch(15.000% 0.105525 223.533)",
+          "oklch(26.429% 0.105525 223.533)",
+          "oklch(37.857% 0.105525 223.533)",
+          "oklch(49.286% 0.105525 223.533)",
+          "oklch(60.714% 0.105525 223.533)",
+          "oklch(72.143% 0.105525 223.533)",
+          "oklch(83.571% 0.105525 223.533)",
+          "oklch(95.000% 0.105525 223.533)"
+        ]
+      },
+      "detail-link": {
+        "role": "primary",
+        "displayName": "Disclosure Ice Cyan",
+        "tonalRamp": [
+          "oklch(15.000% 0.090804 212.508)",
+          "oklch(26.429% 0.090804 212.508)",
+          "oklch(37.857% 0.090804 212.508)",
+          "oklch(49.286% 0.090804 212.508)",
+          "oklch(60.714% 0.090804 212.508)",
+          "oklch(72.143% 0.090804 212.508)",
+          "oklch(83.571% 0.090804 212.508)",
+          "oklch(95.000% 0.090804 212.508)"
+        ]
+      },
+      "detail-border": {
+        "role": "neutral",
+        "displayName": "Disclosure Underline",
+        "tonalRamp": [
+          "oklch(15.000% 0.086782 214.804)",
+          "oklch(26.429% 0.086782 214.804)",
+          "oklch(37.857% 0.086782 214.804)",
+          "oklch(49.286% 0.086782 214.804)",
+          "oklch(60.714% 0.086782 214.804)",
+          "oklch(72.143% 0.086782 214.804)",
+          "oklch(83.571% 0.086782 214.804)",
+          "oklch(95.000% 0.086782 214.804)"
+        ]
+      },
+      "contact": {
+        "role": "neutral",
+        "displayName": "Human Inquiry Navy",
+        "tonalRamp": [
+          "oklch(15.000% 0.028531 240.984)",
+          "oklch(26.429% 0.028531 240.984)",
+          "oklch(37.857% 0.028531 240.984)",
+          "oklch(49.286% 0.028531 240.984)",
+          "oklch(60.714% 0.028531 240.984)",
+          "oklch(72.143% 0.028531 240.984)",
+          "oklch(83.571% 0.028531 240.984)",
+          "oklch(95.000% 0.028531 240.984)"
+        ]
+      },
+      "field-text": {
+        "role": "neutral",
+        "displayName": "Field Ice White",
+        "tonalRamp": [
+          "oklch(15.000% 0.009259 242.836)",
+          "oklch(26.429% 0.009259 242.836)",
+          "oklch(37.857% 0.009259 242.836)",
+          "oklch(49.286% 0.009259 242.836)",
+          "oklch(60.714% 0.009259 242.836)",
+          "oklch(72.143% 0.009259 242.836)",
+          "oklch(83.571% 0.009259 242.836)",
+          "oklch(95.000% 0.009259 242.836)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Slate Edge",
+        "tonalRamp": [
+          "oklch(15.000% 0.046852 236.869)",
+          "oklch(26.429% 0.046852 236.869)",
+          "oklch(37.857% 0.046852 236.869)",
+          "oklch(49.286% 0.046852 236.869)",
+          "oklch(60.714% 0.046852 236.869)",
+          "oklch(72.143% 0.046852 236.869)",
+          "oklch(83.571% 0.046852 236.869)",
+          "oklch(95.000% 0.046852 236.869)"
+        ]
+      },
+      "field-invalid": {
+        "role": "secondary",
+        "displayName": "Native Invalid Warmth",
+        "tonalRamp": [
+          "oklch(15.000% 0.093608 56.960)",
+          "oklch(26.429% 0.093608 56.960)",
+          "oklch(37.857% 0.093608 56.960)",
+          "oklch(49.286% 0.093608 56.960)",
+          "oklch(60.714% 0.093608 56.960)",
+          "oklch(72.143% 0.093608 56.960)",
+          "oklch(83.571% 0.093608 56.960)",
+          "oklch(95.000% 0.093608 56.960)"
+        ]
+      },
+      "context": {
+        "role": "neutral",
+        "displayName": "Inquiry Context Navy",
+        "tonalRamp": [
+          "oklch(15.000% 0.039387 238.177)",
+          "oklch(26.429% 0.039387 238.177)",
+          "oklch(37.857% 0.039387 238.177)",
+          "oklch(49.286% 0.039387 238.177)",
+          "oklch(60.714% 0.039387 238.177)",
+          "oklch(72.143% 0.039387 238.177)",
+          "oklch(83.571% 0.039387 238.177)",
+          "oklch(95.000% 0.039387 238.177)"
+        ]
+      },
+      "context-text": {
+        "role": "neutral",
+        "displayName": "Inquiry Context Text",
+        "tonalRamp": [
+          "oklch(15.000% 0.038917 223.581)",
+          "oklch(26.429% 0.038917 223.581)",
+          "oklch(37.857% 0.038917 223.581)",
+          "oklch(49.286% 0.038917 223.581)",
+          "oklch(60.714% 0.038917 223.581)",
+          "oklch(72.143% 0.038917 223.581)",
+          "oklch(83.571% 0.038917 223.581)",
+          "oklch(95.000% 0.038917 223.581)"
+        ]
+      },
+      "context-border": {
+        "role": "neutral",
+        "displayName": "Inquiry Context Edge",
+        "tonalRamp": [
+          "oklch(15.000% 0.054865 234.860)",
+          "oklch(26.429% 0.054865 234.860)",
+          "oklch(37.857% 0.054865 234.860)",
+          "oklch(49.286% 0.054865 234.860)",
+          "oklch(60.714% 0.054865 234.860)",
+          "oklch(72.143% 0.054865 234.860)",
+          "oklch(83.571% 0.054865 234.860)",
+          "oklch(95.000% 0.054865 234.860)"
+        ]
+      },
+      "route": {
+        "role": "neutral",
+        "displayName": "Sector Return Navy",
+        "tonalRamp": [
+          "oklch(15.000% 0.028312 241.143)",
+          "oklch(26.429% 0.028312 241.143)",
+          "oklch(37.857% 0.028312 241.143)",
+          "oklch(49.286% 0.028312 241.143)",
+          "oklch(60.714% 0.028312 241.143)",
+          "oklch(72.143% 0.028312 241.143)",
+          "oklch(83.571% 0.028312 241.143)",
+          "oklch(95.000% 0.028312 241.143)"
+        ]
+      },
+      "route-text": {
+        "role": "neutral",
+        "displayName": "Sector Return Text",
+        "tonalRamp": [
+          "oklch(15.000% 0.015928 239.105)",
+          "oklch(26.429% 0.015928 239.105)",
+          "oklch(37.857% 0.015928 239.105)",
+          "oklch(49.286% 0.015928 239.105)",
+          "oklch(60.714% 0.015928 239.105)",
+          "oklch(72.143% 0.015928 239.105)",
+          "oklch(83.571% 0.015928 239.105)",
+          "oklch(95.000% 0.015928 239.105)"
+        ]
+      },
+      "route-border": {
+        "role": "neutral",
+        "displayName": "Sector Return Edge",
+        "tonalRamp": [
+          "oklch(15.000% 0.041492 231.083)",
+          "oklch(26.429% 0.041492 231.083)",
+          "oklch(37.857% 0.041492 231.083)",
+          "oklch(49.286% 0.041492 231.083)",
+          "oklch(60.714% 0.041492 231.083)",
+          "oklch(72.143% 0.041492 231.083)",
+          "oklch(83.571% 0.041492 231.083)",
+          "oklch(95.000% 0.041492 231.083)"
+        ]
+      },
+      "earth-title": {
+        "role": "primary",
+        "displayName": "Warm white Earth heading"
+      },
+      "earth-route": {
+        "role": "primary",
+        "displayName": "Earth Route Cyan"
+      },
+      "earth-route-warm": {
+        "role": "secondary",
+        "displayName": "Earth Route Amber"
+      },
+      "earth-signal": {
+        "role": "primary",
+        "displayName": "Earth Traveling Ice Light"
+      },
+      "earth-signal-warm": {
+        "role": "secondary",
+        "displayName": "Earth Traveling Warm Light"
+      },
+      "earth-node": {
+        "role": "primary",
+        "displayName": "Earth Endpoint Ice Light"
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display",
-        "purpose": "Homepage hero H1 only: approved Oxanium 800, line-height 1.05 and tracking -.025em."
+        "displayName": "Hero display",
+        "purpose": "Current local homepage typography: Instrument Sans500 display; home-type.css is authoritative. Historical snapshots remain unchanged."
       },
       "headline": {
-        "displayName": "Headline",
-        "purpose": "New solutions and process headings, not all lower section headings."
+        "displayName": "Retained process/capabilities heading",
+        "purpose": "Current local homepage typography: Instrument Sans500 display; home-type.css is authoritative. Historical snapshots remain unchanged."
       },
       "title": {
-        "displayName": "Title",
-        "purpose": "Example-detail heading."
+        "displayName": "Atlas entry title",
+        "purpose": "Current local homepage typography: Instrument Sans500 display; home-type.css is authoritative. Historical snapshots remain unchanged."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Inherited body family and rhythm; no explicit base font-size."
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
       },
       "lead": {
-        "displayName": "Lead",
-        "purpose": "Hero supporting paragraph."
+        "displayName": "Hero subtitle",
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
       },
       "label": {
-        "displayName": "Label",
-        "purpose": "Example selector title; smaller on mobile."
+        "displayName": "Filters and field labels",
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "atlas-heading": {
+        "displayName": "Atlas index heading",
+        "purpose": "Current local homepage typography: Instrument Sans500 display; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "contact-heading": {
+        "displayName": "Human inquiry heading",
+        "purpose": "Current local homepage typography: Instrument Sans500 display; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "project-input": {
+        "displayName": "Inquiry input",
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "earth-display": {
+        "displayName": "Local Earth hero display",
+        "purpose": "Current local homepage typography: Instrument Sans500 display; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "earth-lead": {
+        "displayName": "Local Earth hero lead",
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "earth-principle": {
+        "displayName": "Local Earth supporting copy",
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
+      },
+      "earth-process-link": {
+        "displayName": "Local Earth process action",
+        "purpose": "Current local homepage typography: Inter functional/UI; home-type.css is authoritative. Historical snapshots remain unchanged."
       }
     },
     "shadows": [
       {
         "name": "navigation",
-        "value": "0 12px 32px #0005",
-        "purpose": "Fixed local navigation surface; backdrop-filter blur(16px)."
+        "value": "none",
+        "purpose": "Current atlas masthead: no box shadow; a bottom rule and retained backdrop-filter blur(16px)."
       },
       {
         "name": "wordmark",
@@ -372,36 +606,95 @@
         "name": "reduced-motion",
         "value": "animation: none !important; transition: none !important; scroll-behavior: auto !important",
         "purpose": "Homepage elements and pseudo-elements under prefers-reduced-motion: reduce; not an audit of legacy JS loops."
+      },
+      {
+        "name": "atlas-filter",
+        "value": "color .16s, border-color .16s",
+        "purpose": "Category hover/selection; no tab panel animation."
+      },
+      {
+        "name": "atlas-disclosure",
+        "value": "transform .18s",
+        "purpose": "Native details arrow rotates 90deg when open."
+      },
+      {
+        "name": "atlas-float",
+        "value": "atlas-float 20s ease-in-out -5s infinite",
+        "purpose": "Historical Propuesta 1 only: inherited 0/-6px float controlled by planet-space.js. That script is not loaded by the current ES/EN Earth hero; preserve this variant, not a running Earth effect."
+      },
+      {
+        "name": "earth-transit",
+        "value": "earth-transit var(--flight, 8s) linear var(--delay, 0s) infinite paused",
+        "purpose": "Local decorative SVG highlights: normalized dash offset 100 to 0; five independent flight/delay pairs 8.2s/-1.2s, 9.1s/-4.1s, 10s/-6.3s, 7.8s/-5.3s, 8.8s/-3.2s. No live traffic."
+      },
+      {
+        "name": "earth-beacon",
+        "value": "earth-beacon 5s ease-in-out var(--delay, 0s) infinite paused",
+        "purpose": "Independent endpoint-halo breathing, not arrival-synchronized events; static cores remain."
+      },
+      {
+        "name": "earth-motion-gate",
+        "value": "animation-play-state: running",
+        "purpose": "Only while earth-connections.js applies earth-running: intersecting, document visible, normal motion and not destroyed. Offscreen/hidden/pagehide pause; pageshow re-observes. Explicit destroy removes observer/listeners; no JS or missing observer stays static."
+      },
+      {
+        "name": "earth-reduced-motion",
+        "value": "animation: none !important",
+        "purpose": "Local reduced-motion override: hide traveling signals; keep static tracks/cores and halos at opacity .35. No added pause button, timer, per-frame JS or controller network call."
       }
     ],
     "breakpoints": [
       {
-        "name": "desktop-nav-compact-max (min-width: 901px)",
+        "name": "atlas-entry-body-stack-max",
+        "value": "1200px"
+      },
+      {
+        "name": "inherited-desktop-nav-compact-max (min-width: 901px)",
         "value": "1150px"
       },
       {
-        "name": "desktop-nav-compact-min",
+        "name": "propuesta-1-desktop-hero-final-override-min",
         "value": "901px"
       },
       {
-        "name": "mobile-menu-and-workbench-stack-max",
+        "name": "mobile-menu-and-paired-fields-stack-max",
         "value": "900px"
       },
       {
-        "name": "mobile-planet-first-max",
-        "value": "600px"
+        "name": "sector-inquiry-route-stack-max",
+        "value": "760px"
       },
       {
-        "name": "inherited-desktop-nav-max (min-width: 901px)",
-        "value": "1280px"
+        "name": "propuesta-1-planet-first-and-retained-atlas-contact-stack-max",
+        "value": "650px"
       },
       {
         "name": "inherited-single-column-actions-and-chat-max",
         "value": "640px"
       },
       {
+        "name": "inherited-section-spacing-and-process-video-max",
+        "value": "600px"
+      },
+      {
         "name": "inherited-narrow-mobile-max",
         "value": "420px"
+      },
+      {
+        "name": "inherited-desktop-nav-max (min-width: 901px)",
+        "value": "1280px"
+      },
+      {
+        "name": "earth-wide-min",
+        "value": "1600px"
+      },
+      {
+        "name": "earth-tablet-max (min-width: 761px)",
+        "value": "1100px"
+      },
+      {
+        "name": "earth-copy-first-mobile-max",
+        "value": "760px"
       }
     ]
   },
@@ -410,17 +703,17 @@
       "name": "Primary contact action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Local flat cyan CTA; visual-only sample, with no scheduling handler. Icon-free label specimen.",
-      "html": "<button type=\"button\" class=\"ds-primary\">Hablemos de tu proyecto</button>",
-      "css": ".ds-primary { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 46px; padding: 11px 18px; border: 1px solid transparent; border-radius: 7px; background: var(--accent, #09c8ed); color: #03141d; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; font-weight: 700; box-shadow: none; cursor: pointer; transition: background .2s ease; } .ds-primary:hover { background: #7ae7fc; transform: none; box-shadow: none; } .ds-primary:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-primary:active { transform: translateY(1px) scale(0.99); filter: brightness(0.96); } .ds-primary:hover:active { transform: none; } @media (prefers-reduced-motion: reduce) { .ds-primary { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+      "description": "Current inquiry CTA appearance. Inert type=button specimen; the live form prepares a mailto draft, never sends automatically.",
+      "html": "<button type=\"button\" class=\"ds-primary\">Preparar correo</button>",
+      "css": ".ds-primary { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 46px; padding: 11px 18px; border: 1px solid transparent; border-radius: 7px; background: var(--accent, #09c8ed); color: #03141d; font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; font-weight: 700; box-shadow: none; cursor: pointer; transition: background .2s ease; } .ds-primary:hover { background: #7ae7fc; transform: none; box-shadow: none; } .ds-primary:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-primary:active { transform: translateY(1px) scale(0.99); filter: brightness(0.96); } .ds-primary:hover:active { transform: none; } @media (prefers-reduced-motion: reduce) { .ds-primary { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
     },
     {
       "name": "Underlined process link",
       "kind": "button",
       "refersTo": "text-link",
-      "description": "New homepage secondary action; label-only specimen linking within the panel rather than opening external services.",
-      "html": "<a class=\"ds-text-link\" href=\"#ds-process\">Ver cómo lo hacemos</a>",
-      "css": ".ds-text-link { display: inline-flex; gap: 12px; align-items: center; min-height: 44px; color: #e3f4fe; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; font-weight: 500; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: #3e768c; } .ds-text-link:hover { color: var(--accent, #09c8ed); } .ds-text-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; }"
+      "description": "Current hero secondary process link, not calendar or automatic submission; isolated anchor specimen.",
+      "html": "<a class=\"ds-text-link\" href=\"#ds-process\">Ver cómo trabajamos</a>",
+      "css": ".ds-text-link { display: inline-flex; gap: 12px; align-items: center; min-height: 44px; color: #e3f4fe; font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: .86rem; line-height: 1.6; font-weight: 500; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: #3e768c; } .ds-text-link:hover { color: var(--accent, #09c8ed); } .ds-text-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; }"
     },
     {
       "name": "Preserved plain ghost action",
@@ -434,9 +727,9 @@
       "name": "Navigation link group",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Static desktop link-group specimen inside the observed nav surface; not the complete navbar. Original planet icon and blue/orange wordmark must remain in the actual navbar; no substitute identity is introduced.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Muestra de enlaces\"><a class=\"ds-nav-link\" href=\"#ds-solutions\">Soluciones</a><a class=\"ds-nav-link\" href=\"#ds-process\">Cómo trabajamos</a><a class=\"ds-nav-link\" href=\"#ds-team\">Equipo</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; gap: 8px; height: 72px; padding: 10px 20px; border: 1px solid var(--border, #233c4b); border-radius: 12px; background: #081620f5; box-shadow: 0 12px 32px #0005; backdrop-filter: blur(16px); font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; line-height: 1.6; transition: opacity .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease; } .ds-nav-link { padding: 10px 9px; font-size: .88rem; color: var(--muted, #b4c8d7); text-decoration: none; border: 1px solid transparent; border-radius: 10px; } .ds-nav-link:hover { color: var(--accent, #09c8ed); } .ds-nav-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-nav { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+      "description": "Current flat desktop masthead link-group specimen, not the branded navbar. The live navbar uses the exact blue/orange wordmark alone, without a circular N icon; the full original planet belongs to preserved Propuesta 1; the current LOCAL Propuesta 2 uses a cropped Earth hero with the same exact masthead wordmark.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Muestra de enlaces\"><a class=\"ds-nav-link\" href=\"#ds-solutions\">Soluciones</a><a class=\"ds-nav-link\" href=\"#ds-process\">Cómo trabajamos</a><a class=\"ds-nav-link\" href=\"#ds-industries\">Negocios</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 20px; height: 72px; padding: 10px 4px; border: 0; border-bottom: 1px solid var(--border, #233c4b); border-radius: 0; background: #050d15f5; box-shadow: none; backdrop-filter: blur(16px); font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.6; transition: opacity .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease; } .ds-nav-link { padding: 10px 9px; font-size: .88rem; color: var(--muted, #b4c8d7); text-decoration: none; border: 1px solid transparent; border-radius: 10px; } .ds-nav-link:hover { color: var(--accent, #09c8ed); } .ds-nav-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-nav { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
     },
     {
       "name": "Preserved chat text field",
@@ -444,7 +737,7 @@
       "refersTo": "chat-input",
       "description": "Non-submitting chat field specimen with explicit visible keyboard focus; the live form is labelled.",
       "html": "<div class=\"ds-field-group\"><input class=\"ds-chat-input\" type=\"text\" aria-label=\"Mensaje de ejemplo\" placeholder=\"Escribe tu mensaje...\"></div>",
-      "css": ".ds-field-group { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 5px; border-radius: 18px; border: 1px solid rgba(0,195,255,0.24); background: rgba(255,255,255,0.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02); } .ds-chat-input { min-width: 0; background: transparent; border: none; border-radius: 14px; padding: 10px 12px; color: var(--text, #f5f7fb); outline: none; caret-color: var(--accent, #09c8ed); } .ds-chat-input::placeholder { color: var(--muted, #b4c8d7); } .ds-chat-input:hover { background: transparent; } .ds-chat-input:focus-visible { outline: 2px solid var(--accent, #09c8ed); outline-offset: -2px; } @media (max-width: 640px) { .ds-field-group { padding: 4px; border-radius: 16px; } .ds-chat-input { padding: 9px 10px; font-size: 16px; } }"
+      "css": ".ds-field-group { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 5px; border-radius: 18px; border: 1px solid rgba(0,195,255,0.24); background: rgba(255,255,255,0.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02); } .ds-chat-input { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 16px; line-height: 1.6; min-width: 0; background: transparent; border: none; border-radius: 14px; padding: 10px 12px; color: var(--text, #f5f7fb); outline: none; caret-color: var(--accent, #09c8ed); } .ds-chat-input::placeholder { color: var(--muted, #b4c8d7); } .ds-chat-input:hover { background: transparent; } .ds-chat-input:focus-visible { outline: 2px solid var(--accent, #09c8ed); outline-offset: -2px; } @media (max-width: 640px) { .ds-field-group { padding: 4px; border-radius: 16px; } .ds-chat-input { padding: 9px 10px; font-size: 16px; } } .ds-field-group:focus-within { border-color: var(--accent, #09c8ed); }"
     },
     {
       "name": "Preserved chat quick reply",
@@ -460,23 +753,7 @@
       "refersTo": "case-card",
       "description": "Existing lower-page case-card styling. Neutral specimen label intentionally avoids repeating unvalidated numerical claims; static, not clickable.",
       "html": "<article class=\"ds-case\"><strong class=\"ds-case-title\">Muestra de superficie</strong><p class=\"ds-case-copy\">Contenido ilustrativo, no un resultado verificado.</p></article>",
-      "css": ".ds-case { display: grid; gap: 8px; padding: 18px; border: 1px solid var(--border, #233c4b); border-radius: 14px; background: var(--panel, #0c1a25); box-shadow: var(--glow, none); font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; color: var(--text, #f5f7fb); } .ds-case-title { color: var(--accent, #09c8ed); } .ds-case-copy { margin: 0; color: var(--muted, #b4c8d7); }"
-    },
-    {
-      "name": "Illustrative workbench frame",
-      "kind": "custom",
-      "refersTo": "workbench",
-      "description": "Observed demo frame/header/detail vocabulary; abbreviated static content, clearly disclosed, not a working application.",
-      "html": "<section class=\"ds-workbench\" aria-label=\"Ejemplo ilustrativo\"><header class=\"ds-workbench-head\"><h2 class=\"ds-workbench-title\">Del proceso al software</h2><p class=\"ds-workbench-disclosure\">Ejemplo ilustrativo · Datos de demostración</p></header><div class=\"ds-detail\"><p class=\"ds-reference\">NX-DEMO / 01</p><h3 class=\"ds-detail-title\">ERP a medida</h3><p class=\"ds-detail-copy\">Empresa de ejemplo</p></div></section>",
-      "css": ".ds-workbench { padding: 0; border: 1px solid var(--border, #233c4b); border-radius: 12px; overflow: hidden; background: #091923; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; color: var(--text, #f5f7fb); line-height: 1.6; } .ds-workbench-head { padding: 18px 24px; display: flex; align-items: baseline; gap: 24px; border-bottom: 1px solid var(--border, #233c4b); background: #0b1e2a; } .ds-workbench-title { margin: 0; font-size: 1rem; font-weight: 600; color: #78e5fb; } .ds-workbench-disclosure { margin: 0; color: #b4c8d7; font-size: .81rem; } .ds-detail { padding: 24px 28px; } .ds-reference { margin: 0 0 10px; color: #9fb8c9; font-size: .76rem; font-variant-numeric: tabular-nums; } .ds-detail-title { margin: 0 0 18px; font-size: 1.2rem; } .ds-detail-copy { margin: 0; color: #d5e7f1; font-size: .86rem; line-height: 1.6; } @media (max-width: 600px) { .ds-workbench-head { display: block; padding: 18px; } .ds-workbench-disclosure { font-size: .75rem; margin-top: 5px; } .ds-detail { padding: 22px; } }"
-    },
-    {
-      "name": "Example selection states",
-      "kind": "custom",
-      "refersTo": "example-tab",
-      "description": "Selected and unselected example-tab visuals; labels copied from the homepage. No tab switching controller is included. The website retains click, Left/Right, Home/End and roving tabindex behavior.",
-      "html": "<div class=\"ds-tab-samples\" aria-label=\"Estados visuales de ejemplos\"><button type=\"button\" class=\"ds-tab ds-tab-selected\"><span class=\"ds-tab-label\">ERP a medida</span><small class=\"ds-tab-subtitle\">Software a medida</small></button><button type=\"button\" class=\"ds-tab\"><span class=\"ds-tab-label\">Conexión con CRM</span><small class=\"ds-tab-subtitle\">Integraciones</small></button></div>",
-      "css": ".ds-tab-samples { display: grid; gap: 8px; } .ds-tab { width: 100%; min-height: 65px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: #c6dce9; font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; text-align: left; padding: 12px; cursor: pointer; } .ds-tab-label { display: block; font-size: .92rem; font-weight: 500; } .ds-tab-subtitle { display: block; color: #a2c1d3; margin-top: 3px; font-size: .78rem; } .ds-tab-selected { background: #0b3b50; border-color: #23758b; color: #ebfaff; } .ds-tab:hover { background: #123343; } .ds-tab:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; }"
+      "css": ".ds-case { display: grid; gap: 8px; padding: 18px; border: 1px solid var(--border, #233c4b); border-radius: 14px; background: var(--panel, #0c1a25); box-shadow: var(--glow, none); font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 1rem; line-height: 1.6; color: var(--text, #f5f7fb); } .ds-case-title { color: var(--accent, #09c8ed); } .ds-case-copy { margin: 0; color: var(--muted, #b4c8d7); }"
     },
     {
       "name": "Preserved chat send control",
@@ -485,21 +762,52 @@
       "description": "Existing gradient send primitive, not the new flat contact CTA. Inert type=button specimen, never submits a message; no custom hover fill in source.",
       "html": "<button type=\"button\" class=\"ds-send\">Enviar</button>",
       "css": ".ds-send { min-height: 44px; background: linear-gradient(145deg, var(--accent, #09c8ed), var(--accent-2, #7af0ff)); color: #041320; font-weight: 800; border: none; border-radius: 14px; padding: 10px 15px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,195,255,0.32); } .ds-send:hover { background: linear-gradient(145deg, var(--accent, #09c8ed), var(--accent-2, #7af0ff)); } .ds-send:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; } .ds-send:disabled { opacity: .58; cursor: not-allowed; transform: none; } @media (max-width: 640px) { .ds-send { min-height: 44px; padding: 8px 12px; } }"
+    },
+    {
+      "name": "Atlas category filter states",
+      "kind": "custom",
+      "refersTo": "atlas-filter",
+      "description": "Four real button labels: two-entry Overview plus dedicated communication, integrations and software. Static selected/hover/focus specimens, not a working filter or a tablist; no controller is embedded.",
+      "html": "<div class=\"ds-atlas-filters\" role=\"group\" aria-label=\"Muestra de filtros de soluciones\"><button type=\"button\" class=\"ds-atlas-filter\" aria-pressed=\"true\">Vista general</button><button type=\"button\" class=\"ds-atlas-filter\" aria-pressed=\"false\">Comunicación</button><button type=\"button\" class=\"ds-atlas-filter\" aria-pressed=\"false\">Integraciones</button><button type=\"button\" class=\"ds-atlas-filter\" aria-pressed=\"false\">Software a medida</button></div>",
+      "css": ".ds-atlas-filters { display: flex; flex-wrap: wrap; gap: 8px 24px; min-width: 0; max-width: 100%; flex: 0 1 auto; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.6; } .ds-atlas-filter { position: relative; min-height: 44px; padding: 8px 3px; color: #d5e3ec; background: none; border: 0; border-bottom: 2px solid transparent; font: inherit; font-size: .9rem; cursor: pointer; transition: color .16s, border-color .16s; } .ds-atlas-filter[aria-pressed=true] { color: #50def9; border-bottom-color: var(--accent, #09c8ed); } .ds-atlas-filter:hover { color: #50def9; } .ds-atlas-filter:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; } @media(max-width:650px) { .ds-atlas-filters { width: 100%; flex-basis: 100%; gap: 4px 18px; } .ds-atlas-filter { font-size: .82rem; } } @media(prefers-reduced-motion:reduce) { .ds-atlas-filter { transition: none; } }"
+    },
+    {
+      "name": "Editorial atlas entry with directional branches",
+      "kind": "custom",
+      "refersTo": "atlas-entry",
+      "description": "Communication entry with source SVG branches (three inputs/four outputs), supporting illustrative disclosure and working native details. Text-only nodes/summary omit Font Awesome icons; no icon-font dependency, filter or inquiry controller, and no live integration. This is not a comp-fidelity specimen.",
+      "html": "<article class=\"ds-atlas-entry\">\n  <div class=\"ds-atlas-entry-body\"><div class=\"ds-atlas-entry-copy\"><h3><span>Cada canal, el mismo contexto</span></h3><p><span>Conecta llamadas, web, formularios, mensajería, redes sociales y email para que tu equipo continúe cada conversación con contexto.</span></p><p class=\"ds-atlas-example-label\"><span>Ejemplo ilustrativo · Comunicación</span></p></div><div class=\"ds-atlas-flow\" aria-hidden=\"true\"><svg class=\"ds-atlas-wires\" viewBox=\"0 0 360 200\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><defs><marker id=\"ds-arrow-channels\" viewBox=\"0 0 6 6\" refX=\"5\" refY=\"3\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L6 3 L0 6\" fill=\"none\" stroke=\"context-stroke\"/></marker></defs><path class=\"ds-atlas-wire-in\" d=\"M90 20 C112 20 104 78 126 78\" marker-end=\"url(#ds-arrow-channels)\"/><path class=\"ds-atlas-wire-in\" d=\"M90 100 H126\" marker-end=\"url(#ds-arrow-channels)\"/><path class=\"ds-atlas-wire-in\" d=\"M90 180 C112 180 104 122 126 122\" marker-end=\"url(#ds-arrow-channels)\"/><path class=\"ds-atlas-wire-out\" d=\"M212 76 C232 76 222 20 248 20\" marker-end=\"url(#ds-arrow-channels)\"/><path class=\"ds-atlas-wire-out\" d=\"M212 92 C231 92 228 74 248 74\" marker-end=\"url(#ds-arrow-channels)\"/><path class=\"ds-atlas-wire-out\" d=\"M212 108 C231 108 228 126 248 126\" marker-end=\"url(#ds-arrow-channels)\"/><path class=\"ds-atlas-wire-out\" d=\"M212 124 C232 124 222 180 248 180\" marker-end=\"url(#ds-arrow-channels)\"/></svg><div class=\"ds-atlas-nodes\"><span class=\"ds-atlas-node\"><span>Teléfono</span></span><span class=\"ds-atlas-node\"><span>Web</span></span><span class=\"ds-atlas-node\"><span>Formularios</span></span></div><div class=\"ds-atlas-flow-center\"><span>Tu negocio</span></div><div class=\"ds-atlas-nodes\"><span class=\"ds-atlas-node\"><span>Mensajería</span></span><span class=\"ds-atlas-node\"><span>Redes sociales</span></span><span class=\"ds-atlas-node\"><span>Email</span></span><span class=\"ds-atlas-node\"><span>Otros canales</span></span></div></div></div>\n  <details class=\"ds-atlas-detail\"><summary><span>Ver cómo podría funcionar</span> </summary><div><p><span>Definimos qué canales conectar, qué datos compartir y cuándo debe intervenir una persona. Empezamos por un flujo concreto, no por automatizarlo todo.</span></p><a class=\"ds-studio-text-link\" href=\"#ds-project\"><span>Me interesa esta solución</span> </a></div></details>\n</article>",
+      "css": ".ds-atlas-entry { min-width: 0; padding: 0; color: var(--text, #f5f7fb); background: transparent; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.6; } .ds-atlas-entry-body { display: grid; grid-template-columns: 1.05fr 1fr; gap: 18px; align-items: center; } .ds-atlas-entry h3 { font-size: 1.22rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.25; margin: 0 0 12px; } .ds-atlas-entry-copy > p:not(.ds-atlas-example-label) { font-size: .89rem; line-height: 1.65; color: var(--muted, #b4c8d7); margin: 0; } .ds-atlas-example-label { color: #9fb8c9; font-size: .75rem; line-height: 1.5; margin: 12px 0 0; } .ds-atlas-flow { display: grid; grid-template-columns: 25% 24% 31%; gap: 10%; height: 200px; isolation: isolate; align-items: center; position: relative; font-size: .63rem; line-height: 1.35; } .ds-atlas-wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; z-index: -1; } .ds-atlas-wires > path { fill: none; stroke: #24cde9; stroke-width: 1.2; } .ds-atlas-nodes { height: 200px; display: flex; flex-direction: column; justify-content: space-between; gap: 0; } .ds-atlas-node { display: flex; align-items: center; min-height: 40px; background: none; } .ds-atlas-flow-center { text-align: center; border: 1px solid #168aab; border-radius: 10px; padding: 14px 4px; background: #0a1b27; font-weight: 500; min-height: 80px; display: flex; flex-direction: column; justify-content: center; } .ds-atlas-detail { background: none; border: 0; padding: 0; margin: 12px 0 0; border-radius: 0; } .ds-atlas-detail summary { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; padding: 6px 0; font-size: .9rem; font-weight: 500; color: #8ae5f8; border-bottom: 1px solid #2e879a; cursor: pointer; list-style: none; } .ds-atlas-detail summary::-webkit-details-marker { display: none; } .ds-atlas-detail > div { padding: 16px 0 4px; max-width: 680px; } .ds-atlas-detail p { font-size: .9rem; color: var(--muted, #b4c8d7); line-height: 1.65; } .ds-studio-text-link { display: inline-flex; min-height: 44px; align-items: center; font-size: .9rem; font-weight: 500; margin-top: 8px; color: #e3f4fe; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: #3e768c; } .ds-studio-text-link:hover { color: var(--accent, #09c8ed); } .ds-atlas-detail summary:focus-visible, .ds-studio-text-link:focus-visible { outline: 3px solid rgba(0,195,255,0.8); outline-offset: 3px; border-radius: 14px; } @media(max-width:1200px) { .ds-atlas-entry-body { grid-template-columns: 1fr; gap: 22px; } .ds-atlas-flow { max-width: 370px; font-size: .75rem; } } @media(max-width:650px) { .ds-atlas-entry { padding: 0 0 24px; border-bottom: 1px solid var(--border, #233c4b); } .ds-atlas-entry h3 { font-size: 1.3rem; } .ds-atlas-entry-copy > p:not(.ds-atlas-example-label) { font-size: .93rem; } .ds-atlas-flow { max-width: 380px; width: 100%; justify-self: center; padding-block: 6px; } .ds-atlas-node { font-size: .66rem; } }"
+    },
+    {
+      "name": "Connected Earth heading",
+      "kind": "custom",
+      "refersTo": "earth-display",
+      "description": "Current bilingual Earth hero heading. Instrument Sans 500, warm solid white, two natural language phrases; source of truth home-type.css.",
+      "html": "<h1 class=\"ds-earth-title\"><span>Tu forma de trabajar,</span> <span>convertida en software.</span></h1>",
+      "css": ".ds-earth-title { color: #f5f4ef; font-family: 'Instrument Sans', Arial, sans-serif; font-size: clamp(4.25rem, 4.72vw, 5rem); font-weight: 500; line-height: .96; letter-spacing: -.04em; max-width: 12em; text-wrap: balance; } .ds-earth-title span { display: block; } @media (max-width: 760px) { .ds-earth-title { font-size: clamp(2.5rem, 9vw, 3rem); line-height: 1.06; } }"
     }
   ],
   "narrative": {
     "northStar": "The Identity-Preserving Dark Software Studio",
-    "overview": "This records the approved, previously published homepage identity and the local audit corrections of 2026-09-29. Its sources are home-base.css, home-studio.css, ui-controls.css and the homepage controllers. The user approved committing and publishing this correction batch on 2026-09-29. Subsequent Shape proposals are separate planning artifacts, not part of this release. It is not a mandate to redesign sector landings.\n\nDark navy surfaces, cyan actions and the original planet with its blue/orange wordmark express NOVAIX as a software and integrations company. AI remains conditional on business value. This is documentation of existing code, not a redesign or new QA claim.",
+    "overview": "Dark navy surfaces, cyan actions and the original blue/orange wordmark express a premium, human and dynamic software studio. The complete original planet remains the preserved Propuesta 1 identity; the current Propuesta 2 hero uses an explicitly approved partial connected Earth, not a new global brand. NOVAIX leads with custom software and integrations, using AI when it is useful; SMEs and midsize companies receive equal weight. The luminous identity is the focal material, while quiet rules, readable copy and real people keep the surrounding interface grounded.\n\nThe current homepage pairs left-hand copy with an oversized Earth cropped beyond the right/bottom of the hero; mobile shows copy before the cropped Earth. Its two-entry atlas overview, three distinct category explorations, native disclosures and direct contact in the existing end-of-page scheduling area remain. Propuesta 1's full planet-left/planet-before-copy composition is historical and preserved, not the active experimental hero. The selected composition belongs to this homepage journey, not every page in the system; sector landings retain their own composition with a shared inquiry route. This documents implemented code, not a new design direction or a verified customer result.\n\nContact revision 2026-09-29: the rejected middle-page form has been removed. #proyecto now targets the existing end contact area with direct email and booking. Legacy field/context tokens are inactive, not a mandate to recreate a form. Publication requires the same checked homepage, bilingual routes and linked sectors to be deployed together.",
     "keyCharacteristics": [
-      "Approved HD planet and blue/orange wordmark, prominent on mobile.",
-      "Dark tonal surfaces, Oxanium 800 hero H1, Space Grotesk body and flat primary actions.",
-      "Clearly illustrative example tabs coexist with retained lower-page functionality."
+      "Current local Propuesta 2: cropped Earth right, copy left, copy-first mobile; exact blue/orange masthead wordmark. Preserve the original full-planet Propuesta 1 separately.",
+      "Dark tonal surfaces and restrained cyan; Instrument Sans 500 for display, Inter 400–600 for UI and body text.",
+      "Two editorial overview entries, three dedicated filters, directional connector branches and native details.",
+      "Clearly illustrative workflows, existing team section and direct email without an intermediate form.",
+      "Preserved lower-page functionality and Spanish/English routes without a sector-page redesign."
     ],
     "rules": [
       {
         "name": "The Original Identity Rule",
-        "body": "Keep the exact planet and blue/orange wordmark prominent; neither a generic text logo nor a cyan recoloring substitutes for them.",
+        "body": "Keep the exact blue/orange wordmark and preserve the full original planet in Propuesta 1. The approved partial generated Earth is a LOCAL Propuesta 2 hero exception only; it does not authorize generic lettering, recoloring the logo or replacing identity elsewhere.",
         "section": "colors"
+      },
+      {
+        "name": "The Single Display Voice Rule",
+        "body": "Use licensed local Instrument Sans 500 for display headings and Inter 400–600 for supporting text and UI. Keep the Earth hero solid warm white; avoid restoring Oxanium or gradient text.",
+        "section": "typography"
       },
       {
         "name": "The Scoped Depth Rule",
@@ -508,16 +816,20 @@
       }
     ],
     "dos": [
-      "**Do** preserve the exact original planet and blue/orange wordmark, with the planet before the copy on small mobile screens.",
+      "**Do** preserve the exact blue/orange wordmark and historical full-planet Propuesta 1; only the approved LOCAL Propuesta 2 hero uses partial Earth right and copy-first mobile.",
       "**Do** use actual scoped dark tokens and final cascade values for this homepage.",
-      "**Do** keep software and integrations first, with AI conditional on business value.",
-      "**Do** preserve example disclosures, keyboard behavior and existing lower functionality."
+      "**Do** keep software and integrations first, with AI when useful and SMEs/midsize companies equally represented.",
+      "**Do** keep the two-entry overview distinct from the three dedicated category experiences and their inquiry contexts.",
+      "**Do** preserve ordinary illustrative disclosures, native details, visible focus and protected lower functionality.",
+      "**Do** keep contact direct: email and the existing calendar, without an intermediate form."
     ],
     "donts": [
-      "**Don't** interpret local selection or documentation as production approval or permission to publish.",
+      "**Don't** interpret local selection or documentation as production approval or permission to commit or publish.",
       "**Don't** impose this homepage composition on sector landings or other pages.",
-      "**Don't** replace the dark identity with the rejected light concept or generic/generated identity assets.",
-      "**Don't** promote illustrative examples, tonal ramps or preserved numerical claims into verified production facts."
+      "**Don't** generalize the LOCAL Propuesta 2 Earth exception into a brand replacement, generated logo or light palette; preserve the original full-planet Propuesta 1.",
+      "**Don't** promote illustrative examples, tonal ramps, inherited claims or qualitative comparisons into verified production facts or numeric fidelity passes.",
+      "**Don't** reinstate the obsolete three-tab workbench or call the category filter a tab controller.",
+      "**Don't** claim the independent finish verdict is resolved or force-close unavailable automated gates."
     ]
   }
 }

@@ -252,7 +252,10 @@ class EnglishRenderer(HTMLParser):
         self.out.append(f"<{tag}{self.render_attrs(tag, attrs)}>")
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        self.out.append(f"<{tag}{self.render_attrs(tag, attrs)}>")
+        # SVG paths are not HTML void elements: dropping their slash nests every
+        # subsequent path inside the first one and breaks translated diagrams.
+        close = "/" if "svg" in self.raw_stack or tag.lower() == "svg" else ""
+        self.out.append(f"<{tag}{self.render_attrs(tag, attrs)}{close}>")
 
     def handle_endtag(self, tag: str) -> None:
         self.out.append(f"</{tag}>")

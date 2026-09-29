@@ -1,0 +1,9 @@
+/* Shared static path from sector examples to a scoped project inquiry. */
+.project-route { padding: 48px 0; background: #081620; color: #e7f2fa; border-block: 1px solid #294553; }
+.project-route .project-route-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.project-route h2 { font-size: clamp(1.65rem,2.8vw,2.3rem); line-height: 1.15; margin: 0 0 12px; }
+.project-route p { max-width: 650px; color: #b4c8d7; line-height: 1.65; margin: 0; }
+.project-route-link { display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 14px 20px; min-height: 48px; border-radius: 6px; background: #09c8ed; color: #03141d; text-decoration: none; font-weight: 700; flex-shrink: 0; }
+.project-route-link:hover { background: #7ae7fc; }
+.project-route a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+@media(max-width:760px) { .project-route .project-route-inner { flex-direction: column; align-items: stretch; gap: 24px; } .project-route { padding: 36px 0; } .project-route-link { align-self: flex-start; } }

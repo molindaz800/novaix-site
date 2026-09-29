@@ -32,17 +32,19 @@
   <meta name="twitter:description" content="NOVAIX develops custom software to digitize processes, connect business tools and apply automation and AI where they deliver real value." data-i18n-attr-content="site.meta.description">
   <meta name="twitter:image" content="https://novaix.es/og/index.jpg">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "NOVAIX", "url": "https://novaix.es/en/", "logo": "https://novaix.es/favicon-512x512.png"}</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
-  <link rel="stylesheet" href="../home-base.css?v=20260928">
-  <link rel="stylesheet" href="../home-studio.css?v=20260925-oxanium">
+  <link rel="stylesheet" href="../home-base.css?v=20260929-auditfix">
+  <link rel="stylesheet" href="../home-studio.css?v=20260929-type">
+  <link rel="stylesheet" href="../home-atlas.css?v=20260929-sectors">
+  <link rel="stylesheet" href="../home-earth.css?v=20260929-fullbleed">
   <link rel="stylesheet" href="../ui-controls.css?v=20260928">
+  <link rel="preload" href="../fonts/instrument-sans-medium-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-roman-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../home-type.css?v=20260929-sectors">
   <script src="../ui-dialogs.js?v=20260928" defer></script>
 </head>
-<body class="home-studio">
+<body class="home-studio home-atlas home-earth">
   <a class="skip-link" href="#contenido" data-i18n="site.skip">Skip to content</a>
   <div class="bg-ambient" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -59,7 +61,7 @@
         <a href="#soluciones"><span data-i18n="studio.001">Solutions</span></a>
         <a href="#proceso"><span data-i18n="studio.002">Our process</span></a>
         <div class="nav-dropdown">
-	          <a href="landing-negocios.html" class="nav-dropdown__trigger"><span data-i18n="site.nav.examples">Examples</span></a>
+	          <a href="landing-negocios.html" class="nav-dropdown__trigger"><span data-i18n="atlas.text.002">Industries</span></a>
 	          <div class="nav-dropdown__menu" role="menu" aria-label="Example categories" data-i18n-attr-aria-label="site.nav.examples.menu">
 	            <a href="landing-negocios.html" role="menuitem">
 	              <strong data-i18n="site.nav.examples.business"><i class="fa-solid fa-layer-group"></i> Use cases by business</strong>
@@ -69,10 +71,10 @@
 	              <strong data-i18n="site.nav.examples.video"><i class="fa-solid fa-circle-play"></i> Video examples</strong>
 	              <small data-i18n="site.nav.examples.videoDesc">Videos with real use cases, product walkthroughs and automation examples.</small>
 	            </a>
+              <a href="#quienes" role="menuitem"><strong data-i18n="studio.003">Team</strong></a>
+              <a href="#planes" role="menuitem"><strong data-i18n="site.nav.plans">Plans</strong></a>
 	          </div>
 	        </div>
-        <a href="#quienes"><span data-i18n="studio.003">Team</span></a>
-        <a href="#planes"><span data-i18n="site.nav.plans">Plans</span></a>
         <label class="language-switcher" aria-label="Select language" data-i18n-attr-aria-label="site.language.select">
 	          <span class="visually-hidden" data-i18n="site.language.select">Select language</span>
 	          <i class="fa-solid fa-globe" aria-hidden="true"></i>
@@ -81,25 +83,62 @@
 	            <option value="en">EN</option>
 	          </select>
 	        </label>
-        <button class="cta" type="button" data-calendly-open aria-haspopup="dialog"><span data-i18n="studio.004">Let’s talk</span></button>
+        <a class="cta atlas-nav-cta" href="#proyecto"><span data-i18n="atlas.contact.cta">Tell us how you work</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </nav>
 
-    <div class="container hero studio-hero" id="contenido">
-      <div class="studio-hero-copy">
-        <h1 class="title"><span data-i18n="studio.005">The way you work, built into software</span></h1>
-        <p class="subtitle"><span data-i18n="studio.006">We build tools that connect your processes, your data and your team</span></p>
-        <div class="hero-actions">
-          <button class="cta" type="button" data-calendly-open aria-haspopup="dialog"><span data-i18n="studio.007">Let’s talk about your project</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-          <a class="studio-text-link" href="#proceso"><span data-i18n="studio.008">See how we work</span> <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+    <div class="container hero studio-hero earth-hero" id="contenido">
+      <div class="earth-art" data-earth-art aria-hidden="true">
+        <div class="earth-scene">
+          <img src="../imagenes/tierra-conectada.webp" width="2106" height="747" alt="" fetchpriority="high" decoding="async">
+          <svg class="earth-connections" viewbox="0 0 2106 747" aria-hidden="true" focusable="false">
+          <defs><filter id="earth-route-glow" x="-50%" y="-100%" width="200%" height="300%"><fegaussianblur stddeviation="4"/></filter></defs>
+          <g class="earth-route" style="--flight:8.2s;--delay:-1.2s">
+          <path class="earth-track" d="M 1350 282 Q 1530 105 1865 171" pathlength="100"/>
+          <path class="earth-signal earth-signal--glow" d="M 1350 282 Q 1530 105 1865 171" pathlength="100"/>
+          <path class="earth-signal" d="M 1350 282 Q 1530 105 1865 171" pathlength="100"/>
+          </g>
+          <g class="earth-route" style="--flight:9.1s;--delay:-4.1s">
+          <path class="earth-track" d="M 1145 445 Q 1390 180 1875 266" pathlength="100"/>
+          <path class="earth-signal earth-signal--glow" d="M 1145 445 Q 1390 180 1875 266" pathlength="100"/>
+          <path class="earth-signal" d="M 1145 445 Q 1390 180 1875 266" pathlength="100"/>
+          </g>
+          <g class="earth-route earth-route--warm" style="--flight:10s;--delay:-6.3s">
+          <path class="earth-track" d="M 1284 385 Q 1660 280 1950 576" pathlength="100"/>
+          <path class="earth-signal earth-signal--glow" d="M 1284 385 Q 1660 280 1950 576" pathlength="100"/>
+          <path class="earth-signal" d="M 1284 385 Q 1660 280 1950 576" pathlength="100"/>
+          </g>
+          <g class="earth-route" style="--flight:7.8s;--delay:-5.3s">
+          <path class="earth-track" d="M 1350 282 Q 1180 220 1145 445" pathlength="100"/>
+          <path class="earth-signal earth-signal--glow" d="M 1350 282 Q 1180 220 1145 445" pathlength="100"/>
+          <path class="earth-signal" d="M 1350 282 Q 1180 220 1145 445" pathlength="100"/>
+          </g>
+          <g class="earth-route" style="--flight:8.8s;--delay:-3.2s">
+          <path class="earth-track" d="M 1458 626 Q 1580 450 1875 266" pathlength="100"/>
+          <path class="earth-signal earth-signal--glow" d="M 1458 626 Q 1580 450 1875 266" pathlength="100"/>
+          <path class="earth-signal" d="M 1458 626 Q 1580 450 1875 266" pathlength="100"/>
+          </g>
+          <g class="earth-node" style="--delay:-0.0s"><circle class="earth-node-halo" cx="1350" cy="282" r="8"/><circle class="earth-node-core" cx="1350" cy="282" r="2.4"/></g>
+          <g class="earth-node" style="--delay:-0.6s"><circle class="earth-node-halo" cx="1865" cy="171" r="8"/><circle class="earth-node-core" cx="1865" cy="171" r="2.4"/></g>
+          <g class="earth-node" style="--delay:-1.2s"><circle class="earth-node-halo" cx="1145" cy="445" r="8"/><circle class="earth-node-core" cx="1145" cy="445" r="2.4"/></g>
+          <!-- Spain anchor: interior of Iberia in the shared raster/SVG coordinates. -->
+          <g class="earth-node" data-earth-location="spain" style="--delay:-1.8s"><circle class="earth-node-halo" cx="1875" cy="266" r="8"/><circle class="earth-node-core" cx="1875" cy="266" r="2.4"/></g>
+          <g class="earth-node" style="--delay:-2.4s"><circle class="earth-node-halo" cx="1284" cy="385" r="8"/><circle class="earth-node-core" cx="1284" cy="385" r="2.4"/></g>
+          <g class="earth-node" style="--delay:-3.0s"><circle class="earth-node-halo" cx="1950" cy="576" r="8"/><circle class="earth-node-core" cx="1950" cy="576" r="2.4"/></g>
+          <g class="earth-node" style="--delay:-3.6s"><circle class="earth-node-halo" cx="1458" cy="626" r="8"/><circle class="earth-node-core" cx="1458" cy="626" r="2.4"/></g>
+          </svg>
         </div>
-        <p class="studio-principle"><span data-i18n="studio.009">Software that adapts to your business, not the other way around</span></p>
       </div>
-      <div class="studio-identity" role="group" aria-label="NOVAIX">
-        <div class="studio-space-scene">
-        <img class="studio-planet" src="../imagenes/planeta-studio-hd.webp" width="1611" height="976" alt="" fetchpriority="high" decoding="async">
-        <img class="studio-wordmark" src="../imagenes/texto.webp" width="1116" height="192" alt="" decoding="async">
+      <div class="earth-copy-shell">
+      <div class="studio-hero-copy">
+        <h1 class="title"><span class="earth-title-line" data-i18n="earth.title.first">The way you work,</span> <span class="earth-title-line" data-i18n="earth.title.second">built into software.</span></h1>
+        <p class="subtitle"><span data-i18n="atlas.text.003">Custom software. Meaningful connections.</span></p>
+        <div class="hero-actions">
+          <a class="cta" href="#proyecto"><span data-i18n="atlas.contact.cta">Tell us how you work</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="studio-text-link" href="#proceso"><span data-i18n="atlas.text.004">See how we work</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
+        <p class="studio-principle"><span data-i18n="atlas.text.005">We design, integrate and build solutions for small and midsize businesses. Starting with the way you work, using the technology your project needs.</span></p>
+      </div>
       </div>
     </div>
   </header>
@@ -110,8 +149,43 @@
   </dialog>
 
   <main>
-<section class="studio-demo container" aria-labelledby="studio-demo-title"><div class="studio-demo-heading"><h2 id="studio-demo-title"><span data-i18n="studio.010">From process to software</span></h2><p><span data-i18n="studio.011">Illustrative example · Demo data</span></p></div><div class="studio-workbench"><div class="studio-request-list"><h3><span data-i18n="studio.012">Explore a solution</span></h3><div role="tablist" aria-label="Solution examples" data-i18n-attr-aria-label="studio.demo.tabs"><button class="studio-request" id="studio-tab-0" role="tab" aria-selected="true" aria-controls="studio-panel-0" tabindex="0"><i class="fa-solid fa-code" aria-hidden="true"></i><span><strong data-i18n="studio.013">Custom ERP</strong><small data-i18n="studio.014">Custom software</small></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button class="studio-request" id="studio-tab-1" role="tab" aria-selected="false" aria-controls="studio-panel-1" tabindex="-1"><i class="fa-solid fa-link" aria-hidden="true"></i><span><strong data-i18n="studio.015">CRM integration</strong><small data-i18n="studio.016">Integrations</small></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button class="studio-request" id="studio-tab-2" role="tab" aria-selected="false" aria-controls="studio-panel-2" tabindex="-1"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span><strong data-i18n="studio.017">Document workflows</strong><small data-i18n="studio.018">Automation and AI</small></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button></div><p class="studio-demo-note"><span data-i18n="studio.019">Three examples. Every project starts with understanding your operations.</span></p></div><div class="studio-demo-panel" role="tabpanel" id="studio-panel-0" aria-labelledby="studio-tab-0" tabindex="0"><div class="studio-request-detail"><p class="studio-ref">NX-DEMO / 01</p><h3><span data-i18n="studio.020">Custom ERP</span></h3><dl><div><dt><span data-i18n="studio.021">Project</span></dt><dd><span data-i18n="studio.022">Example company</span></dd></div><div><dt><span data-i18n="studio.023">What we want to solve</span></dt><dd><span data-i18n="studio.024">Bring orders, inventory and invoicing together in a tool tailored to the team.</span></dd></div></dl><div class="studio-human"><i class="fa-regular fa-user" aria-hidden="true"></i><div><strong data-i18n="studio.025">The team stays in control</strong><p data-i18n="studio.026">Technology supports decisions; it does not replace your judgment.</p></div></div></div><div class="studio-activity"><h3><span data-i18n="studio.027">How the process connects</span></h3><ol><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrow-right-to-bracket"></i></span><div><strong data-i18n="studio.028">Request received</strong><p data-i18n="studio.029">The form captures the business requirements.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span><div><strong data-i18n="studio.030">Team review</strong><p data-i18n="studio.031">A person validates the scope before moving forward.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-check"></i></span><div><strong data-i18n="studio.032">Next step</strong><p data-i18n="studio.033">A conversation is prepared to define the solution.</p></div></li></ol></div></div><div class="studio-demo-panel" role="tabpanel" id="studio-panel-1" aria-labelledby="studio-tab-1" tabindex="0" hidden><div class="studio-request-detail"><p class="studio-ref">NX-DEMO / 02</p><h3><span data-i18n="studio.034">CRM integration</span></h3><dl><div><dt><span data-i18n="studio.035">Project</span></dt><dd><span data-i18n="studio.036">Example company</span></dd></div><div><dt><span data-i18n="studio.037">What we want to solve</span></dt><dd><span data-i18n="studio.038">Connect website forms to the CRM and work tools.</span></dd></div></dl><div class="studio-human"><i class="fa-regular fa-user" aria-hidden="true"></i><div><strong data-i18n="studio.039">The team stays in control</strong><p data-i18n="studio.040">Technology supports decisions; it does not replace your judgment.</p></div></div></div><div class="studio-activity"><h3><span data-i18n="studio.041">How the process connects</span></h3><ol><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrow-right-to-bracket"></i></span><div><strong data-i18n="studio.042">Contact received</strong><p data-i18n="studio.043">Data arrives from the website form.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span><div><strong data-i18n="studio.044">CRM updated</strong><p data-i18n="studio.045">Information is organized in one place.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-check"></i></span><div><strong data-i18n="studio.046">Team notified</strong><p data-i18n="studio.047">The team can review and follow up.</p></div></li></ol></div></div><div class="studio-demo-panel" role="tabpanel" id="studio-panel-2" aria-labelledby="studio-tab-2" tabindex="0" hidden><div class="studio-request-detail"><p class="studio-ref">NX-DEMO / 03</p><h3><span data-i18n="studio.048">Document workflows</span></h3><dl><div><dt><span data-i18n="studio.049">Project</span></dt><dd><span data-i18n="studio.050">Example company</span></dd></div><div><dt><span data-i18n="studio.051">What we want to solve</span></dt><dd><span data-i18n="studio.052">Extract document information and prepare it for review before saving.</span></dd></div></dl><div class="studio-human"><i class="fa-regular fa-user" aria-hidden="true"></i><div><strong data-i18n="studio.053">The team stays in control</strong><p data-i18n="studio.054">Technology supports decisions; it does not replace your judgment.</p></div></div></div><div class="studio-activity"><h3><span data-i18n="studio.055">How the process connects</span></h3><ol><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrow-right-to-bracket"></i></span><div><strong data-i18n="studio.056">Document received</strong><p data-i18n="studio.057">The required information is identified.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span><div><strong data-i18n="studio.058">Data prepared</strong><p data-i18n="studio.059">Automation structures a draft.</p></div></li><li><span class="studio-event" aria-hidden="true"><i class="fa-solid fa-check"></i></span><div><strong data-i18n="studio.060">Human validation</strong><p data-i18n="studio.061">A person checks the result.</p></div></li></ol></div></div></div></section>
-<section id="soluciones" class="studio-solutions"><div class="container"><h2><span data-i18n="studio.062">What your business needs, without the extras</span></h2><div class="studio-solution-rows"><a href="#servicios"><h3 data-i18n="studio.063">Build</h3><p data-i18n="studio.064">Software designed around your processes</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="#integraciones"><h3 data-i18n="studio.065">Connect</h3><p data-i18n="studio.066">Your tools, data and teams working together</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="#ops-hub"><h3 data-i18n="studio.067">Evolve</h3><p data-i18n="studio.068">Automation and AI where they add value</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>
+<section id="soluciones" class="atlas container" aria-labelledby="atlas-title">
+<div class="atlas-heading"><h2 id="atlas-title"><span data-i18n="atlas.text.027">Find an idea for your business</span></h2><div class="atlas-filters" role="group" aria-label="Filter solutions" data-i18n-attr-aria-label="atlas.text.028"><button type="button" data-atlas-filter="all" aria-pressed="true" aria-controls="atlas-results"><span data-i18n="atlas.refine.001">Overview</span></button><button type="button" data-atlas-filter="communication" aria-pressed="false" aria-controls="atlas-results"><span data-i18n="atlas.text.030">Communication</span></button><button type="button" data-atlas-filter="integrations" aria-pressed="false" aria-controls="atlas-results"><span data-i18n="atlas.text.031">Integrations</span></button><button type="button" data-atlas-filter="software" aria-pressed="false" aria-controls="atlas-results"><span data-i18n="atlas.text.032">Custom software</span></button></div></div><div class="atlas-results" id="atlas-results">
+<article class="atlas-entry" data-atlas-category="communication" data-atlas-default="true">
+  <div class="atlas-entry-body"><div class="atlas-entry-copy"><h3><span data-i18n="atlas.text.034">Every channel, the same context</span></h3><p><span data-i18n="atlas.text.035">Connect calls, your website, forms, messaging, social media and email so your team can continue each conversation with context.</span></p><p class="atlas-example-label"><span data-i18n="atlas.text.033">Illustrative example · Communication</span></p></div><div class="atlas-flow" aria-hidden="true"><svg class="atlas-wires" viewbox="0 0 360 200" preserveaspectratio="none" aria-hidden="true"><defs><marker id="arrow-channels" viewbox="0 0 6 6" refx="5" refy="3" markerwidth="5" markerheight="5" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6" fill="none" stroke="context-stroke"/></marker></defs><path class="atlas-wire-in" d="M90 20 C112 20 104 78 126 78" marker-end="url(#arrow-channels)"/><path class="atlas-wire-in" d="M90 100 H126" marker-end="url(#arrow-channels)"/><path class="atlas-wire-in" d="M90 180 C112 180 104 122 126 122" marker-end="url(#arrow-channels)"/><path class="atlas-wire-out" d="M212 76 C232 76 222 20 248 20" marker-end="url(#arrow-channels)"/><path class="atlas-wire-out" d="M212 92 C231 92 228 74 248 74" marker-end="url(#arrow-channels)"/><path class="atlas-wire-out" d="M212 108 C231 108 228 126 248 126" marker-end="url(#arrow-channels)"/><path class="atlas-wire-out" d="M212 124 C232 124 222 180 248 180" marker-end="url(#arrow-channels)"/></svg><div class="atlas-nodes"><span class="atlas-node"><i class="fa-solid fa-phone" aria-hidden="true"></i><span data-i18n="atlas.text.006">Phone</span></span><span class="atlas-node"><i class="fa-solid fa-globe" aria-hidden="true"></i><span data-i18n="atlas.text.007">Web</span></span><span class="atlas-node"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span data-i18n="atlas.text.008">Forms</span></span></div><div class="atlas-flow-center"><i class="fa-solid fa-users" aria-hidden="true"></i><span data-i18n="atlas.text.009">Your business</span></div><div class="atlas-nodes"><span class="atlas-node"><i class="fa-solid fa-comment" aria-hidden="true"></i><span data-i18n="atlas.text.010">Messaging</span></span><span class="atlas-node"><i class="fa-solid fa-hashtag" aria-hidden="true"></i><span data-i18n="atlas.refine.000">Social media</span></span><span class="atlas-node"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span data-i18n="atlas.text.081">Email</span></span><span class="atlas-node"><i class="fa-solid fa-ellipsis" aria-hidden="true"></i><span data-i18n="atlas.text.012">Other channels</span></span></div></div></div>
+  <details class="atlas-detail"><summary><span data-i18n="atlas.text.036">See how it could work</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></summary><div><p><span data-i18n="atlas.text.037">We define which channels to connect, what data to share and when a person should step in. We start with one workflow, not by automating everything.</span></p><a class="studio-text-link" href="#proyecto" data-project-interest="channels"><span data-i18n="atlas.text.038">I’m interested in this solution</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></details>
+</article>
+<article class="atlas-entry" data-atlas-category="integrations" data-atlas-default="true">
+  <div class="atlas-entry-body"><div class="atlas-entry-copy"><h3><span data-i18n="atlas.text.040">Your tools, working together</span></h3><p><span data-i18n="atlas.text.041">Connect your CRM, ERP, calendars and other tools through custom integrations. Less scattered information, more continuity in your work.</span></p><p class="atlas-example-label"><span data-i18n="atlas.text.039">Illustrative example · Operations</span></p></div><div class="atlas-flow" aria-hidden="true"><svg class="atlas-wires" viewbox="0 0 360 200" preserveaspectratio="none" aria-hidden="true"><defs><marker id="arrow-tools" viewbox="0 0 6 6" refx="5" refy="3" markerwidth="5" markerheight="5" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6" fill="none" stroke="context-stroke"/></marker></defs><path class="atlas-wire-in" d="M90 20 C112 20 106 76 126 76" marker-end="url(#arrow-tools)"/><path class="atlas-wire-in" d="M90 74 C112 74 112 92 126 92" marker-end="url(#arrow-tools)"/><path class="atlas-wire-in" d="M90 126 C112 126 112 108 126 108" marker-end="url(#arrow-tools)"/><path class="atlas-wire-in" d="M90 180 C112 180 106 124 126 124" marker-end="url(#arrow-tools)"/><path class="atlas-wire-out" d="M212 78 C232 78 224 20 248 20" marker-end="url(#arrow-tools)"/><path class="atlas-wire-out" d="M212 100 H248" marker-end="url(#arrow-tools)"/><path class="atlas-wire-out" d="M212 122 C232 122 224 180 248 180" marker-end="url(#arrow-tools)"/></svg><div class="atlas-nodes"><span class="atlas-node"><i class="fa-solid fa-address-book" aria-hidden="true"></i><span data-i18n="atlas.text.013">CRM</span></span><span class="atlas-node"><i class="fa-solid fa-database" aria-hidden="true"></i><span data-i18n="atlas.text.014">ERP</span></span><span class="atlas-node"><i class="fa-solid fa-calendar" aria-hidden="true"></i><span data-i18n="atlas.text.015">Calendars</span></span><span class="atlas-node"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i><span data-i18n="atlas.tools.other">Other tools</span></span></div><div class="atlas-flow-center"><i class="fa-solid fa-gears" aria-hidden="true"></i><span data-i18n="atlas.text.016">Your solution</span></div><div class="atlas-nodes"><span class="atlas-node"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><span data-i18n="atlas.text.017">Processes</span></span><span class="atlas-node"><i class="fa-solid fa-link" aria-hidden="true"></i><span data-i18n="atlas.text.018">Data</span></span><span class="atlas-node"><i class="fa-solid fa-users" aria-hidden="true"></i><span data-i18n="atlas.text.019">Your team</span></span></div></div></div>
+  <details class="atlas-detail"><summary><span data-i18n="atlas.text.036">See how it could work</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></summary><div><p><span data-i18n="atlas.text.042">We review each tool’s APIs, permissions and limits before defining the integration. Your team approves the rules and stays in control.</span></p><a class="studio-text-link" href="#proyecto" data-project-interest="connections"><span data-i18n="atlas.text.038">I’m interested in this solution</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></details>
+</article>
+<article class="atlas-entry" data-atlas-category="software" data-atlas-default="false">
+  <div class="atlas-entry-body"><div class="atlas-entry-copy"><h3><span data-i18n="atlas.text.044">A tool that works your way</span></h3><p><span data-i18n="atlas.text.045">Orders, inventory, billing or internal portals in an application designed around your processes. Without forcing you to change how you work.</span></p><p class="atlas-example-label"><span data-i18n="atlas.text.043">Illustrative example · Custom software</span></p></div><div class="atlas-flow" aria-hidden="true"><svg class="atlas-wires" viewbox="0 0 360 200" preserveaspectratio="none" aria-hidden="true"><defs><marker id="arrow-custom" viewbox="0 0 6 6" refx="5" refy="3" markerwidth="5" markerheight="5" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6" fill="none" stroke="context-stroke"/></marker></defs><path class="atlas-wire-in" d="M90 20 C112 20 104 78 126 78" marker-end="url(#arrow-custom)"/><path class="atlas-wire-in" d="M90 100 H126" marker-end="url(#arrow-custom)"/><path class="atlas-wire-in" d="M90 180 C112 180 104 122 126 122" marker-end="url(#arrow-custom)"/><path class="atlas-wire-out" d="M212 78 C232 78 224 20 248 20" marker-end="url(#arrow-custom)"/><path class="atlas-wire-out" d="M212 100 H248" marker-end="url(#arrow-custom)"/><path class="atlas-wire-out" d="M212 122 C232 122 224 180 248 180" marker-end="url(#arrow-custom)"/></svg><div class="atlas-nodes"><span class="atlas-node"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i><span data-i18n="atlas.text.020">Orders</span></span><span class="atlas-node"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i><span data-i18n="atlas.text.021">Inventory</span></span><span class="atlas-node"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i><span data-i18n="atlas.text.022">Billing</span></span></div><div class="atlas-flow-center"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i><span data-i18n="atlas.text.023">Your application</span></div><div class="atlas-nodes"><span class="atlas-node"><i class="fa-solid fa-user-check" aria-hidden="true"></i><span data-i18n="atlas.text.024">Permissions</span></span><span class="atlas-node"><i class="fa-solid fa-list-check" aria-hidden="true"></i><span data-i18n="atlas.text.025">Follow-up</span></span><span class="atlas-node"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span data-i18n="atlas.text.026">Reports</span></span></div></div></div>
+  <details class="atlas-detail"><summary><span data-i18n="atlas.text.036">See how it could work</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></summary><div><p><span data-i18n="atlas.text.046">First we map the process with you. Then we build a useful first version, test it with your team and evolve it in stages.</span></p><a class="studio-text-link" href="#proyecto" data-project-interest="custom"><span data-i18n="atlas.text.038">I’m interested in this solution</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></details>
+</article>
+</div><p class="visually-hidden" id="atlas-status" role="status" aria-live="polite"></p>
+<div class="atlas-sectors" id="sectores" role="region" aria-labelledby="atlas-sectors-title">
+  <div class="atlas-sector-intro">
+    <h3 id="atlas-sectors-title"><span data-i18n="atlas.sectors.title">Solutions for your industry</span></h3>
+    <p><span data-i18n="atlas.sectors.intro">Explore what we can connect, build or automate for your business.</span></p>
+    <a class="studio-text-link" href="landing-negocios.html"><span data-i18n="atlas.sectors.all">Explore all industries</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+    <div class="atlas-sector-controls" hidden>
+      <button type="button" data-sector-direction="previous" aria-controls="atlas-sector-track" aria-label="Previous industries" data-i18n-attr-aria-label="atlas.sectors.previous" aria-disabled="true"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+      <button type="button" data-sector-direction="next" aria-controls="atlas-sector-track" aria-label="More industries" data-i18n-attr-aria-label="atlas.sectors.next" aria-disabled="false"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <ul class="atlas-sector-track" id="atlas-sector-track">
+    <li><a class="atlas-sector-card" href="landing-clinicas-esteticas.html"><img src="../imagenes/landing-clinicas-hero.webp" width="2200" height="1467" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.096">Aesthetic clinics</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+    <li><a class="atlas-sector-card" href="landing-gimnasios.html"><img src="../imagenes/landing-gimnasios-hero.webp" width="2200" height="1467" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.086">Gyms</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+    <li><a class="atlas-sector-card" href="landing-peluquerias.html"><img src="../imagenes/landing-card-peluquerias.webp" width="1200" height="900" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.087">Hair salons</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+    <li><a class="atlas-sector-card" href="landing-talleres.html"><img src="../imagenes/landing-card-talleres.webp" width="1200" height="675" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.049">Workshops</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+    <li><a class="atlas-sector-card" href="landing-inmobiliarias.html"><img src="../imagenes/landing-inmobiliarias-hero.webp" width="2200" height="1652" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.050">Real estate agencies</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+    <li><a class="atlas-sector-card" href="landing-centros-belleza.html"><img src="../imagenes/landing-card-centros-belleza.webp" width="1200" height="801" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.088">Beauty centers</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+    <li><a class="atlas-sector-card" href="landing-fisioterapia.html"><img src="../imagenes/landing-card-fisioterapia.webp" width="1200" height="800" loading="lazy" decoding="async" alt=""><span class="atlas-sector-caption"><span data-i18n="atlas.text.089">Physiotherapy</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></li>
+  </ul>
+</div>
+<p class="atlas-scope"><span data-i18n="atlas.text.053">Every connection is assessed against your tools, permissions and project scope.</span></p></section>
+
 <section id="proceso" class="studio-process"><div class="container studio-process-layout"><div><h2><span data-i18n="studio.069">From the first sketch to launch</span></h2><ol class="studio-process-steps"><li><h3 data-i18n="studio.070">Understand</h3><p data-i18n="studio.071">Your business and goals</p></li><li><h3 data-i18n="studio.072">Design</h3><p data-i18n="studio.073">The solution and its scope</p></li><li><h3 data-i18n="studio.074">Build</h3><p data-i18n="studio.075">Development and integration</p></li><li><h3 data-i18n="studio.076">Support</h3><p data-i18n="studio.077">Implementation and improvement</p></li></ol><p class="studio-process-note"><span data-i18n="studio.078">Custom projects and automation plans based on scope.</span></p><a class="studio-text-link" href="#planes"><span data-i18n="studio.079">Explore plans and projects</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>      <div class="hero-video" aria-label="NOVAIX video presentation">
         <button class="hero-video-preview" id="hero-video-open" type="button" aria-haspopup="dialog" aria-controls="novaix-video-dialog" aria-label="Play: discover NOVAIX in one minute">
           <img src="../imagenes/novaix-presentacion-poster.webp" width="480" height="848" alt="" loading="lazy" decoding="async">
@@ -123,6 +197,7 @@
         </button>
       </div>
 </div></section>
+<section id="capacidades" class="studio-solutions"><div class="container"><h2><span data-i18n="studio.062">What your business needs, without the extras</span></h2><div class="studio-solution-rows"><a href="#servicios"><h3 data-i18n="studio.063">Build</h3><p data-i18n="studio.064">Software designed around your processes</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="#integraciones"><h3 data-i18n="studio.065">Connect</h3><p data-i18n="studio.066">Your tools, data and teams working together</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="#ops-hub"><h3 data-i18n="studio.067">Evolve</h3><p data-i18n="studio.068">Automation and AI where they add value</p><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>
     <section id="beneficios" aria-labelledby="beneficios-title">
       <div class="container">
         <h2 class="section-title" id="beneficios-title">Direct benefits</h2>
@@ -269,7 +344,7 @@
               <div class="nx-idle" id="nx-idle">
                 <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
                 <div>
-                  <div style="font-weight:1000;letter-spacing:.12em;text-transform:uppercase;color:#eaf2ff;">Select an agent</div>
+                  <div class="nx-idle-prompt">Select an agent</div>
                   <div style="margin-top:6px;">Select an agent in the orbital system to start the transmission.</div>
                 </div>
               </div>
@@ -461,50 +536,11 @@
           </article>
 	        </div>
 	        <div class="case-actions">
-	          <a class="ghost cl-effect-10" data-hover="View use cases" href="#aplicaciones"><span>View more cases</span></a>
+	          <a class="ghost cl-effect-10" data-hover="Solutions for your industry" href="#sectores"><span data-i18n="atlas.sectors.title">Solutions for your industry</span></a>
 	          <a class="ghost cl-effect-10" data-hover="View videos" href="https://demo.novaix.es"><span>View video examples</span></a>
 	        </div>
 	      </div>
 	    </section>
-
-	    <section id="aplicaciones" aria-labelledby="aplicaciones-title">
-      <div class="container">
-        <h2 class="section-title" id="aplicaciones-title">Real applications</h2>
-        <p class="section-lead">Use cases where we combine custom software, integrations, automation and AI according to business needs.</p>
-        <div class="usecases">
-          <article class="usecase-card">
-            <div class="usecase-icon"><i class="fa-solid fa-notes-medical"></i></div>
-            <h3>Healthcare</h3>
-            <p>Bookings, reminders and 24/7 patient triage. Reduce no-shows and missed calls.</p>
-          </article>
-          <article class="usecase-card">
-            <div class="usecase-icon"><i class="fa-solid fa-gavel"></i></div>
-            <h3>Legal</h3>
-            <p>Initial case filtering, key data collection and routing to the right lawyer.</p>
-          </article>
-          <article class="usecase-card">
-            <div class="usecase-icon"><i class="fa-solid fa-scissors"></i></div>
-            <h3>Aesthetics and beauty</h3>
-            <p>Automated booking on web/WhatsApp, price and treatment handling without queues.</p>
-          </article>
-          <article class="usecase-card">
-            <div class="usecase-icon"><i class="fa-solid fa-utensils"></i></div>
-            <h3>Restaurants</h3>
-            <p>Bookings, simple orders and instant answers during peak hours.</p>
-          </article>
-          <article class="usecase-card">
-            <div class="usecase-icon"><i class="fa-solid fa-house"></i></div>
-            <h3>Real estate</h3>
-            <p>Capture leads, qualify and book viewings. Immediate property information.</p>
-          </article>
-          <article class="usecase-card">
-            <div class="usecase-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-            <h3>eCommerce</h3>
-            <p>Purchase assistance, cart abandonment and post-sales support with CRM integrations.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <section id="planes" aria-labelledby="planes-title">
       <div class="container">
@@ -687,16 +723,17 @@
     </section>
 
     <section id="demo" aria-labelledby="demo-title">
-      <div class="container">
-        <h2 class="section-title" id="demo-title">Book your call</h2>
-        <p class="section-lead">We define your case, processes and goals. Includes a diagnosis and an initial roadmap.</p>
+      <div class="container" id="proyecto">
+        <h2 class="section-title" id="demo-title"><span data-i18n="atlas.contact.title">Let’s talk about your project</span></h2>
+        <p class="section-lead"><span data-i18n="atlas.contact.intro">Email us directly or book a video call with the team.</span></p>
+        <a class="contact-direct" id="project-email-link" href="mailto:info@novaix.es"><i class="fa-regular fa-envelope" aria-hidden="true"></i> info@novaix.es <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
         <div class="demo">
           <div class="demo-panel">
             <div class="calendar-card">
               <div class="calendar-left">
                 <img src="../imagenes/banner.webp" alt="NOVAIX" class="banner-img" width="1181" height="355" loading="lazy" decoding="async">
                 <span class="badge"><i class="fa-regular fa-clock"></i> 30 min</span>
-                <h4>Session with NOVAIX</h4>
+                <h3 class="calendar-session-title">Session with NOVAIX</h3>
                 <p>Video call. We review your use cases and connect channels.</p>
                 <button class="cta stroke cl-effect-20" type="button" data-calendly-open style="margin-top:14px; padding:12px 18px;"><span>Book a call</span></button>
                 <p style="color:#b0b0b0; font-size:0.9rem; margin:10px 0 0;">By booking, you accept our <a href="../privacy/" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
@@ -808,14 +845,15 @@
     </div>
   </footer>
 
-  <script src="../i18n.js?v=20260929-audit"></script>
+  <script src="../i18n.js?v=20260929-review"></script>
   <script src="../ops-media.js?v=20260925-controls"></script>
   <script src="../home-navigation.js?v=20260928"></script>
 
-  <script src="../home-core.js?v=20260928"></script>
+  <script src="../home-core.js?v=20260929-auditfix"></script>
   <script src="../home-consent.js?v=20260928"></script>
   <script src="../home-orbit.js?v=20260928"></script>
-  <script src="../home-studio.js?v=20260925" defer></script>
-  <script src="../planet-space.js?v=20260925-stars3" defer></script>
+  <script src="../home-atlas.js?v=20260929-sectors" defer></script>
+  <script src="../home-sector-carousel.js?v=20260929-sectors" defer></script>
+  <script src="../earth-connections.js?v=20260929-earth" defer></script>
 </body>
 </html>

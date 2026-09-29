@@ -72,4 +72,11 @@ class BuildTests(unittest.TestCase):
     def test_generator_preserves_absolute_home_link(self):
         self.assertEqual(g.rewrite_url_for_en('/'),'./')
         self.assertEqual(g.rewrite_url_for_en('home-core.js'),'../home-core.js')
+    def test_svg_self_closing_paths_remain_siblings_in_english(self):
+        renderer=g.EnglishRenderer("index.html")
+        renderer.feed('<svg viewBox="0 0 20 20"><path d="M0 0H20"/><path d="M0 10H20"/></svg>')
+        rendered="".join(renderer.out)
+        self.assertIn('d="M0 0H20"/>', rendered)
+        self.assertIn('d="M0 10H20"/>', rendered)
+
 if __name__=='__main__':unittest.main()

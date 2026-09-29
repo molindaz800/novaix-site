@@ -1,0 +1,83 @@
+/* Connected Earth hero. The raster and vector routes use one 2106 x 747 scene. */
+.home-earth > header { padding: 72px 0 0; }
+.home-earth .hero.earth-hero {
+  display: block; position: relative; isolation: isolate; overflow: hidden;
+  width: 100%; max-width: none; margin: 0; padding: 0;
+  min-height: 520px; background: #050d15;
+}
+.home-earth .earth-art {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden; isolation: isolate;
+}
+.earth-scene {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: max(100%, 1466px); aspect-ratio: 2106 / 747;
+}
+.earth-scene > img, .earth-connections {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+}
+.earth-scene > img { object-fit: fill; }
+.earth-art::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(0deg, #050d15, transparent 12%), linear-gradient(90deg, #050d15 0%, #050d15d9 31%, transparent 53%);
+}
+.home-earth .earth-copy-shell {
+  /* A fluid reading inset, independent of the narrower sections below. */
+  position: relative; z-index: 1; width: 92%; margin-inline: auto;
+  padding: 58px 0 42px; pointer-events: none;
+}
+.home-earth .studio-hero-copy { width: 45%; max-width: 640px; padding: 0; pointer-events: auto; }
+.home-earth .studio-hero .title {
+  font-size: clamp(2.8rem, 4.35vw, 4.2rem); line-height: 1.015;
+  text-wrap: initial; letter-spacing: -.03em; margin-bottom: 22px;
+}
+.earth-title-line { display: block; }
+.earth-title-emphasis { display: block; color: #7acdf1; }
+.home-earth .studio-hero .subtitle { font-size: clamp(1.05rem, 1.74vw, 1.6rem); line-height: 1.4; margin: 0; }
+.home-earth .studio-hero .hero-actions { margin-top: 22px; gap: 16px 36px; }
+.home-earth .studio-hero .hero-actions .cta { min-width: 166px; min-height: 54px; }
+.home-earth .studio-hero .studio-text-link { font-size: .95rem; }
+.home-earth .studio-principle { max-width: 530px; margin: 32px 0 0; color: #b4c8d7; font-size: 1rem; line-height: 1.5; }
+.earth-connections { overflow: visible; color: #79d8ff; }
+.earth-route--warm { color: #ffbd7b; }
+.earth-track { fill: none; stroke: currentColor; stroke-width: 1.1; opacity: .68; vector-effect: non-scaling-stroke; }
+.earth-signal { fill: none; stroke: #d8f6ff; stroke-width: 2.4; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: .65 99.35; stroke-dashoffset: 100; animation: earth-transit var(--flight, 8s) linear var(--delay, 0s) infinite paused; }
+.earth-signal--glow { stroke: currentColor; stroke-width: 7; filter: url(#earth-route-glow); opacity: .8; }
+.earth-route--warm .earth-signal:not(.earth-signal--glow) { stroke: #ffe1bc; }
+.earth-node-core { fill: #d9f6ff; }
+.earth-node-halo { fill: none; stroke: currentColor; stroke-width: 1.3; vector-effect: non-scaling-stroke; opacity: .25; animation: earth-beacon 5s ease-in-out var(--delay, 0s) infinite paused; transform-box: fill-box; transform-origin: center; }
+.earth-running .earth-signal, .earth-running .earth-node-halo { animation-play-state: running; }
+@keyframes earth-transit { to { stroke-dashoffset: 0; } }
+@keyframes earth-beacon { 0%,100% { opacity: .2; transform: scale(.7); } 45% { opacity: .65; transform: scale(1.4); } 65% { opacity: .25; transform: scale(1.8); } }
+@media (min-width: 1600px) {
+  .home-earth .hero.earth-hero { min-height: 590px; }
+  .earth-scene { width: max(100%, 1664px); }
+  .home-earth .earth-copy-shell { padding-block: 72px 64px; }
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .earth-scene { left: auto; right: -40px; transform: none; opacity: .88; }
+  .earth-art::after { background: linear-gradient(0deg,#050d15,transparent 15%),linear-gradient(90deg,#050d15 5%,#050d15d9 29%,transparent 62%); }
+  .home-earth .studio-hero-copy { width: 57%; }
+  .home-earth .studio-hero .title { font-size: clamp(2.6rem,4.8vw,3.4rem); }
+}
+@media (max-width: 760px) {
+  .home-earth > header { padding-top: 72px; }
+  .home-earth .hero.earth-hero { display: flex; flex-direction: column; min-height: 0; }
+  .home-earth .earth-copy-shell { order: 0; padding: 28px 0 0; }
+  .home-earth .studio-hero-copy { width: 100%; max-width: 610px; }
+  .home-earth .studio-hero .title { font-size: clamp(2.05rem,8.25vw,3.2rem); line-height: 1.06; max-width: 590px; margin-bottom: 18px; }
+  .home-earth .studio-hero .subtitle { font-size: 1.1rem; max-width: 32ch; }
+  .home-earth .studio-hero .hero-actions { flex-direction: row; align-items: center; gap: 10px 22px; margin-top: 22px; }
+  .home-earth .hero-actions .cta { width: auto; min-width: 138px; min-height: 48px; }
+  .home-earth .studio-hero .studio-text-link { font-size: .85rem; }
+  .home-earth .studio-principle { margin-top: 20px; max-width: 58ch; font-size: .91rem; }
+  .home-earth .earth-art { position: relative; order: 1; inset: auto; height: clamp(245px,63vw,390px); width: 100%; margin-top: 18px; }
+  /* Pan the shared scene, not the SVG, to keep Iberia inside narrow clips. */
+  .earth-scene { width: max(860px, 158vw); top: 0; left: 50%; right: auto; transform: translateX(-74%); opacity: 1; }
+  .earth-art::after { background: linear-gradient(90deg,#050d15,transparent 20px),linear-gradient(0deg,#050d15,transparent 18%,transparent 85%,#050d15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .earth-signal, .earth-node-halo { animation: none !important; }
+  .earth-signal { display: none; }
+  .earth-node-halo { opacity: .35; }
+}

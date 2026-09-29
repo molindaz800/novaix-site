@@ -1,0 +1,18 @@
+[
+  {
+    "family": "Instrument Sans",
+    "file": "fonts/instrument-sans-medium-latin.woff2",
+    "source": "https://fonts.gstatic.com/s/instrumentsans/v4/pximypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr-yp2JGEJOH9npST3-TfykywN2u7ZWwU.woff2",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/instrumentsans/OFL.txt",
+    "bytes": 17324,
+    "sha256": "c9a822fb921b4c65846539eba1bc191c9a75336b8961a113e3c55ff09fc8015b"
+  },
+  {
+    "family": "Inter",
+    "file": "fonts/inter-roman-latin.woff2",
+    "source": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+    "bytes": 35420,
+    "sha256": "d3c4761bfd992e33711fa27391f917e35a4dceb6265f590d5a23e793ca0b6fa8"
+  }
+]
