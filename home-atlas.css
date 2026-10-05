@@ -1,7 +1,7 @@
 /* Approved solutions atlas. Original NOVAIX assets; progressively enhanced HTML. */
 .home-atlas { --container: min(1420px, 92vw); --bg-2: #050d15; }
 .home-atlas > header { padding: 98px 0 0; }
-.home-atlas .nav { top: 0; height: 72px; max-width: 1420px; padding: 10px 4px; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; background: #050d15f5; box-shadow: none; }
+.home-atlas .nav { top: 16px; height: auto; min-height: 72px; max-width: 1420px; padding: 12px; border: 1px solid var(--border); border-radius: 16px; background: #050d15f5; box-shadow: none; }
 .home-atlas .studio-brand img { width: 162px; }
 .home-atlas .nav-links { gap: 20px; }
 .home-atlas .nav-links > a.atlas-nav-cta { padding: 10px 20px; color: #03141d; font-size: .9rem; }
@@ -91,7 +91,7 @@
  .home-atlas .studio-hero .title { font-size: clamp(2.6rem,4.4vw,3.35rem); }
 }
 @media (max-width: 900px) {
- .home-atlas .nav, .home-atlas .nav.nav--open { top: 0; left: 4vw; right: 4vw; transform: none; width: 92vw; height: auto; padding: 10px 0; border-inline: 0; border-top: 0; border-radius: 0; }
+ .home-atlas .nav, .home-atlas .nav.nav--open { top: 12px; left: 4vw; right: 4vw; transform: none; width: 92vw; height: auto; min-height: 62px; padding: 12px; border: 1px solid var(--border); border-radius: 16px; }
  .home-atlas .nav-links { gap: 6px; }
  .home-atlas .studio-brand img { width: 142px; }
  .home-atlas .hero.studio-hero { grid-template-columns: 1fr 1fr; gap: 22px; padding-bottom: 36px; }

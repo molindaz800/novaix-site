@@ -37,7 +37,7 @@ test('both homepages use local critical font assets and the shared role styleshe
   }
 });
 
-test('hero copy has two natural-language phrases, full stop and localized CTA', () => {
+test('hero copy has two natural-language phrases without a terminal period and localized CTA', () => {
   const es = read('index.html');
   const en = read('en/index.html');
   for (const html of [es, en]) {
@@ -45,11 +45,35 @@ test('hero copy has two natural-language phrases, full stop and localized CTA', 
     assert.doesNotMatch(html, /data-i18n="earth.title.end"/);
   }
   assert.match(es, />Tu forma de trabajar,<\/span>/);
-  assert.match(es, />convertida en software\.<\/span>/);
+  assert.match(es, />convertida en software<\/span>/);
   assert.match(es, />Cuéntanos cómo trabajas<\/span>/);
   assert.match(en, />The way you work,<\/span>/);
-  assert.match(en, />built into software\.<\/span>/);
+  assert.match(en, />built into software<\/span>/);
   assert.match(en, />Tell us how you work<\/span>/);
+});
+
+test('homepage headings have no terminal periods while supporting sentences retain punctuation', () => {
+  for (const file of ['index.html', 'en/index.html']) {
+    const html = read(file);
+    for (const heading of html.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/g)) {
+      const text = heading[1].replace(/<[^>]+>/g, '').trim();
+      assert.ok(!text.endsWith('.'), `${file}: ${text}`);
+    }
+    assert.match(html, /class="subtitle"[\s\S]*?\.<\/span>/);
+  }
+});
+
+test('floating homepage navigation has a complete rounded boundary and equal inner insets', () => {
+  const css = read('home-atlas.css');
+  const rules = css.match(/\.home-atlas \.nav\s*\{([^}]+)\}/)?.[1] || '';
+  assert.match(rules, /top:\s*16px/);
+  assert.match(rules, /padding:\s*12px;/);
+  assert.match(rules, /border:\s*1px solid var\(--border\)/);
+  assert.match(rules, /border-radius:\s*16px/);
+  const mobile = css.match(/\.home-atlas \.nav, \.home-atlas \.nav\.nav--open\s*\{([^}]+)\}/)?.[1] || '';
+  assert.match(mobile, /padding:\s*12px;/);
+  assert.match(mobile, /border-radius:\s*16px/);
+  assert.doesNotMatch(mobile, /border-inline:\s*0|border-top:\s*0/);
 });
 
 test('display/UI roles are centralized, accessible and reflow on mobile', () => {

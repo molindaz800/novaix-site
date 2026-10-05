@@ -36,7 +36,7 @@
   E("Cuéntanos cómo trabajas", "Cuéntanos cómo trabajas", "Tell us how you work", "atlas.contact.cta");
   E("Negocios", "Negocios", "Industries", "atlas.text.002");
   E("Tu forma de trabajar,", "Tu forma de trabajar,", "The way you work,", "earth.title.first");
-  E("convertida en software.", "convertida en software.", "built into software.", "earth.title.second");
+  E("convertida en software", "convertida en software", "built into software", "earth.title.second");
   E("Software a medida. Conexiones con sentido.", "Software a medida. Conexiones con sentido.", "Custom software. Meaningful connections.", "atlas.text.003");
   E("Ver cómo trabajamos", "Ver cómo trabajamos", "See how we work", "atlas.text.004");
   E("Diseñamos, integramos y desarrollamos soluciones para pymes y empresas medianas. Partimos de tu operativa, con la tecnología que necesita tu proyecto.", "Diseñamos, integramos y desarrollamos soluciones para pymes y empresas medianas. Partimos de tu operativa, con la tecnología que necesita tu proyecto.", "We design, integrate and build solutions for small and midsize businesses. Starting with the way you work, using the technology your project needs.", "atlas.text.005");
@@ -688,7 +688,7 @@
   E("Reproducir: descubre NOVAIX en un minuto", "Reproducir: descubre NOVAIX en un minuto", "Play: discover NOVAIX in one minute", "studio.existing.video.play");
   E("Descubre NOVAIX en 1 minuto", "Descubre NOVAIX en 1 minuto", "Discover NOVAIX in 1 minute", "studio.existing.video.title");
   E("Conoce cómo transformamos procesos con software e IA", "Conoce cómo transformamos procesos con software e IA", "See how we transform processes with software and AI", "studio.existing.video.description");
-  E("Tecnología preparada para tratar información de negocio sin convertir tus datos en un riesgo.", "Tecnología preparada para tratar información de negocio sin convertir tus datos en un riesgo.", "Technology built to handle business information without putting your data at risk.", "studio.existing.security.intro");
+  E("Tecnología preparada para tratar información de negocio sin convertir tus datos en un riesgo", "Tecnología preparada para tratar información de negocio sin convertir tus datos en un riesgo", "Technology built to handle business information without putting your data at risk", "studio.existing.security.intro");
   E("Antes de desarrollar definimos qué datos necesita la solución, para qué se usan, quién puede verlos, dónde se alojan y cómo se conservan. El objetivo es crear un sistema útil, medible y proporcional al proceso que mejora.", "Antes de desarrollar definimos qué datos necesita la solución, para qué se usan, quién puede verlos, dónde se alojan y cómo se conservan. El objetivo es crear un sistema útil, medible y proporcional al proceso que mejora.", "Before development, we define what data the solution needs, what it is used for, who can see it, where it is hosted and how it is retained. The aim is to build a useful, measurable system proportionate to the process it improves.", "studio.existing.security.scope");
   E("Controles de seguridad NOVAIX", "Controles de seguridad NOVAIX", "NOVAIX security controls", "studio.existing.security.controls");
   E("Registro de eventos clave para revisar procesos, cambios, integraciones y automatizaciones.", "Registro de eventos clave para revisar procesos, cambios, integraciones y automatizaciones.", "Key event logging to review processes, changes, integrations and automations.", "studio.existing.security.events");
