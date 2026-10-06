@@ -9,9 +9,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const video = document.getElementById('novaix-presentation-video');
       if (!openButton || !closeButton || !dialog || !video) return;
 
-      video.muted = true;
-      video.defaultMuted = true;
-      video.setAttribute('muted', '');
+      // Playback starts only after a user click, so the presentation can use audio.
+      video.muted = false;
+      video.defaultMuted = false;
 
       const closeVideo = () => {
         video.pause();

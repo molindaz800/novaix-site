@@ -55,10 +55,13 @@ class BuildTests(unittest.TestCase):
             for page in g.PAGES:self.assertIn(f'<loc>{fn(page)}</loc>',xml)
         for path in ('privacy','terms','data-deletion'):self.assertIn(f'<loc>https://novaix.es/{path}/</loc>',xml)
     def test_no_eager_presentation_video_or_duplicate_preview(self):
+        presentation_js=(ROOT/'home-core.js').read_text().split('// Scroll progress')[0]
+        self.assertIn('video.muted = false;',presentation_js)
+        self.assertNotIn("setAttribute('muted'",presentation_js)
         for base in [ROOT,ROOT/'en']:
             tags=Markup((base/'index.html').read_text()).tags
             video=next(a for t,a in tags if a.get('id')=='novaix-presentation-video')
-            self.assertNotIn('src',video);self.assertEqual(video['preload'],'none');self.assertIn('muted',video)
+            self.assertNotIn('src',video);self.assertEqual(video['preload'],'none');self.assertNotIn('muted',video)
             self.assertFalse(any('novaix-presentacion.mp4' in a.get('src','') for t,a in tags))
             self.assertEqual(next(t for t,a in tags if a.get('id')=='chat-fab'),'button')
     def test_build_is_idempotent(self):
