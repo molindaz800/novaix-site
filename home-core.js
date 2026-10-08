@@ -429,7 +429,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       });
     });
 
-    // Chat funcional (n8n)
+    // Chat público: servicio independiente NOVAIX (sin herramientas ni acceso a clientes).
     (() => {
       const fab = document.getElementById('chat-fab');
       const chatbox = document.getElementById('chatbox');
@@ -442,7 +442,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const quickButtons = document.querySelectorAll('.chip-btn');
       const sendBtn = form?.querySelector('.send-btn');
 
-      const N8N_WEBHOOK_URL = 'https://hooks.novaix.es/webhook/ai-chat';
+      const CHAT_API_URL = 'https://hooks.novaix.es/webhook/ai-chat';
       const sessionId = (() => {
         const existing = localStorage.getItem('novaix_session');
         if (existing) return existing;
@@ -521,31 +521,46 @@ document.getElementById('year').textContent = new Date().getFullYear();
         return div;
       }
 
+      let chatBusy = false;
       function setChatBusy(isBusy) {
+        chatBusy = isBusy;
         if (input) input.disabled = isBusy;
         if (sendBtn) sendBtn.disabled = isBusy;
         quickButtons.forEach(btn => { btn.disabled = isBusy; });
         if (statusBar) statusBar.textContent = isBusy ? t('La IA está pensando...') : t('Listo para responder');
       }
 
-      async function sendToN8n(text) {
+      async function sendToAssistant(text) {
+        if (chatBusy) return;
+        if (text.length > 2000) {
+          addMessage(t('Escribe un mensaje de hasta 2000 caracteres.'), 'bot');
+          return;
+        }
         addMessage(text, 'user');
         input.value = '';
         setChatBusy(true);
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
         const loading = addLoadingMessage();
         try {
-          const res = await fetch(N8N_WEBHOOK_URL, {
+          const res = await fetch(CHAT_API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
             body: JSON.stringify({
               message: text,
               sessionId,
               source: 'novaix-site',
-              metadata: { page: window.location.href }
+              language: document.documentElement.lang === 'en' ? 'en' : 'es'
             })
           });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          if (!res.ok) {
+            const error = new Error(`HTTP ${res.status}`);
+            error.status = res.status;
+            throw error;
+          }
           const data = await res.json();
+          if (typeof data.reply !== 'string' || !data.reply.trim()) throw new Error('Invalid reply');
           if (
             localStorage.getItem('novaix_calendly_consent') === 'accepted'
             && sessionStorage.getItem('novaix_chat_started_tracked') !== '1'
@@ -559,11 +574,17 @@ document.getElementById('year').textContent = new Date().getFullYear();
           setChatBusy(false);
           input?.focus();
         } catch (err) {
-          console.error(err);
           loading.remove();
-          addMessage(t('No he podido conectar con el asistente. Revisa la URL del webhook en n8n.'), 'bot');
+          const errorText = err.status === 429
+            ? 'Has enviado varios mensajes seguidos. Espera un minuto y vuelve a intentarlo.'
+            : err.name === 'AbortError'
+              ? 'La respuesta está tardando demasiado. Inténtalo de nuevo o escríbenos a info@novaix.es.'
+              : 'El asistente no está disponible en este momento. Inténtalo de nuevo o escríbenos a info@novaix.es.';
+          addMessage(t(errorText), 'bot');
           setChatBusy(false);
           if (statusBar) statusBar.textContent = t('Error de conexion');
+        } finally {
+          clearTimeout(timeout);
         }
       }
 
@@ -571,12 +592,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
         e.preventDefault();
         const val = input.value.trim();
         if (!val) return;
-        sendToN8n(val);
+        sendToAssistant(val);
       });
 
       window.sendQuick = function(btn) {
         const text = btn.dataset.prompt || btn.innerText;
-        sendToN8n(text);
+        sendToAssistant(text);
       };
     })();
 
