@@ -494,7 +494,10 @@ document.getElementById('year').textContent = new Date().getFullYear();
         }
         const bubble = document.createElement('div');
         bubble.className = 'bubble';
-        bubble.textContent = text;
+        // Render provider emphasis/list markers as safe plain text, never HTML.
+        bubble.textContent = sender === 'bot'
+          ? text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/^\s*\*\s+/gm, '• ')
+          : text;
         div.appendChild(bubble);
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;

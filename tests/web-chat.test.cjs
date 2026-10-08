@@ -19,3 +19,8 @@ test('legal disclosure identifies the actual assistant provider',()=>{
  assert.match(fs.readFileSync('privacy/index.html','utf8'),/Asistente web de NOVAIX y Google Gemini/);
  for (const p of ['index.html','en/index.html']) assert.doesNotMatch(fs.readFileSync(p,'utf8'),/servicio n8n de NOVAIX|NOVAIX's n8n service/);
 });
+test('assistant replies are safe readable text, not injected HTML or raw emphasis',()=>{
+ assert.match(source,/text\.replace\(\/\\\*\\\*\(\[\^\*\]\+\)\\\*\\\*\/g/);
+ assert.match(source,/bubble.textContent = sender === 'bot'/);
+ assert.doesNotMatch(fs.readFileSync('index.html','utf8'),/IA privada<\/span>/);
+});

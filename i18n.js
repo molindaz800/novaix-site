@@ -586,7 +586,7 @@
   E("Abrir chat IA NOVAIX", "Abrir chat IA NOVAIX", "Open NOVAIX AI chat");
   E("Chat IA NOVAIX", "Chat IA NOVAIX", "NOVAIX AI chat");
   E("Maximizar chat", "Maximizar chat", "Maximize chat");
-  E("IA privada", "IA privada", "Private AI");
+  E("Asistente IA", "Asistente IA", "AI assistant");
   E("NOVAIX Chat", "NOVAIX Chat", "NOVAIX Chat");
   E("Consulta software, digitalizacion, integraciones, automatizacion e IA.", "Consulta software, digitalización, integraciones, automatización e IA.", "Ask about software, digitization, integrations, automation and AI.");
   E("Hola, soy NOVAIX. Cuentame que proceso, herramienta o problema quieres mejorar en tu empresa.", "Hola, soy NOVAIX. Cuéntame qué proceso, herramienta o problema quieres mejorar en tu empresa.", "Hi, I'm NOVAIX. Tell me which process, tool or business problem you want to improve.");
