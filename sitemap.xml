@@ -205,4 +205,16 @@
     <loc>https://novaix.es/data-deletion/</loc>
     <lastmod>2026-09-08</lastmod>
   </url>
+  <url>
+    <loc>https://novaix.es/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/partners/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/partners/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/partners/" />
+  </url>
+  <url>
+    <loc>https://novaix.es/en/partners/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://novaix.es/partners/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://novaix.es/en/partners/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novaix.es/partners/" />
+  </url>
 </urlset>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colaboradores comerciales internacionales | NOVAIX Partners</title>
+<meta name="description" content="Buscamos profesionales comerciales independientes para desarrollar alianzas B2B en Latinoamérica y Estados Unidos.">
+<link rel="canonical" href="https://novaix.es/partners/">
+<link rel="alternate" hreflang="es" href="https://novaix.es/partners/">
+<link rel="alternate" hreflang="en" href="https://novaix.es/en/partners/">
+<link rel="alternate" hreflang="x-default" href="https://novaix.es/partners/">
+<meta property="og:title" content="Colaboradores comerciales internacionales | NOVAIX Partners">
+<meta property="og:description" content="Buscamos profesionales comerciales independientes para desarrollar alianzas B2B en Latinoamérica y Estados Unidos.">
+<meta property="og:url" content="https://novaix.es/partners/"><meta property="og:type" content="website">
+<meta property="og:image" content="https://novaix.es/og-image.png">
+<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/partners/partners.css">
+<script src="/partners/partners.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#application">Ir al formulario</a>
+<header class="shell masthead"><a href="/" aria-label="Volver a NOVAIX"><img src="/imagenes/texto.webp" width="1116" height="192" alt="NOVAIX"></a><span class="division">Partners</span><nav aria-label="Navegación"><a href="/">Volver a NOVAIX</a><a href="/en/partners/" lang="en" hreflang="en">English</a></nav></header>
+<main>
+<section class="hero shell" aria-labelledby="heading"><div class="hero-copy"><h1 id="heading">Construyamos nuevas oportunidades de negocio</h1><p class="lead">Buscamos profesionales comerciales independientes para desarrollar alianzas B2B en Latinoamérica y Estados Unidos.</p><a class="button" href="#application">Propón tu colaboración<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div><img class="earth" src="/imagenes/tierra-conectada.webp" width="2106" height="747" alt="" fetchpriority="high"></section>
+<div class="shell application-layout">
+<aside class="opportunity"><h2>Tu conocimiento del mercado. Nuestro equipo técnico</h2><p>En NOVAIX desarrollamos software a medida, conectamos herramientas y automatizamos procesos. Buscamos personas que sepan abrir conversaciones con empresas y reconocer dónde podemos aportar valor.</p><h3>Una colaboración, no una oferta de empleo</h3><p>Exploramos acuerdos independientes por comisión o fórmulas mixtas. Las condiciones, el alcance y la remuneración se acuerdan en cada caso; enviar una propuesta no garantiza una colaboración ni una retribución fija.</p><h3>Qué ocurre después</h3><ol><li>Nos cuentas tu experiencia y los mercados donde trabajas.</li><li>Nuestro equipo revisa el encaje de tu propuesta.</li><li>Si hay una oportunidad de colaboración, contactamos contigo.</li></ol><p class="direct">¿Prefieres escribirnos directamente?<br><a href="mailto:info@novaix.es">info@novaix.es</a></p></aside>
+<section id="application" aria-labelledby="form-title"><h2 id="form-title">Propón tu colaboración</h2><p class="form-intro">Cuéntanos tu experiencia y cómo podríamos trabajar juntos. Los campos marcados con * son obligatorios.</p>
+<form id="partner-form" data-endpoint="https://hooks.novaix.es/api/partners" method="post" action="https://hooks.novaix.es/api/partners">
+<div class="field-pair"><div class="field"><label for="full-name">Nombre y apellidos *</label><input id="full-name" name="name" autocomplete="name" required maxlength="120"></div><div class="field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div></div>
+<div class="field"><label for="linkedin">Perfil de LinkedIn (opcional)</label><input id="linkedin" name="linkedin" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/…" maxlength="300"></div>
+<div class="field"><label for="markets">Países y mercados *</label><input id="markets" name="markets" required maxlength="240" aria-describedby="markets-help"><p class="help" id="markets-help">Por ejemplo: México, Colombia o Estados Unidos.</p></div>
+<div class="field"><label for="model">¿Qué tipo de colaboración te interesa? *</label><select id="model" name="model" required><option value="">Selecciona una modalidad</option><option value="commission">Exclusivamente por comisión</option><option value="mixed">Modelo mixto: fijo más variable</option><option value="either">Abierto a ambas modalidades</option></select></div>
+<div class="field"><label for="experience">Una oportunidad B2B que hayas generado personalmente *</label><p class="help" id="experience-help">Mínimo 40 caracteres. Describe el sector, cómo contactaste con el cliente y tu participación en la venta. No incluyas nombres de clientes ni información confidencial.</p><textarea id="experience" name="experience" rows="5" required minlength="40" maxlength="3000" aria-describedby="experience-help"></textarea></div>
+<div hidden aria-hidden="true"><label for="company-site">Company website</label><input id="company-site" name="website" tabindex="-1" autocomplete="off"></div>
+<details class="privacy"><summary>Información de privacidad</summary><p>NOVAIX (Daniel Molina Maquieira) utilizará estos datos para evaluar tu propuesta y contactarte sobre esta colaboración. Esta solicitud no te suscribe a comunicaciones comerciales. Puedes escribir a info@novaix.es para ejercer tus derechos.</p><p>El registro técnico del formulario se elimina automáticamente a los 90 días. La correspondencia por correo se conserva durante la evaluación y, si procede, la colaboración y los plazos de responsabilidad aplicables. Consulta los detalles en nuestra política de privacidad.</p><a href="/privacy/">Privacidad</a></details>
+<label class="consent"><input type="checkbox" name="consent" required><span>He leído la información de privacidad y acepto enviar mi solicitud para su evaluación. <a href="/privacy/">Privacidad</a></span></label>
+<button class="button" type="submit" disabled>Enviar propuesta de colaboración</button><p id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+<noscript><p>Para enviar el formulario necesitas activar JavaScript. También puedes escribirnos a info@novaix.es.</p></noscript>
+</form></section></div>
+</main>
+<footer class="shell"><p>NOVAIX · Software a medida. Conexiones con sentido.</p><a href="/privacy/">Privacidad</a><a href="mailto:info@novaix.es">info@novaix.es</a></footer>
+</body></html>

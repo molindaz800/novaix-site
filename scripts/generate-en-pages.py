@@ -117,6 +117,8 @@ def split_url(value: str) -> tuple[str, str, str]:
 
 
 def rewrite_url_for_en(value: str) -> str:
+    if value == "/partners/":
+        return "/en/partners/"
     if not value or is_external_url(value) or value.startswith("data:"):
         return value
     base, query, hash_part = split_url(value)
@@ -377,6 +379,8 @@ def main() -> None:
     for page in PAGES:
         generate_page(page)
     generate_sitemap()
+    import runpy
+    runpy.run_path(str(ROOT / "scripts/generate-partners.py"), run_name="__main__")
     print(f"Generated {len(PAGES)} English pages in /en and updated sitemap/hreflang.")
 
 
