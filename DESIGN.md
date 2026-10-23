@@ -516,3 +516,34 @@ The upper photo carousel “Soluciones para tu sector” remains the homepage's 
 ### About-section badge layout — 2026-09-29
 
 The about copy column centers its intrinsic grid rows with16px gaps rather than stretching automatic rows to match the team column. Its four static capability labels wrap in a flex row with8px gaps and align-items:center. Each uses inline-flex, centered text,8px12px padding and1.4line-height, without a fixed height or nowrap. This removes the empty tall-pill effect while keeping the same copy, typography and colors. The user authorizes publishing the current reviewed proposal to the existing isolated ngrok preview, not GitHub.
+
+
+## Local process-led revision — 2026-10-23
+
+User authorized implementation through a local review, not publication. This
+revision changes the commercial journey, not the approved brand world. Preserve
+the dark navy, cyan, original blue/orange wordmark, cropped right-hand Earth,
+rounded floating navigation and local Instrument Sans/Inter typography.
+
+The user rejected excessive content reduction. The hybrid homepage now retains
+its visual solutions atlas and single industry-photo carousel, alongside the
+process example and method. Six services, concrete integration tools, security,
+Ops Hub and scoped assistant plans are visible on the homepage again.
+capacidades.html is an optional technical reference,
+not a replacement for homepage substance. IA Partner connects the narrative;
+it does not turn NOVAIX into a generic consulting brochure. The Earth is decorative,
+and Ops Hub is explicitly an illustrative demonstration rather than live proof.
+
+home-process.css is the final cascade for this local variant. Use open editorial
+rows, rules and a purposeful before/after workflow, not repeated icon-card grids.
+Numbering only appears where it conveys an ordered process. Copy uses stable
+process.* keys for build and runtime translation. Homepage sections never depend
+on scroll reveals for visibility. Desktop/mobile and ES/EN are reviewed together.
+
+The contact panel accurately prepares mail in the visitor's app; no server
+submission, invisible subscriptions or delivery simulation. Original scheduling
+and chat functionality remain separate. Backup of the previous variant is outside
+the public repo in novaix-site-backups/20261023-process-redesign/before.tar.gz.
+
+### Quiet UI elevation — approved 2026-10-23
+User approved softening decorative button/panel halos, preserving the Earth illumination and routes. Scope overrides to `.home-process`; use neutral black elevation for floating controls/dialogs and an outline for the selected Ops Hub agent. Do not change the brand palette, content or animation behavior.

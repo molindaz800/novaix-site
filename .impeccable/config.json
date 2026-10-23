@@ -45,6 +45,26 @@
         ],
         "createdAt": "2026-09-29T13:48:55.149Z",
         "reason": "Agent: typing-dot is created only while an actual chat fetch is pending and removed in both success and error paths; motion communicates a real temporary state."
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-10-22T23:05:01.965Z",
+        "reason": "Agent: verified finding is large h2 display text at1.12, not body text; body remains1.6-1.7. Intentional display typography inspected desktop/mobile."
+      },
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "en/index.html",
+          "index.html"
+        ],
+        "createdAt": "2026-10-22T23:05:02.009Z",
+        "reason": "Agent: both findings refer to document horizontal clipping for the approved full-bleed Earth. Open chat bounds fit1280x720 and mobile menu was verified. No clipped interactive content observed; other files remain scanned."
       }
     ]
   }

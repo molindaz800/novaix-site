@@ -8,9 +8,10 @@ web
 
 ## Users
 
-SMEs and midsize companies equally, evaluating custom software, integrations
-and process improvements. The primary industry and buyer role remain open
-decisions.
+Owners, managers, and operations or sales leads in Spain and Latin America,
+with a concrete business process to improve. No minimum revenue, headcount or
+company size is assumed. Both problem-aware and technically specific visitors
+need a clear next step.
 
 ## Product Purpose
 
@@ -19,8 +20,11 @@ explore relevant solutions and arrange an initial conversation.
 
 ## Positioning
 
-Confirmed by the user: custom software and integrations first, with AI when
-it adds value. NOVAIX should not be presented solely as an AI assistant service.
+Process improvement through execution: understand the current work, prioritise
+a scoped intervention, configure/build/integrate, support adoption and agree how
+to observe usefulness. Software, integrations, automation and useful AI are the
+means. Not generic management consulting, a chatbot-only agency or a guarantee
+of commercial results. The 2026-10-23 implementation is local for review, not published.
 
 ## Capabilities and Constraints
 
@@ -55,3 +59,16 @@ demonstrations clearly.
 - Distinguish custom projects from packaged automation services.
 - Preserve a clear path from exploration to an initial conversation.
 - Keep illustrative workflows separate from verified customer outcomes.
+
+## Commercial scope — local revision 2026-10-23
+
+Implementation, technical maintenance and improvement accompaniment are distinct
+and scoped separately. No compulsory monthly relationship, paid audit or outcome-
+percentage fee is implied. The initial conversation evaluates fit; it does not
+include an unbounded free study. Existing assistant plans remain secondary but visible on the home, after
+implementation/maintenance/accompaniment scope; capacidades.html is optional detail. No internal customer/opportunity information may be reused as
+public proof. Fictional demonstrations are explicitly labelled.
+
+The home enquiry form only prepares an email to info@novaix.es; it does not
+submit server-side or claim delivery. Direct email, existing agenda, chat, legal
+pages, sector routes and Partners remain available. No DNS/provider migration.

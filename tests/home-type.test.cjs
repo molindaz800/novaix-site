@@ -5,22 +5,12 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('about labels retain intrinsic centered sizing rather than stretching with their grid row', () => {
-  const css = read('home-base.css');
-  const content = css.match(/\.quienes-content\s*\{([^}]+)\}/)?.[1];
-  const badges = css.match(/\.quienes-badges\s*\{([^}]+)\}/)?.[1];
-  const badge = css.match(/\.q-badge\s*\{([^}]+)\}/)?.[1];
-  assert.match(content, /align-content:\s*center/);
-  assert.match(badges, /flex-wrap:\s*wrap/);
-  assert.match(badges, /align-items:\s*center/);
-  assert.match(badge, /display:\s*inline-flex/);
-  assert.match(badge, /align-items:\s*center/);
-  assert.match(badge, /justify-content:\s*center/);
-  assert.doesNotMatch(badge, /(?:^|;)\s*(?:min-|max-)?height:|white-space:\s*nowrap/);
-  for (const file of ['index.html', 'en/index.html']) {
-    const group = read(file).match(/<div class="quienes-badges">([\s\S]*?)<\/div>/)?.[1];
-    assert.equal((group.match(/class="q-badge"/g) || []).length, 4);
-    assert.doesNotMatch(group, /<button|<a\s|tabindex=/);
+test('team portraits and roles are visible without hover', () => {
+  for (const file of ['index.html','en/index.html']) {
+    const html=read(file);const team=html.match(/<section id="quienes"[\s\S]*?<\/section>/)[0];
+    assert.equal((team.match(/<article>/g)||[]).length,2);
+    assert.match(team,/Juan Arano/);assert.match(team,/Daniel Molina/);
+    assert.doesNotMatch(team,/role="button"|aria-pressed|founder-face/);
   }
 });
 
@@ -32,7 +22,7 @@ test('both homepages use local critical font assets and the shared role styleshe
     assert.doesNotMatch(html, /fonts\.googleapis\.com|Oxanium|Space\+Grotesk/);
     assert.match(html, /fonts\/instrument-sans-medium-latin\.woff2/);
     assert.match(html, /fonts\/inter-roman-latin\.woff2/);
-    assert.match(html, /<h3 class="calendar-session-title">/);
+    assert.match(html, /data-calendly-open/);
     assert.doesNotMatch(html, /font-weight:\s*(?:[789]00|1000)/);
   }
 });
@@ -41,15 +31,15 @@ test('hero copy has two natural-language phrases without a terminal period and l
   const es = read('index.html');
   const en = read('en/index.html');
   for (const html of [es, en]) {
-    assert.equal((html.match(/class="earth-title-line"/g) || []).length, 2);
+    assert.equal((html.match(/data-i18n="process.hero.(?:first|second)"/g) || []).length, 2);
     assert.doesNotMatch(html, /data-i18n="earth.title.end"/);
   }
   assert.match(es, />Tu forma de trabajar,<\/span>/);
-  assert.match(es, />convertida en software<\/span>/);
-  assert.match(es, />Cuéntanos cómo trabajas<\/span>/);
+  assert.match(es, />mejorada con IA y software<\/span>/);
+  assert.match(es, />Hablemos de tu proceso<\/span>/);
   assert.match(en, />The way you work,<\/span>/);
-  assert.match(en, />built into software<\/span>/);
-  assert.match(en, />Tell us how you work<\/span>/);
+  assert.match(en, />enhanced with AI and software<\/span>/);
+  assert.match(en, />Let’s talk about your process<\/span>/);
 });
 
 test('homepage headings have no terminal periods while supporting sentences retain punctuation', () => {

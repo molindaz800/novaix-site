@@ -22,12 +22,12 @@ class Markup(HTMLParser):
         if not self.raw and d.strip():self.copy.append(d.strip())
 class BuildTests(unittest.TestCase):
     def test_all_landing_routes_have_english_counterparts(self):
-        self.assertEqual(set(g.PAGES),{p.name for p in ROOT.glob('landing-*.html')}|{'index.html'})
+        self.assertEqual(set(g.PAGES),{p.name for p in ROOT.glob('landing-*.html')}|{'index.html','capacidades.html'})
         for page in g.PAGES:
             self.assertTrue((ROOT/'en'/page).is_file(),page)
     def test_new_page_copy_is_translated_including_attributes(self):
-        neutral=re.compile(r'^(?:https?:|#|width=|website$|summary_large_image$|NOVAIX|Online$|info@novaix.es$|[\d\W]+$|[<]?60s$)')
-        for page in g.PAGES[10:]:
+        neutral=re.compile(r'^(?:https?:|#|width=|website$|image/jpeg$|summary_large_image$|NOVAIX|Online$|info@novaix.es$|[\d\W]+$|[<]?60s$)')
+        for page in ['landing-academias.html','landing-asesorias-gestorias.html','landing-clinicas-dentales.html','landing-reformas-servicios.html','landing-transporte.html','landing-veterinarias.html']:
             es=Markup((ROOT/page).read_text());en=Markup((ROOT/'en'/page).read_text())
             for text in es.copy:
                 if neutral.search(text):continue

@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://novaix.es"
 PAGES = [
     "index.html",
+    "capacidades.html",
     "landing-facebook.html",
     "landing-negocios.html",
     "landing-gimnasios.html",
@@ -85,6 +86,23 @@ def parse_i18n_entries() -> dict[str, str]:
 
 
 TRANSLATIONS = parse_i18n_entries()
+
+
+def parse_process_keys() -> dict[str, str]:
+    """Keep new process copy deterministic even when legacy source strings collide."""
+    result = {}
+    for match in re.finditer(r"^\s*E\((.*)\);\s*$", (ROOT / "i18n.js").read_text(encoding="utf-8"), re.M):
+        try:
+            values = json.loads(f"[{match.group(1)}]")
+        except json.JSONDecodeError:
+            continue
+        if len(values) > 3 and values[3].startswith("process."):
+            result[values[3]] = values[2]
+    return result
+
+
+PROCESS_KEYS = parse_process_keys()
+
 
 
 def translate_text(value: str) -> str:
@@ -197,6 +215,7 @@ class EnglishRenderer(HTMLParser):
         self.out: list[str] = []
         self.raw_stack: list[str] = []
         self.json_ld = False
+        self.element_keys: list[tuple[str, str | None]] = []
 
     def raw_tag(self) -> str | None:
         return self.raw_stack[-1] if self.raw_stack else None
@@ -224,7 +243,8 @@ class EnglishRenderer(HTMLParser):
             elif tag.lower() == "html" and lower == "data-static-lang":
                 value = "en"
             elif lower in TRANSLATABLE_ATTRS:
-                value = translate_text(value)
+                stable_key = dict(attrs).get("data-i18n-attr-" + lower)
+                value = PROCESS_KEYS.get(stable_key, translate_text(value))
             elif lower.startswith("data-i18n-attr-"):
                 value = original
 
@@ -247,6 +267,8 @@ class EnglishRenderer(HTMLParser):
         return rewrite_url_for_en(value)
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() not in VOID_TAGS:
+            self.element_keys.append((tag.lower(), dict(attrs).get("data-i18n")))
         if tag.lower() in RAW_TAGS:
             self.raw_stack.append(tag.lower())
         if tag.lower() == "script":
@@ -260,6 +282,10 @@ class EnglishRenderer(HTMLParser):
         self.out.append(f"<{tag}{self.render_attrs(tag, attrs)}{close}>")
 
     def handle_endtag(self, tag: str) -> None:
+        for index in range(len(self.element_keys) - 1, -1, -1):
+            if self.element_keys[index][0] == tag.lower():
+                del self.element_keys[index:]
+                break
         self.out.append(f"</{tag}>")
         if self.raw_stack and self.raw_stack[-1] == tag.lower():
             self.raw_stack.pop()
@@ -273,10 +299,11 @@ class EnglishRenderer(HTMLParser):
                 self.out.append(json.dumps(translate_schema(json.loads(data)), ensure_ascii=False))
             else:
                 self.out.append(rewrite_script_assets_for_en(data))
-        elif raw:
+        elif raw and raw != "noscript":
             self.out.append(data)
         else:
-            self.out.append(translate_text(data))
+            key = self.element_keys[-1][1] if self.element_keys else None
+            self.out.append(html.escape(PROCESS_KEYS[key], quote=False) if key in PROCESS_KEYS and data.strip() else translate_text(data))
 
     def handle_entityref(self, name: str) -> None:
         self.out.append(f"&{name};")
@@ -371,7 +398,7 @@ def copy_support_files() -> None:
 
 
 def main() -> None:
-    actual = {p.name for p in ROOT.glob("landing-*.html")} | {"index.html"}
+    actual = {p.name for p in ROOT.glob("landing-*.html")} | {"index.html", "capacidades.html"}
     if actual != set(PAGES):
         raise ValueError(f"Update PAGES before building: {actual.symmetric_difference(PAGES)}")
     update_spanish_pages()

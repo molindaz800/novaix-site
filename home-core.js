@@ -178,7 +178,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     }
 
     // Reveal on scroll
-    const revealTargets = document.querySelectorAll('section');
+    const revealTargets = document.querySelectorAll('body:not(.home-process) section');
     revealTargets.forEach(el => el.classList.add('reveal'));
     const revealObs = new IntersectionObserver((entries, obsr) => {
       entries.forEach(entry => {
@@ -280,6 +280,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       dotsContainer.appendChild(btn);
     });
     function goTo(index) {
+      if (!track || !slides.length || !dotsContainer) return;
       current = (index + slides.length) % slides.length;
       track.style.transform = `translateX(-${current * 100}%)`;
       dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
@@ -759,7 +760,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
         finished.classList.remove('show');
         live.style.display = 'none';
         idle.style.display = 'grid';
-        txSub.textContent = t('Canal cifrado · Esperando selección');
+        txSub.textContent = t('Demostración · Esperando selección');
         txStatus.innerHTML = '<i class="fa-solid fa-circle-play"></i> ' + t('En espera');
         setAccent('0,195,255', '122,240,255');
         updateLinks(null);
@@ -794,7 +795,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
         idle.style.display = 'none';
         live.style.display = 'grid';
-        txSub.textContent = `${t('Canal cifrado')} · ${a.name} ${t('en línea')}`;
+        txSub.textContent = `${t('Demostración')} · ${a.name} ${t('en línea')}`;
         txStatus.innerHTML = '<i class="fa-solid fa-signal"></i> ' + t('Transmitiendo');
 
 
@@ -859,12 +860,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
       window.addEventListener('novaix:languagechange', () => {
         mediaPlayer.refresh();
         if (!selectedId) {
-          txSub.textContent = t('Canal cifrado · Esperando selección');
+          txSub.textContent = t('Demostración · Esperando selección');
           return;
         }
         const activeAgent = AGENTS.find(x => x.id === selectedId);
         if (!activeAgent) return;
-        txSub.textContent = `${t('Canal cifrado')} · ${activeAgent.name} ${t('en línea')}`;
+        txSub.textContent = `${t('Demostración')} · ${activeAgent.name} ${t('en línea')}`;
         liveRole.textContent = t(activeAgent.role);
       });
 

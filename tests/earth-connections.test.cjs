@@ -36,7 +36,7 @@ test('missing observer or hero is safe and static',()=>{
 test('ES and EN use one shared scene and no old canvas, hero video or replacement logo',()=>{
  for(const path of ['index.html','en/index.html']){
   const s=fs.readFileSync(path,'utf8');
-  const hero=s.slice(s.indexOf('class="container hero'),s.indexOf('</header>'));
+  const hero=s.slice(s.indexOf('class="hero studio-hero'),s.indexOf('</header>'));
   assert.match(hero,/viewBox="0 0 2106 747"/i);assert.match(hero,/width="2106" height="747"/);
   assert.equal((hero.match(/class="earth-track"/g)||[]).length,5);
   assert.equal((hero.match(/class="earth-signal"/g)||[]).length,5);

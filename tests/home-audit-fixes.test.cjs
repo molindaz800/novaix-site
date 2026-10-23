@@ -9,8 +9,8 @@ const css = read('home-base.css');
 
 test('FAQ uses native details without a fixed answer height', () => {
   for (const html of [read('index.html'), read('en/index.html')]) {
-    assert.match(html, /<details\s+open><summary>/);
-    assert.match(html, /class="faq-content"/);
+    assert.match(html, /<details><summary>/);
+    assert.match(html, /class="container process-faq"/);
   }
   assert.doesNotMatch(css, /\.faq-content\s*\{[^}]*max-height:/);
   assert.doesNotMatch(css, /details\[open\]\s+\.faq-content\s*\{[^}]*max-height:/);
@@ -32,7 +32,7 @@ test('integrations are a static accessible list without duplicated nodes', () =>
 });
 
 test('service icons sit beside headings without generic icon tiles', () => {
-  for (const html of [read('index.html'), read('en/index.html')]) {
+  for (const html of [read('capacidades.html'), read('en/capacidades.html')]) {
     assert.equal((html.match(/class="service-icon fa-solid/g) || []).length, 6);
     assert.doesNotMatch(html, /class="icon-badge"/);
   }
@@ -41,7 +41,7 @@ test('service icons sit beside headings without generic icon tiles', () => {
 });
 
 test('pricing is current and has no temporary-offer messaging in either language', () => {
-  for (const html of [read('index.html'), read('en/index.html')]) {
+  for (const html of [read('capacidades.html'), read('en/capacidades.html')]) {
     const plans = html.match(/<section id="planes"[\s\S]*?<\/section>/)?.[0] || '';
     assert.deepEqual([...plans.matchAll(/<div class="price-main"><small>[^<]+<\/small><strong>(\d+)€<\/strong>/g)].map(match => match[1]), ['299', '499', '999']);
     assert.doesNotMatch(plans, /oferta temporal|limited-time offer|offer-pill|price-meta/i);

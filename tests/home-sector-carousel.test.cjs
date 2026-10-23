@@ -10,12 +10,9 @@ test('one industry discovery block remains and former applications links resolve
     const html = fs.readFileSync(file, 'utf8');
     assert.doesNotMatch(html, /id="aplicaciones"|href="#aplicaciones"|class="usecase-card"/);
     assert.equal((html.match(/id="sectores"/g) || []).length, 1);
-    assert.match(html, /<section id="casos"[\s\S]*?<\/section>\s*<section id="planes"/);
-    const actions = html.match(/<div class="case-actions">([\s\S]*?)<\/div>/)?.[1];
-    assert.ok(actions);
-    assert.match(actions, /href="#sectores"/);
-    assert.match(actions, /href="https:\/\/demo\.novaix\.es"/);
-    assert.match(actions, file.startsWith('en/') ? /Solutions for your industry/ : /Soluciones para tu sector/);
+    assert.match(html, /id="casos"[\s\S]*?class="atlas-sectors"/);
+    assert.match(html, /href="https:\/\/demo\.novaix\.es"/);
+    assert.match(html, /href="landing-negocios.html"/);
   }
   for (const file of ['home-base.css', 'home-type.css']) {
     assert.doesNotMatch(fs.readFileSync(file, 'utf8'), /\.usecase(?:s|-card|-icon)\b/);
