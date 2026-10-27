@@ -31,7 +31,7 @@ test('the hybrid home explains process before showing technical demonstrations a
     assert.match(html,/id="nx-stage"/);assert.match(html,/class="price-main"/);assert.match(html,/capacidades.html/);
     assert.ok(html.indexOf('id="proceso"') < html.indexOf('id="nx-stage"'));
     assert.match(html,/data-i18n="process.hybrid.opscontext"/);assert.match(html,/data-i18n="process.hybrid.planscope"/);
-    assert.match(html,/data-i18n="process.example.label"/);assert.match(html,/data-i18n="process.example.human"/);assert.match(html,/data-i18n="process.example.measure"/);
+    assert.match(html,/data-i18n="process.walk.disclaimer"/);assert.match(html,/data-i18n="process.walk.human"/);assert.match(html,/data-i18n="process.walk.measure"/);
   }
 });
 test('technical demonstrations and current prices remain available in both languages',()=>{

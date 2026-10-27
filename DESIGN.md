@@ -547,3 +547,14 @@ the public repo in novaix-site-backups/20261023-process-redesign/before.tar.gz.
 
 ### Quiet UI elevation — approved 2026-10-23
 User approved softening decorative button/panel halos, preserving the Earth illumination and routes. Scope overrides to `.home-process`; use neutral black elevation for floating controls/dialogs and an outline for the selected Ops Hub agent. Do not change the brand palette, content or animation behavior.
+
+### Process example walkthrough — local review 2026-10-27
+The approved next direction replaces the static before/after prose in #ejemplo
+with one persistent fictional quote and four manually selectable states. A fine
+rail explains the sequence; document fields gain context and the last stage
+highlights a request needing human review. No message is sent, no conversion
+result is claimed, and no product dashboard or operational liveness is implied.
+Transitions last 240ms on changed fields only, without autoplay. Native buttons,
+visible step selection, keyboard support, reduced motion and a complete no-JS
+narrative are required. On phones the compact selector sits above the document
+so the changing content stays in view. The rest of the homepage is unchanged.
