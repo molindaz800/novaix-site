@@ -28,3 +28,9 @@
 /* Text KPIs are measuring criteria, not percentage counters. */
 .metrics .metric { min-width: 0; }
 .metrics .metric strong { font-size: clamp(1.25rem, 2.3vw, 1.8rem); overflow-wrap: anywhere; }
+/* Crawlable, keyboard-accessible alternatives to the enhanced language selector. */
+footer .locale-links {display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 24px;margin:20px auto 0;padding:0 16px;}
+footer .locale-links a {display:inline-flex;align-items:center;min-height:44px;font-size:14px;line-height:1.5;color:var(--muted,#b4c8d7);text-decoration:underline;text-underline-offset:5px;}
+footer .locale-links a[aria-current="page"] {color:var(--text,#f5f7fb);text-decoration:none;}
+footer .locale-links a:hover {color:var(--accent,#8ae5f8);}
+footer .locale-links a:focus-visible {outline:2px solid var(--accent,#8ae5f8);outline-offset:4px;}

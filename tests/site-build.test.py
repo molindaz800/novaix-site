@@ -26,7 +26,7 @@ class BuildTests(unittest.TestCase):
         for page in g.PAGES:
             self.assertTrue((ROOT/'en'/page).is_file(),page)
     def test_new_page_copy_is_translated_including_attributes(self):
-        neutral=re.compile(r'^(?:https?:|#|width=|website$|image/jpeg$|summary_large_image$|NOVAIX|Online$|info@novaix.es$|[\d\W]+$|[<]?60s$)')
+        neutral=re.compile(r'^(?:https?:|#|width=|website$|image/jpeg$|summary_large_image$|Español$|English$|NOVAIX|Online$|info@novaix.es$|[\d\W]+$|[<]?60s$)')
         for page in ['landing-academias.html','landing-asesorias-gestorias.html','landing-clinicas-dentales.html','landing-reformas-servicios.html','landing-transporte.html','landing-veterinarias.html']:
             es=Markup((ROOT/page).read_text());en=Markup((ROOT/'en'/page).read_text())
             for text in es.copy:
@@ -39,6 +39,26 @@ class BuildTests(unittest.TestCase):
                 tags=Markup((base/page).read_text()).links_in_head
                 self.assertEqual([t['href'] for t in tags if t.get('rel')=='canonical'],[canonical])
                 self.assertEqual({t.get('hreflang') for t in tags if t.get('rel')=='alternate'},{'es','en','x-default'})
+    def test_language_pairs_are_reciprocal_exact_and_self_canonical(self):
+        for page in g.PAGES:
+            expected = {"es": g.es_url(page), "en": g.en_url(page), "x-default": g.es_url(page)}
+            for lang, base in [("es", ROOT), ("en", ROOT / "en")]:
+                markup = Markup((base / page).read_text())
+                links = {t.get("hreflang"): t.get("href") for t in markup.links_in_head if t.get("rel") == "alternate"}
+                self.assertEqual(links, expected, (lang, page))
+                self.assertEqual(next(a for t, a in markup.tags if t == "html")["lang"], lang)
+
+    def test_footer_language_links_are_static_canonical_and_not_duplicated(self):
+        for page in g.PAGES:
+            for lang, base in [("es", ROOT), ("en", ROOT / "en")]:
+                text = (base / page).read_text()
+                blocks = re.findall(r'<nav[^>]*data-locale-links[^>]*>[\s\S]*?</nav>', text)
+                self.assertEqual(len(blocks), 1, (lang, page))
+                anchors = [a for t, a in Markup(blocks[0]).tags if t == "a"]
+                self.assertEqual({a["hreflang"]: a["href"] for a in anchors}, {"es": g.es_url(page), "en": g.en_url(page)})
+                self.assertEqual([a["hreflang"] for a in anchors if a.get("aria-current") == "page"], [lang])
+                self.assertFalse(any("?" in a["href"] for a in anchors))
+
     def test_asset_and_internal_page_references(self):
         for page in g.PAGES:
             for base in [ROOT,ROOT/'en']:

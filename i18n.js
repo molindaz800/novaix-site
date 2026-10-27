@@ -100,6 +100,7 @@
   E("La automatización reúne el contexto y prepara el trabajo. Una excepción se deriva a una persona.", "La automatización reúne el contexto y prepara el trabajo. Una excepción se deriva a una persona.", "Automation gathers context and prepares the work. Exceptions are handed to a person.", "process.walk.humanbody");
   E("Qué comprobaríamos contigo", "Qué comprobaríamos contigo", "What we would assess with you", "process.walk.measure");
   E("Pendientes sin próxima acción y tiempo de preparación, comparados con el punto de partida.", "Pendientes sin próxima acción y tiempo de preparación, comparados con el punto de partida.", "Outstanding items with no next action and preparation time, compared with the starting point.", "process.walk.measurebody");
+  E("Idiomas", "Idiomas", "Languages", "seo.locale.label");
   // Process-led homepage and technical capabilities.
   E("Soluciones", "Soluciones", "Solutions", "process.nav.process");
   E("Cómo trabajamos", "Cómo trabajamos", "How we work", "process.nav.method");
@@ -998,7 +999,7 @@
   };
   entries.forEach(indexEntry);
 
-  let currentLanguage = "es";
+  let currentLanguage = pathLanguage();
   let observer = null;
   let isApplying = false;
   const translatableAttrs = ["aria-label", "aria-roledescription", "data-hover", "data-prompt", "placeholder", "alt", "title", "content"];
@@ -1154,14 +1155,10 @@
   }
 
   function getInitialLanguage() {
-    const urlLang = pathLanguage();
-    if (urlLang === "en") return "en";
-    const params = new URLSearchParams(window.location.search);
-    const fromUrl = params.get("lang");
-    if (supportedLanguages.has(fromUrl)) return fromUrl;
-    const stored = languageStorage.getItem(STORAGE_KEY);
-    if (supportedLanguages.has(stored)) return stored;
-    return (navigator.language || "").toLowerCase().startsWith("en") ? "en" : "es";
+    // Language-specific URLs must remain stable for visitors and crawlers.
+    // Explicit legacy ?lang= choices are handled before this function.
+    // Stored/browser preferences must not redirect a canonical Spanish URL.
+    return pathLanguage();
   }
 
   function bindSelector() {

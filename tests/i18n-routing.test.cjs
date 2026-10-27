@@ -14,7 +14,8 @@ function page(href, stored='en', language='en-US', blocked=false) {
   const window = {location,dispatchEvent(){},history:{replaceState(_s,_t,target){location.href=target;}}};
   vm.runInNewContext(code, {window,document,URL,URLSearchParams,CustomEvent:class{},navigator:{language},
     localStorage:{getItem:k=>{if(blocked)throw Error('disabled');return storage.get(k)||null;},setItem:(k,v)=>{if(blocked)throw Error('disabled');storage.set(k,v);}}});
-  ready();return {window,document,storage,redirected};
+  const initialLanguage=window.novaixGetLanguage();
+  ready();return {window,document,storage,redirected,initialLanguage};
 }
 test('explicit ES overrides stored EN without a reload loop and preserves hash/query',()=>{
  const f=page('https://novaix.es/landing-peluquerias.html?lang=es&utm_source=test#sistema');
@@ -30,6 +31,20 @@ test('legacy ES on EN route persists before changing path',()=>{
  const f=page('https://novaix.es/en/?lang=es');assert.equal(f.redirected,'https://novaix.es/');assert.equal(f.storage.get('novaix_language'),'es');
 });
 test('explicit EN path wins over stored ES',()=>{const f=page('https://novaix.es/en/','es','es');assert.equal(f.document.documentElement.lang,'en');assert.equal(f.redirected,undefined);});
-test('stored English preference still applies to bare Spanish routes',()=>{assert.equal(page('https://novaix.es/').redirected,'https://novaix.es/en/');});
+test('canonical Spanish routes remain Spanish despite stored English or browser language',()=>{
+ for(const route of ['/', '/landing-transporte.html','/landing-facebook.html']) {
+  const f=page('https://novaix.es'+route,'en','en-US');
+  assert.equal(f.redirected,undefined);assert.equal(f.document.documentElement.lang,'es');
+ }
+});
+test('clean English browser without storage does not auto-redirect a Spanish URL',()=>{
+ const f=page('https://novaix.es/landing-transporte.html',null,'en-US');
+ assert.equal(f.redirected,undefined);assert.equal(f.document.documentElement.lang,'es');
+});
 test('query ES works with unavailable storage on Spanish route',()=>{const f=page('https://novaix.es/?lang=es','en','en',true);assert.equal(f.document.documentElement.lang,'es');assert.equal(f.redirected,undefined);});
 test('invalid query does not overwrite preference',()=>{const f=page('https://novaix.es/?lang=fr','es');assert.equal(f.document.documentElement.lang,'es');assert.equal(f.storage.get('novaix_language'),'es');});
+
+test('English path is English before DOMContentLoaded and extra translations register',()=>{
+ const f=page('https://novaix.es/en/landing-transporte.html','es','es');
+ assert.equal(f.initialLanguage,'en');assert.equal(f.document.documentElement.lang,'en');
+});

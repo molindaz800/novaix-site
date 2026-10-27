@@ -340,6 +340,18 @@ def update_head_seo(source: str, page: str, lang: str) -> str:
     return re.sub(r"<head>[\s\S]*?</head>", repl, source, count=1, flags=re.I)
 
 
+def update_language_links(source: str, page: str, lang: str) -> str:
+    """Ordinary links expose both translations without requiring JavaScript."""
+    source = re.sub(r'\s*<nav\b[^>]*data-locale-links[^>]*>[\s\S]*?</nav>\s*', '', source)
+    label = "Idiomas" if lang == "es" else "Languages"
+    links = []
+    for language, text, href in [("es", "Español", es_url(page)), ("en", "English", en_url(page))]:
+        current = ' aria-current="page"' if language == lang else ''
+        links.append(f'<a href="{href}" hreflang="{language}" lang="{language}"{current}>{text}</a>')
+    block = f'<nav class="locale-links" data-locale-links aria-label="{label}">' + ''.join(links) + '</nav>'
+    return source.replace('</footer>', '\n' + block + '\n</footer>', 1)
+
+
 def generate_page(page: str) -> None:
     source_path = ROOT / page
     source = source_path.read_text(encoding="utf-8")
@@ -353,6 +365,7 @@ def generate_page(page: str) -> None:
         return re.sub(r'(href="(?:\.\./|/)(?:privacy|terms|data-deletion)/"[^>]*>)([^<]+)(</a>)',
                       lambda m: m[1] + m[2] + (" (ES)" if not m[2].endswith(" (ES)") else "") + m[3], match[0])
     output = re.sub(r"<footer[\s\S]*?</footer>", mark_legal_links, output)
+    output = update_language_links(output, page, "en")
     out_path = ROOT / "en" / ("index.html" if page == "index.html" else page)
     out_path.parent.mkdir(exist_ok=True)
     write_if_changed(out_path, output)
@@ -362,7 +375,9 @@ def update_spanish_pages() -> None:
     for page in PAGES:
         path = ROOT / page
         source = path.read_text(encoding="utf-8")
-        updated = update_head_seo(source, page, "es")
+        source = re.sub(r'i18n\.js(?:\?v=[^"\s]+)?', 'i18n.js?v=20261027-stable-locale', source)
+        source = re.sub(r'ui-controls\.css(?:\?v=[^"\s]+)?', 'ui-controls.css?v=20261027-locale-links', source)
+        updated = update_language_links(update_head_seo(source, page, "es"), page, "es")
         write_if_changed(path, updated)
 
 
