@@ -9,23 +9,24 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const video = document.getElementById('novaix-presentation-video');
       if (!openButton || !closeButton || !dialog || !video) return;
 
-      // Playback starts only after a user click, so the presentation can use audio.
-      video.muted = false;
-      video.defaultMuted = false;
-
+      // No YouTube connection until the visitor explicitly opens the presentation.
+      // Removing src unloads the player and stops audio on every close path.
+      const stopVideo = () => video.removeAttribute('src');
       const closeVideo = () => {
-        video.pause();
+        stopVideo();
         dialog.close();
         openButton.focus();
       };
       openButton.addEventListener('click', () => {
         dialog.showModal();
-        if (!video.getAttribute('src')) {
-          video.src = video.dataset.src;
-          video.load();
-        }
-        video.play().catch(() => {});
+        const source = new URL(video.dataset.src);
+        source.searchParams.set('autoplay', '1');
+        source.searchParams.set('playsinline', '1');
+        source.searchParams.set('rel', '0');
+        source.searchParams.set('hl', document.documentElement.lang === 'en' ? 'en' : 'es');
+        video.src = source.href;
       });
+      dialog.addEventListener('close', stopVideo);
       closeButton.addEventListener('click', closeVideo);
       dialog.addEventListener('cancel', (event) => {
         event.preventDefault();

@@ -76,12 +76,17 @@ class BuildTests(unittest.TestCase):
         for path in ('privacy','terms','data-deletion'):self.assertIn(f'<loc>https://novaix.es/{path}/</loc>',xml)
     def test_no_eager_presentation_video_or_duplicate_preview(self):
         presentation_js=(ROOT/'home-core.js').read_text().split('// Scroll progress')[0]
-        self.assertIn('video.muted = false;',presentation_js)
+        self.assertIn("source.searchParams.set('autoplay', '1')",presentation_js)
+        self.assertIn("video.removeAttribute('src')",presentation_js)
         self.assertNotIn("setAttribute('muted'",presentation_js)
         for base in [ROOT,ROOT/'en']:
             tags=Markup((base/'index.html').read_text()).tags
             video=next(a for t,a in tags if a.get('id')=='novaix-presentation-video')
-            self.assertNotIn('src',video);self.assertEqual(video['preload'],'none');self.assertNotIn('muted',video)
+            self.assertNotIn('src',video)
+            expected_id = '7A9vENj7gik' if base == ROOT else '5Nic4_cwpj8'
+            self.assertEqual(video['data-src'],f'https://www.youtube-nocookie.com/embed/{expected_id}')
+            self.assertEqual(next(t for t,a in tags if a.get('id')=='novaix-presentation-video'),'iframe')
+            self.assertNotIn('muted',video)
             self.assertFalse(any('novaix-presentacion.mp4' in a.get('src','') for t,a in tags))
             self.assertEqual(next(t for t,a in tags if a.get('id')=='chat-fab'),'button')
     def test_build_is_idempotent(self):

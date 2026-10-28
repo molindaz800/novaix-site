@@ -248,6 +248,10 @@ class EnglishRenderer(HTMLParser):
             elif lower.startswith("data-i18n-attr-"):
                 value = original
 
+            # Keep locale-specific media in the generated English page.
+            if lower == "data-src" and dict(attrs).get("data-src-en"):
+                value = dict(attrs)["data-src-en"]
+
             if lower in URL_ATTRS:
                 value = self.rewrite_link_attr(tag, lower, value)
             elif lower == "style":
