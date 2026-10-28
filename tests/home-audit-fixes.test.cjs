@@ -107,11 +107,29 @@ test('mobile menu uses one stateful bilingual label handler', () => {
 });
 
 test('active Ops Hub transmission stays within its panel on narrow screens', () => {
-  for (const selector of ['.nx-tx', '.nx-tx-body', '#nx-live', '.nx-stream', '.nx-lines']) {
+  for (const selector of ['.nx-tx', '#nx-live', '.nx-stream', '.nx-lines']) {
     const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const rules = css.match(new RegExp(`${escaped}\\s*\\{([^}]+)\\}`))?.[1] || '';
     assert.match(rules, /grid-template-columns:\s*minmax\(0,\s*1fr\)/, `${selector} must allow its grid track to shrink`);
   }
+  assert.match(css, /\.nx-tx-body\s*\{[^}]*min-width:\s*0/);
   assert.match(css, /\.nx-tx-card\s*\{[^}]*min-width:\s*0/);
   assert.match(css, /\.nx-lines\s*\{[^}]*overflow-wrap:\s*anywhere/);
+});
+
+test('Ops Hub media has reserved geometry independent of transmission text', () => {
+  assert.match(css, /\.nx-tx-card\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9;[^}]*display:\s*block/);
+  assert.match(css, /\.nx-tx-body\s*\{[^}]*display:\s*flex;[^}]*flex-direction:\s*column/);
+  assert.match(css, /#nx-live\s*\{[^}]*align-content:\s*start;[^}]*flex-shrink:\s*0/);
+  assert.match(css, /\.nx-log\s*\{[^}]*height:\s*140px;[^}]*scrollbar-gutter:\s*stable/);
+});
+test('Ops Hub completion and queued translated rows reserve their space', () => {
+  assert.match(css, /\.nx-finished\s*\{[^}]*display:\s*grid;[^}]*visibility:\s*hidden/);
+  assert.match(css, /\.nx-finished\.show\s*\{[^}]*visibility:\s*visible/);
+  const js = read('home-core.js');
+  assert.match(js, /row.className = 'nx-line is-pending'/);
+  assert.match(js, /liveLines.appendChild\(row\);\s*timers.push\(setTimeout\(\(\) => \{\s*row.classList.remove\('is-pending'\)/);
+});
+test('Ops Hub mobile transmission grows rather than clipping its content', () => {
+  assert.match(css, /@media \(max-width: 980px\)\s*\{\s*\.nx-tx\s*\{\s*height:\s*auto;\s*min-height:\s*0/);
 });

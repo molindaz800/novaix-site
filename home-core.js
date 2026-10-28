@@ -824,11 +824,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
         const stepDelay = 1650;
 
         a.bullets.forEach((b, idx) => {
+          // Reserve each translated row before revealing it: no media resize.
+          const row = document.createElement('div');
+          row.className = 'nx-line is-pending';
+          row.innerHTML = `<i class="fa-solid fa-check"></i><div><b>${t('Paquete')} ${idx + 1}:</b> ${t(b)}</div>`;
+          liveLines.appendChild(row);
           timers.push(setTimeout(() => {
-            const row = document.createElement('div');
-            row.className = 'nx-line';
-            row.innerHTML = `<i class="fa-solid fa-check"></i><div><b>${t('Paquete')} ${idx + 1}:</b> ${t(b)}</div>`;
-            liveLines.appendChild(row);
+            row.classList.remove('is-pending');
           }, baseDelay + idx * stepDelay));
         });
 
